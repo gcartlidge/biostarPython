@@ -1,0 +1,118 @@
+syntax = "proto3";
+
+package apb_zone;
+
+option go_package = "biostar/service/apbZone";
+option java_package = "com.supremainc.sdk.apb_zone";
+option java_multiple_files = true;
+
+import "zone.proto";
+import "action.proto";
+
+
+service APBZone {
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc GetStatus(GetStatusRequest) returns (GetStatusResponse);
+  rpc Add(AddRequest) returns (AddResponse);
+  rpc Clear(ClearRequest) returns (ClearResponse);
+  rpc ClearAll(ClearAllRequest) returns (ClearAllResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc DeleteAll(DeleteAllRequest) returns (DeleteAllResponse);
+  rpc SetAlarm(SetAlarmRequest) returns (SetAlarmResponse);
+}
+
+enum Type {
+  HARD = 0x00;
+  SOFT = 0x01;
+}
+
+enum ReaderType {
+  ENTRY = 0x00;
+  EXIT = 0x01;
+}
+
+message Member {
+  uint32 deviceID = 1;
+  ReaderType readerType = 2;
+}
+
+message ZoneInfo {
+  uint32 zoneID = 1;
+  string name = 2;
+
+  Type type = 3;
+  bool disabled = 4;
+  bool alarmed = 5;
+  uint32 resetDuration = 6;
+
+  repeated Member members = 7;
+  repeated action.Action actions = 8;
+  repeated uint32 bypassGroupIDs = 9;
+}
+
+message GetRequest {
+  uint32 deviceID = 1;
+}
+
+message GetResponse {
+  repeated ZoneInfo zones = 1;
+}
+
+message GetStatusRequest {
+  uint32 deviceID = 1;
+  repeated uint32 zoneIDs = 2;
+}
+
+message GetStatusResponse {
+  repeated zone.ZoneStatus status = 1;
+}
+
+message AddRequest {
+  uint32 deviceID = 1;
+  repeated ZoneInfo zones = 2;
+}
+
+message AddResponse {
+}
+
+message DeleteRequest {
+  uint32 deviceID = 1;
+  repeated uint32 zoneIDs = 2;
+}
+
+message DeleteResponse {
+}
+
+message DeleteAllRequest {
+  uint32 deviceID = 1;
+}
+
+message DeleteAllResponse {
+}
+
+
+message ClearRequest {
+  uint32 deviceID = 1;
+  uint32 zoneID = 2;
+  repeated string userIDs = 3;
+}
+
+message ClearResponse {
+}
+
+message ClearAllRequest {
+  uint32 deviceID = 1;
+  uint32 zoneID = 2;
+}
+
+message ClearAllResponse {
+}
+
+message SetAlarmRequest {
+  uint32 deviceID = 1;
+  repeated uint32 zoneIDs = 2;
+  bool alarmed = 3;
+}
+
+message SetAlarmResponse {
+}

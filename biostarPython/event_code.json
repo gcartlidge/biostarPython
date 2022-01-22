@@ -1,0 +1,1925 @@
+{
+  "title": "G-SDK Event Code",
+  "version": "V1.4",
+  "date": "Thu Jun 3 15:37:04 -0400 EDT 2021",
+  "entries": [
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "1:1 authentication success"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_PIN",
+      "desc": "1:1 authentication success(ID + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FINGER",
+      "desc": "1:1 authentication success(ID + finger)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FINGER_PIN",
+      "desc": "1:1 authentication success(ID + finger + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FACE",
+      "desc": "1:1 authentication success(ID + face)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FACE_PIN",
+      "desc": "1:1 authentication success(ID + face + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD",
+      "desc": "1:1 authentication success(card)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_PIN",
+      "desc": "1:1 authentication success(card + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FINGER",
+      "desc": "1:1 authentication success(card + finger)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 9,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FINGER_PIN",
+      "desc": "1:1 authentication success(card + finger + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 10,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FACE",
+      "desc": "1:1 authentication success(card + face)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 11,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FACE_PIN",
+      "desc": "1:1 authentication success(card + face + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 12,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_AOC",
+      "desc": "1:1 authentication success(AOC)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 13,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_AOC_PIN",
+      "desc": "1:1 authentication success(AOC + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 14,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_AOC_FINGER",
+      "desc": "1:1 authentication success(AOC + finger)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 15,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_AOC_FINGER_PIN",
+      "desc": "1:1 authentication success(AOC + finger + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 16,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FACE_FINGER",
+      "desc": "1:1 authentication success(card + face + finger)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 17,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FINGER_FACE",
+      "desc": "1:1 authentication success(card + finger + face)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 18,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FACE_FINGER",
+      "desc": "1:1 authentication success(ID + face + finger)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 19,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FINGER_FACE",
+      "desc": "1:1 authentication success(ID + finger + face)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 22,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBLIE_CARD",
+      "desc": "1:1 authentication success(mobile)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 23,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_PIN",
+      "desc": "1:1 authentication success(mobile + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 24,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FINGER",
+      "desc": "1:1 authentication success(mobile + finger)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 25,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FINGER_PIN",
+      "desc": "1:1 authentication success(mobile + finger + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 26,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FACE",
+      "desc": "1:1 authentication success(mobile + face)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 27,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FACE_PIN",
+      "desc": "1:1 authentication success(mobile + face + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 32,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FACE_FINGER",
+      "desc": "1:1 authentication success(mobile + face + finger)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 33,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FINGER_FACE",
+      "desc": "1:1 authentication success(mobile + finger + face)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "1:1 authentication failure"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_ID",
+      "desc": "1:1 authentication failure(ID)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_CARD",
+      "desc": "1:1 authentication failure(card)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_PIN",
+      "desc": "1:1 authentication failure(PIN)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_FINGER",
+      "desc": "1:1 authentication failure(finger)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_FACE",
+      "desc": "1:1 authentication failure(face)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_AOC_PIN",
+      "desc": "1:1 authentication failure(AOC + PIN)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_AOC_FINGER",
+      "desc": "1:1 authentication failure(AOC + finger)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_MOBILE_CARD",
+      "desc": "1:1 authentication failure(mobile)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "1:1 authentication success under duress"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_PIN",
+      "desc": "1:1 authentication success under duress(ID + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FINGER",
+      "desc": "1:1 authentication success under duress(ID + finger)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FINGER_PIN",
+      "desc": "1:1 authentication success under duress(ID + finger + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FACE",
+      "desc": "1:1 authentication success under duress(ID + face)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FACE_PIN",
+      "desc": "1:1 authentication success under duress(ID + face + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD",
+      "desc": "1:1 authentication success under duress(card)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_PIN",
+      "desc": "1:1 authentication success under duress(card + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FINGER",
+      "desc": "1:1 authentication success under duress(card + finger)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 9,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FINGER_PIN",
+      "desc": "1:1 authentication success under duress(card + finger + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 10,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FACE",
+      "desc": "1:1 authentication success under duress(card + face)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 11,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FACE_PIN",
+      "desc": "1:1 authentication success under duress(card + face + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 12,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_AOC",
+      "desc": "1:1 authentication success under duress(AOC)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 13,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_AOC_PIN",
+      "desc": "1:1 authentication success under duress(AOC + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 14,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_AOC_FINGER",
+      "desc": "1:1 authentication success under duress(AOC + finger)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 15,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_AOC_FINGER_PIN",
+      "desc": "1:1 authentication success under duress(AOC + finger + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 16,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FACE_FINGER",
+      "desc": "1:1 authentication success under duress(card + face + finger)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 17,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_CARD_FINGER_FACE",
+      "desc": "1:1 authentication success under duress(card + finger + face)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 18,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FACE_FINGER",
+      "desc": "1:1 authentication success under duress(ID + face + finger)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 19,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_ID_FINGER_FACE",
+      "desc": "1:1 authentication success under duress(ID + finger + face)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 22,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBLIE_CARD",
+      "desc": "1:1 authentication success under duress(mobile)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 23,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_PIN",
+      "desc": "1:1 authentication success under duress(mobile + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 24,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FINGER",
+      "desc": "1:1 authentication success under duress(mobile + finger)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 25,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FINGER_PIN",
+      "desc": "1:1 authentication success under duress(mobile + finger + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 26,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FACE",
+      "desc": "1:1 authentication success under duress(mobile + face)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 27,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FACE_PIN",
+      "desc": "1:1 authentication success under duress(mobile + face + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 32,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FACE_FINGER",
+      "desc": "1:1 authentication success under duress(mobile + face + finger)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 33,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_MOBILE_CARD_FINGER_FACE",
+      "desc": "1:1 authentication success under duress(mobile + finger + face)"
+    },
+    {
+      "event_code": 4864,
+      "event_code_str": "BS2_EVENT_IDENTIFY_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "1:N authentication success"
+    },
+    {
+      "event_code": 4864,
+      "event_code_str": "BS2_EVENT_IDENTIFY_SUCCESS",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FINGER",
+      "desc": "1:N authentication success(finger)"
+    },
+    {
+      "event_code": 4864,
+      "event_code_str": "BS2_EVENT_IDENTIFY_SUCCESS",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FINGER_PIN",
+      "desc": "1:N authentication success(finger + PIN)"
+    },
+    {
+      "event_code": 4864,
+      "event_code_str": "BS2_EVENT_IDENTIFY_SUCCESS",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FACE",
+      "desc": "1:N authentication success(face)"
+    },
+    {
+      "event_code": 4864,
+      "event_code_str": "BS2_EVENT_IDENTIFY_SUCCESS",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FACE_PIN",
+      "desc": "1:N authentication success(face + PIN)"
+    },
+    {
+      "event_code": 4864,
+      "event_code_str": "BS2_EVENT_IDENTIFY_SUCCESS",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FACE_FINGER",
+      "desc": "1:N authentication success(face + finger)"
+    },
+    {
+      "event_code": 4864,
+      "event_code_str": "BS2_EVENT_IDENTIFY_SUCCESS",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FACE_FINGER_PIN",
+      "desc": "1:N authentication success(face + finger + PIN)"
+    },
+    {
+      "event_code": 4864,
+      "event_code_str": "BS2_EVENT_IDENTIFY_SUCCESS",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FINGER_FACE",
+      "desc": "1:N authentication success(finger + face)"
+    },
+    {
+      "event_code": 4864,
+      "event_code_str": "BS2_EVENT_IDENTIFY_SUCCESS",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FINGER_FACE_PIN",
+      "desc": "1:N authentication success(finger + face + PIN)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "1:N authentication failure"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_ID",
+      "desc": "1:N authentication failure(ID)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_CARD",
+      "desc": "1:N authentication failure(card)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_PIN",
+      "desc": "1:N authentication failure(PIN)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_FINGER",
+      "desc": "1:N authentication failure(finger)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_FACE",
+      "desc": "1:N authentication failure(face)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_AOC_PIN",
+      "desc": "1:N authentication failure(AOC + PIN)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_AOC_FINGER",
+      "desc": "1:N authentication failure(AOC + finger)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_MOBILE_CARD",
+      "desc": "1:N authentication failure(mobile)"
+    },
+    {
+      "event_code": 5376,
+      "event_code_str": "BS2_EVENT_IDENTIFY_DURESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "1:N authentication success under duress"
+    },
+    {
+      "event_code": 5376,
+      "event_code_str": "BS2_EVENT_IDENTIFY_DURESS",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FINGER",
+      "desc": "1:N authentication success under duress(finger)"
+    },
+    {
+      "event_code": 5376,
+      "event_code_str": "BS2_EVENT_IDENTIFY_DURESS",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FINGER_PIN",
+      "desc": "1:N authentication success under duress(finger + PIN)"
+    },
+    {
+      "event_code": 5376,
+      "event_code_str": "BS2_EVENT_IDENTIFY_DURESS",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FACE",
+      "desc": "1:N authentication success under duress(face)"
+    },
+    {
+      "event_code": 5376,
+      "event_code_str": "BS2_EVENT_IDENTIFY_DURESS",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FACE_PIN",
+      "desc": "1:N authentication success under duress(face + PIN)"
+    },
+    {
+      "event_code": 5376,
+      "event_code_str": "BS2_EVENT_IDENTIFY_DURESS",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FACE_FINGER",
+      "desc": "1:N authentication success under duress(face + finger)"
+    },
+    {
+      "event_code": 5376,
+      "event_code_str": "BS2_EVENT_IDENTIFY_DURESS",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FACE_FINGER_PIN",
+      "desc": "1:N authentication success under duress(face + finger + PIN)"
+    },
+    {
+      "event_code": 5376,
+      "event_code_str": "BS2_EVENT_IDENTIFY_DURESS",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FINGER_FACE",
+      "desc": "1:N authentication success under duress(finger + face)"
+    },
+    {
+      "event_code": 5376,
+      "event_code_str": "BS2_EVENT_IDENTIFY_DURESS",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_IDENTIFY_FINGER_FACE_PIN",
+      "desc": "1:N authentication success under duress(finger + face + PIN)"
+    },
+    {
+      "event_code": 5632,
+      "event_code_str": "BS2_EVENT_DUAL_AUTH_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Dual authentication success"
+    },
+    {
+      "event_code": 5888,
+      "event_code_str": "BS2_EVENT_DUAL_AUTH_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Dual authentication failure"
+    },
+    {
+      "event_code": 5888,
+      "event_code_str": "BS2_EVENT_DUAL_AUTH_FAIL",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_DUAL_AUTH_FAIL_TIMEOUT",
+      "desc": "Dual authentication failure(timeout)"
+    },
+    {
+      "event_code": 5888,
+      "event_code_str": "BS2_EVENT_DUAL_AUTH_FAIL",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_DUAL_AUTH_FAIL_ACCESS_GROUP",
+      "desc": "Dual authentication failure(invalid access group)"
+    },
+    {
+      "event_code": 6144,
+      "event_code_str": "BS2_EVENT_AUTH_FAILED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Authentication failure"
+    },
+    {
+      "event_code": 6144,
+      "event_code_str": "BS2_EVENT_AUTH_FAILED",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_AUTH_FAIL_INVALID_AUTH_MODE",
+      "desc": "Authentication failure(invalid authentication mode)"
+    },
+    {
+      "event_code": 6144,
+      "event_code_str": "BS2_EVENT_AUTH_FAILED",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_AUTH_FAIL_INVALID_CREDENTIAL",
+      "desc": "Authentication failure(invalid credential)"
+    },
+    {
+      "event_code": 6144,
+      "event_code_str": "BS2_EVENT_AUTH_FAILED",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_AUTH_FAIL_TIMEOUT",
+      "desc": "Authentication failure(timeout)"
+    },
+    {
+      "event_code": 6144,
+      "event_code_str": "BS2_EVENT_AUTH_FAILED",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_AUTH_FAIL_MATCHING_REFUSAL",
+      "desc": "Authentication failure(server matching refused)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Access denied"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_ACCESS_GROUP",
+      "desc": "Access denied(invalid access group)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_DISABLED",
+      "desc": "Access denied(disabled user)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_EXPIRED",
+      "desc": "Access denied(expired user)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_ON_BLACKLIST",
+      "desc": "Access denied(blacklisted card)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_APB",
+      "desc": "Access denied(APB violation)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_TIMED_APB",
+      "desc": "Access denied(timed APB violation)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_SCHEDULED_LOCK",
+      "desc": "Access denied(scheduled lock violation)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_EXCUSED_APB",
+      "desc": "Access denied(APB violation excused)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 9,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_EXCUSED_TIMED_APB",
+      "desc": "Access denied(timed APB violation excused)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 10,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_FACE_DETECTION",
+      "desc": "Access denied(face not detected)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 11,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_CAMERA_CAPTURE",
+      "desc": "Access denied(image not captured)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 12,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_FAKE_FINGER",
+      "desc": "Access denied(fake finger detected)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 13,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_DEVICE_ZONE_ENTRANCE_LIMIT",
+      "desc": "Access denied(entrance limit)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 14,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_INTRUSION_ALARM",
+      "desc": "Access denied(intrusion violation)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 15,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_INTERLOCK",
+      "desc": "Access denied(interlock violation)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 16,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_EXCUSED_AUTH_LIMIT",
+      "desc": "Access denied(authentication limit excused)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 17,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_AUTH_LIMIT",
+      "desc": "Access denied(authentication limit)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 18,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_ANTI_TAILGATE",
+      "desc": "Access denied(anti tailgate violation)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 19,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_HIGH_TEMPERATURE",
+      "desc": "Access denied(high temperature)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 20,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_NO_TEMPERATURE",
+      "desc": "Access denied(temperature not detected)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 21,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_UNMASKED_FACE",
+      "desc": "Access denied(mask not detected)"
+    },
+    {
+      "event_code": 6656,
+      "event_code_str": "BS2_EVENT_FAKE_FINGER_DETECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Fake finger detected"
+    },
+    {
+      "event_code": 6912,
+      "event_code_str": "BS2_EVENT_BYPASS_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Access granted after checking mask or temperature"
+    },
+    {
+      "event_code": 6912,
+      "event_code_str": "BS2_EVENT_BYPASS_SUCCESS",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_BYPASS_THERMAL",
+      "desc": "Access granted after checking mask or temperature(temperature)"
+    },
+    {
+      "event_code": 6912,
+      "event_code_str": "BS2_EVENT_BYPASS_SUCCESS",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_BYPASS_MASK",
+      "desc": "Access granted after checking mask or temperature(mask)"
+    },
+    {
+      "event_code": 6912,
+      "event_code_str": "BS2_EVENT_BYPASS_SUCCESS",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_BYPASS_MASK_THERMAL",
+      "desc": "Access granted after checking mask or temperature(mask \u0026 temperature)"
+    },
+    {
+      "event_code": 7168,
+      "event_code_str": "BS2_EVENT_BYPASS_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "BS2_SUB_EVENT_HIGH_TEMPERATURE",
+      "desc": "Access denied after checking mask or temperature(high temperature)"
+    },
+    {
+      "event_code": 7168,
+      "event_code_str": "BS2_EVENT_BYPASS_FAIL",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_NO_TEMPERATURE",
+      "desc": "Access denied after checking mask or temperature(temperature not detected)"
+    },
+    {
+      "event_code": 7168,
+      "event_code_str": "BS2_EVENT_BYPASS_FAIL",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_UNMASKED_FACE",
+      "desc": "Access denied after checking mask or temperature(mask not detected)"
+    },
+    {
+      "event_code": 7168,
+      "event_code_str": "BS2_EVENT_BYPASS_FAIL",
+      "sub_code": 19,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_HIGH_TEMPERATURE",
+      "desc": "Access denied after checking mask or temperature(high temperature)"
+    },
+    {
+      "event_code": 7168,
+      "event_code_str": "BS2_EVENT_BYPASS_FAIL",
+      "sub_code": 20,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_NO_TEMPERATURE",
+      "desc": "Access denied after checking mask or temperature(temperature not detected)"
+    },
+    {
+      "event_code": 7168,
+      "event_code_str": "BS2_EVENT_BYPASS_FAIL",
+      "sub_code": 21,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_UNMASKED_FACE",
+      "desc": "Access denied after checking mask or temperature(mask not detected)"
+    },
+    {
+      "event_code": 7424,
+      "event_code_str": "BS2_EVENT_ABNORMAL_TEMPERATURE_DETECTED",
+      "sub_code": 0,
+      "sub_code_str": "BS2_SUB_EVENT_HIGH_TEMPERATURE",
+      "desc": "Abnormal temperature detected(high temperature)"
+    },
+    {
+      "event_code": 7424,
+      "event_code_str": "BS2_EVENT_ABNORMAL_TEMPERATURE_DETECTED",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_NO_TEMPERATURE",
+      "desc": "Abnormal temperature detected(temperature not detected)"
+    },
+    {
+      "event_code": 7424,
+      "event_code_str": "BS2_EVENT_ABNORMAL_TEMPERATURE_DETECTED",
+      "sub_code": 19,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_HIGH_TEMPERATURE",
+      "desc": "Abnormal temperature detected(high temperature)"
+    },
+    {
+      "event_code": 7424,
+      "event_code_str": "BS2_EVENT_ABNORMAL_TEMPERATURE_DETECTED",
+      "sub_code": 20,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_NO_TEMPERATURE",
+      "desc": "Abnormal temperature detected(temperature not detected)"
+    },
+    {
+      "event_code": 7680,
+      "event_code_str": "BS2_EVENT_UNMASKED_FACE_DETECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "No mask detected"
+    },
+    {
+      "event_code": 8192,
+      "event_code_str": "BS2_EVENT_USER_ENROLL_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "User enrollment success"
+    },
+    {
+      "event_code": 8448,
+      "event_code_str": "BS2_EVENT_USER_ENROLL_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "User enrollment failure"
+    },
+    {
+      "event_code": 8704,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "User update success"
+    },
+    {
+      "event_code": 8960,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "User update failure"
+    },
+    {
+      "event_code": 9216,
+      "event_code_str": "BS2_EVENT_USER_DELETE_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "User delete success"
+    },
+    {
+      "event_code": 9472,
+      "event_code_str": "BS2_EVENT_USER_DELETE_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "User delete failure"
+    },
+    {
+      "event_code": 9728,
+      "event_code_str": "BS2_EVENT_USER_DELETE_ALL_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Delete all user success"
+    },
+    {
+      "event_code": 9984,
+      "event_code_str": "BS2_EVENT_USER_ISSUE_AOC_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Issuance of an AOC card success"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Duplicate credential"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_ID",
+      "desc": "Duplicate credential(ID)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_CARD",
+      "desc": "Duplicate credential(card)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_PIN",
+      "desc": "Duplicate credential(PIN)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_FINGER",
+      "desc": "Duplicate credential(finger)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_FACE",
+      "desc": "Duplicate credential(face)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_AOC_PIN",
+      "desc": "Duplicate credential(AOC + PIN)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_AOC_FINGER",
+      "desc": "Duplicate credential(AOC + finger)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_MOBILE_CARD",
+      "desc": "Duplicate credential(mobile)"
+    },
+    {
+      "event_code": 12288,
+      "event_code_str": "BS2_EVENT_DEVICE_SYSTEM_RESET",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "System reset"
+    },
+    {
+      "event_code": 12368,
+      "event_code_str": "BS2_EVENT_DEVICE_SYSTEM_ERROR_OPENGL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "OpenGL error"
+    },
+    {
+      "event_code": 12544,
+      "event_code_str": "BS2_EVENT_DEVICE_SYSTEM_STARTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "System started"
+    },
+    {
+      "event_code": 12800,
+      "event_code_str": "BS2_EVENT_DEVICE_TIME_SET",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "System time set"
+    },
+    {
+      "event_code": 12801,
+      "event_code_str": "BS2_EVENT_DEVICE_TIMEZONE_SET",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Timezone changed"
+    },
+    {
+      "event_code": 12802,
+      "event_code_str": "BS2_EVENT_DEVICE_DST_SET",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "DST changed"
+    },
+    {
+      "event_code": 13056,
+      "event_code_str": "BS2_EVENT_DEVICE_LINK_CONNECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "LAN cable connected"
+    },
+    {
+      "event_code": 13312,
+      "event_code_str": "BS2_EVENT_DEVICE_LINK_DISCONNECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "LAN cable disconnected"
+    },
+    {
+      "event_code": 13568,
+      "event_code_str": "BS2_EVENT_DEVICE_DHCP_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "IP address acquired by DHCP"
+    },
+    {
+      "event_code": 13824,
+      "event_code_str": "BS2_EVENT_DEVICE_ADMIN_MENU",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Enter administrator menu"
+    },
+    {
+      "event_code": 14080,
+      "event_code_str": "BS2_EVENT_DEVICE_UI_LOCKED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Device locked"
+    },
+    {
+      "event_code": 14336,
+      "event_code_str": "BS2_EVENT_DEVICE_UI_UNLOCKED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Device unlocked"
+    },
+    {
+      "event_code": 15104,
+      "event_code_str": "BS2_EVENT_DEVICE_TCP_CONNECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "TCP connected"
+    },
+    {
+      "event_code": 15360,
+      "event_code_str": "BS2_EVENT_DEVICE_TCP_DISCONNECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "TCP disconnected"
+    },
+    {
+      "event_code": 15616,
+      "event_code_str": "BS2_EVENT_DEVICE_RS485_CONNECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "RS485 connected"
+    },
+    {
+      "event_code": 15872,
+      "event_code_str": "BS2_EVENT_DEVICE_RS485_DISCONNECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "RS485 disconnected"
+    },
+    {
+      "event_code": 16128,
+      "event_code_str": "BS2_EVENT_DEVICE_INPUT_DETECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Input signal detected"
+    },
+    {
+      "event_code": 16384,
+      "event_code_str": "BS2_EVENT_DEVICE_TAMPER_ON",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Tamper SW is on"
+    },
+    {
+      "event_code": 16640,
+      "event_code_str": "BS2_EVENT_DEVICE_TAMPER_OFF",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Tamper SW is off"
+    },
+    {
+      "event_code": 16896,
+      "event_code_str": "BS2_EVENT_DEVICE_EVENT_LOG_CLEARED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Log records cleared"
+    },
+    {
+      "event_code": 17152,
+      "event_code_str": "BS2_EVENT_DEVICE_FIRMWARE_UPGRADED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Firmware upgraded"
+    },
+    {
+      "event_code": 17408,
+      "event_code_str": "BS2_EVENT_DEVICE_RESOURCE_UPGRADED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Resource upgraded"
+    },
+    {
+      "event_code": 17664,
+      "event_code_str": "BS2_EVENT_DEVICE_CONFIG_RESET",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "System configurations initialized"
+    },
+    {
+      "event_code": 17665,
+      "event_code_str": "BS2_EVENT_DEVICE_DATABASE_RESET",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Database initialized"
+    },
+    {
+      "event_code": 17666,
+      "event_code_str": "BS2_EVENT_DEVICE_FACTORY_RESET",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Factory reset"
+    },
+    {
+      "event_code": 17667,
+      "event_code_str": "BS2_EVENT_DEVICE_CONFIG_RESET_EX",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "System configurations initialized - excluding network"
+    },
+    {
+      "event_code": 17668,
+      "event_code_str": "BS2_EVENT_DEVICE_FACTORY_RESET_WITHOUT_ETHERNET",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Factory reset - excluding network"
+    },
+    {
+      "event_code": 17920,
+      "event_code_str": "BS2_EVENT_SUPERVISED_INPUT_SHORT",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Short circuit of a supervised input detected"
+    },
+    {
+      "event_code": 18176,
+      "event_code_str": "BS2_EVENT_SUPERVISED_INPUT_OPEN",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Disconnection of a supervised input detected"
+    },
+    {
+      "event_code": 20480,
+      "event_code_str": "BS2_EVENT_DOOR_UNLOCKED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door unlocked"
+    },
+    {
+      "event_code": 20736,
+      "event_code_str": "BS2_EVENT_DOOR_LOCKED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door locked"
+    },
+    {
+      "event_code": 20992,
+      "event_code_str": "BS2_EVENT_DOOR_OPENED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door open detected by sensor"
+    },
+    {
+      "event_code": 21248,
+      "event_code_str": "BS2_EVENT_DOOR_CLOSED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door closed detected by sensor"
+    },
+    {
+      "event_code": 21504,
+      "event_code_str": "BS2_EVENT_DOOR_FORCED_OPEN",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door forced open"
+    },
+    {
+      "event_code": 21760,
+      "event_code_str": "BS2_EVENT_DOOR_HELD_OPEN",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door held open too long"
+    },
+    {
+      "event_code": 22016,
+      "event_code_str": "BS2_EVENT_DOOR_FORCED_OPEN_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Forced open alarm"
+    },
+    {
+      "event_code": 22272,
+      "event_code_str": "BS2_EVENT_DOOR_FORCED_OPEN_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Forced open alarm cleared"
+    },
+    {
+      "event_code": 22528,
+      "event_code_str": "BS2_EVENT_DOOR_HELD_OPEN_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Held open alarm"
+    },
+    {
+      "event_code": 22784,
+      "event_code_str": "BS2_EVENT_DOOR_HELD_OPEN_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Held open alarm cleared"
+    },
+    {
+      "event_code": 23040,
+      "event_code_str": "BS2_EVENT_DOOR_APB_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Anti-passback alarm on a door"
+    },
+    {
+      "event_code": 23296,
+      "event_code_str": "BS2_EVENT_DOOR_APB_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Anti-passback alarm on a door cleared"
+    },
+    {
+      "event_code": 23552,
+      "event_code_str": "BS2_EVENT_DOOR_RELEASE",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door status reset"
+    },
+    {
+      "event_code": 23552,
+      "event_code_str": "BS2_EVENT_DOOR_RELEASE",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_SCHEDULE",
+      "desc": "Door status reset(schedule)"
+    },
+    {
+      "event_code": 23552,
+      "event_code_str": "BS2_EVENT_DOOR_RELEASE",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_EMERGENCY",
+      "desc": "Door status reset(emergency)"
+    },
+    {
+      "event_code": 23552,
+      "event_code_str": "BS2_EVENT_DOOR_RELEASE",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_OPERATOR",
+      "desc": "Door status reset(operator)"
+    },
+    {
+      "event_code": 23808,
+      "event_code_str": "BS2_EVENT_DOOR_LOCK",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Lock door"
+    },
+    {
+      "event_code": 23808,
+      "event_code_str": "BS2_EVENT_DOOR_LOCK",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_SCHEDULE",
+      "desc": "Lock door(schedule)"
+    },
+    {
+      "event_code": 23808,
+      "event_code_str": "BS2_EVENT_DOOR_LOCK",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_EMERGENCY",
+      "desc": "Lock door(emergency)"
+    },
+    {
+      "event_code": 23808,
+      "event_code_str": "BS2_EVENT_DOOR_LOCK",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_OPERATOR",
+      "desc": "Lock door(operator)"
+    },
+    {
+      "event_code": 24064,
+      "event_code_str": "BS2_EVENT_DOOR_UNLOCK",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Unlock door"
+    },
+    {
+      "event_code": 24064,
+      "event_code_str": "BS2_EVENT_DOOR_UNLOCK",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_SCHEDULE",
+      "desc": "Unlock door(schedule)"
+    },
+    {
+      "event_code": 24064,
+      "event_code_str": "BS2_EVENT_DOOR_UNLOCK",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_EMERGENCY",
+      "desc": "Unlock door(emergency)"
+    },
+    {
+      "event_code": 24064,
+      "event_code_str": "BS2_EVENT_DOOR_UNLOCK",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_OPERATOR",
+      "desc": "Unlock door(operator)"
+    },
+    {
+      "event_code": 24576,
+      "event_code_str": "BS2_EVENT_ZONE_APB_VIOLATION",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "APB zone violated"
+    },
+    {
+      "event_code": 24576,
+      "event_code_str": "BS2_EVENT_ZONE_APB_VIOLATION",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_ZONE_HARD_APB",
+      "desc": "APB zone violated(access denied)"
+    },
+    {
+      "event_code": 24576,
+      "event_code_str": "BS2_EVENT_ZONE_APB_VIOLATION",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_ZONE_SOFT_APB",
+      "desc": "APB zone violated(access allowed)"
+    },
+    {
+      "event_code": 24832,
+      "event_code_str": "BS2_EVENT_ZONE_APB_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "APB zone alarm"
+    },
+    {
+      "event_code": 25088,
+      "event_code_str": "BS2_EVENT_ZONE_APB_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "APB zone alarm cleared"
+    },
+    {
+      "event_code": 25344,
+      "event_code_str": "BS2_EVENT_ZONE_TIMED_APB_VIOLATION",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Timed APB zone violated"
+    },
+    {
+      "event_code": 25344,
+      "event_code_str": "BS2_EVENT_ZONE_TIMED_APB_VIOLATION",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_ZONE_HARD_APB",
+      "desc": "Timed APB zone violated(access denied)"
+    },
+    {
+      "event_code": 25344,
+      "event_code_str": "BS2_EVENT_ZONE_TIMED_APB_VIOLATION",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_ZONE_SOFT_APB",
+      "desc": "Timed APB zone violated(access allowed)"
+    },
+    {
+      "event_code": 25600,
+      "event_code_str": "BS2_EVENT_ZONE_TIMED_APB_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Timed APB zone alarm"
+    },
+    {
+      "event_code": 25856,
+      "event_code_str": "BS2_EVENT_ZONE_TIMED_APB_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Timed APB zone alarm cleared"
+    },
+    {
+      "event_code": 26112,
+      "event_code_str": "BS2_EVENT_ZONE_FIRE_ALARM_INPUT",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Fire alarm input detected"
+    },
+    {
+      "event_code": 26368,
+      "event_code_str": "BS2_EVENT_ZONE_FIRE_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Fire alarm"
+    },
+    {
+      "event_code": 26624,
+      "event_code_str": "BS2_EVENT_ZONE_FIRE_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Fire alarm cleared"
+    },
+    {
+      "event_code": 26880,
+      "event_code_str": "BS2_EVENT_ZONE_SCHEDULED_LOCK_VIOLATION",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Scheduled lock zone violated"
+    },
+    {
+      "event_code": 27136,
+      "event_code_str": "BS2_EVENT_ZONE_SCHEDULED_LOCK_START",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Start of lock schedule"
+    },
+    {
+      "event_code": 27392,
+      "event_code_str": "BS2_EVENT_ZONE_SCHEDULED_LOCK_END",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "End of lock schedule"
+    },
+    {
+      "event_code": 27648,
+      "event_code_str": "BS2_EVENT_ZONE_SCHEDULED_UNLOCK_START",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Start of unlock schedule"
+    },
+    {
+      "event_code": 27904,
+      "event_code_str": "BS2_EVENT_ZONE_SCHEDULED_UNLOCK_END",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "End of unlock schedule"
+    },
+    {
+      "event_code": 28160,
+      "event_code_str": "BS2_EVENT_ZONE_SCHEDULED_LOCK_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Scheduled lock zone alarm"
+    },
+    {
+      "event_code": 28416,
+      "event_code_str": "BS2_EVENT_ZONE_SCHEDULED_LOCK_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Scheduled lock zone alarm cleared"
+    },
+    {
+      "event_code": 36864,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM_VIOLATION",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Intrusion zone violated"
+    },
+    {
+      "event_code": 37120,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM_ARM_GRANTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Arming intrusion zone"
+    },
+    {
+      "event_code": 37376,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM_ARM_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Intrusion zone armed"
+    },
+    {
+      "event_code": 37632,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM_ARM_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Arming intrusion zone failure"
+    },
+    {
+      "event_code": 37888,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM_DISARM_GRANTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Disarming intrusion zone"
+    },
+    {
+      "event_code": 38144,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM_DISARM_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Intrusion zone disarmed"
+    },
+    {
+      "event_code": 38400,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM_DISARM_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Disarming intrusion zone failure"
+    },
+    {
+      "event_code": 38912,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Intrusion alarm"
+    },
+    {
+      "event_code": 39168,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Intrusion alarm cleared"
+    },
+    {
+      "event_code": 39424,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM_ARM_DENIED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Arming intrusion zone denied"
+    },
+    {
+      "event_code": 39680,
+      "event_code_str": "BS2_EVENT_ZONE_INTRUSION_ALARM_DISARM_DENIED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Disarming intrusion zone denied"
+    },
+    {
+      "event_code": 40960,
+      "event_code_str": "BS2_EVENT_ZONE_INTERLOCK_VIOLATION",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Interlock zone violated"
+    },
+    {
+      "event_code": 41216,
+      "event_code_str": "BS2_EVENT_ZONE_INTERLOCK_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Interlock alarm"
+    },
+    {
+      "event_code": 41472,
+      "event_code_str": "BS2_EVENT_ZONE_INTERLOCK_ALARM_DOOR_OPEN_DENIED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Interlock alarm(door open)"
+    },
+    {
+      "event_code": 41728,
+      "event_code_str": "BS2_EVENT_ZONE_INTERLOCK_ALARM_INDOOR_DENIED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Interlock alarm(man in door)"
+    },
+    {
+      "event_code": 41984,
+      "event_code_str": "BS2_EVENT_ZONE_INTERLOCK_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Interlock alarm cleared"
+    },
+    {
+      "event_code": 46336,
+      "event_code_str": "BS2_EVENT_ZONE_LIFT_LOCK_VIOLATION",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Lift lock zone violated"
+    },
+    {
+      "event_code": 46592,
+      "event_code_str": "BS2_EVENT_ZONE_LIFT_LOCK_START",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Start of lift lock schedule"
+    },
+    {
+      "event_code": 46848,
+      "event_code_str": "BS2_EVENT_ZONE_LIFT_LOCK_END",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "End of lift lock schedule"
+    },
+    {
+      "event_code": 47104,
+      "event_code_str": "BS2_EVENT_ZONE_LIFT_UNLOCK_START",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Start of lift unlock schedule"
+    },
+    {
+      "event_code": 47360,
+      "event_code_str": "BS2_EVENT_ZONE_LIFT_UNLOCK_END",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "End of lift unlock schedule"
+    },
+    {
+      "event_code": 47616,
+      "event_code_str": "BS2_EVENT_ZONE_LIFT_LOCK_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Lift lock zone alarm"
+    },
+    {
+      "event_code": 47872,
+      "event_code_str": "BS2_EVENT_ZONE_LIFT_LOCK_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Lift lock zone alarm cleared"
+    },
+    {
+      "event_code": 28672,
+      "event_code_str": "BS2_EVENT_FLOOR_ACTIVATED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Floor activated"
+    },
+    {
+      "event_code": 28928,
+      "event_code_str": "BS2_EVENT_FLOOR_DEACTIVATED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Floor deactivated"
+    },
+    {
+      "event_code": 29184,
+      "event_code_str": "BS2_EVENT_FLOOR_RELEASE",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Floor status reset"
+    },
+    {
+      "event_code": 29184,
+      "event_code_str": "BS2_EVENT_FLOOR_RELEASE",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_SCHEDULE",
+      "desc": "Floor status reset(schedule)"
+    },
+    {
+      "event_code": 29184,
+      "event_code_str": "BS2_EVENT_FLOOR_RELEASE",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_EMERGENCY",
+      "desc": "Floor status reset(emergency)"
+    },
+    {
+      "event_code": 29184,
+      "event_code_str": "BS2_EVENT_FLOOR_RELEASE",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_OPERATOR",
+      "desc": "Floor status reset(operator)"
+    },
+    {
+      "event_code": 29184,
+      "event_code_str": "BS2_EVENT_FLOOR_RELEASE",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_ACTION",
+      "desc": "Floor status reset(action)"
+    },
+    {
+      "event_code": 29440,
+      "event_code_str": "BS2_EVENT_FLOOR_ACTIVATE",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Activate floor"
+    },
+    {
+      "event_code": 29440,
+      "event_code_str": "BS2_EVENT_FLOOR_ACTIVATE",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_SCHEDULE",
+      "desc": "Activate floor(schedule)"
+    },
+    {
+      "event_code": 29440,
+      "event_code_str": "BS2_EVENT_FLOOR_ACTIVATE",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_EMERGENCY",
+      "desc": "Activate floor(emergency)"
+    },
+    {
+      "event_code": 29440,
+      "event_code_str": "BS2_EVENT_FLOOR_ACTIVATE",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_OPERATOR",
+      "desc": "Activate floor(operator)"
+    },
+    {
+      "event_code": 29440,
+      "event_code_str": "BS2_EVENT_FLOOR_ACTIVATE",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_ACTION",
+      "desc": "Activate floor(action)"
+    },
+    {
+      "event_code": 29696,
+      "event_code_str": "BS2_EVENT_FLOOR_DEACTIVATE",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Deactivate floor"
+    },
+    {
+      "event_code": 29696,
+      "event_code_str": "BS2_EVENT_FLOOR_DEACTIVATE",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_SCHEDULE",
+      "desc": "Deactivate floor(schedule)"
+    },
+    {
+      "event_code": 29696,
+      "event_code_str": "BS2_EVENT_FLOOR_DEACTIVATE",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_EMERGENCY",
+      "desc": "Deactivate floor(emergency)"
+    },
+    {
+      "event_code": 29696,
+      "event_code_str": "BS2_EVENT_FLOOR_DEACTIVATE",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_OPERATOR",
+      "desc": "Deactivate floor(operator)"
+    },
+    {
+      "event_code": 29696,
+      "event_code_str": "BS2_EVENT_FLOOR_DEACTIVATE",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_FLOOR_FLAG_ACTION",
+      "desc": "Deactivate floor(action)"
+    },
+    {
+      "event_code": 29952,
+      "event_code_str": "BS2_EVENT_LIFT_ALARM_INPUT",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Lift alarm input detected"
+    },
+    {
+      "event_code": 30208,
+      "event_code_str": "BS2_EVENT_LIFT_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Lift alarm"
+    },
+    {
+      "event_code": 30464,
+      "event_code_str": "BS2_EVENT_LIFT_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Lift alarm cleared"
+    },
+    {
+      "event_code": 30720,
+      "event_code_str": "BS2_EVENT_ALL_FLOOR_ACTIVATED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "All floor activated"
+    },
+    {
+      "event_code": 30976,
+      "event_code_str": "BS2_EVENT_ALL_FLOOR_DEACTIVATED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "All floor deactivated"
+    }
+  ]
+}
