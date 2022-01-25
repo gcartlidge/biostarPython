@@ -1,9 +1,11 @@
 #Python Client for Suprema GSDK
 
+0.1.4 - Added getFinger, getFace and getCard to UserSvc.<br>
+        Added getQRConfig, setQRConfig and writeQR to CardSvc()<br>
 0.1.3 - Added AuthSvc, AccessSvc, ScheduleSvc, ActionSvc and TNASvc.<br>
-        Under UserSvc, added newUser, newUserCard, newUserFinger and newUserFace for ease of calling when enrolling new user info.<br>
-0.1.2 - Updated initial json file string, so import on linux works<br>
-0.1.1 - Added Readme<br>
+        Under UserSvc, added newUser, newUserCard, newUserFinger and newUserFace for ease of calling when enrolling new user info.<br><br>
+0.1.2 - Updated initial json file string, so import on linux works<br><br>
+0.1.1 - Added Readme<br><br>
 0.1.0 - Initial Commit<br>
 
 This is the pip distributable version of the Suprema GSDK Python client, which makes it easier to interact with the GSDK.<br><br>
