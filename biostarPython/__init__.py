@@ -384,6 +384,13 @@ class UserSvc:
     except grpc.RpcError as e:
       print(f'Cannot get the users: {e}')
       raise
+  def getPartial(self, deviceID, infoMask):
+    try:
+      response = self.stub.GetPartial(user_pb2_grpc.user__pb2.GetPartialRequest(deviceID=deviceID, userIDs=userIDs, infoMask = infoMask))
+      return response.users
+    except grpc.RpcError as e:
+      print(f'Cannot get the partial user list: {e}')
+      raise
   def enroll(self, deviceID, users, overwrite):
     try:
       self.stub.Enroll(user_pb2_grpc.user__pb2.EnrollRequest(deviceID=deviceID, users=users, overwrite=overwrite))
@@ -402,11 +409,30 @@ class UserSvc:
     except grpc.RpcError as e:
       print(f'Cannot delete users: {e}')
       raise
+  def deleteAll(self, deviceID):
+    try:
+      self.stub.DeleteAll(user_pb2_grpc.user__pb2.DeleteAllRequest(deviceID=deviceID))
+    except grpc.RpcError as e:
+      print(f'Cannot delete all users: {e}')
+      raise
   def deleteMulti(self, deviceIDs, userIDs):
     try:
       self.stub.DeleteMulti(user_pb2_grpc.user__pb2.DeleteMultiRequest(deviceIDs=deviceIDs, userIDs=userIDs))
     except grpc.RpcError as e:
       print(f'Cannot delete users multi: {e}')
+      raise
+  def deleteAllMulti(self, deviceIDs, userIDs):
+    try:
+      self.stub.DeleteAllMulti(user_pb2_grpc.user__pb2.DeleteAllMultiRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      print(f'Cannot delete all users multi: {e}')
+      raise
+  def getFinger(self, deviceID, userIDs):
+    try:
+      self.stub.GetFinger(user_pb2_grpc.user__pb2.GetFingerRequest(deviceID=deviceID, userIDs=userIDs))
+      return response.userFingers
+    except grpc.RpcError as e:
+      print(f'Cannot get user fingers: {e}')
       raise
   def setFinger(self, deviceID, userFingers):
     try:
@@ -414,18 +440,50 @@ class UserSvc:
     except grpc.RpcError as e:
       print(f'Cannot set user fingers: {e}')
       raise
+  def setFingerMulti(self, deviceIDs, userFingers):
+    try:
+      self.stub.SetFingerMulti(user_pb2_grpc.user__pb2.SetFingerMultiRequest(deviceIDs=deviceIDs, userFingers=userFingers))
+    except grpc.RpcError as e:
+      print(f'Cannot set user fingers multi: {e}')
+      raise
+  def getCard(self, deviceID, userIDs):
+    try:
+      self.stub.GetCard(user_pb2_grpc.user__pb2.GetCardRequest(deviceID=deviceID, userIDs=userIDs))
+      return response.userCards
+    except grpc.RpcError as e:
+      print(f'Cannot get user cards: {e}')
+      raise
   def setCard(self, deviceID, userCards):
     try:
       self.stub.SetCard(user_pb2_grpc.user__pb2.SetCardRequest(deviceID=deviceID, userCards=userCards))
     except grpc.RpcError as e:
       print(f'Cannot set user cards: {e}')
+      raise 
+  def setCardMulti(self, deviceIDs, userCards):
+    try:
+      self.stub.SetCardMulti(user_pb2_grpc.user__pb2.SetCardMultiRequest(deviceIDs=deviceIDs, userCards=userCards))
+    except grpc.RpcError as e:
+      print(f'Cannot set user cards multi: {e}')
       raise   
+  def getFace(self, deviceID, userIDs):
+    try:
+      self.stub.GetFace(user_pb2_grpc.user__pb2.GetFaceRequest(deviceID=deviceID, userIDs=userIDs))
+      return response.userFaces
+    except grpc.RpcError as e:
+      print(f'Cannot get user faces: {e}')
+      raise      
   def setFace(self, deviceID, userFaces):
     try:
       self.stub.SetFace(user_pb2_grpc.user__pb2.SetFaceRequest(deviceID=deviceID, userFaces=userFaces))
     except grpc.RpcError as e:
       print(f'Cannot set user faces: {e}')
-      raise 
+      raise
+  def setFaceMulti(self, deviceIDs, userFaces):
+    try:
+      self.stub.SetFaceMulti(user_pb2_grpc.user__pb2.SetFaceMultiRequest(deviceIDs=deviceIDs, userFaces=userFaces))
+    except grpc.RpcError as e:
+      print(f'Cannot set user faces: {e}')
+      raise       
   def setAccessGroup(self, deviceID, userAccessGroups):
     try:
       self.stub.SetAccessGroup(user_pb2_grpc.user__pb2.SetAccessGroupRequest(deviceID=deviceID, userAccessGroups=userAccessGroups))
@@ -646,6 +704,13 @@ class CardSvc:
     except grpc.RpcError as e:
       print(f'Cannot Write a card: {e}')
       raise
+  def writeQRCode(self, QRText):
+    try:
+      response = self.stub.WriteQRCode(card_pb2_grpc.card__pb2.WriteQRCodeRequest(QRText=QRText))
+      return response.cardData
+    except grpc.RpcError as e:
+      print(f'Cannot Write a QR: {e}')
+      raise
   def getBlacklist(self, deviceID):
     try:
       response = self.stub.GetBlacklist(card_pb2_grpc.card__pb2.GetBlacklistRequest(deviceID=deviceID))
@@ -683,6 +748,25 @@ class CardSvc:
       self.stub.SetConfigMulti(card_pb2_grpc.card__pb2.SetConfigMultiRequest(deviceIDs=deviceIDs,config=config))
     except grpc.RpcError as e:
       print(f'Cannot set multiple config: {e}')
+      raise
+  def getQRConfig(self, deviceID):
+    try:
+      response = self.stub.GetQRConfig(card_pb2_grpc.card__pb2.GetQRConfigRequest(deviceID=deviceID))
+      return response.config
+    except grpc.RpcError as e:
+      print(f'Cannot get the QRconfig: {e}')
+      raise
+  def setQRConfig(self, deviceID, config):
+    try:
+      self.stub.SetQRConfig(card_pb2_grpc.card__pb2.SetQRConfigRequest(deviceID=deviceID,config=config))
+    except grpc.RpcError as e:
+      print(f'Cannot set the QRconfig: {e}')
+      raise
+  def setQRConfigMulti(self, deviceIDs, config):
+    try:
+      self.stub.SetQRConfigMulti(card_pb2_grpc.card__pb2.SetQRConfigMultiRequest(deviceIDs=deviceIDs,config=config))
+    except grpc.RpcError as e:
+      print(f'Cannot set multiple QRconfig: {e}')
       raise
 class EventSvc:
   stub = None
