@@ -17,7 +17,9 @@ On some clients (Particularly android) the  EventCode json can sometimes not be 
 You can then call supremaPython.initCodeMap(JsonFileLocation)<br><br>
 
 To check Event codes, call supremaPython.getEventString(eventCode,subCode)<br>
-To check device type, call supremaPython.deviceType\[deviceCode\]
+To check device type, call supremaPython.deviceType\[deviceCode\]<br>
+
+I'd also reccomend checking out [Advanced Installer][advancedinstaller]! They allow free licences for open-source projects and the features of the program licences are well worth it!
 
 ##How to use the rest of the classes.
 
@@ -60,3 +62,4 @@ connect = g.ConnectSvc(channel)<br>
 connect.searchDevice(300)
 
 [gsdkwiki]: https://biostar-dev.github.io/g-sdk/
+[advancedinstaller]: https://www.advancedinstaller.com/
