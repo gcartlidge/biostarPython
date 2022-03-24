@@ -41,6 +41,7 @@ def initDeviceList():
  deviceType[0x1E] = 'FaceStation F2 AB/DB'  
  deviceType[0x1F] = 'XStation 2 QR'  
  deviceType[0x20] = 'XStation 2' 
+ deviceType[0x23] = 'BioStation 3' 
  return deviceType
 deviceType = initDeviceList()  
 
@@ -271,13 +272,19 @@ class DeviceSvc:
     try:
       response = self.stub.ResetConfig(device_pb2_grpc.device__pb2.ResetConfigRequest(deviceID=deviceID, withNetwork=withNetwork, withDB=withDB))
     except grpc.RpcError as e:
-      print(f'Cannot Factory Reset Device: {e}')
+      print(f'Cannot Reset Device Config: {e}')
       raise
   def firmwareUpdate(self, deviceID, firmwareData):
     try:
       response = self.stub.UpgradeFirmware(device_pb2_grpc.device__pb2.UpgradeFirmwareRequest(deviceID=deviceID, firmwareData = firmwareData))
     except grpc.RpcError as e:
-      print(f'Cannot Factory Reset Device: {e}')
+      print(f'Cannot Upgrade Device: {e}')
+      raise
+  def firmwareUpdateMulti(self, deviceIDs, firmwareData):
+    try:
+      response = self.stub.UpgradeFirmwareMulti(device_pb2_grpc.device__pb2.UpgradeFirmwareMultiRequest(deviceIDs=deviceIDs, firmwareData = firmwareData))
+    except grpc.RpcError as e:
+      print(f'Cannot Upgrade Multiple Devices: {e}')
       raise
 class FaceSvc:
   stub = None
@@ -679,6 +686,8 @@ class CardSvc:
   stub = None
   newCard = card_pb2_grpc.card__pb2.CardData
   newSmartCard = card_pb2_grpc.card__pb2.SmartCardData
+  newAccessOnCard = card_pb2_grpc.card__pb2.AccessOnCardData
+  newSmartCardHeader = card_pb2_grpc.card__pb2.SmartCardHeader
   def __init__(self, channel): 
     try:
       self.stub = card_pb2_grpc.CardStub(channel)
@@ -1097,13 +1106,13 @@ class AccessSvc:
       raise
   def delete(self, deviceID, groupIDs):
     try:
-      self.stub.Delete(access_pb2_grpc.access__pb2.DeleteRequest(deviceID=deviceID))
+      self.stub.Delete(access_pb2_grpc.access__pb2.DeleteRequest(deviceID=deviceID, groupIDs=groupIDs))
     except grpc.RpcError as e:
       print(f'Cannot delete the access groups: {e}')
       raise
   def deleteAll(self, deviceID):
     try:
-      self.stub.DeleteAll(access_pb2_grpc.access__pb2.DeleteAllRequest(deviceID=deviceID, groupIDs=groupIDs))
+      self.stub.DeleteAll(access_pb2_grpc.access__pb2.DeleteAllRequest(deviceID=deviceID))
     except grpc.RpcError as e:
       print(f'Cannot delete all the access groups: {e}')
       raise
@@ -1257,3 +1266,112 @@ class TNASvc:
     except grpc.RpcError as e:
       print(f'Cannot get the JobCode event log: {e}')
       raise
+class OperatorSvc:
+  newOperator = auth_pb2_grpc.auth__pb2.Operator
+  stub = None
+  def __init__(self, channel): 
+    try:
+      self.stub = operator_pb2_grpc.OperatorStub(channel)
+    except grpc.RpcError as e:
+      print(f'Cannot get the Operator stub: {e}')
+      raise
+  def getList(self, deviceID):
+    try:
+      response = self.stub.GetList(operator_pb2_grpc.operator__pb2.GetListRequest(deviceID=deviceID))
+      return response.operators
+    except grpc.RpcError as e:
+      print(f'Cannot get the operator list: {e}')
+      raise
+  def add(self, deviceID, operators):
+    try:
+      self.stub.Add(operator_pb2_grpc.operator__pb2.AddRequest(deviceID=deviceID, operators=operators))
+    except grpc.RpcError as e:
+      print(f'Cannot add Operators: {e}')
+      raise
+  def addMulti(self, deviceIDs, operators):
+    try:
+      self.stub.AddMulti(operator_pb2_grpc.operator__pb2.AddMultiRequest(deviceIDs=deviceIDs, operators=operators))
+    except grpc.RpcError as e:
+      print(f'Cannot add Multiple Operators: {e}')
+      raise
+  def delete(self, deviceID, operatorIDs):
+    try:
+      self.stub.Delete(operator_pb2_grpc.operator__pb2.DeleteRequest(deviceID=deviceID, operatorIDs=operatorIDs))
+    except grpc.RpcError as e:
+      print(f'Cannot delete the Operators: {e}')
+      raise
+  def deleteMulti(self, deviceIDs, operatorIDs):
+    try:
+      self.stub.DeleteMulti(operator_pb2_grpc.operator__pb2.DeleteMultiRequest(deviceIDs=deviceIDs, operatorIDs=operatorIDs))
+    except grpc.RpcError as e:
+      print(f'Cannot delete multiple Operators: {e}')
+      raise
+  def deleteAll(self, deviceID):
+    try:
+      self.stub.DeleteAll(operator_pb2_grpc.operator__pb2.DeleteAllRequest(deviceID=deviceID))
+    except grpc.RpcError as e:
+      print(f'Cannot delete all the Operators: {e}')
+      raise
+  def deleteAllMulti(self, deviceIDs):
+    try:
+      self.stub.DeleteAllMulti(operator_pb2_grpc.operator__pb2.DeleteAllMultiRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      print(f'Cannot delete all the Operators on multiple devices: {e}')
+      raise
+#below currently not implemented in server.exe
+"""      
+class ConfigSvc:
+  stub = None
+  def __init__(self, channel): 
+    try:
+      self.stub = config_pb2_grpc.ConfigStub(channel)
+    except grpc.RpcError as e:
+      print(f'Cannot get the config stub: {e}')
+      raise
+  def getSystem(self, deviceID):
+    try:
+      response = self.stub.GetSystem(config_pb2_grpc.config__pb2.GetSystemRequest(deviceID=deviceID))
+      return response.config
+    except grpc.RpcError as e:
+      print(f'Cannot get the config config: {e}')
+      raise
+  def setSystem(self, deviceID, config):
+    try:
+      self.stub.SetSystem(config_pb2_grpc.config__pb2.SetSystemRequest(deviceID=deviceID, config=config))
+    except grpc.RpcError as e:
+      print(f'Cannot set the config config: {e}')
+      raise
+  def setSystemMulti(self, deviceIDs, config):
+    try:
+      self.stub.SetConfigMulti(config_pb2_grpc.config__pb2.SetSystemMultiRequest(deviceIDs=deviceIDs, config=config))
+    except grpc.RpcError as e:
+      print(f'Cannot set the config config on multiple: {e}')
+      raise
+class InputSvc:
+  stub = None
+  def __init__(self, channel): 
+    try:
+      self.stub = input_pb2_grpc.InputStub(channel)
+    except grpc.RpcError as e:
+      print(f'Cannot get the input stub: {e}')
+      raise
+  def getConfig(self, deviceID):
+    try:
+      response = self.stub.GetConfig(input_pb2_grpc.input__pb2.GetConfigRequest(deviceID=deviceID))
+      return response.config
+    except grpc.RpcError as e:
+      print(f'Cannot get the input config: {e}')
+      raise
+  def setConfig(self, deviceID, config):
+    try:
+      self.stub.SetConfig(input_pb2_grpc.input__pb2.SetConfigRequest(deviceID=deviceID, config=config))
+    except grpc.RpcError as e:
+      print(f'Cannot set the input config: {e}')
+      raise
+  def setConfigMulti(self, deviceIDs, config):
+    try:
+      self.stub.SetConfigMulti(input_pb2_grpc.input__pb2.SetConfigMultiRequest(deviceIDs=deviceIDs, config=config))
+    except grpc.RpcError as e:
+      print(f'Cannot set the input config on multiple: {e}')
+      raise
+"""

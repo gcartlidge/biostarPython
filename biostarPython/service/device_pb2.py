@@ -168,7 +168,11 @@ _TYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='UNKNOWN', index=34, number=255,
+      name='BIOSTATION_3', index=34, number=35,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='UNKNOWN', index=35, number=255,
       serialized_options=None,
       type=None),
   ],
