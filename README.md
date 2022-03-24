@@ -1,9 +1,9 @@
 #Python Client for Suprema GSDK<br>
 
-0.1.6 - Added firmwareUpdateMulti to DeviceSvc (Needed for multiple device upgrade internally)<br>
-0.1.5 - Added OperatorSvc call so operators above 10 can be added. Supports getList, add, delete, deleteAll, addMulti, deleteMulti and deleteAllMulti<br>
+0.1.6 - Added firmwareUpdateMulti to DeviceSvc (Needed for multiple device upgrade internally)<br><br>
+0.1.5 - Added OperatorSvc call so operators above 10 can be added. Supports getList, add, delete, deleteAll, addMulti, deleteMulti and deleteAllMulti<br><br>
 0.1.4 - Added getFinger, getFace and getCard to UserSvc.<br>
-        Added getQRConfig, setQRConfig and writeQR to CardSvc()<br>
+        Added getQRConfig, setQRConfig and writeQR to CardSvc()<br><br>
 0.1.3 - Added AuthSvc, AccessSvc, ScheduleSvc, ActionSvc and TNASvc.<br>
         Under UserSvc, added newUser, newUserCard, newUserFinger and newUserFace for ease of calling when enrolling new user info.<br><br>
 0.1.2 - Updated initial json file string, so import on linux works<br><br>
