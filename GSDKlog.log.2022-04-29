@@ -1,5 +1,0 @@
-2022-04-29 09:58:06,510 ERROR 139 biostarPython Cannot get search device: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.NOT_FOUND
-	details = "No device found in the subnet"
-	debug_error_string = "{"created":"@1651222686.509000000","description":"Error received from peer ipv4:192.168.10.221:4000","file":"src/core/lib/surface/call.cc","file_line":1070,"grpc_message":"No device found in the subnet","grpc_status":5}"
->

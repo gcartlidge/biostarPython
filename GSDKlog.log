@@ -1,5 +1,0 @@
-2022-07-21 17:52:58,098 ERROR 1655 biostarPython Cannot get the config config: <_InactiveRpcError of RPC that terminated with:
-	status = StatusCode.UNIMPLEMENTED
-	details = "unknown service config.Config"
-	debug_error_string = "UNKNOWN:Error received from peer ipv4:192.168.0.200:4000 {grpc_message:"unknown service config.Config", grpc_status:12, created_time:"2022-07-21T16:52:58.091057449+00:00"}"
->
