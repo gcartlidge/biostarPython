@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package cert;
+
+option go_package = "biostar/service/cert";
+option java_package = "com.supremainc.sdk.cert";
+option java_multiple_files = true;
+
+service Cert {
+  // Server Certificate
+  rpc CreateServerCertificate(CreateServerCertificateRequest) returns (CreateServerCertificateResponse);
+  rpc SetServerCertificate(SetServerCertificateRequest) returns (SetServerCertificateResponse);
+
+  // Set Gatweay Certificate: for Device Gateway only
+  rpc SetGatewayCertificate(SetGatewayCertificateRequest) returns (SetGatewayCertificateResponse);
+}
+
+message PKIName {
+  string country = 1;
+  string province = 2;
+  string city = 3;
+  string organization = 4;
+  string organizationUnit = 5;
+  string commonName = 6;
+}
+
+message CreateServerCertificateRequest {
+  PKIName subject = 1;
+  repeated string domainNames = 2;
+  repeated string IPAddrs = 3;
+  int32 expireAfterYears = 4;
+}
+
+message CreateServerCertificateResponse {
+  string serverCert = 1;
+  string serverKey = 2;
+}
+
+message SetServerCertificateRequest {
+  string serverCert = 1;
+  string serverKey = 2;
+}
+
+message SetServerCertificateResponse {
+
+}
+
+message SetGatewayCertificateRequest {
+  string gatewayCert = 1;
+  string gatewayKey = 2;
+}
+
+message SetGatewayCertificateResponse {
+}

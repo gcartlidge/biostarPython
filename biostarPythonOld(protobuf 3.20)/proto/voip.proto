@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package voip;
+
+option go_package = "biostar/service/voip";
+option java_package = "com.supremainc.sdk.voip";
+option java_multiple_files = true;
+
+import "err.proto";
+
+service VOIP {
+  rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+  rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
+  rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);    
+}
+
+
+message UserPhone {
+  string phoneNumber = 1;
+  string description = 2;
+}
+
+
+message VOIPConfig {
+  string serverURL = 1;
+  uint32 serverPort = 2;
+  string userID = 3;
+  string userPW = 4;
+
+  bool enabled = 5;
+
+  uint32 exitButton = 6;
+  uint32 DTMFMode = 7;
+
+  repeated UserPhone phones = 8;
+}
+
+
+message GetConfigRequest {
+  uint32 deviceID = 1;
+}
+
+message GetConfigResponse {
+  VOIPConfig config = 1;
+}
+
+
+message SetConfigRequest {
+  uint32 deviceID= 1;
+  VOIPConfig config = 2;
+}
+
+message SetConfigResponse {
+}
+
+message SetConfigMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  VOIPConfig config = 2;
+}
+
+message SetConfigMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}

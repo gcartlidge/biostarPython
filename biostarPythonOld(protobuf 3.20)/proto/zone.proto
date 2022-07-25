@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package zone;
+
+option go_package = "biostar/service/zone";
+option java_package = "com.supremainc.sdk.zone";
+option java_multiple_files = true;
+
+enum Type {
+  APB = 0x00;
+  TIMED_APB = 0x01;
+  FIRE_ALARM = 0x02;
+  SCHEDULED_LOCK = 0x03;
+  INTRUSION_ALARM = 0x04;
+  INTERLOCK = 0x05;
+  LIFT = 0x06;
+}
+
+enum Status {
+  option allow_alias = true;
+
+	NORMAL = 0x00;
+	ALARMED = 0x01;
+  
+  LOCKED = 0x02;
+  UNLOCKED = 0x04;
+  
+  LIFT_LOCKED = 0x02;
+  LIFT_UNLOCKED = 0x04;
+  
+  ARMED = 0x08;
+	DISARMED = 0x00;
+}
+
+message ZoneStatus {
+  uint32 zoneID = 1;
+  Status status = 2;
+  bool disabled = 3;
+}

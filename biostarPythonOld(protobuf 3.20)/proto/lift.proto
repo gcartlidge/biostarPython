@@ -1,0 +1,181 @@
+syntax = "proto3";
+
+package lift;
+
+option go_package = "biostar/service/lift";
+option java_package = "com.supremainc.sdk.lift";
+option java_multiple_files = true;
+
+import "device.proto";
+import "action.proto";
+
+service Lift {
+  rpc GetList(GetListRequest) returns (GetListResponse);
+  rpc GetStatus(GetStatusRequest) returns (GetStatusResponse);
+  rpc Add(AddRequest) returns (AddResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc DeleteAll(DeleteAllRequest) returns (DeleteAllResponse);
+  
+  rpc Activate(ActivateRequest) returns (ActivateResponse);
+  rpc Deactivate(DeactivateRequest) returns (DeactivateResponse);
+  rpc Release(ReleaseRequest) returns (ReleaseResponse);
+
+  rpc SetAlarm(SetAlarmRequest) returns (SetAlarmResponse);   
+}
+
+enum FloorFlag {
+	NONE = 0x00;
+	SCHEDULE = 0x01;
+	OPERATOR = 0x04;
+	ACTION = 0x08;
+	EMERGENCY = 0x02;  
+}
+
+enum AlarmFlag {
+  NO_ALARM = 0x00;
+  FIRST = 0x01;
+  SECOND = 0x02;
+  TAMPER = 0x04;
+}
+
+enum DualAuthApprovalType {
+  NONE_ON_LIFT = 0;
+  LAST_ON_LIFT = 1;
+}
+
+message FloorStatus {
+  bool activated = 1;
+  uint32 activateFlags = 2;
+  uint32 deactivateFlags = 3;
+}
+
+message Floor {
+  uint32 deviceID = 1;
+  uint32 port = 2;
+  FloorStatus status = 3;
+}
+
+message Sensor {
+  uint32 deviceID = 1;
+  uint32 port = 2;
+  device.SwitchType type = 3;
+  uint32 duration = 4;
+  uint32 scheduleID = 5;
+}
+
+message Alarm {
+  Sensor sensor = 1;
+  action.Action action = 2;
+}
+
+message Status {
+  uint32 liftID = 1;
+  uint32 alarmFlags = 2;
+  bool tamperOn = 3;
+  repeated FloorStatus floors = 4;
+}
+
+
+message LiftInfo {
+  uint32 liftID = 1;
+  string name = 2;
+
+  repeated uint32 deviceIDs = 3;
+
+  uint32 activateTimeout = 4;
+  uint32 dualAuthTimeout = 5;
+
+  DualAuthApprovalType dualAuthApproval = 6;
+  repeated uint32 dualAuthRequiredDeviceIDs = 7;
+  uint32 dualAuthScheduleID = 8;
+
+  repeated Floor floors = 9;
+
+  repeated uint32 dualAuthApprovalGroupIDs = 10;
+
+  repeated Alarm alarms = 11;
+  uint32 alarmFlags = 12;
+
+  Alarm tamper = 13;
+  bool tamperOn = 14;
+}
+
+
+
+message GetListRequest {
+  uint32 deviceID = 1;
+}
+
+message GetListResponse {
+  repeated LiftInfo lifts = 1;
+}
+
+message GetStatusRequest {
+  uint32 deviceID = 1;
+}
+
+message GetStatusResponse {
+  repeated Status status = 1;
+}
+
+message AddRequest {
+  uint32 deviceID = 1;
+  repeated LiftInfo lifts = 2;
+}
+
+message AddResponse {
+}
+
+message DeleteRequest {
+  uint32 deviceID = 1;
+  repeated uint32 liftIDs = 2;
+}
+
+message DeleteResponse {
+}
+
+message DeleteAllRequest {
+  uint32 deviceID = 1;
+}
+
+message DeleteAllResponse {
+}
+
+message ActivateRequest {
+  uint32 deviceID = 1;
+  uint32 liftID = 2;
+  repeated uint32 floorIndexes = 3;
+  uint32 activateFlag = 4;
+}
+
+message ActivateResponse {
+}
+
+message DeactivateRequest {
+  uint32 deviceID = 1;
+  uint32 liftID = 2;
+  repeated uint32 floorIndexes = 3;
+  uint32 deactivateFlag = 4;
+}
+
+message DeactivateResponse {
+}
+
+message ReleaseRequest {
+  uint32 deviceID = 1;
+  uint32 liftID = 2;
+  repeated uint32 floorIndexes = 3;
+  uint32 floorFlag = 4;
+}
+
+message ReleaseResponse {
+}
+
+message SetAlarmRequest {
+  uint32 deviceID = 1;
+  repeated uint32 liftIDs = 2;
+  uint32 alarmFlag = 3;
+}
+
+message SetAlarmResponse {
+}

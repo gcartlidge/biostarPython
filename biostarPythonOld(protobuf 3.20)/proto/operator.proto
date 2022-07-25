@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package operator;
+
+option go_package = "biostar/service/operator";
+option java_package = "com.supremainc.sdk.operator";
+option java_multiple_files = true;
+
+import "err.proto";
+import "auth.proto";
+
+service Operator {
+  rpc GetList(GetListRequest) returns (GetListResponse);
+  rpc Add(AddRequest) returns (AddResponse);
+  rpc AddMulti(AddMultiRequest) returns (AddMultiResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc DeleteMulti(DeleteMultiRequest) returns (DeleteMultiResponse);
+  rpc DeleteAll(DeleteAllRequest) returns (DeleteAllResponse); 
+  rpc DeleteAllMulti(DeleteAllMultiRequest) returns (DeleteAllMultiResponse); 
+}
+
+
+message GetListRequest {
+  uint32 deviceID = 1;
+} 
+
+message GetListResponse {
+  repeated auth.Operator operators = 1;
+}
+
+message AddRequest {
+  uint32 deviceID = 1;
+  repeated auth.Operator operators = 2;
+}
+
+message AddResponse {
+}
+
+
+message AddMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  repeated auth.Operator operators = 2;
+}
+
+message AddMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}
+
+
+
+message DeleteRequest {
+  uint32 deviceID = 1;
+  repeated string operatorIDs = 2;
+}
+
+message DeleteResponse {
+
+}
+
+message DeleteMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  repeated string operatorIDs = 2;
+}
+
+message DeleteMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}
+
+message DeleteAllRequest {
+  uint32 deviceID = 1;
+}
+
+message DeleteAllResponse {
+
+}
+
+message DeleteAllMultiRequest {
+  repeated uint32 deviceIDs = 1;
+}
+
+message DeleteAllMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}

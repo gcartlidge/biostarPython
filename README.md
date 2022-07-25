@@ -1,7 +1,15 @@
-#Python Client for Suprema GSDK
-
+#Python Client for Suprema GSDK<br>
+0.2.0.0 - Upgraded support for gRPC to the newest version supported by python (Regenerated .py files from .proto)<br>
+0.1.9.0 - Added zone services, LockZone, APBZone, TimedAPBZone, FireZone, InterlockZone and IntrusionZone are included.
+          Also edited protobuf version to include security fixes (3.20.1)<br><br><br>
+0.1.8.8 - Fixed minor issue with finger.scan (Did not return data)<br><br>
+0.1.8.6 - Fixed minor issues<br><br>
+0.1.8 - Implemented version check for Protobuf (3.20)<br><br>
+0.1.7 - Implemented proper logging, a GSDKlog.log file is now used instead of the standard print command.<br><br>
+0.1.6 - Added firmwareUpdateMulti to DeviceSvc (Needed for multiple device upgrade internally)<br><br>
+0.1.5 - Added OperatorSvc call so operators above 10 can be added. Supports getList, add, delete, deleteAll, addMulti, deleteMulti and deleteAllMulti<br><br>
 0.1.4 - Added getFinger, getFace and getCard to UserSvc.<br>
-        Added getQRConfig, setQRConfig and writeQR to CardSvc()<br>
+        Added getQRConfig, setQRConfig and writeQR to CardSvc()<br><br>
 0.1.3 - Added AuthSvc, AccessSvc, ScheduleSvc, ActionSvc and TNASvc.<br>
         Under UserSvc, added newUser, newUserCard, newUserFinger and newUserFace for ease of calling when enrolling new user info.<br><br>
 0.1.2 - Updated initial json file string, so import on linux works<br><br>
@@ -47,7 +55,15 @@ AuthSvc,<br>
 AccessSvc,<br> 
 ScheduleSvc,<br>
 ActionSvc,<br>
-TNASvc<br>
+TNASvc,<br>
+OperatorSvc,<br>
+LockZoneSvc,<br>
+TimedAPBZoneSvc,<br>
+APBZoneSvc,<br>
+IntrusionZoneSvc,<br>
+FireZoneSvc &<br>
+InterlockZoneSvc,<br>
+
 
 With the remaining being added in a future release.<br>
 
@@ -59,7 +75,8 @@ import biostarPython as g<br>
 gateway = g.GatewayClient('127.0.0.1',4000,'ca.crt')<br>
 channel = gateway.getChannel()<br>
 connect = g.ConnectSvc(channel)<br>
-connect.searchDevice(300)
+connect.searchDevice(300)<br><br>
+All of the specific APIs can be found at the wiki Above.
 
 [gsdkwiki]: https://biostar-dev.github.io/g-sdk/
 [advancedinstaller]: https://www.advancedinstaller.com/
