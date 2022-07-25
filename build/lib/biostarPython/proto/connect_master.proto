@@ -1,0 +1,277 @@
+syntax = "proto3";
+
+package connect_master;
+
+option go_package = "biostar/service/connectMaster";
+option java_package = "com.supremainc.sdk.connect_master";
+option java_multiple_files = true;
+
+import "connect.proto";
+import "err.proto";
+
+service ConnectMaster {
+  rpc Connect(ConnectRequest) returns (ConnectResponse);
+
+  rpc AddAsyncConnection(AddAsyncConnectionRequest) returns (AddAsyncConnectionResponse);
+  rpc DeleteAsyncConnection(DeleteAsyncConnectionRequest) returns (DeleteAsyncConnectionResponse);
+
+  rpc AddAsyncConnectionDB(AddAsyncConnectionDBRequest) returns (AddAsyncConnectionDBResponse);
+  rpc DeleteAsyncConnectionDB(DeleteAsyncConnectionDBRequest) returns (DeleteAsyncConnectionDBResponse);
+  rpc GetAsyncConnectionDB(GetAsyncConnectionDBRequest) returns (GetAsyncConnectionDBResponse);
+
+  rpc SetAcceptFilter(SetAcceptFilterRequest) returns (SetAcceptFilterResponse);
+  rpc GetAcceptFilter(GetAcceptFilterRequest) returns (GetAcceptFilterResponse);
+
+  rpc SetAcceptFilterDB(SetAcceptFilterDBRequest) returns (SetAcceptFilterDBResponse);
+  rpc GetAcceptFilterDB(GetAcceptFilterDBRequest) returns (GetAcceptFilterDBResponse);
+  
+  rpc GetPendingList(GetPendingListRequest) returns (GetPendingListResponse);
+
+  rpc GetDeviceList(GetDeviceListRequest) returns (GetDeviceListResponse);
+
+  rpc Disconnect(DisconnectRequest) returns (DisconnectResponse);
+  rpc DisconnectAll(DisconnectAllRequest) returns (DisconnectAllResponse);
+
+  rpc SearchDevice(SearchDeviceRequest) returns (SearchDeviceResponse);
+
+  rpc GetSlaveDevice(GetSlaveDeviceRequest) returns (GetSlaveDeviceResponse);
+  rpc SetSlaveDevice(SetSlaveDeviceRequest) returns (SetSlaveDeviceResponse);  
+
+  rpc AddSlaveDeviceDB(AddSlaveDeviceDBRequest) returns (AddSlaveDeviceDBResponse);
+  rpc DeleteSlaveDeviceDB(DeleteSlaveDeviceDBRequest) returns (DeleteSlaveDeviceDBResponse);
+  rpc GetSlaveDeviceDB(GetSlaveDeviceDBRequest) returns (GetSlaveDeviceDBResponse);  
+
+  rpc SetConnectionMode(SetConnectionModeRequest) returns (SetConnectionModeResponse);
+  rpc SetConnectionModeMulti(SetConnectionModeMultiRequest) returns (SetConnectionModeMultiResponse);
+  
+  rpc EnableSSL(EnableSSLRequest) returns (EnableSSLResponse);
+  rpc EnableSSLMulti(EnableSSLMultiRequest) returns (EnableSSLMultiResponse);
+
+  rpc DisableSSL(DisableSSLRequest) returns (DisableSSLResponse);
+  rpc DisableSSLMulti(DisableSSLMultiRequest) returns (DisableSSLMultiResponse);
+
+  rpc SubscribeStatus(SubscribeStatusRequest) returns (stream connect.StatusChange);
+}
+
+message ConnectRequest {
+  string gatewayID = 1;
+  connect.ConnectInfo connectInfo = 2;
+}
+
+message ConnectResponse {
+  uint32 deviceID = 1;
+}
+
+message AddAsyncConnectionRequest {
+  string gatewayID = 1;
+  repeated connect.AsyncConnectInfo connectInfos = 2;
+}
+
+message AddAsyncConnectionResponse {
+}
+
+message DeleteAsyncConnectionRequest {
+  string gatewayID = 1;
+  repeated uint32 deviceIDs = 2;
+}
+
+message DeleteAsyncConnectionResponse {
+}
+
+message AddAsyncConnectionDBRequest {
+  string gatewayID = 1;
+  repeated connect.AsyncConnectInfo connectInfos = 2;
+}
+
+message AddAsyncConnectionDBResponse {
+}
+
+message DeleteAsyncConnectionDBRequest {
+  string gatewayID = 1;
+  repeated uint32 deviceIDs = 2;
+}
+
+message DeleteAsyncConnectionDBResponse {
+}
+
+
+message GetAsyncConnectionDBRequest {
+  string gatewayID = 1;
+}
+
+message GetAsyncConnectionDBResponse {
+  repeated connect.AsyncConnectInfo connectInfos = 1;
+}
+
+message SetAcceptFilterRequest {
+  string gatewayID = 1;
+  connect.AcceptFilter filter = 2;
+}
+
+message SetAcceptFilterResponse {
+}
+
+message GetAcceptFilterRequest {
+  string gatewayID = 1;
+}
+
+message GetAcceptFilterResponse {
+  connect.AcceptFilter filter = 1;
+}
+
+
+message SetAcceptFilterDBRequest {
+  string gatewayID = 1;
+  connect.AcceptFilter filter = 2;
+}
+
+message SetAcceptFilterDBResponse {
+}
+
+message GetAcceptFilterDBRequest {
+  string gatewayID = 1;
+}
+
+message GetAcceptFilterDBResponse {
+  connect.AcceptFilter filter = 1;
+}
+
+
+message GetPendingListRequest {
+  string gatewayID = 1;
+}
+
+message GetPendingListResponse {
+  repeated connect.PendingDeviceInfo deviceInfos = 1;
+}
+
+message GetDeviceListRequest {
+  string gatewayID = 1;  
+}
+
+message GetDeviceListResponse {
+  repeated connect.DeviceInfo deviceInfos = 1;
+}
+
+message DisconnectRequest {
+  repeated uint32 deviceIDs = 1;
+}
+
+message DisconnectResponse {
+}
+
+message DisconnectAllRequest {
+  string gatewayID = 1; 
+}
+
+message DisconnectAllResponse {
+}
+
+
+message SearchDeviceRequest {
+  string gatewayID = 1; 
+  uint32 timeout = 2;
+}
+
+message SearchDeviceResponse {
+  repeated connect.SearchDeviceInfo deviceInfos = 1;
+}
+
+
+message GetSlaveDeviceRequest {
+  string gatewayID = 1;
+}
+
+message GetSlaveDeviceResponse {
+  repeated connect.SlaveDeviceInfo slaveDeviceInfos = 1;
+}
+
+
+message SetSlaveDeviceRequest {
+  string gatewayID = 1;
+  repeated connect.SlaveDeviceInfo slaveDeviceInfos = 2;
+}
+
+message SetSlaveDeviceResponse {
+}
+
+message AddSlaveDeviceDBRequest {
+  string gatewayID = 1;
+  repeated connect.SlaveDeviceInfo slaveDeviceInfos = 2;
+}
+
+message AddSlaveDeviceDBResponse {
+}
+
+message DeleteSlaveDeviceDBRequest {
+  string gatewayID = 1;
+  repeated uint32 deviceIDs = 2;
+}
+
+message DeleteSlaveDeviceDBResponse {
+}
+
+
+message GetSlaveDeviceDBRequest {
+  string gatewayID = 1;
+}
+
+message GetSlaveDeviceDBResponse {
+  repeated connect.SlaveDeviceInfo slaveDeviceInfos = 1;
+}
+
+
+
+message SubscribeStatusRequest {
+  int32 queueSize = 1;
+}
+
+message SetConnectionModeRequest {
+  uint32 deviceID = 1;
+  connect.ConnectionMode connectionMode = 2;
+}
+
+message SetConnectionModeResponse {
+}
+
+message SetConnectionModeMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  connect.ConnectionMode connectionMode = 2;
+}
+
+message SetConnectionModeMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}
+
+message EnableSSLRequest {
+  uint32 deviceID = 1;
+}
+
+message EnableSSLResponse {
+}
+
+message EnableSSLMultiRequest {
+  repeated uint32 deviceIDs = 1;
+}
+
+message EnableSSLMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}
+
+message DisableSSLRequest {
+  uint32 deviceID = 1;
+}
+
+message DisableSSLResponse {
+}
+
+message DisableSSLMultiRequest {
+  repeated uint32 deviceIDs = 1;
+}
+
+message DisableSSLMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}
+
+
+

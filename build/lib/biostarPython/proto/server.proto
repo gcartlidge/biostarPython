@@ -1,0 +1,126 @@
+syntax = "proto3";
+
+package server;
+
+option go_package = "biostar/service/server";
+option java_package = "com.supremainc.sdk.server";
+option java_multiple_files = true;
+
+import "card.proto";
+import "finger.proto";
+import "user.proto";
+
+service Server {
+  rpc Subscribe(SubscribeRequest) returns (stream ServerRequest);
+  rpc Unsubscribe(UnsubscribeRequest) returns (UnsubscribeResponse);
+
+  rpc HandleVerify(HandleVerifyRequest) returns (HandleVerifyResponse);
+  rpc HandleIdentify(HandleIdentifyRequest) returns (HandleIdentifyResponse);
+  rpc HandleGlobalAPB(HandleGlobalAPBRequest) returns (HandleGlobalAPBResponse);
+  rpc HandleUserPhrase(HandleUserPhraseRequest) returns (HandleUserPhraseResponse);
+}
+
+message ServerRequest {
+  RequestType reqType = 1;
+  uint32 deviceID = 2;
+  uint32 seqNO = 3;
+  VerifyRequest verifyReq = 4; 
+  IdentifyRequest identifyReq = 5;
+  GlobalAPBRequest globalAPBReq = 6;
+  UserPhraseRequest userPhraseReq = 7;
+}
+
+enum RequestType {
+  NO_REQUEST = 0x00;
+  VERIFY_REQUEST = 0x01;
+  IDENTIFY_REQUEST = 0x02;
+  GLOBAL_APB_REQUEST = 0x03;
+  USER_PHRASE_REQUEST = 0x04;
+}
+
+message VerifyRequest {
+  bool isCard = 1;
+  card.Type cardType = 2;
+  bytes cardData = 3;
+  string userID = 4;
+}
+
+message IdentifyRequest {
+  finger.TemplateFormat templateFormat = 1;
+  bytes templateData = 2;
+}
+
+message GlobalAPBRequest {
+  repeated string userIDs = 1;
+}
+
+message UserPhraseRequest {
+  string userID = 1;
+}
+
+message SubscribeRequest {
+  int32 queueSize = 1;
+}
+
+message UnsubscribeRequest {
+}
+
+message UnsubscribeResponse {
+}
+
+enum ServerErrorCode {
+  SUCCESS = 0;
+
+  VERIFY_FAIL = -301;
+  IDENTIFY_FAIL = -302;
+
+  HARD_APB_VIOLATION = -1202;
+  SOFT_APB_VIOLATION = -1203;
+
+  CANNOT_FIND_USER =  -714;
+}
+
+
+message HandleVerifyRequest {
+  uint32 deviceID = 1;
+  uint32 seqNO = 2;
+  ServerErrorCode errCode = 3;
+  user.UserInfo user = 4;
+}
+
+message HandleVerifyResponse {
+}
+
+message HandleIdentifyRequest {
+  uint32 deviceID = 1;
+  uint32 seqNO = 2;
+  ServerErrorCode errCode = 3;
+  user.UserInfo user = 4;
+}
+
+message HandleIdentifyResponse {
+}
+
+
+message HandleGlobalAPBRequest {
+  uint32 deviceID = 1;
+  uint32 seqNO = 2;
+  ServerErrorCode errCode = 3;
+  uint32 zoneID = 4;
+}
+
+
+message HandleGlobalAPBResponse {  
+}
+
+
+message HandleUserPhraseRequest {
+  uint32 deviceID = 1;
+  uint32 seqNO = 2;
+  ServerErrorCode errCode = 3;
+  string userPhrase = 4;
+}
+
+
+message HandleUserPhraseResponse {  
+}

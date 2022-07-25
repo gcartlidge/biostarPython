@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package lock_zone;
+
+option go_package = "biostar/service/lockZone";
+option java_package = "com.supremainc.sdk.lock_zone";
+option java_multiple_files = true;
+
+import "zone.proto";
+import "action.proto";
+
+service LockZone {
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc GetStatus(GetStatusRequest) returns (GetStatusResponse);
+  rpc Add(AddRequest) returns (AddResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc DeleteAll(DeleteAllRequest) returns (DeleteAllResponse);
+  rpc SetAlarm(SetAlarmRequest) returns (SetAlarmResponse);
+}
+
+message ZoneInfo {
+  uint32 zoneID = 1;
+  string name = 2;
+
+  uint32 lockScheduleID = 3;
+  uint32 unlockScheduleID = 4;
+  
+  bool bidirectionalLock = 5;
+  
+  bool disabled = 6;
+  bool alarmed = 7;
+
+  repeated uint32 doorIDs = 8;
+  repeated action.Action actions = 9;
+  repeated uint32 bypassGroupIDs = 10;
+  repeated uint32 unlockGroupIDs = 11;
+}
+
+
+message GetRequest {
+  uint32 deviceID = 1;
+}
+
+message GetResponse {
+  repeated ZoneInfo zones = 1;
+}
+
+message GetStatusRequest {
+  uint32 deviceID = 1;
+  repeated uint32 zoneIDs = 2;
+}
+
+message GetStatusResponse {
+  repeated zone.ZoneStatus status = 1;
+}
+
+message AddRequest {
+  uint32 deviceID = 1;
+  repeated ZoneInfo zones = 2;
+}
+
+message AddResponse {
+}
+
+message DeleteRequest {
+  uint32 deviceID = 1;
+  repeated uint32 zoneIDs = 2;
+}
+
+message DeleteResponse {
+}
+
+message DeleteAllRequest {
+  uint32 deviceID = 1;
+}
+
+message DeleteAllResponse {
+}
+
+
+message SetAlarmRequest {
+  uint32 deviceID = 1;
+  repeated uint32 zoneIDs = 2;
+  bool alarmed = 3;
+}
+
+message SetAlarmResponse {
+}

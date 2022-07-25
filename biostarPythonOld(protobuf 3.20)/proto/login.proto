@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package login;
+
+option go_package = "biostar/service/login";
+option java_package = "com.supremainc.sdk.login";
+option java_multiple_files = true;
+
+service Login {
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc LoginAdmin(LoginAdminRequest) returns (LoginAdminResponse);
+  
+  rpc Logout(LogoutRequest) returns (LogoutResponse);
+}
+
+message LoginRequest {
+  string tenantCert = 1;
+}
+
+message LoginResponse {
+  string jwtToken = 1;
+}
+
+message LoginAdminRequest {
+  string adminTenantCert = 1;
+  string tenantID = 2;
+}
+
+message LoginAdminResponse {
+  string jwtToken = 1;
+}
+
+
+message LogoutRequest {
+}
+
+message LogoutResponse {
+}
+
+

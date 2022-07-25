@@ -250,6 +250,8 @@ enum Type {
 	XSTATION_2_QR    	= 0x1F;
 	XSTATION_2 			= 0x20;
 	IM_120 				= 0x21;
+	XSTATION_2_FP       = 0x22;
+    BIOSTATION_3        = 0x23;
 
 	UNKNOWN				  = 0xFF;
 }

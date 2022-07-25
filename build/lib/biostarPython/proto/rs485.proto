@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+package rs485;
+
+option go_package = "biostar/service/rs485";
+option java_package = "com.supremainc.sdk.rs485";
+option java_multiple_files = true;
+
+import "device.proto";
+import "err.proto";
+
+service RS485 {
+  rpc SearchDevice(SearchDeviceRequest) returns (SearchDeviceResponse);
+  
+  rpc GetDevice(GetDeviceRequest) returns (GetDeviceResponse);
+  rpc SetDevice(SetDeviceRequest) returns (SetDeviceResponse);
+
+  rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+  rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
+  rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);  
+}
+
+message SlaveDeviceInfo {
+  uint32 deviceID = 1;
+  device.Type type = 2;
+  bool enabled = 3;
+  bool connected = 4;
+  uint32 channelID = 5; 
+}
+
+message SearchDeviceRequest {
+  uint32 deviceID = 1;
+}
+
+message SearchDeviceResponse {
+  repeated SlaveDeviceInfo slaveInfos = 1;
+}
+
+message SetDeviceRequest {
+  uint32 deviceID = 1;
+  repeated SlaveDeviceInfo slaveInfos = 2;
+}
+
+message SetDeviceResponse {
+}
+
+message GetDeviceRequest {
+  uint32 deviceID = 1;
+}
+
+message GetDeviceResponse {
+  repeated SlaveDeviceInfo slaveInfos = 2;
+}
+
+enum Mode {
+  NOT_USE = 0;
+  MASTER = 1;
+  SLAVE = 2;
+  STANDALONE = 3;
+}
+
+enum IPDOutputFormat {
+  CARDID = 0;
+  USERID = 1;
+}
+
+message IntelligentPDInfo {
+  bool useExceptionCode = 1;
+  bytes exceptionCode = 2;
+  IPDOutputFormat outputFormat = 3;
+  uint32 OSDPID = 4;
+}
+
+message RS485Channel {
+  uint32 channelID = 1;
+  Mode mode = 2;
+  uint32 baudRate = 3;
+}
+
+message RS485Config {
+  repeated RS485Channel channels = 1;
+  IntelligentPDInfo intelligentInfo = 2;
+}
+
+message GetConfigRequest {
+  uint32 deviceID = 1;
+}
+
+message GetConfigResponse {
+  RS485Config config = 1;
+}
+
+
+message SetConfigRequest {
+  uint32 deviceID = 1;
+  RS485Config config = 2;
+}
+
+message SetConfigResponse {
+}
+
+message SetConfigMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  RS485Config config = 2;
+}
+
+message SetConfigMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}

@@ -1,0 +1,15 @@
+2022-07-14 18:09:57,039 ERROR 404 biostarPython Cannot get the users: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Invalid user info: Cannot unmarshall user info: EOF"
+	debug_error_string = "{"created":"@1657818597.038000000","description":"Error received from peer ipv4:192.168.0.200:4000","file":"src/core/lib/surface/call.cc","file_line":953,"grpc_message":"Invalid user info: Cannot unmarshall user info: EOF","grpc_status":13}"
+>
+2022-07-14 18:10:09,412 ERROR 404 biostarPython Cannot get the users: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Invalid user info: Cannot unmarshall user info: EOF"
+	debug_error_string = "{"created":"@1657818609.412000000","description":"Error received from peer ipv4:192.168.0.200:4000","file":"src/core/lib/surface/call.cc","file_line":953,"grpc_message":"Invalid user info: Cannot unmarshall user info: EOF","grpc_status":13}"
+>
+2022-07-14 18:10:16,250 ERROR 404 biostarPython Cannot get the users: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Invalid user info: Cannot unmarshall user info: EOF"
+	debug_error_string = "{"created":"@1657818616.250000000","description":"Error received from peer ipv4:192.168.0.200:4000","file":"src/core/lib/surface/call.cc","file_line":953,"grpc_message":"Invalid user info: Cannot unmarshall user info: EOF","grpc_status":13}"
+>

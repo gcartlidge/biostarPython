@@ -1,0 +1,123 @@
+syntax = "proto3";
+
+package thermal;
+
+option go_package = "biostar/service/thermal";
+option java_package = "com.supremainc.sdk.thermal";
+option java_multiple_files = true;
+
+import "err.proto";
+
+service Thermal {
+  rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+  rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
+  rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);  
+  
+  rpc GetTemperatureLog(GetTemperatureLogRequest) returns (GetTemperatureLogResponse);
+}
+
+enum CheckMode {
+  OFF = 0x00;
+  HARD = 0x01;
+  SOFT = 0x02;
+}
+
+enum CheckOrder {
+  AFTER_AUTH = 0x00;
+  BEFORE_AUTH = 0x01;
+  WITHOUT_AUTH = 0x02;
+}
+
+enum TemperatureFormat {
+  FAHRENHEIT = 0x00;
+  CELSIUS = 0x01;
+}
+
+message ThermalCameraROI {
+  uint32 x = 1;
+  uint32 y = 2;
+  uint32 width = 3;
+  uint32 height = 4;
+}
+
+message ThermalCamera {
+  uint32 distance = 1;
+  uint32 emissionRate = 2;
+  ThermalCameraROI ROI = 3;
+  
+  bool useBodyCompensation = 4;
+  int32 compensationTemperature = 5;
+}
+
+enum MaskDetectionLevel {
+  NOT_USE = 0;
+  NORMAL = 1;
+  HIGH = 2;
+  VERY_HIGH = 3;
+}
+
+message ThermalConfig {
+  CheckMode checkMode = 1;
+  CheckOrder checkOrder = 2;
+  TemperatureFormat temperatureFormat = 3;
+  uint32 temperatureThreshold = 4;
+  
+  bool auditTemperature = 5;
+  bool useRejectSound = 6;
+  bool useOverlapThermal = 7;
+
+  ThermalCamera camera = 8;
+
+  // only for FaceStation F2
+  CheckMode maskCheckMode = 9;
+  MaskDetectionLevel maskDetectionLevel = 10;
+
+}
+
+message GetConfigRequest {
+  uint32 deviceID = 1;
+}
+
+message GetConfigResponse {
+  ThermalConfig config = 1;
+}
+
+message SetConfigRequest {
+  uint32 deviceID = 1;
+  ThermalConfig config = 2;
+}
+
+message SetConfigResponse {
+}
+
+
+message SetConfigMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  ThermalConfig config = 2;
+}
+
+message SetConfigMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}
+
+message TemperatureLog {
+  uint32 ID = 1;
+  uint32 timestamp = 2;
+  uint32 deviceID = 3;
+  string userID = 4;
+  uint32 eventCode = 5;
+  uint32 subCode = 6;  
+  uint32 temperature = 7;
+}
+
+
+message GetTemperatureLogRequest {
+  uint32 deviceID = 1;
+  uint32 startEventID = 2;
+  uint32 maxNumOfLog = 3;
+}
+
+
+message GetTemperatureLogResponse {
+  repeated TemperatureLog temperatureEvents = 1;
+}

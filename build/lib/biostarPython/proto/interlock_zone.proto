@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package interlock_zone;
+
+option go_package = "biostar/service/interlockZone";
+option java_package = "com.supremainc.sdk.interlock_zone";
+option java_multiple_files = true;
+
+import "zone.proto";
+import "action.proto";
+import "device.proto";
+
+service InterlockZone {
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc GetStatus(GetStatusRequest) returns (GetStatusResponse);
+  rpc Add(AddRequest) returns (AddResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc DeleteAll(DeleteAllRequest) returns (DeleteAllResponse);
+  rpc SetAlarm(SetAlarmRequest) returns (SetAlarmResponse);
+}
+
+enum OperationType {
+	OPERATION_NONE = 0x00;
+	OPERATION_ENRTY = 0x01;
+	OPERATION_EXIT = 0x02;
+	OPERATION_ALL = 0xFF;
+}
+
+message Input {
+  uint32 deviceID = 1;
+  uint32 port = 2;
+  device.SwitchType switchType = 3;
+  uint32 duration = 4;
+  uint32 operation = 5;
+}
+
+message Output {
+  uint32 event = 1;
+  action.Action action = 2;
+}
+
+message ZoneInfo {
+  uint32 zoneID = 1;
+  string name = 2;
+  bool disabled = 3;
+  repeated Input inputs = 4;
+  repeated Output outputs = 5;
+  repeated uint32 doorIDs = 6;
+}
+
+message GetRequest {
+  uint32 deviceID = 1;
+}
+
+message GetResponse {
+  repeated ZoneInfo zones = 1;
+}
+
+message GetStatusRequest {
+  uint32 deviceID = 1;
+  repeated uint32 zoneIDs = 2;
+}
+
+message GetStatusResponse {
+  repeated zone.ZoneStatus status = 1;
+}
+
+message AddRequest {
+  uint32 deviceID = 1;
+  repeated ZoneInfo zones = 2;
+}
+
+message AddResponse {
+}
+
+message DeleteRequest {
+  uint32 deviceID = 1;
+  repeated uint32 zoneIDs = 2;
+}
+
+message DeleteResponse {
+}
+
+message DeleteAllRequest {
+  uint32 deviceID = 1;
+}
+
+message DeleteAllResponse {
+}
+
+
+message SetAlarmRequest {
+  uint32 deviceID = 1;
+  repeated uint32 zoneIDs = 2;
+  bool alarmed = 3;
+}
+
+message SetAlarmResponse {
+}

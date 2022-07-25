@@ -1,0 +1,133 @@
+syntax = "proto3";
+
+package gateway;
+
+option go_package = "biostar/service/gateway";
+option java_package = "com.supremainc.sdk.gateway";
+option java_multiple_files = true;
+
+import "cert.proto";
+
+service Gateway {
+  rpc GetList(GetListRequest) returns (GetListResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+
+  rpc Add(AddRequest) returns (AddResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+
+  rpc CreateCertificate(CreateCertificateRequest) returns (CreateCertificateResponse);
+  rpc GetIssuanceHistory(GetIssuanceHistoryRequest) returns (GetIssuanceHistoryResponse);
+  rpc GetCertificateBlacklist(GetCertificateBlacklistRequest) returns (GetCertificateBlacklistResponse);
+  rpc AddCertificateBlacklist(AddCertificateBlacklistRequest) returns (AddCertificateBlacklistResponse);
+  rpc DeleteCertificateBlacklist(DeleteCertificateBlacklistRequest) returns (DeleteCertificateBlacklistResponse);  
+
+  rpc SubscribeStatus(SubscribeStatusRequest) returns (stream StatusChange);
+}
+
+message GatewayInfo {
+  string gatewayID = 1;
+  repeated uint32 deviceIDs = 2;
+  bool isConnected = 3;
+}
+
+message GetListRequest {
+}
+
+message GetListResponse {
+  repeated string gatewayIDs = 1; 
+}
+
+
+message GetRequest {
+  repeated string gatewayIDs = 1;
+}
+
+message GetResponse {
+  repeated GatewayInfo gatewayInfos = 1; 
+}
+
+message AddRequest {
+  repeated string gatewayIDs = 1;
+}
+
+message AddResponse {
+}
+
+message DeleteRequest {
+  repeated string gatewayIDs = 1;
+}
+
+message DeleteResponse {
+}
+
+message CreateCertificateRequest {
+  string gatewayID = 1;
+  cert.PKIName subject = 2;
+  int32 expireAfterYears = 3;  
+}
+
+message CreateCertificateResponse {
+  string gatewayCert = 1;
+  string gatewayKey = 2;
+}
+
+
+message GetIssuanceHistoryRequest {
+  repeated string gatewayIDs = 1;
+}
+
+
+message CertificateInfo {
+  string gatewayID = 1;
+  cert.PKIName subject = 2; 
+  int64 serialNO = 3;
+  int64 issueDate = 4;
+  int64 expiryDate = 5;
+  bool blacklisted = 6;
+}
+
+message GetIssuanceHistoryResponse {
+  repeated CertificateInfo certInfos = 1;
+}
+
+message GetCertificateBlacklistRequest {
+  repeated string gatewayIDs = 1;
+}
+
+message GetCertificateBlacklistResponse {
+  repeated CertificateInfo certInfos = 1;
+}
+
+message AddCertificateBlacklistRequest {
+  string gatewayID = 1;
+  repeated int64 serialNOs = 2;
+}
+
+message AddCertificateBlacklistResponse {
+}
+
+message DeleteCertificateBlacklistRequest {
+  string gatewayID = 1;
+  repeated int64 serialNOs = 2;
+}
+
+message DeleteCertificateBlacklistResponse {
+}
+
+
+enum Status {
+	// Normal Status
+	DISCONNECTED   	= 0x00;
+  CONNECTED		    = 0x01;
+}
+
+message SubscribeStatusRequest {
+  int32 queueSize = 1;
+}
+
+message StatusChange {
+  string gatewayID = 1;
+  Status status = 2;
+  uint32 timestamp = 3;
+}
+

@@ -1,0 +1,152 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "biostar/service/auth";
+option java_package = "com.supremainc.sdk.auth";
+option java_multiple_files = true;
+
+import "err.proto";
+
+service Auth {
+  rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+  rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
+  rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);    
+}
+
+enum AuthMode {
+	AUTH_MODE_BIOMETRIC_ONLY = 0;
+	AUTH_MODE_BIOMETRIC_PIN = 1;
+
+	AUTH_MODE_CARD_ONLY = 2;
+	AUTH_MODE_CARD_BIOMETRIC = 3;
+	AUTH_MODE_CARD_PIN = 4;
+	AUTH_MODE_CARD_BIOMETRIC_OR_PIN = 5;
+	AUTH_MODE_CARD_BIOMETRIC_PIN = 6;
+
+	AUTH_MODE_ID_BIOMETRIC = 7;
+	AUTH_MODE_ID_PIN = 8;
+	AUTH_MODE_ID_BIOMETRIC_OR_PIN = 9;
+  AUTH_MODE_ID_BIOMETRIC_PIN = 10;
+
+  AUTH_MODE_NONE = 0xff;
+  AUTH_MODE_PROHIBITED = 0xfe;
+
+  // for F2 only  
+	AUTH_EXT_MODE_FACE_ONLY	= 11;
+	AUTH_EXT_MODE_FACE_FINGERPRINT = 12;
+	AUTH_EXT_MODE_FACE_PIN = 13;
+	AUTH_EXT_MODE_FACE_FINGERPRINT_OR_PIN = 14;
+	AUTH_EXT_MODE_FACE_FINGERPRINT_PIN = 15;
+
+	AUTH_EXT_MODE_FINGERPRINT_ONLY = 16;
+	AUTH_EXT_MODE_FINGERPRINT_FACE = 17;
+	AUTH_EXT_MODE_FINGERPRINT_PIN = 18;
+	AUTH_EXT_MODE_FINGERPRINT_FACE_OR_PIN = 19;
+  AUTH_EXT_MODE_FINGERPRINT_FACE_PIN = 20;
+  
+	AUTH_EXT_MODE_CARD_ONLY = 21;
+	AUTH_EXT_MODE_CARD_FACE = 22;
+	AUTH_EXT_MODE_CARD_FINGERPRINT = 23;
+	AUTH_EXT_MODE_CARD_PIN = 24;
+	AUTH_EXT_MODE_CARD_FACE_OR_FINGERPRINT = 25;
+	AUTH_EXT_MODE_CARD_FACE_OR_PIN = 26;
+	AUTH_EXT_MODE_CARD_FINGERPRINT_OR_PIN = 27;
+	AUTH_EXT_MODE_CARD_FACE_OR_FINGERPRINT_OR_PIN = 28;
+	AUTH_EXT_MODE_CARD_FACE_FINGERPRINT = 29;
+	AUTH_EXT_MODE_CARD_FACE_PIN = 30;
+	AUTH_EXT_MODE_CARD_FINGERPRINT_FACE = 31;
+	AUTH_EXT_MODE_CARD_FINGERPRINT_PIN = 32;
+	AUTH_EXT_MODE_CARD_FACE_OR_FINGERPRINT_PIN = 33;
+	AUTH_EXT_MODE_CARD_FACE_FINGERPRINT_OR_PIN = 34;
+  AUTH_EXT_MODE_CARD_FINGERPRINT_FACE_OR_PIN = 35;
+  
+	AUTH_EXT_MODE_ID_FACE = 36;
+	AUTH_EXT_MODE_ID_FINGERPRINT = 37;
+	AUTH_EXT_MODE_ID_PIN = 38;
+	AUTH_EXT_MODE_ID_FACE_OR_FINGERPRINT = 39;
+	AUTH_EXT_MODE_ID_FACE_OR_PIN = 40;
+	AUTH_EXT_MODE_ID_FINGERPRINT_OR_PIN = 41;
+	AUTH_EXT_MODE_ID_FACE_OR_FINGERPRINT_OR_PIN = 42;
+	AUTH_EXT_MODE_ID_FACE_FINGERPRINT = 43;
+	AUTH_EXT_MODE_ID_FACE_PIN = 44;
+	AUTH_EXT_MODE_ID_FINGERPRINT_FACE = 45;
+	AUTH_EXT_MODE_ID_FINGERPRINT_PIN = 46;
+	AUTH_EXT_MODE_ID_FACE_OR_FINGERPRINT_PIN = 47;
+	AUTH_EXT_MODE_ID_FACE_FINGERPRINT_OR_PIN = 48;
+  AUTH_EXT_MODE_ID_FINGERPRINT_FACE_OR_PIN = 49;
+}
+
+
+enum OperatorLevel {
+	OPERATOR_LEVEL_NONE = 0;
+	OPERATOR_LEVEL_ADMIN = 1;
+	OPERATOR_LEVEL_CONFIG = 2;
+	OPERATOR_LEVEL_USER = 3;
+}
+
+enum FaceDetectionLevel {
+	FACE_DETECTION_NONE = 0;
+	FACE_DETECTION_NORMAL = 1;
+	FACE_DETECTION_STRICT = 2;
+}
+
+enum GlobalAPBFailActionType {
+	GLOBAL_APB_FAIL_ACTION_NONE = 0;
+	GLOBAL_APB_FAIL_ACTION_SOFT = 1;
+	GLOBAL_APB_FAIL_ACTION_HARD = 2;
+}
+
+
+message Operator {
+  string userID = 1;
+  OperatorLevel level = 2;
+}
+
+
+message AuthSchedule {
+  AuthMode mode = 1;
+  uint32 scheduleID = 2;
+}
+
+
+message AuthConfig {
+  repeated AuthSchedule authSchedules = 1;
+  bool useGlobalAPB = 2;
+  GlobalAPBFailActionType globalAPBFailAction = 3;
+  bool useGroupMatching = 4;
+  bool usePrivateAuth = 5;
+  FaceDetectionLevel faceDetectionLevel = 6;
+  bool useServerMatching = 7;
+  bool useFullAccess = 8;
+  uint32 matchTimeout = 9;
+  uint32 authTimeout = 10;
+  repeated Operator operators = 11;
+}
+
+
+message GetConfigRequest {
+  uint32 deviceID = 1;
+}
+
+message GetConfigResponse {
+  AuthConfig config = 1;
+}
+
+
+message SetConfigRequest {
+  uint32 deviceID= 1;
+  AuthConfig config = 2;
+}
+
+message SetConfigResponse {
+}
+
+message SetConfigMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  AuthConfig config = 2;
+}
+
+message SetConfigMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}
