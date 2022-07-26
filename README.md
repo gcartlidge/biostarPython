@@ -1,4 +1,5 @@
 #Python Client for Suprema GSDK<br>
+0.2.0.1 - Added searchInfoToConnectInfo(self, searchInfo, isAsync) under ConnectSvc, allowing generation of Connection Parameters directly from search results<br>
 0.2.0.0 - Upgraded support for gRPC to the newest version supported by python (Regenerated .py files from .proto)<br>
 0.1.9.0 - Added zone services, LockZone, APBZone, TimedAPBZone, FireZone, InterlockZone and IntrusionZone are included.
           Also edited protobuf version to include security fixes (3.20.1)<br><br><br>
