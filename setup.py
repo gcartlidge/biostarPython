@@ -6,7 +6,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name='biostarPython',
-    version='0.2.0.1',
+    version='0.2.0.0',
     author_email = 'gcartlidge@supremainc.com',
     author = 'SupremaUK',
     description = 'Python client for Suprema GSDK with included callable classes.',
