@@ -1,4 +1,4 @@
-__version__ = "0.2.0"
+__version__ = "0.2.0.1"
 __author__ = 'SupremaUK'
 __credits__ = 'SupremaInc'
 
@@ -123,6 +123,19 @@ class ConnectSvc:
        return x
       else:
        logger.error('DeviceID given not in Connected list')
+  def searchInfoToConnectInfo(self, searchInfo, isAsync):
+   try:
+    if isAsync == True:
+     info = self.getAsyncConnInfo(searchInfo.deviceID,searchInfo.IPAddr,searchInfo.port,searchInfo.useSSL)
+     return info
+    elif isAsync == False: 
+     info = self.getConnInfo(searchInfo.IPAddr,searchInfo.port,searchInfo.useSSL)
+     return info
+    else:
+     raise ValueError('isAsync is meant to be Boolean, Try again')    
+   except Exception as e:
+    logger.error(f'Failed to get ConnectInfo from SearchInfo: {e}')
+    raise
   def connectInfoToAsyncInfo(self, devID):
    try:
     for x in self.getDeviceList():
@@ -1638,7 +1651,7 @@ class InterlockZoneSvc:
       logger.error(f'Cannot set alarm on Interlock Zones: {e}')
       raise  
 #below currently not implemented in server.exe
-   """
+"""
 class ConfigSvc:
   stub = None
   def __init__(self, channel): 
