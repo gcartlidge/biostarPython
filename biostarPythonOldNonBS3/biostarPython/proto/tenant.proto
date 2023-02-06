@@ -1,0 +1,135 @@
+syntax = "proto3";
+
+package tenant;
+
+option go_package = "biostar/service/tenant";
+option java_package = "com.supremainc.sdk.tenant";
+option java_multiple_files = true;
+
+import "cert.proto";
+
+service Tenant {
+  rpc GetList(GetListRequest) returns (GetListResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+
+  rpc Add(AddRequest) returns (AddResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+
+  rpc AddGateway(AddGatewayRequest) returns (AddGatewayResponse);
+  rpc DeleteGateway(DeleteGatewayRequest) returns (DeleteGatewayResponse);
+
+  rpc CreateCertificate(CreateCertificateRequest) returns (CreateCertificateResponse);
+  rpc GetIssuanceHistory(GetIssuanceHistoryRequest) returns (GetIssuanceHistoryResponse);
+  rpc GetCertificateBlacklist(GetCertificateBlacklistRequest) returns (GetCertificateBlacklistResponse);
+  rpc AddCertificateBlacklist(AddCertificateBlacklistRequest) returns (AddCertificateBlacklistResponse);
+  rpc DeleteCertificateBlacklist(DeleteCertificateBlacklistRequest) returns (DeleteCertificateBlacklistResponse);
+}
+
+
+message TenantInfo {
+  string tenantID = 1;
+  repeated string gatewayIDs = 2;
+}
+
+message GetListRequest {
+}
+
+message GetListResponse {
+  repeated string tenantIDs = 1; 
+}
+
+message GetRequest {
+  repeated string tenantIDs = 1;
+}
+
+message GetResponse {
+  repeated TenantInfo tenantInfos = 1;
+}
+
+message AddRequest {
+  repeated TenantInfo tenantInfos = 1;
+}
+
+message AddResponse {
+}
+
+message DeleteRequest {
+  repeated string tenantIDs = 1;
+}
+
+message DeleteResponse {
+}
+
+message AddGatewayRequest {
+  string tenantID = 1;
+  repeated string gatewayIDs = 2;
+}
+
+message AddGatewayResponse {
+}
+
+
+message DeleteGatewayRequest {
+  string tenantID = 1;
+  repeated string gatewayIDs = 2;
+}
+
+message DeleteGatewayResponse {
+}
+
+
+message CreateCertificateRequest {
+  string tenantID = 1;
+  cert.PKIName subject = 2;
+  int32 expireAfterYears = 3;  
+}
+
+message CreateCertificateResponse {
+  string tenantCert = 1;
+  string tenantKey = 2;
+}
+
+
+message GetIssuanceHistoryRequest {
+  repeated string tenantIDs = 1;
+}
+
+
+message CertificateInfo {
+  string tenantID = 1;
+  cert.PKIName subject = 2; 
+  int64 serialNO = 3;
+  int64 issueDate = 4;
+  int64 expiryDate = 5;
+  bool blacklisted = 6;
+}
+
+message GetIssuanceHistoryResponse {
+  repeated CertificateInfo certInfos = 1;
+}
+
+message GetCertificateBlacklistRequest {
+  repeated string tenantIDs = 1;
+}
+
+message GetCertificateBlacklistResponse {
+  repeated CertificateInfo certInfos = 1;
+}
+
+message AddCertificateBlacklistRequest {
+  string tenantID = 1;
+  repeated int64 serialNOs = 2;
+}
+
+message AddCertificateBlacklistResponse {
+}
+
+message DeleteCertificateBlacklistRequest {
+  string tenantID = 1;
+  repeated int64 serialNOs = 2;
+}
+
+message DeleteCertificateBlacklistResponse {
+}
+
+

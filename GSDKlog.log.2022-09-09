@@ -1,0 +1,20 @@
+2022-09-09 10:33:52,779 ERROR 402 biostarPython Cannot normalize Image: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNIMPLEMENTED
+	details = "Only F2 support normalization"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:192.168.0.250:4000 {grpc_message:"Only F2 support normalization", grpc_status:12, created_time:"2022-09-09T09:33:52.779221326+00:00"}"
+>
+2022-09-09 10:35:11,058 ERROR 402 biostarPython Cannot normalize Image: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Cannot normalize the unwrapped jpeg image: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_NORMALIZE_FACE {StartCode:[123 123 60 60] Checksum:0 DeviceID:543720332 Flag:3 Version:3 SequenceNO:1 Index:0 TotalNo:0 PayloadSize:0 Code:65214 Command:Command(418) Param1:0 Param2:0}"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:192.168.0.250:4000 {created_time:"2022-09-09T09:35:11.058881133+00:00", grpc_status:13, grpc_message:"Cannot normalize the unwrapped jpeg image: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_NORMALIZE_FACE {StartCode:[123 123 60 60] Checksum:0 DeviceID:543720332 Flag:3 Version:3 SequenceNO:1 Index:0 TotalNo:0 PayloadSize:0 Code:65214 Command:Command(418) Param1:0 Param2:0}"}"
+>
+2022-09-09 10:36:00,959 ERROR 402 biostarPython Cannot normalize Image: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Cannot normalize the unwrapped jpeg image: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_NORMALIZE_FACE {StartCode:[123 123 60 60] Checksum:0 DeviceID:543720332 Flag:3 Version:3 SequenceNO:3 Index:0 TotalNo:0 PayloadSize:0 Code:65214 Command:Command(418) Param1:0 Param2:0}"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:192.168.0.250:4000 {created_time:"2022-09-09T09:36:00.959786761+00:00", grpc_status:13, grpc_message:"Cannot normalize the unwrapped jpeg image: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_NORMALIZE_FACE {StartCode:[123 123 60 60] Checksum:0 DeviceID:543720332 Flag:3 Version:3 SequenceNO:3 Index:0 TotalNo:0 PayloadSize:0 Code:65214 Command:Command(418) Param1:0 Param2:0}"}"
+>
+2022-09-09 10:37:18,932 ERROR 395 biostarPython Cannot scan a face: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Cannot extract face template: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_NORMALIZE_FACE {StartCode:[123 123 60 60] Checksum:0 DeviceID:543720332 Flag:3 Version:3 SequenceNO:6 Index:0 TotalNo:0 PayloadSize:0 Code:65214 Command:BS2_CMD_EXTRACT_FACE_TEMPLATE Param1:0 Param2:0}"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:192.168.0.250:4000 {grpc_message:"Cannot extract face template: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_NORMALIZE_FACE {StartCode:[123 123 60 60] Checksum:0 DeviceID:543720332 Flag:3 Version:3 SequenceNO:6 Index:0 TotalNo:0 PayloadSize:0 Code:65214 Command:BS2_CMD_EXTRACT_FACE_TEMPLATE Param1:0 Param2:0}", grpc_status:13, created_time:"2022-09-09T09:37:18.933101477+00:00"}"
+>

@@ -1,11 +1,11 @@
-__version__ = "0.2.1.2"
+__version__ = "0.3.0.1"
 __author__ = 'SupremaUK'
 __credits__ = 'SupremaInc'
 
 from os.path import dirname
 from sys import exc_info
 from json import load as jsonload
-from biostarPython.service import access_pb2_grpc, action_pb2_grpc, admin_pb2_grpc, apb_zone_pb2_grpc, auth_pb2_grpc, card_pb2_grpc, cert_pb2_grpc, config_pb2_grpc, connect_master_pb2_grpc, connect_pb2_grpc, device_pb2_grpc, display_pb2_grpc, door_pb2_grpc, err_pb2_grpc, event_pb2_grpc, face_pb2_grpc, finger_pb2_grpc, fire_zone_pb2_grpc, gateway_pb2_grpc, input_pb2_grpc, interlock_zone_pb2_grpc, intrusion_zone_pb2_grpc, lift_pb2_grpc, lift_zone_pb2_grpc, lock_zone_pb2_grpc, login_pb2_grpc, network_pb2_grpc, operator_pb2_grpc, rs485_pb2_grpc, schedule_pb2_grpc, server_pb2_grpc, status_pb2_grpc, system_pb2_grpc, tenant_pb2_grpc, thermal_pb2_grpc, timed_apb_zone_pb2_grpc, time_pb2_grpc, tna_pb2_grpc, user_pb2_grpc, voip_pb2_grpc, wiegand_pb2_grpc
+from biostarPython.service import access_pb2_grpc, action_pb2_grpc, admin_pb2_grpc, apb_zone_pb2_grpc, auth_pb2_grpc, card_pb2_grpc, cert_pb2_grpc, connect_master_pb2_grpc, connect_pb2_grpc, device_pb2_grpc, display_pb2_grpc, door_pb2_grpc, err_pb2_grpc, event_pb2_grpc, face_pb2_grpc, finger_pb2_grpc, fire_zone_pb2_grpc, gateway_pb2_grpc, input_pb2_grpc, interlock_zone_pb2_grpc, intrusion_zone_pb2_grpc, lift_pb2_grpc, lift_zone_pb2_grpc, lock_zone_pb2_grpc, login_pb2_grpc, network_pb2_grpc, operator_pb2_grpc, rs485_pb2_grpc, schedule_pb2_grpc, server_pb2_grpc, status_pb2_grpc, system_pb2_grpc, tenant_pb2_grpc, thermal_pb2_grpc, timed_apb_zone_pb2_grpc, time_pb2_grpc, tna_pb2_grpc, user_pb2_grpc, voip_pb2_grpc, wiegand_pb2_grpc, rtsp_pb2_grpc, voip_pb2_grpc
 import grpc
 import logging
 from logging.handlers import TimedRotatingFileHandler
@@ -262,6 +262,13 @@ class DeviceSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot get the device info: {e}')
       raise
+  def getCap(self, deviceID):
+    try:
+      response = self.stub.GetCapability(device_pb2_grpc.device__pb2.GetCapabilityRequest(deviceID=deviceID))
+      return response.deviceCapability
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the capability: {e}')
+      raise
   def getCapInfo(self, deviceID):
     try:
       response = self.stub.GetCapabilityInfo(device_pb2_grpc.device__pb2.GetCapabilityInfoRequest(deviceID=deviceID))
@@ -269,11 +276,23 @@ class DeviceSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot get the capability info: {e}')
       raise
+  def deleteRootCA(self, deviceID):
+    try:
+      response = self.stub.DeleteRootCA(device_pb2_grpc.device__pb2.DeleteRootCARequest(deviceID=deviceID))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot delete Root CA: {e}')
+      raise
   def reboot(self, deviceID):
     try:
       response = self.stub.Reboot(device_pb2_grpc.device__pb2.RebootRequest(deviceID=deviceID))
     except grpc.RpcError as e:
       logger.error(f'Cannot reboot: {e}')
+      raise
+  def rebootMulti(self, deviceIDs):
+    try:
+      response = self.stub.RebootMulti(device_pb2_grpc.device__pb2.RebootMultiRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot reboot Multiple Devices: {e}')
       raise
   def lock(self, deviceID):
     try:
@@ -281,15 +300,33 @@ class DeviceSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot Lock Device: {e}')
       raise
+  def lockMulti(self, deviceIDs):
+    try:
+      response = self.stub.LockMulti(device_pb2_grpc.device__pb2.LockMultiRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Lock Devices: {e}')
+      raise
   def unlock(self, deviceID):
     try:
       response = self.stub.Unlock(device_pb2_grpc.device__pb2.UnlockRequest(deviceID=deviceID))
     except grpc.RpcError as e:
       logger.error(f'Cannot Unlock Device: {e}')
-      rais
+      raise
+  def unlockMulti(self, deviceIDs):
+    try:
+      response = self.stub.UnlockMulti(device_pb2_grpc.device__pb2.UnlockRequestMulti(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Unlock Devices: {e}')
+      raise
   def factoryReset(self, deviceID):
     try:
-      response = self.stub.FactoryReset(device_pb2_grpc.device__pb2.FactoryResetRequest(deviceID=deviceID))
+      response = self.stub.FactoryReset(device_pb2_grpc.device__pb2.FactoryResetRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Factory Reset Device: {e}')
+      raise
+  def factoryResetMulti(self, deviceIDs):
+    try:
+      response = self.stub.FactoryResetMulti(device_pb2_grpc.device__pb2.FactoryResetMultiRequest(deviceIDs=deviceIDs))
     except grpc.RpcError as e:
       logger.error(f'Cannot Factory Reset Device: {e}')
       raise
@@ -298,6 +335,24 @@ class DeviceSvc:
       response = self.stub.ResetConfig(device_pb2_grpc.device__pb2.ResetConfigRequest(deviceID=deviceID, withNetwork=withNetwork, withDB=withDB))
     except grpc.RpcError as e:
       logger.error(f'Cannot Reset Device Config: {e}')
+      raise
+  def resetConfigMulti(self, deviceID, withNetwork, withDB):
+    try:
+      response = self.stub.ResetConfigMulti(device_pb2_grpc.device__pb2.ResetConfigMultiRequest(deviceIDs=deviceIDs, withNetwork=withNetwork, withDB=withDB))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Reset Device Config: {e}')
+      raise
+  def clearDB(self, deviceID):
+    try:
+      response = self.stub.ClearDB(device_pb2_grpc.device__pb2.ClearDBRequest(deviceID=deviceID))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Clear DB: {e}')
+      raise
+  def clearDBMulti(self, deviceID):
+    try:
+      response = self.stub.ClearDBMulti(device_pb2_grpc.device__pb2.ClearDBMultiRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Clear DBs: {e}')
       raise
   def firmwareUpdate(self, deviceID, firmwareData):
     try:
@@ -310,6 +365,19 @@ class DeviceSvc:
       response = self.stub.UpgradeFirmwareMulti(device_pb2_grpc.device__pb2.UpgradeFirmwareMultiRequest(deviceIDs=deviceIDs, firmwareData = firmwareData))
     except grpc.RpcError as e:
       logger.error(f'Cannot Upgrade Multiple Devices: {e}')
+      raise
+  def getHashKey(self, deviceID):
+    try:
+      response = self.stub.GetHashKey(device_pb2_grpc.device__pb2.GetHashKeyRequest(deviceID=deviceID))
+      return response
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Get Hash Key: {e}')
+      raise
+  def setHashKey(self, deviceID, setDefault, hashKey):
+    try:
+      response = self.stub.SetHashKey(device_pb2_grpc.device__pb2.SetHashKeyRequest(deviceID=deviceID, setDefault=setDefault, hashKey=hashKey))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Set Hash Key: {e}')
       raise
 class FaceSvc:
   stub = None
@@ -332,6 +400,13 @@ class FaceSvc:
       return response.templateData
     except grpc.RpcError as e:
       logger.error(f'Cannot scan a face: {e}')
+      raise  
+  def normalize(self, deviceID, unwrappedImageData):
+    try:
+      response = self.stub.Normalize(face_pb2_grpc.face__pb2.NormalizeRequest(deviceID=deviceID, unwrappedImageData=unwrappedImageData))
+      return response.wrappedImageData
+    except grpc.RpcError as e:
+      logger.error(f'Cannot normalize Image: {e}')
       raise      
   def getConfig(self, deviceID):
     try:
@@ -344,7 +419,13 @@ class FaceSvc:
     try:
       response = self.stub.SetConfig(face_pb2_grpc.face__pb2.SetConfigRequest(deviceID=deviceID, config=config))
     except grpc.RpcError as e:
-      logger.error(f'Cannot get the face config: {e}')
+      logger.error(f'Cannot set the face config: {e}')
+      raise
+  def setConfigMulti(self, deviceIDs, config):
+    try:
+      response = self.stub.SetConfigMulti(face_pb2_grpc.face__pb2.SetConfigMultiRequest(deviceIDs=deviceIDs, config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the face configs: {e}')
       raise
 class FingerSvc:
    stub = None
@@ -360,6 +441,27 @@ class FingerSvc:
       return response
     except grpc.RpcError as e:
       logger.error(f'Cannot scan a finger: {e}')
+      raise
+   def getConfig(self, deviceID):
+    try:
+      response = self.stub.GetConfig(finger_pb2_grpc.finger__pb2.GetConfigRequest(deviceID=deviceID))
+      return response.config
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get Finger Config: {e}')
+      raise
+   def setConfig(self, deviceID, config):
+    try:
+      response = self.stub.SetConfig(finger_pb2_grpc.finger__pb2.SetConfigRequest(deviceID=deviceID, config=config))
+      return response
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Set Finger Config: {e}')
+      raise
+   def setConfigMulti(self, deviceIDs,config):
+    try:
+      response = self.stub.SetConfigMulti(finger_pb2_grpc.finger__pb2.SetConfigMultiRequest(deviceIDs=deviceIDs))
+      return response
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set Finger Multi Config: {e}')
       raise
    def getImage(self, deviceID):
     try:
@@ -389,12 +491,19 @@ class StatusSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot set the status config: {e}')
       raise
+  def setConfigMulti(self, deviceIDs, config):
+    try:
+      self.stub.SetConfigMulti(status_pb2_grpc.status__pb2.SetConfigMultiRequest(deviceIDs=deviceIDs, config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the status config: {e}')
+      raise
 class UserSvc:
   # allow calling UserSvc.newUser() to make a new user easily, using UserInfo from user_pb2 that is imported into user_pb2_grpc
   newUser = user_pb2_grpc.user__pb2.UserInfo
   newUserCard = user_pb2_grpc.user__pb2.UserCard
   newUserFinger = user_pb2_grpc.user__pb2.UserFinger
   newUserFace = user_pb2_grpc.user__pb2.UserFace
+  newUserJobCode = user_pb2_grpc.user__pb2.UserJobCode
   stub = None
   def __init__(self, channel): 
     try:
@@ -536,6 +645,31 @@ class UserSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot get PIN Hash: {e}')
       raise 
+  def setAccessGroupMulti(self, deviceIDs, userAccessGroups):
+    try:
+      self.stub.SetAccessGroupMulti(user_pb2_grpc.user__pb2.SetAccessGroupMultiRequest(deviceIDs=deviceIDs, userAccessGroups=userAccessGroups))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set multiple user access groups: {e}')
+      raise 
+  def setJobCode(self, deviceID, userJobCodes):
+    try:
+      self.stub.SetJobCode(user_pb2_grpc.user__pb2.SetJobCodeRequest(deviceID=deviceID, userJobCodes=userJobCodes))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set Job Codes: {e}')
+      raise 
+  def getJobCode(self, deviceID, userIDs):
+    try:
+      response = self.stub.GetJobCode(user_pb2_grpc.user__pb2.GetJobCodeRequest(deviceID=deviceID, userIDs=userIDs))
+      return response.userJobCodes
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get Job Codes: {e}')
+      raise 
+  def setJobCodeMulti(self, deviceIDs, userAccessGroups):
+    try:
+      self.stub.SetJobCodeMulti(user_pb2_grpc.user__pb2.SetJobCodeMultiRequest(deviceIDs=deviceIDs, userJobCodes=userJobCodes))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set multiple Job Codes: {e}')
+      raise   
 class DisplaySvc:
   stub = None
   
@@ -562,6 +696,18 @@ class DisplaySvc:
       self.stub.UpdateNotice(display_pb2_grpc.display__pb2.UpdateNoticeRequest(deviceID=deviceID, notice=notice))
     except grpc.RpcError as e:
       logger.error(f'Cannot Update Notice: {e}')
+      raise
+  def updateSound(self, deviceID, index, waveData):
+    try:
+      self.stub.UpdateSound(display_pb2_grpc.display__pb2.UpdateSoundRequest(deviceID=deviceID, index=index, waveData=waveData))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Update Sound: {e}')
+      raise
+  def updateSoundMulti(self, deviceIDs, index, waveData):
+    try:
+      self.stub.UpdateSoundMulti(display_pb2_grpc.display__pb2.UpdateSoundMultiRequest(deviceIDs=deviceIDs, index=index, waveData=waveData))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Update Sounds: {e}')
       raise
   def updateNoticeMulti(self, deviceID, notice):
     try:
@@ -835,6 +981,20 @@ class EventSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot get the image events: {e}')
       raise    
+
+  def clearLog(self, deviceID):
+    try:
+      response = self.stub.ClearLog(event_pb2_grpc.event__pb2.ClearLogRequest(deviceID=deviceID))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot clear logs: {e}')
+      raise
+      
+  def clearLogMulti(self, deviceIDs):
+    try:
+      response = self.stub.ClearLogMulti(event_pb2_grpc.event__pb2.ClearLogMultiRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot clear logs: {e}')
+      raise
 
   def enableMonitoring(self, deviceID):
     try:
@@ -1343,6 +1503,60 @@ class OperatorSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot delete all the Operators on multiple devices: {e}')
       raise
+class RTSPSvc:
+  stub = None
+  def __init__(self, channel): 
+    try:
+      self.stub = rtsp_pb2_grpc.RTSPStub(channel)
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the RTSP stub: {e}')
+      raise
+  def getConfig(self, deviceID):
+    try:
+      response = self.stub.GetConfig(rtsp_pb2_grpc.rtsp__pb2.GetConfigRequest(deviceID=deviceID))
+      return response.config
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the RTSP config: {e}')
+      raise
+  def setConfig(self, deviceID, config):
+    try:
+      self.stub.SetConfig(rtsp_pb2_grpc.rtsp__pb2.SetConfigRequest(deviceID=deviceID, config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the RTSP config: {e}')
+      raise
+  def setConfigMulti(self, deviceIDs, config):
+    try:
+      self.stub.SetConfigMulti(rtsp_pb2_grpc.rtsp__pb2.SetConfigMultiRequest(deviceIDs=deviceIDs, config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the RTSP config on multiple: {e}')
+      raise
+class VOIPSvc:
+  stub = None
+  def __init__(self, channel): 
+    try:
+      self.stub = voip_pb2_grpc.VOIPStub(channel)
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the VOIP stub: {e}')
+      raise
+  def getConfig(self, deviceID):
+    try:
+      response = self.stub.GetConfig(voip_pb2_grpc.voip__pb2.GetConfigRequest(deviceID=deviceID))
+      return response.config
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the VOIP config: {e}')
+      raise
+  def setConfig(self, deviceID, config):
+    try:
+      self.stub.SetConfig(voip_pb2_grpc.voip__pb2.SetConfigRequest(deviceID=deviceID, config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the VOIP config: {e}')
+      raise
+  def setConfigMulti(self, deviceIDs, config):
+    try:
+      self.stub.SetConfigMulti(voip_pb2_grpc.voip__pb2.SetConfigMultiRequest(deviceIDs=deviceIDs, config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the VOIP config on multiple: {e}')
+      raise
 #Zoned Svc's
 class LockZoneSvc:
   stub = None
@@ -1651,34 +1865,7 @@ class InterlockZoneSvc:
       logger.error(f'Cannot set alarm on Interlock Zones: {e}')
       raise  
 #below currently not implemented in server.exe
-"""
-class ConfigSvc:
-  stub = None
-  def __init__(self, channel): 
-    try:
-      self.stub = config_pb2_grpc.ConfigStub(channel)
-    except grpc.RpcError as e:
-      logger.error(f'Cannot get the config stub: {e}')
-      raise
-  def getSystem(self, deviceID):
-    try:
-      response = self.stub.GetSystem(config_pb2_grpc.config__pb2.GetSystemRequest(deviceID=deviceID))
-      return response.config
-    except grpc.RpcError as e:
-      logger.error(f'Cannot get the config config: {e}')
-      raise
-  def setSystem(self, deviceID, config):
-    try:
-      self.stub.SetSystem(config_pb2_grpc.config__pb2.SetSystemRequest(deviceID=deviceID, config=config))
-    except grpc.RpcError as e:
-      logger.error(f'Cannot set the config config: {e}')
-      raise
-  def setSystemMulti(self, deviceIDs, config):
-    try:
-      self.stub.SetSystemMulti(config_pb2_grpc.config__pb2.SetSystemMultiRequest(deviceIDs=deviceIDs, config=config))
-    except grpc.RpcError as e:
-      logger.error(f'Cannot set the config config on multiple: {e}')
-      raise
+'''
 class InputSvc:
   stub = None
   def __init__(self, channel): 
@@ -1706,4 +1893,4 @@ class InputSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot set the input config on multiple: {e}')
       raise
-"""
+'''

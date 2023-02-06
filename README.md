@@ -1,4 +1,6 @@
 #Python Client for Suprema GSDK<br>
+0.3.0.0 - Support for BS3, VOIP, RTSP and Wiegand User ID <br>
+0.2.1.4 - Version Push <br>
 0.2.1.2 - Fixed issue with importing none existent package <br>
 0.2.1.0 - Addes getJobCode, setJobCode, setJobCodeMulti and setAccessGroupMulti to the UserSvc<br>
 0.2.0.1 - Added searchInfoToConnectInfo(self, searchInfo, isAsync) under ConnectSvc, allowing generation of Connection Parameters directly from search results<br>
