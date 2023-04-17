@@ -1,4 +1,5 @@
 #Python Client for Suprema GSDK<br>
+0.3.0.2 - Fixed no response recieved from some user commands, also added newEventFilter() under event service, to create a new Filter. 
 0.3.0.0 - Support for BS3, VOIP, RTSP and Wiegand User ID <br>
 0.2.1.4 - Version Push <br>
 0.2.1.2 - Fixed issue with importing none existent package <br>

@@ -1,0 +1,26 @@
+import biostarPython as g
+gateway = g.GatewayClient('127.0.0.1',4000,'C:\\GSDK\\cert\\ca.crt')
+channel = gateway.getChannel()
+connect = g.ConnectSvc(channel)
+device = g.DeviceSvc(channel)
+display = g.DisplaySvc(channel)
+user = g.UserSvc(channel)
+
+BS3 = 547840805
+fsf2 = 543720332
+
+user42Face = user.getFace(BS3,['42'])[0]
+
+fullUser42 = user.getUser(BS3,['42'])[0]
+
+user42Photo = user42Face.faces[0].imageData
+
+user42Template = user42Face.faces[0].templates[0]
+
+user2Face = user.getFace(fsf2,['2'])[0]
+
+fullUser2 = user.getUser(fsf2,['2'])[0]
+
+user2Photo = user2Face.faces[0].imageData
+
+user2Template = user2Face.faces[0].templates[0]

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: biostarPython
-Version: 0.3.0.0
+Version: 0.3.0.1
 Summary: Python client for Suprema GSDK with included callable classes.
 Home-page: https://github.com/gcartlidge/biostarPython
 Author: SupremaUK
