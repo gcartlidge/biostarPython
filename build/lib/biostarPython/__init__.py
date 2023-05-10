@@ -1,4 +1,4 @@
-__version__ = "0.3.0.1"
+__version__ = "0.3.0.2"
 __author__ = 'SupremaUK'
 __credits__ = 'SupremaInc'
 
@@ -570,7 +570,7 @@ class UserSvc:
       raise
   def getFinger(self, deviceID, userIDs):
     try:
-      self.stub.GetFinger(user_pb2_grpc.user__pb2.GetFingerRequest(deviceID=deviceID, userIDs=userIDs))
+      response = self.stub.GetFinger(user_pb2_grpc.user__pb2.GetFingerRequest(deviceID=deviceID, userIDs=userIDs))
       return response.userFingers
     except grpc.RpcError as e:
       logger.error(f'Cannot get user fingers: {e}')
@@ -589,7 +589,7 @@ class UserSvc:
       raise
   def getCard(self, deviceID, userIDs):
     try:
-      self.stub.GetCard(user_pb2_grpc.user__pb2.GetCardRequest(deviceID=deviceID, userIDs=userIDs))
+      response = self.stub.GetCard(user_pb2_grpc.user__pb2.GetCardRequest(deviceID=deviceID, userIDs=userIDs))
       return response.userCards
     except grpc.RpcError as e:
       logger.error(f'Cannot get user cards: {e}')
@@ -608,7 +608,7 @@ class UserSvc:
       raise   
   def getFace(self, deviceID, userIDs):
     try:
-      self.stub.GetFace(user_pb2_grpc.user__pb2.GetFaceRequest(deviceID=deviceID, userIDs=userIDs))
+      response = self.stub.GetFace(user_pb2_grpc.user__pb2.GetFaceRequest(deviceID=deviceID, userIDs=userIDs))
       return response.userFaces
     except grpc.RpcError as e:
       logger.error(f'Cannot get user faces: {e}')
@@ -950,7 +950,7 @@ class CardSvc:
       raise
 class EventSvc:
   stub = None
-
+  newEventFilter = event_pb2_grpc.event__pb2.EventFilter
   def __init__(self, channel): 
     try:
       self.stub = event_pb2_grpc.EventStub(channel)
@@ -1100,6 +1100,12 @@ class ServerSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot handle userPhrase: {e}')
       raise      
+  def handleGlobalAPB(self, serverReq, errCode, zoneID):
+    try:
+      self.stub.HandleGlobalAPB(server_pb2_grpc.server__pb2.HandleGlobalAPBRequest(deviceID=serverReq.deviceID, seqNO=serverReq.seqNO, errCode=errCode, zoneID=zoneID))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot handle Global APB: {e}')
+      raise 
 class SystemSvc:
   stub = None
   def __init__(self, channel):

@@ -19,17 +19,17 @@ enum Type {
 enum Status {
   option allow_alias = true;
 
-	NORMAL = 0x00;
-	ALARMED = 0x01;
-  
+  NORMAL = 0x00;
+  ALARMED = 0x01;
+
   LOCKED = 0x02;
   UNLOCKED = 0x04;
-  
+
   LIFT_LOCKED = 0x02;
   LIFT_UNLOCKED = 0x04;
-  
+
   ARMED = 0x08;
-	DISARMED = 0x00;
+  DISARMED = 0x00;
 }
 
 message ZoneStatus {

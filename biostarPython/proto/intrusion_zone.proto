@@ -21,6 +21,26 @@ service IntrusionAlarmZone {
   rpc SetAlarm(SetAlarmRequest) returns (SetAlarmResponse);
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_ARM_DELAY = 10;
+  DEFAULT_ALALM_DELAY = 5;
+
+  MAX_ALARMS = 5;
+  MAX_ACCESS_GROUPS = 128;
+  MAX_DOORS = 64;
+  MAX_MEMBERS = 64;
+  MAX_CARDS = 128;
+  MAX_INPUTS = 128;
+  MAX_OUTPUTS = 128;
+  MAX_NAME_LENGTH = 144;
+  MAX_ARM_DELAY = 255;
+  MAX_ALARM_DELAY = 255;
+}
+
 enum InputType {
 	INPUT_NONE = 0x00;
 	INPUT_CARD = 0x01;

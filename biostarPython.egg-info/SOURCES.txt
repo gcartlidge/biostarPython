@@ -2,6 +2,7 @@ LICENSE
 MANIFEST.in
 README.md
 setup.py
+biostarPython/Log Events.py
 biostarPython/__init__.py
 biostarPython/event_code.json
 biostarPython.egg-info/PKG-INFO

@@ -19,6 +19,17 @@ service InterlockZone {
   rpc SetAlarm(SetAlarmRequest) returns (SetAlarmResponse);
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  MAX_DOORS = 4;
+  MAX_INPUTS = 4;
+  MAX_OUTPUTS = 8;
+  MAX_NAME_LENGTH = 144;
+}
+
 enum OperationType {
 	OPERATION_NONE = 0x00;
 	OPERATION_ENRTY = 0x01;

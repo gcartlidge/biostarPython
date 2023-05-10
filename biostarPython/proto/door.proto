@@ -78,6 +78,20 @@ enum DualAuthType {
 	DUAL_AUTH_LAST			= 0x01;
 };
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_AUTO_LOCK_TIMEOUT = 3;
+  DEFAULT_HELD_OPEN_TIMEOUT = 10;
+  DEFAULT_DUAL_AUTH_TIMEOUT = 15;
+
+  MAX_FORCED_OPEN_ALARMS = 5;
+  MAX_HELD_OPEN_ALARMS = 5;
+  MAX_DUAL_AUTH_APPROVAL_GROUPS = 16;
+  MAX_NAME_LENGTH = 144;
+}
 
 message DoorInfo {
   uint32 doorID = 1;

@@ -16,6 +16,17 @@ service TriggerAction {
   rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);    
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  REPEAT_INFINITELY = 0;
+
+  DEFAULT_SIGNAL_DURATION = 2000;
+  DEFAULT_SIGNAL_DELAY = 0;
+
+  MAX_SIGNALS = 3;
+  MAX_TRIGGER_ACTIONS = 128;
+}
 
 enum TriggerType {
   TRIGGER_NONE = 0x00;

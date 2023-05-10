@@ -14,6 +14,16 @@ service RTSP {
   rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);    
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_RTSP_SERVER_PORT = 554;
+
+  MAX_RTSP_ID_LENGTH = 32;
+  MAX_RTSP_PASSWORD_LENGTH = 32;
+}
 
 message RTSPConfig {
   string serverURL = 1;

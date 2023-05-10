@@ -50,6 +50,18 @@ service User {
   rpc GetPINHashWithKey(GetPINHashWithKeyRequest) returns (GetPINHashResponse);
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  MAX_ACCESS_GROUPS = 16;
+  MAX_JOB_CODES = 16;
+  MAX_PIN_LENGTH = 32;
+  MAX_JOB_LABEL_LENGTH = 48;
+  MAX_NAME_LENGTH = 192;
+}
+
 message UserHdr {
   string ID = 1;
   int32 numOfCard = 2;

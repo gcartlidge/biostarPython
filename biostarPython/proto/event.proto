@@ -31,6 +31,12 @@ service Event {
   rpc ClearLogMulti(ClearLogMultiRequest) returns (ClearLogMultiResponse);
 }
 
+enum Enum {
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  MAX_EVENT_FILTERS = 32;
+}
+
 enum PortValue {
 	OPEN = 0;
 	CLOSED = 1;
@@ -85,12 +91,28 @@ message EventLog {
 }
 
 
+enum ParamType {
+  TNA_KEY = 0;
+  ON_DEVICE = 1;
+  FLOOR_INDEX = 2;
+  ALARM_FLAG = 3;
+  LICENSE_TYPE = 4;
+
+  NONE = -1;
+}
+
 message EventFilter {
   string userID = 1;
   uint32 startTime = 2;
   uint32 endTime = 3;
   uint32 eventCode = 4;
-  tna.Key TNAKey = 5;
+  oneof param {
+    tna.Key TNAKey = 5;
+    uint32 onDevice = 6;
+    uint32 floorIndex = 7;
+    uint32 alarmFlag = 8;
+    uint32 licenseType = 9;
+  }
 }
 
 

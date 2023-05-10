@@ -23,6 +23,21 @@ service Lift {
   rpc SetAlarm(SetAlarmRequest) returns (SetAlarmResponse);   
 }
 
+enum Enum {
+  // option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_ACTIVATE_TIMEOUT = 10;
+  DEFAULT_DUAL_AUTH_TIMEOUT = 15;
+
+  MAX_ALARMS = 2;
+  MAX_DEVICES = 4;
+  MAX_DUAL_AUTH_APPROVAL_GROUPS = 16;
+  MAX_NAME_LENGTH = 144;
+  MAX_FLOORS = 255;
+}
+
 enum FloorFlag {
 	NONE = 0x00;
 	SCHEDULE = 0x01;

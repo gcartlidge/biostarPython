@@ -29,6 +29,23 @@ service Display {
   rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);    
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_MENU_TIMEOUT = 20;
+  DEFAULT_MESSAGE_TIMEOUT = 2000;
+  DEFAULT_BACKLIGHT_TIMEOUT = 20;
+  DEFAULT_VOLUME = 50;
+
+  MIN_VOLUME = 0;
+  MAX_VOLUME = 100;
+
+  MIN_MESSAGE_TIMEOUT = 500;
+  MAX_MESSAGE_TIMEOUT = 5000;
+}
+
 enum LanguageType {
 	BS2_LANGUAGE_KOREAN = 0;
 	BS2_LANGUAGE_ENGLISH = 1;
