@@ -336,8 +336,8 @@ message ResetConfigMultiResponse {
 
 
 enum Type {
-  option allow_alias = true;
-  UNDEFINED       = 0x00;
+	option allow_alias = true;
+	UNDEFINED       = 0x00;
 	BIOENTRY_PLUS		= 0x01;
 	BIOENTRY_W			= 0x02;
 	BIOLITE_NET			= 0x03;
@@ -373,6 +373,8 @@ enum Type {
 	IM_120 				= 0x21;
 	XSTATION_2_FP 		= 0x22;
 	BIOSTATION_3 		= 0x23;
+
+	BIOSTATION_2A		= 0x26;
 
 	UNKNOWN				  = 0xFF;
 }

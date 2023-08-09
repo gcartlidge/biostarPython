@@ -49,6 +49,8 @@ biostarPython/proto/thermal.proto
 biostarPython/proto/time.proto
 biostarPython/proto/timed_apb_zone.proto
 biostarPython/proto/tna.proto
+biostarPython/proto/udp.proto
+biostarPython/proto/udp_master.proto
 biostarPython/proto/user.proto
 biostarPython/proto/voip.proto
 biostarPython/proto/wiegand.proto
@@ -131,6 +133,10 @@ biostarPython/service/timed_apb_zone_pb2.py
 biostarPython/service/timed_apb_zone_pb2_grpc.py
 biostarPython/service/tna_pb2.py
 biostarPython/service/tna_pb2_grpc.py
+biostarPython/service/udp_master_pb2.py
+biostarPython/service/udp_master_pb2_grpc.py
+biostarPython/service/udp_pb2.py
+biostarPython/service/udp_pb2_grpc.py
 biostarPython/service/user_pb2.py
 biostarPython/service/user_pb2_grpc.py
 biostarPython/service/voip_pb2.py

@@ -55,8 +55,10 @@ enum Enum {
 message ScheduleInfo {
   uint32 ID = 1;
   string name = 2;
-  DailySchedule daily = 3;
-  WeeklySchedule weekly = 4;
+  oneof ordinary {
+    DailySchedule daily = 3;
+    WeeklySchedule weekly = 4;
+  }
   repeated HolidaySchedule holidays = 5;
 }
 

@@ -1,0 +1,165 @@
+syntax = "proto3";
+
+package gsdk.wiegand;
+
+option go_package = "biostar/service/wiegand";
+option java_package = "com.supremainc.sdk.wiegand";
+option java_multiple_files = true;
+
+import "device.proto";
+import "err.proto";
+
+service Wiegand {
+  rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+  rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
+  rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);    
+
+  rpc SearchDevice(SearchDeviceRequest) returns (SearchDeviceResponse);
+
+  rpc SetDevice(SetDeviceRequest) returns (SetDeviceResponse);
+  rpc GetDevice(GetDeviceRequest) returns (GetDeviceResponse);
+}
+
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_OUT_PULSE_WIDTH = 40;
+  DEFAULT_OUT_PULSE_INTERVAL = 10000;
+
+  MIN_OUT_PULSE_WIDTH = 20;
+  MAX_OUT_PULSE_WIDTH = 100;
+
+  MIN_OUT_PULSE_INTERVAL = 200;
+  MAX_OUT_PULSE_INTERVAL = 20000;
+
+  MAX_ID_FIELDS = 4;
+  MAX_PARITY_FIELDS = 4;
+
+  MAX_WIEGAND_FIELD_BITS = 256;
+  MAX_WIEGAND_FIELD_BYTES = 32;
+
+  MAX_WIEGAND_FORMATS = 16;
+}
+
+enum WiegandMode {
+	WIEGAND_IN_ONLY = 0;
+	WIEGAND_OUT_ONLY = 1;
+	WIEGAND_IN_OUT = 2;
+}
+
+enum WiegandParity {
+	WIEGAND_PARITY_NONE = 0;
+	WIEGAND_PARITY_ODD = 1;
+	WIEGAND_PARITY_EVEN = 2;
+}
+
+enum WiegandOutType {
+  WIEGAND_OUT_UNSPECIFIED = 0;
+  WIEGAND_OUT_CARD_ID = 1;
+  WIEGAND_OUT_USER_ID = 2;
+}
+
+message ParityField {
+  uint32 parityPos = 1;
+  WiegandParity parityType = 2;
+  bytes data = 3;
+}
+
+message WiegandFormat {
+  uint32 formatID = 1;
+  uint32 length = 2;
+  repeated bytes IDFields = 3;
+  repeated ParityField parityFields = 4;
+}
+
+
+message WiegandConfig {
+  WiegandMode mode = 1;
+  bool useWiegandBypass = 2;
+  bool useFailCode = 3;
+  uint32 failCode = 4; // 1 byte
+
+  uint32 outPulseWidth = 5;
+  uint32 outPulseInterval = 6;
+
+  repeated WiegandFormat formats = 7;
+  repeated WiegandFormat slaveFormats = 8;
+  WiegandFormat CSNFormat = 9;
+
+  WiegandOutType useWiegandUserID = 10;
+}
+
+
+message GetConfigRequest {
+  uint32 deviceID = 1;
+}
+
+message GetConfigResponse {
+  WiegandConfig config = 1;
+}
+
+
+message SetConfigRequest {
+  uint32 deviceID= 1;
+  WiegandConfig config = 2;
+}
+
+message SetConfigResponse {
+}
+
+message SetConfigMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  WiegandConfig config = 2;
+}
+
+message SetConfigMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}
+
+message WiegandTamperInput {
+  uint32 deviceID = 1;
+  uint32 port = 2;
+  device.SwitchType switchType = 3;
+
+}
+
+message WiegandOutput {
+  uint32 deviceID = 1;
+  uint32 port = 2;
+}
+
+message WiegandDeviceInfo {
+  uint32 deviceID = 1;
+  WiegandTamperInput tamperInput = 2;
+  WiegandOutput redLEDOutput = 3;
+  WiegandOutput greenLEDOutput = 4;
+  WiegandOutput buzzerOutput = 5;
+}
+
+message SearchDeviceRequest {
+  uint32 parentDeviceID = 1;
+}
+
+message SearchDeviceResponse {
+  repeated uint32 wiegandDeviceIDs = 1;
+}
+
+message SetDeviceRequest {
+  uint32 parentDeviceID = 1;
+  repeated WiegandDeviceInfo deviceInfos = 2;
+}
+
+message SetDeviceResponse {
+}
+
+
+message GetDeviceRequest {
+  uint32 parentDeviceID = 1;
+}
+
+
+message GetDeviceResponse {
+  repeated WiegandDeviceInfo deviceInfos = 1;
+}

@@ -99,6 +99,7 @@ message GetAcceptFilterResponse {
 
 message PendingDeviceInfo {
   uint32 deviceID       = 1;
+  device.Type type      = 4;
   string IPAddr         = 2;
   uint32 lastTry        = 3;
 }
@@ -136,6 +137,7 @@ enum Status {
 
 message DeviceInfo {
   uint32 deviceID       = 1;
+  device.Type type      = 8;
   ConnectionMode connectionMode = 2;
   string IPAddr         = 3;
   int32 port            = 4;
@@ -178,6 +180,7 @@ message SearchDeviceInfo  {
   string IPAddr = 5;
   int32 port = 6;
   bool useSSL = 7;
+  string serverAddr = 8;
 }
 
 message SearchDeviceResponse {

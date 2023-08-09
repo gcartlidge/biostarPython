@@ -37,6 +37,18 @@ service Card {
 
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_SCAN_TIMEOUT = 4;
+  DEFAULT_TEMPLATE_SIZE = 384;
+  FACE_TEMPLATE_SIZE = 552;
+
+  MAX_TEMPLATES = 4;
+}
+
 enum Type {
   CARD_TYPE_UNKNOWN		= 0x00;
   CARD_TYPE_CSN				= 0x01;
@@ -60,12 +72,16 @@ message SmartCardHeader {
   uint32 headerCRC = 1;
   uint32 cardCRC = 2;
   Type type = 3;
-  uint32 numOfTemplate = 4;
+  oneof templateCount {
+    uint32 numOfTemplate = 4;
+    uint32 numOfFaceTemplate = 10;  // for F2/BS3 only
+  }
   uint32 templateSize = 5;
   uint32 issueCount = 6;
   uint32 duressMask = 7;
   uint32 cardAuthMode = 8;
   bool useAlphanumericID = 9;
+	uint32 cardAuthModeEx = 11; // for F2/BS3 only
 }
 
 message SmartCardCredential {

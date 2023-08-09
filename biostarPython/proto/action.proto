@@ -59,9 +59,11 @@ message ScheduleTrigger {
 message Trigger {
   uint32 deviceID = 1; // if 0, it will be set to the device itself
   TriggerType type = 2;
-  EventTrigger event = 3;
-  InputTrigger input = 4;
-  ScheduleTrigger schedule = 5;
+  oneof entity {
+    EventTrigger event = 3;
+    InputTrigger input = 4;
+    ScheduleTrigger schedule = 5;
+  }
 }
 
 enum ActionType {
@@ -164,13 +166,15 @@ message Action {
   StopFlag stopFlag = 3;
   uint32 delay = 4;
   
-  RelayAction relay = 5;
-  OutputPortAction outputPort = 6;
-  DisplayAction display = 7;
-  SoundAction sound = 8;
-  LEDAction LED = 9;
-  BuzzerAction buzzer = 10;
-  LiftAction lift = 11;
+  oneof entity {
+    RelayAction relay = 5;
+    OutputPortAction outputPort = 6;
+    DisplayAction display = 7;
+    SoundAction sound = 8;
+    LEDAction LED = 9;
+    BuzzerAction buzzer = 10;
+    LiftAction lift = 11;
+  }
 }
 
 

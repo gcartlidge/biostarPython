@@ -374,6 +374,8 @@ enum Type {
 	XSTATION_2_FP 		= 0x22;
 	BIOSTATION_3 		= 0x23;
 
+	BIOSTATION_2A		= 0x26;
+
 	UNKNOWN				  = 0xFF;
 }
 

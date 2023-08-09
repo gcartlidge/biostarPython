@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package gsdk.rtsp;
+
+option go_package = "biostar/service/rtsp";
+option java_package = "com.supremainc.sdk.rtsp";
+option java_multiple_files = true;
+
+import "err.proto";
+
+service RTSP {
+  rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+  rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
+  rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);    
+}
+
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_RTSP_SERVER_PORT = 554;
+
+  MAX_RTSP_ID_LENGTH = 32;
+  MAX_RTSP_PASSWORD_LENGTH = 32;
+}
+
+message RTSPConfig {
+  string serverURL = 1;
+  uint32 serverPort = 2;
+  string userID = 3;
+  string userPW = 4;
+
+  bool enabled = 5;
+}
+
+
+message GetConfigRequest {
+  uint32 deviceID = 1;
+}
+
+message GetConfigResponse {
+  RTSPConfig config = 1;
+}
+
+
+message SetConfigRequest {
+  uint32 deviceID= 1;
+  RTSPConfig config = 2;
+}
+
+message SetConfigResponse {
+}
+
+message SetConfigMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  RTSPConfig config = 2;
+}
+
+message SetConfigMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}

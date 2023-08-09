@@ -39,6 +39,16 @@ class UserStub(object):
                 request_serializer=user__pb2.EnrollMultiRequest.SerializeToString,
                 response_deserializer=user__pb2.EnrollMultiResponse.FromString,
                 )
+        self.Update = channel.unary_unary(
+                '/gsdk.user.User/Update',
+                request_serializer=user__pb2.UpdateRequest.SerializeToString,
+                response_deserializer=user__pb2.UpdateResponse.FromString,
+                )
+        self.UpdateMulti = channel.unary_unary(
+                '/gsdk.user.User/UpdateMulti',
+                request_serializer=user__pb2.UpdateMultiRequest.SerializeToString,
+                response_deserializer=user__pb2.UpdateMultiResponse.FromString,
+                )
         self.Delete = channel.unary_unary(
                 '/gsdk.user.User/Delete',
                 request_serializer=user__pb2.DeleteRequest.SerializeToString,
@@ -144,6 +154,11 @@ class UserStub(object):
                 request_serializer=user__pb2.GetPINHashWithKeyRequest.SerializeToString,
                 response_deserializer=user__pb2.GetPINHashResponse.FromString,
                 )
+        self.GetStatistic = channel.unary_unary(
+                '/gsdk.user.User/GetStatistic',
+                request_serializer=user__pb2.GetStatisticRequest.SerializeToString,
+                response_deserializer=user__pb2.GetStatisticResponse.FromString,
+                )
 
 
 class UserServicer(object):
@@ -174,6 +189,18 @@ class UserServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def EnrollMulti(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Update(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateMulti(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -305,6 +332,12 @@ class UserServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetStatistic(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_UserServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -332,6 +365,16 @@ def add_UserServicer_to_server(servicer, server):
                     servicer.EnrollMulti,
                     request_deserializer=user__pb2.EnrollMultiRequest.FromString,
                     response_serializer=user__pb2.EnrollMultiResponse.SerializeToString,
+            ),
+            'Update': grpc.unary_unary_rpc_method_handler(
+                    servicer.Update,
+                    request_deserializer=user__pb2.UpdateRequest.FromString,
+                    response_serializer=user__pb2.UpdateResponse.SerializeToString,
+            ),
+            'UpdateMulti': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateMulti,
+                    request_deserializer=user__pb2.UpdateMultiRequest.FromString,
+                    response_serializer=user__pb2.UpdateMultiResponse.SerializeToString,
             ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
@@ -438,6 +481,11 @@ def add_UserServicer_to_server(servicer, server):
                     request_deserializer=user__pb2.GetPINHashWithKeyRequest.FromString,
                     response_serializer=user__pb2.GetPINHashResponse.SerializeToString,
             ),
+            'GetStatistic': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetStatistic,
+                    request_deserializer=user__pb2.GetStatisticRequest.FromString,
+                    response_serializer=user__pb2.GetStatisticResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'gsdk.user.User', rpc_method_handlers)
@@ -530,6 +578,40 @@ class User(object):
         return grpc.experimental.unary_unary(request, target, '/gsdk.user.User/EnrollMulti',
             user__pb2.EnrollMultiRequest.SerializeToString,
             user__pb2.EnrollMultiResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Update(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/gsdk.user.User/Update',
+            user__pb2.UpdateRequest.SerializeToString,
+            user__pb2.UpdateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateMulti(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/gsdk.user.User/UpdateMulti',
+            user__pb2.UpdateMultiRequest.SerializeToString,
+            user__pb2.UpdateMultiResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -887,5 +969,22 @@ class User(object):
         return grpc.experimental.unary_unary(request, target, '/gsdk.user.User/GetPINHashWithKey',
             user__pb2.GetPINHashWithKeyRequest.SerializeToString,
             user__pb2.GetPINHashResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetStatistic(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/gsdk.user.User/GetStatistic',
+            user__pb2.GetStatisticRequest.SerializeToString,
+            user__pb2.GetStatisticResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -19,6 +19,9 @@ service User {
   
   rpc Enroll(EnrollRequest) returns (EnrollResponse);
   rpc EnrollMulti(EnrollMultiRequest) returns (EnrollMultiResponse);
+  
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc UpdateMulti(UpdateMultiRequest) returns (UpdateMultiResponse);
 
   rpc Delete(DeleteRequest) returns (DeleteResponse);
   rpc DeleteMulti(DeleteMultiRequest) returns (DeleteMultiResponse);
@@ -48,6 +51,8 @@ service User {
 
   rpc GetPINHash(GetPINHashRequest) returns (GetPINHashResponse);
   rpc GetPINHashWithKey(GetPINHashWithKeyRequest) returns (GetPINHashResponse);
+
+  rpc GetStatistic(GetStatisticRequest) returns (GetStatisticResponse);
 }
 
 enum Enum {
@@ -62,12 +67,28 @@ enum Enum {
   MAX_NAME_LENGTH = 192;
 }
 
+enum UpdateMask {
+  KEEP_NONE = 0x00;
+
+  KEEP_USER_PHRASE = 0x01;
+  KEEP_USER_JOB_CODE = 0x02;
+  KEEP_USER_NAME = 0x04;
+  KEEP_USER_PHOTO = 0x08;
+  KEEP_USER_PIN = 0x10;
+  KEEP_USER_CARD = 0x20;
+  KEEP_USER_FINGER = 0x40;
+  KEEP_USER_FACE = 0x80;
+
+  KEEP_ALL = 0xFF;
+}
+
 message UserHdr {
   string ID = 1;
   int32 numOfCard = 2;
   int32 numOfFinger = 3;
   int32 numOfFace = 4;
   uint32 authGroupID = 5;
+  uint32 updateMask = 6;    // for Update(Multi)Request only
 }
 
 message GetListRequest {
@@ -78,6 +99,15 @@ message GetListResponse {
   repeated UserHdr hdrs = 1;
 }
 
+enum SecurityLevel {
+  SECURITY_LEVEL_LOWEST = 0x00;
+  SECURITY_LEVEL_LOWER = 0x01;
+  SECURITY_LEVEL_LOW = 0x02;
+  SECURITY_LEVEL_NORMAL = 0x03;
+  SECURITY_LEVEL_HIGH = 0x04;
+  SECURITY_LEVEL_HIGHER = 0x05;
+};
+
 message UserSetting {
   uint32 startTime = 1;
   uint32 endTime = 2;
@@ -85,7 +115,7 @@ message UserSetting {
   uint32 biometricAuthMode = 3;
   uint32 cardAuthMode = 4;
   uint32 IDAuthMode = 5;
-  uint32 securityLevel = 6;
+  SecurityLevel securityLevel = 6;
 
   // for F2 and BS3 only
   uint32 faceAuthExtMode = 7;
@@ -117,20 +147,20 @@ message GetResponse {
 }
 
 enum InfoMask {
-	USER_MASK_ID_ONLY	= 0x0000;
-	USER_MASK_HDR	= 0x0001;
-	USER_MASK_SETTING	= 0x0002;
-	USER_MASK_NAME = 0x0004;
-	USER_MASK_PHOTO	= 0x0008;
-	USER_MASK_PIN	= 0x0010;
-	USER_MASK_CARD = 0x0020;
-	USER_MASK_FINGER = 0x0040;
-	USER_MASK_FACE = 0x0080;
-	USER_MASK_ACCESS_GROUP = 0x0100;
-	USER_MASK_JOB = 0x0200;
-	USER_MASK_PHRASE = 0x0400;
-	USER_MASK_FACE_EX = 0x0800;
-	USER_MASK_SETTING_EX = 0x1000;
+  USER_MASK_ID_ONLY	= 0x0000;
+  USER_MASK_HDR	= 0x0001;
+  USER_MASK_SETTING	= 0x0002;
+  USER_MASK_NAME = 0x0004;
+  USER_MASK_PHOTO	= 0x0008;
+  USER_MASK_PIN	= 0x0010;
+  USER_MASK_CARD = 0x0020;
+  USER_MASK_FINGER = 0x0040;
+  USER_MASK_FACE = 0x0080;
+  USER_MASK_ACCESS_GROUP = 0x0100;
+  USER_MASK_JOB = 0x0200;
+  USER_MASK_PHRASE = 0x0400;
+  USER_MASK_FACE_EX = 0x0800;
+  USER_MASK_SETTING_EX = 0x1000;
   USER_MASK_ALL	= 0xFFFF;
 }
 
@@ -164,6 +194,26 @@ message EnrollMultiRequest {
 
 
 message EnrollMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}
+
+
+message UpdateRequest {
+  uint32 deviceID = 1;
+  repeated UserInfo users = 2;
+}
+
+message UpdateResponse {
+}
+
+
+message UpdateMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  repeated UserInfo users = 2;
+}
+
+
+message UpdateMultiResponse {
   repeated err.ErrorResponse deviceErrors = 1;
 }
 
@@ -374,4 +424,22 @@ message GetPINHashResponse {
 message GetPINHashWithKeyRequest {
   string PIN = 1;
   bytes hashKey = 2;
+}
+
+message GetStatisticRequest {
+  uint32 deviceID = 1;
+}
+
+message UserStatistic {
+  uint32 numOfUsers = 1;
+  uint32 numOfCards = 2;
+  uint32 numOfFingerprints = 3;
+  uint32 numOfFaces = 4;
+  uint32 numOfNames = 5;
+  uint32 numOfImages = 6;
+  uint32 numOfPhrases = 7;
+}
+
+message GetStatisticResponse {
+  UserStatistic userStatistic = 1;
 }

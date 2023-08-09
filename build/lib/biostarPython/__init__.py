@@ -1,11 +1,11 @@
-__version__ = "0.3.0.2"
+__version__ = "0.3.0.5"
 __author__ = 'SupremaUK'
 __credits__ = 'SupremaInc'
 
 from os.path import dirname
 from sys import exc_info
 from json import load as jsonload
-from biostarPython.service import access_pb2_grpc, action_pb2_grpc, admin_pb2_grpc, apb_zone_pb2_grpc, auth_pb2_grpc, card_pb2_grpc, cert_pb2_grpc, connect_master_pb2_grpc, connect_pb2_grpc, device_pb2_grpc, display_pb2_grpc, door_pb2_grpc, err_pb2_grpc, event_pb2_grpc, face_pb2_grpc, finger_pb2_grpc, fire_zone_pb2_grpc, gateway_pb2_grpc, input_pb2_grpc, interlock_zone_pb2_grpc, intrusion_zone_pb2_grpc, lift_pb2_grpc, lift_zone_pb2_grpc, lock_zone_pb2_grpc, login_pb2_grpc, network_pb2_grpc, operator_pb2_grpc, rs485_pb2_grpc, schedule_pb2_grpc, server_pb2_grpc, status_pb2_grpc, system_pb2_grpc, tenant_pb2_grpc, thermal_pb2_grpc, timed_apb_zone_pb2_grpc, time_pb2_grpc, tna_pb2_grpc, user_pb2_grpc, voip_pb2_grpc, wiegand_pb2_grpc, rtsp_pb2_grpc, voip_pb2_grpc
+from biostarPython.service import access_pb2_grpc, action_pb2_grpc, admin_pb2_grpc, apb_zone_pb2_grpc, auth_pb2_grpc, card_pb2_grpc, cert_pb2_grpc, connect_master_pb2_grpc, connect_pb2_grpc, device_pb2_grpc, display_pb2_grpc, door_pb2_grpc, err_pb2_grpc, event_pb2_grpc, face_pb2_grpc, finger_pb2_grpc, fire_zone_pb2_grpc, gateway_pb2_grpc, input_pb2_grpc, interlock_zone_pb2_grpc, intrusion_zone_pb2_grpc, lift_pb2_grpc, lift_zone_pb2_grpc, lock_zone_pb2_grpc, login_pb2_grpc, network_pb2_grpc, operator_pb2_grpc, rs485_pb2_grpc, schedule_pb2_grpc, server_pb2_grpc, status_pb2_grpc, system_pb2_grpc, tenant_pb2_grpc, thermal_pb2_grpc, timed_apb_zone_pb2_grpc, time_pb2_grpc, tna_pb2_grpc, user_pb2_grpc, voip_pb2_grpc, wiegand_pb2_grpc, rtsp_pb2_grpc, voip_pb2_grpc, udp_pb2_grpc
 import grpc
 import logging
 from logging.handlers import TimedRotatingFileHandler
@@ -54,6 +54,7 @@ def initDeviceList():
  deviceType[0x21] = 'IM-120' 
  deviceType[0x22] = 'XStation 2 Fingerprint' 
  deviceType[0x23] = 'BioStation 3' 
+ deviceType[0x26] = 'BioStation 2A' 
  return deviceType
 deviceType = initDeviceList()  
 
@@ -1870,6 +1871,27 @@ class InterlockZoneSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot set alarm on Interlock Zones: {e}')
       raise  
+class UDPSvc:
+  stub = None
+  def __init__(self, channel): 
+    try:
+      self.stub = udp_pb2_grpc.UDPStub(channel)
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the UDP stub: {e}')
+      raise
+  def getIPConfig(self, deviceID, ipAddress):
+    try:
+      response = self.stub.GetIPConfig(udp_pb2_grpc.udp__pb2.GetIPConfigRequest(deviceInfo=udp_pb2_grpc.udp__pb2.DeviceInfo(deviceID=deviceID,IPAddr=ipAddress)))
+      return response.config
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the UDP Config: {e}')
+      raise
+  def setIPConfig(self, deviceID, ipAddress, config):
+    try:
+      response = self.stub.SetIPConfig(udp_pb2_grpc.udp__pb2.SetIPConfigRequest(deviceInfo = udp_pb2_grpc.udp__pb2.DeviceInfo(deviceID=deviceID,IPAddr=ipAddress),config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the UDP Config: {e}')
+      raise      
 #below currently not implemented in server.exe
 '''
 class InputSvc:
