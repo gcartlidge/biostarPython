@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package gsdk.master;
+
+option go_package = "biostar/service/master";
+
+import "google/protobuf/any.proto";
+import "event.proto";
+import "err.proto";
+import "connect.proto";
+
+service Master {
+  rpc Subscribe(SubscribeRequest) returns (SubscribeResponse);
+  rpc UpdateDeviceList(UpdateDeviceListRequest) returns (UpdateDeviceListResponse);
+
+  rpc InitCommandChan(stream CommandResponse) returns (stream CommandRequest);
+
+  rpc InitLogChan(stream RealtimeEvent) returns (InitLogChanResponse); 
+  rpc InitDeviceStatusChan(stream DeviceStatus) returns (InitDeviceStatusChanResponse);
+}
+
+
+message SubscribeRequest {
+  string gatewayCert = 1;
+}
+
+message SubscribeResponse {
+  uint32 sessionID = 1;
+}
+
+message UpdateDeviceListRequest {
+  uint32 sessionID = 1;
+  repeated uint32 deviceIDs = 2;
+}
+
+message UpdateDeviceListResponse {
+}
+
+message CommandRequest {
+  enum RequestType {
+    CMD_WRAPPER = 0x00;
+    INIT_CHAN   = 0x01;
+  }
+
+  RequestType requestType = 1;
+  uint32 requestID = 2;
+  repeated uint32 deviceIDs = 3; 
+  google.protobuf.Any request = 4;
+}
+
+
+message CommandResponse {
+  uint32 sessionID = 1;
+  uint32 requestID = 2;
+  google.protobuf.Any response = 3;
+}
+
+message ErrorResponse {
+  int32 code = 1;
+  string msg = 2;
+  repeated err.ErrorResponse deviceErrors = 3;
+}
+
+
+message InitLogChanResponse {
+}
+
+
+message RealtimeEvent {
+  string masterChanID = 1;
+  event.EventLog event = 2;
+}
+
+message InitDeviceStatusChanResponse {  
+}
+
+message DeviceStatus {
+  string masterChanID = 1;
+  connect.StatusChange status = 2;
+}

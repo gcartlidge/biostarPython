@@ -1,0 +1,5 @@
+2023-08-25 10:54:30,541 ERROR 155 biostarPython Cannot get search device: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNKNOWN
+	details = "Stream removed"
+	debug_error_string = "UNKNOWN:Error received from peer  {created_time:"2023-08-25T09:54:30.540137382+00:00", grpc_status:2, grpc_message:"Stream removed"}"
+>
