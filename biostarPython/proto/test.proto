@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package gsdk.test;
+
+option go_package = "biostar/service/test";
+option java_package = "com.supremainc.sdk.test";
+option java_multiple_files = true;
+
+import "card.proto";
+
+service Test {
+    rpc DetectCard(DetectCardRequest) returns (DetectCardResponse);
+    rpc DetectFace(DetectFaceRequest) returns (DetectFaceResponse);
+    rpc DetectFingerprint(DetectFingerprintRequest) returns (DetectFingerprintResponse);
+    rpc EnterKey(EnterKeyRequest) returns (EnterKeyResponse);
+}
+
+message DetectCardRequest {
+    uint32 deviceID = 1;
+    card.CSNCardData cardData = 2;
+}
+
+message DetectCardResponse {
+}
+
+message DetectFaceRequest {
+    uint32 deviceID = 1;
+    bytes faceTemplate = 2;
+}
+
+message DetectFaceResponse {
+}
+
+message DetectFingerprintRequest {
+    uint32 deviceID = 1;
+    bytes fingerprintTemplate = 2;
+}
+
+message DetectFingerprintResponse {
+}
+
+message EnterKeyRequest {
+    uint32 deviceID = 1;
+    string input = 2;
+}
+
+message EnterKeyResponse {
+}
