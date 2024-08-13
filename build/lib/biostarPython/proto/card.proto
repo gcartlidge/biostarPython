@@ -35,6 +35,9 @@ service Card {
   rpc SetQRConfig(SetQRConfigRequest) returns (SetQRConfigResponse);
   rpc SetQRConfigMulti(SetQRConfigMultiRequest) returns (SetQRConfigMultiResponse);  
 
+  rpc GetCustomConfig(GetCustomConfigRequest) returns (GetCustomConfigResponse);
+  rpc SetCustomConfig(SetCustomConfigRequest) returns (SetCustomConfigResponse);
+  rpc SetCustomConfigMulti(SetCustomConfigMultiRequest) returns (SetCustomConfigMultiResponse);
 }
 
 enum Enum {
@@ -50,16 +53,18 @@ enum Enum {
 }
 
 enum Type {
-  CARD_TYPE_UNKNOWN		= 0x00;
-  CARD_TYPE_CSN				= 0x01;
-  CARD_TYPE_SECURE		= 0x02;
-  CARD_TYPE_ACCESS		= 0x03;
-	CARD_TYPE_CSN_MOBILE	 = 0x04;
-	CARD_TYPE_WIEGAND_MOBILE = 0x05;
-	CARD_TYPE_QR		 	 = 0x06;
-	CARD_TYPE_SECURE_QR	 	 = 0x07;
-    
-  CARD_TYPE_WIEGAND		= 0x0A;    
+  CARD_TYPE_UNKNOWN         = 0x00;
+  CARD_TYPE_CSN             = 0x01;
+  CARD_TYPE_SECURE          = 0x02;
+  CARD_TYPE_ACCESS          = 0x03;
+  CARD_TYPE_CSN_MOBILE      = 0x04;
+  CARD_TYPE_WIEGAND_MOBILE  = 0x05;
+  CARD_TYPE_QR              = 0x06;
+  CARD_TYPE_SECURE_QR       = 0x07;
+
+  CARD_TYPE_WIEGAND         = 0x0A;    
+  CARD_TYPE_CONFIG_CARD     = 0x0B;
+  CARD_TYPE_CUSTOM_SMART    = 0x0D;
 }
 
 message CSNCardData {
@@ -81,7 +86,7 @@ message SmartCardHeader {
   uint32 duressMask = 7;
   uint32 cardAuthMode = 8;
   bool useAlphanumericID = 9;
-	uint32 cardAuthModeEx = 11; // for F2/BS3 only
+  uint32 cardAuthModeEx = 11; // for F2/BS3 only
 }
 
 message SmartCardCredential {
@@ -377,3 +382,64 @@ message SetQRConfigMultiResponse {
   repeated err.ErrorResponse deviceErrors = 1;
 }
 
+message DESFireAppLevelKey {
+  bytes appMasterKey = 1;
+  bytes fileReadKey = 2;
+  bytes fileWriteKey = 3;
+  uint32 fileReadKeyNumber = 4;
+  uint32 fileWriteKeyNumber = 5;
+}
+
+message CustomMifareCard {
+  bytes primaryKey = 1;
+  bytes secondaryKey = 2;
+  uint32 startBlockIndex = 3;
+  uint32 dataSize = 4;
+  uint32 skipBytes = 5;
+}
+
+message CustomDESFireCard {
+  bytes primaryKey = 1;
+  bytes secondaryKey = 2;
+  bytes appID = 3;
+  uint32 fileID = 4;
+  DESFireEncryptionType encryptionType = 5;
+  DESFireOperationMode operationMode = 6;
+  uint32 dataSize = 7;
+  uint32 skipBytes = 8;
+  DESFireAppLevelKey desfireAppKey = 9;
+}
+
+message CustomConfig {
+  CardDataType dataType = 1;
+  bool useSecondaryKey = 2;
+  CustomMifareCard mifare = 3;
+  CustomDESFireCard desfire = 4;
+  CardByteOrder smartCardByteOrder = 5;
+  uint32 formatID = 6;
+}
+
+message GetCustomConfigRequest {
+  uint32 deviceID = 1;
+}
+
+message GetCustomConfigResponse {
+  CustomConfig config = 1;
+}
+
+message SetCustomConfigRequest {
+  uint32 deviceID = 1;
+  CustomConfig config = 2;
+}
+
+message SetCustomConfigResponse {
+}
+
+message SetCustomConfigMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  CustomConfig config = 2;
+}
+
+message SetCustomConfigMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}

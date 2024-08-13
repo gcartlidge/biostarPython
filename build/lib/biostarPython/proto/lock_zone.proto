@@ -18,6 +18,18 @@ service LockZone {
   rpc SetAlarm(SetAlarmRequest) returns (SetAlarmResponse);
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  MAX_ALARMS = 5;
+  MAX_BYPASS_GROUPS = 16;
+  MAX_UNLOCK_GROUPS = 16;
+  MAX_DOORS = 32;
+  MAX_NAME_LENGTH = 144;
+}
+
 message ZoneInfo {
   uint32 zoneID = 1;
   string name = 2;

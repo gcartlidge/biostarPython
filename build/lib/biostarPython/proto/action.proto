@@ -16,6 +16,17 @@ service TriggerAction {
   rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);    
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  REPEAT_INFINITELY = 0;
+
+  DEFAULT_SIGNAL_DURATION = 2000;
+  DEFAULT_SIGNAL_DELAY = 0;
+
+  MAX_SIGNALS = 3;
+  MAX_TRIGGER_ACTIONS = 128;
+}
 
 enum TriggerType {
   TRIGGER_NONE = 0x00;
@@ -48,9 +59,12 @@ message ScheduleTrigger {
 message Trigger {
   uint32 deviceID = 1; // if 0, it will be set to the device itself
   TriggerType type = 2;
-  EventTrigger event = 3;
-  InputTrigger input = 4;
-  ScheduleTrigger schedule = 5;
+  uint32 ignoreSignalTime = 3;
+  oneof entity {
+    EventTrigger event = 4;
+    InputTrigger input = 5;
+    ScheduleTrigger schedule = 6;
+  }
 }
 
 enum ActionType {
@@ -153,13 +167,15 @@ message Action {
   StopFlag stopFlag = 3;
   uint32 delay = 4;
   
-  RelayAction relay = 5;
-  OutputPortAction outputPort = 6;
-  DisplayAction display = 7;
-  SoundAction sound = 8;
-  LEDAction LED = 9;
-  BuzzerAction buzzer = 10;
-  LiftAction lift = 11;
+  oneof entity {
+    RelayAction relay = 5;
+    OutputPortAction outputPort = 6;
+    DisplayAction display = 7;
+    SoundAction sound = 8;
+    LEDAction LED = 9;
+    BuzzerAction buzzer = 10;
+    LiftAction lift = 11;
+  }
 }
 
 

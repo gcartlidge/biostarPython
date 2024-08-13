@@ -75,6 +75,7 @@ message RS485Channel {
   uint32 channelID = 1;
   Mode mode = 2;
   uint32 baudRate = 3;
+  repeated SlaveDeviceInfo slaveDevices = 4;
 }
 
 message RS485Config {

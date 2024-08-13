@@ -20,6 +20,15 @@ service FireAlarmZone {
   rpc SetAlarm(SetAlarmRequest) returns (SetAlarmResponse);
 }
 
+enum Enum {
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  MAX_ALARMS = 5;
+  MAX_SENSORS = 8;
+  MAX_DOOR_OR_LIFTS = 32;
+  MAX_NAME_LENGTH = 144;
+}
+
 message FireSensor {
   uint32 deviceID = 1;
   uint32 port = 2;

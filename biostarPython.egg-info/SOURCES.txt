@@ -45,6 +45,7 @@ biostarPython/proto/server.proto
 biostarPython/proto/status.proto
 biostarPython/proto/system.proto
 biostarPython/proto/tenant.proto
+biostarPython/proto/test.proto
 biostarPython/proto/thermal.proto
 biostarPython/proto/time.proto
 biostarPython/proto/timed_apb_zone.proto
@@ -125,6 +126,8 @@ biostarPython/service/system_pb2.py
 biostarPython/service/system_pb2_grpc.py
 biostarPython/service/tenant_pb2.py
 biostarPython/service/tenant_pb2_grpc.py
+biostarPython/service/test_pb2.py
+biostarPython/service/test_pb2_grpc.py
 biostarPython/service/thermal_pb2.py
 biostarPython/service/thermal_pb2_grpc.py
 biostarPython/service/time_pb2.py

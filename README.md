@@ -24,7 +24,7 @@ I'd also recommend checking out [Advanced Installer](https://www.advancedinstall
 
 All classes that can be used are imported under the biostarPython package.
 The ones currently written are:<br>
-**GatewayClient, ConnectSvc, DeviceSvc, FaceSvc, FingerSvc, StatusSvc, UserSvc, DisplaySvc, AdminSvc, WiegandSvc, TimeSvc, CardSvc, EventSvc, NetworkSvc, ServerSvc, SystemSvc, DoorSvc, RS485Svc, AuthSvc, AccessSvc, ScheduleSvc, ActionSvc, TNASvc, OperatorSvc, LockZoneSvc, TimedAPBZoneSvc, APBZoneSvc, IntrusionZoneSvc, FireZoneSvc, InterlockZoneSvc & UDPSvc**
+**GatewayClient, ConnectSvc, DeviceSvc, FaceSvc, FingerSvc, StatusSvc, UserSvc, DisplaySvc, AdminSvc, WiegandSvc, TimeSvc, CardSvc, EventSvc, NetworkSvc, ServerSvc, SystemSvc, DoorSvc, RS485Svc, AuthSvc, AccessSvc, ScheduleSvc, ActionSvc, TNASvc, OperatorSvc, LockZoneSvc, TimedAPBZoneSvc, APBZoneSvc, IntrusionZoneSvc, FireZoneSvc, InterlockZoneSvc, UDPSvc & TestSvc**
 
 With the remaining being added in a future release. 
 I think im up to date! <br>
@@ -59,7 +59,9 @@ All of the specific APIs can be found at the wiki Above.
 
 ### changelog
 
- - 0.3.0.5 - Added UDPSvc for changing IP config via UDP, Updated Proto generation to 1.6.0 version of GSDK.
+- 0.4.0.1 - Added UpdateSlideImages to DisplaySvc and added Fingerprint to TestSvc.
+- 0.4.0.0 - Updated proto files to 1.7.0 (New Features, BEW3 support), added TestSvc (Waiting on support from device), fixed factoryDefault parameters.
+- 0.3.0.5 - Added UDPSvc for changing IP config via UDP, Updated Proto generation to 1.6.0 version of GSDK.
 - 0.3.0.2 - Fixed no response recieved from some user commands, also added newEventFilter()
           under event service, to create a new Filter.
 - 0.3.0.0 - Support for BS3, VOIP, RTSP and Wiegand User ID

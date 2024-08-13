@@ -90,89 +90,114 @@ message DeviceCapability {
 	bool thermalSupported = 24;
 	bool maskSupported = 25;
 	bool faceExSupported = 26;
-	
-	bool EMCardSupported = 27;
-	bool HIDProxCardSupported = 28;
-	bool MifareFelicaCardSupported = 29;
-	bool iClassCardSupported = 30;
-	bool ClassicPlusCardSupported = 31;
-	bool DesFireEV1CardSupported = 32;
-	bool SRSECardSupported = 33;
-	bool SEOSCardSupported = 34;
-	bool NFCSupported = 35;
-	bool BLESupported = 36;
-	bool useCardOperation = 37;
+	bool voipExSupported = 27;
 
-	bool extendedAuthSupported = 38;
-	
-	bool cardInputSupported = 39;
-	bool fingerprintInputSupported = 40;
-	bool faceInputSupported = 41;
-	bool idInputSupported = 42;
-	bool PINInputSupported = 43;
-	
-	bool biometricOnlySupported = 44;
-	bool biometricPINSupported = 45;
+	bool EMCardSupported = 28;
+	bool HIDProxCardSupported = 29;
+	bool MifareFelicaCardSupported = 30;
+	bool iClassCardSupported = 31;
+	bool ClassicPlusCardSupported = 32;
+	bool DesFireEV1CardSupported = 33;
+	bool SRSECardSupported = 34;
+	bool SEOSCardSupported = 35;
+	bool NFCSupported = 36;
+	bool BLESupported = 37;
+	bool CustomClassicPlusSupported = 38;
+	bool CustomDesFireEV1Supported = 39;
+	bool TOM_NFCSupported = 40;
+	bool TOM_BLESupported = 41;
+	bool CustomFelicaSupported = 42;
+	bool useCardOperation = 43;
 
-	bool cardOnlySupported = 46;
-	bool cardBiometricSupported = 47;
-	bool cardPINSupported = 48;
-	bool cardBiometricOrPINSupported = 49;
-	bool cardBiometricPINSupported = 50;
+	bool extendedAuthSupported = 44;
+	bool cardInputSupported = 45;
+	bool fingerprintInputSupported = 46;
+	bool faceInputSupported = 47;
+	bool idInputSupported = 48;
+	bool PINInputSupported = 49;
 	
-	bool idBiometricSupported = 51;
-	bool idPINSupported = 52;
-	bool idBiometricOrPINSupported = 53;
-	bool idBiometricPINSupported = 54;
-	
-	bool extendedFaceOnlySupported = 55;
-	bool extendedFaceFingerprintSupported = 56;
-	bool extendedFacePINSupported = 57;
-	bool extendedFaceFingerprintOrPINSupported = 58;
-	bool extendedFaceFingerprintPINSupported = 59;
-	
-	bool extendedFingerprintOnlySupported = 60;
-	bool extendedFingerprintFaceSupported = 61;
-	bool extendedFingerprintPINSupported = 62;
-	bool extendedFingerprintFaceOrPINSupported = 63;
-	bool extendedFingerprintFacePINSupported = 64;
-	
-	bool extendedCardOnlySupported = 65;
-	bool extendedCardFaceSupported = 66;
-	bool extendedCardFingerprintSupported = 67;
-	bool extendedCardPINSupported = 68;
-	bool extendedCardFaceOrFingerprintSupported = 69;
-	bool extendedCardFaceOrPINSupported = 70;
-	bool extendedCardFingerprintOrPINSupported = 71;
-	bool extendedCardFaceOrFingerprintOrPINSupported = 72;
-	bool extendedCardFaceFingerprintSupported = 73;
-	bool extendedCardFacePINSupported = 74;
-	bool extendedCardFingerprintFaceSupported = 75;
-	bool extendedCardFingerprintPINSupported = 76;
-	bool extendedCardFaceOrFingerprintPINSupported = 77;
-	bool extendedCardFaceFingerprintOrPINSupported = 78;
-	bool extendedCardFingerprintFaceOrPINSupported = 79;
+	bool biometricOnlySupported = 50;
+	bool biometricPINSupported = 51;
 
-	bool extendedIdFaceSupported = 80;
-	bool extendedIdFingerprintSupported = 81;
-	bool extendedIdPINSupported = 82;
-	bool extendedIdFaceOrFingerprintSupported = 83;
-	bool extendedIdFaceOrPINSupported = 84;
-	bool extendedIdFingerprintOrPINSupported = 85;
-	bool extendedIdFaceOrFingerprintOrPINSupported = 86;
-	bool extendedIdFaceFingerprintSupported = 87;
-	bool extendedIdFacePINSupported = 88;
-	bool extendedIdFingerprintFaceSupported = 89;
-	bool extendedIdFingerprintPINSupported = 90;
-	bool extendedIdFaceOrFingerprintPINSupported = 91;
-	bool extendedIdFaceFingerprintOrPINSupported = 92;
-	bool extendedIdFingerprintFaceOrPINSupported = 93;
+	bool cardOnlySupported = 52;
+	bool cardBiometricSupported = 53;
+	bool cardPINSupported = 54;
+	bool cardBiometricOrPINSupported = 55;
+	bool cardBiometricPINSupported = 56;
+	
+	bool idBiometricSupported = 57;
+	bool idPINSupported = 58;
+	bool idBiometricOrPINSupported = 59;
+	bool idBiometricPINSupported = 60;
+	
+	bool extendedFaceOnlySupported = 61;
+	bool extendedFaceFingerprintSupported = 62;
+	bool extendedFacePINSupported = 63;
+	bool extendedFaceFingerprintOrPINSupported = 64;
+	bool extendedFaceFingerprintPINSupported = 65;
+	
+	bool extendedFingerprintOnlySupported = 66;
+	bool extendedFingerprintFaceSupported = 67;
+	bool extendedFingerprintPINSupported = 68;
+	bool extendedFingerprintFaceOrPINSupported = 69;
+	bool extendedFingerprintFacePINSupported = 70;
+	
+	bool extendedCardOnlySupported = 71;
+	bool extendedCardFaceSupported = 72;
+	bool extendedCardFingerprintSupported = 73;
+	bool extendedCardPINSupported = 74;
+	bool extendedCardFaceOrFingerprintSupported = 75;
+	bool extendedCardFaceOrPINSupported = 76;
+	bool extendedCardFingerprintOrPINSupported = 77;
+	bool extendedCardFaceOrFingerprintOrPINSupported = 78;
+	bool extendedCardFaceFingerprintSupported = 79;
+	bool extendedCardFacePINSupported = 80;
+	bool extendedCardFingerprintFaceSupported = 81;
+	bool extendedCardFingerprintPINSupported = 82;
+	bool extendedCardFaceOrFingerprintPINSupported = 83;
+	bool extendedCardFaceFingerprintOrPINSupported = 84;
+	bool extendedCardFingerprintFaceOrPINSupported = 85;
 
-	bool intelligentPDSupported = 94;
-	bool updateUserSupported = 95;
-	bool simulatedUnlockSupported = 96;
-	bool smartCardByteOrderSupported = 97;
-	bool qrAsCSNSupported = 98;
+	bool extendedIdFaceSupported = 86;
+	bool extendedIdFingerprintSupported = 87;
+	bool extendedIdPINSupported = 88;
+	bool extendedIdFaceOrFingerprintSupported = 89;
+	bool extendedIdFaceOrPINSupported = 90;
+	bool extendedIdFingerprintOrPINSupported = 91;
+	bool extendedIdFaceOrFingerprintOrPINSupported = 92;
+	bool extendedIdFaceFingerprintSupported = 93;
+	bool extendedIdFacePINSupported = 94;
+	bool extendedIdFingerprintFaceSupported = 95;
+	bool extendedIdFingerprintPINSupported = 96;
+	bool extendedIdFaceOrFingerprintPINSupported = 97;
+	bool extendedIdFaceFingerprintOrPINSupported = 98;
+	bool extendedIdFingerprintFaceOrPINSupported = 99;
+
+	bool intelligentPDSupported = 100;
+	bool updateUserSupported = 101;
+	bool simulatedUnlockSupported = 102;
+	bool smartCardByteOrderSupported = 103;
+	bool qrAsCSNSupported = 104;
+	bool rtspSupported = 105;
+	bool lfdSupported = 106;
+	bool visualQRSupported = 107;
+
+	uint32 maxVoipExtensionNumbers = 108;
+
+	bool osdpStandardCentralSupported = 109;
+	bool enableLicenseFuncSupported = 110;
+	bool keypadBacklightSupported = 111;
+	bool uzWirelessLockDoorSupported = 112;
+	bool customSmartCardSupported = 113;
+	bool tomSupported = 114;
+	bool tomEnrollSupported = 115;
+	bool showOsdpResultbyLED = 116;
+
+	bool customSmartCardFelicaSupported = 117;
+	bool ignoreInputAfterWiegandOut = 118;
+	bool setSlaveBaudrateSupported = 119;
+
+	uint32 visualFaceTemplateVersion = 120;
 }
 
 message GetCapabilityResponse {
@@ -366,6 +391,8 @@ enum Type {
 	XPASS_D2_KEYPAD = 0x18;
 	FACELITE				= 0x19;
 	XPASS2_KEYPAD		= 0x1A;
+	XPASS_D2_REV		= 0x1B;
+	XPASS_D2_KEYPAD_REV	= 0x1C;
 	FACESTATION_F2_FP = 0x1D;
 	FACESTATION_F2	= 0x1E;
 	XSTATION_2_QR    	= 0x1F;
@@ -373,8 +400,8 @@ enum Type {
 	IM_120 				= 0x21;
 	XSTATION_2_FP 		= 0x22;
 	BIOSTATION_3 		= 0x23;
-
 	BIOSTATION_2A		= 0x26;
+	BIOENTRY_W3 		= 0x2A;
 
 	UNKNOWN				  = 0xFF;
 }

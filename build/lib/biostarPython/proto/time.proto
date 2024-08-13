@@ -23,6 +23,16 @@ service Time {
 }
 
 
+enum Enum {
+	// option allow_alias = true;
+
+	FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+	MIN_DST_OFFSET = -7200;
+	MAX_DST_OFFSET = 7200;
+	MAX_DST_SCHEDULES = 2;
+}
+
 message GetRequest {
 	uint32 deviceID = 1;
 }

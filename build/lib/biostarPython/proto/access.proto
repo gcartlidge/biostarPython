@@ -34,6 +34,16 @@ service Access {
   rpc DeleteAllFloorLevelMulti(DeleteAllFloorLevelMultiRequest) returns (DeleteAllFloorLevelMultiResponse);   
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  MAX_LEVELS_IN_GROUP = 128;
+  MAX_SCHEDULES_IN_LEVEL = 128;
+  MAX_NAME_LENGTH = 144;
+}
+
 message GetListRequest {
   uint32 deviceID = 1;
 }

@@ -8,6 +8,7 @@ option java_multiple_files = true;
 
 import "device.proto";
 import "action.proto";
+import "apb_zone.proto";
 
 service Door {
   rpc GetList(GetListRequest) returns (GetListResponse);
@@ -33,6 +34,7 @@ message Sensor {
   uint32 deviceID = 1;
   uint32 port = 2;
   device.SwitchType type = 3;
+  bool apbUseDoorSensor = 4;
 }
 
 message ExitButton {
@@ -78,6 +80,20 @@ enum DualAuthType {
 	DUAL_AUTH_LAST			= 0x01;
 };
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_AUTO_LOCK_TIMEOUT = 3;
+  DEFAULT_HELD_OPEN_TIMEOUT = 10;
+  DEFAULT_DUAL_AUTH_TIMEOUT = 15;
+
+  MAX_FORCED_OPEN_ALARMS = 5;
+  MAX_HELD_OPEN_ALARMS = 5;
+  MAX_DUAL_AUTH_APPROVAL_GROUPS = 16;
+  MAX_NAME_LENGTH = 144;
+}
 
 message DoorInfo {
   uint32 doorID = 1;
@@ -107,7 +123,7 @@ message DoorInfo {
   uint32 dualAuthTimeout = 19;
   repeated uint32 dualAuthGroupIDs = 20;
 
-  // Antipassback Zone
+  apb_zone.ZoneInfo apbZone = 21;
 }
 
 message GetListRequest {

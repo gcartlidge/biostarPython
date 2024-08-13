@@ -15,6 +15,21 @@ service VOIP {
 }
 
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_VOIP_SERVER_PORT = 5060;
+
+  MAX_VOIP_ID_LENGTH = 32;
+  MAX_VOIP_PASSWORD_LENGTH = 32;
+  MAX_PHONEBOOK_ITEMS = 32;
+  MAX_PHONE_NUMBER_LENGTH = 32;
+  MAX_PHONE_DESCRIPTION_LENGTH = 144;
+  MAX_VOIP_URL_LENGTH = 256;
+}
+
 message UserPhone {
   string phoneNumber = 1;
   string description = 2;

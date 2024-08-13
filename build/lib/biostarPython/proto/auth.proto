@@ -14,6 +14,21 @@ service Auth {
   rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);    
 }
 
+enum Enum {
+  option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+	DEFAULT_MATCH_TIMEOUT = 5;
+	DEFAULT_AUTH_TIMEOUT = 10;
+	DEFAULT_AUTH_TIMEOUT_FOR_FACE = 5;
+
+	MIN_MATCH_TIMEOUT = 1;
+	MAX_MATCH_TIMEOUT = 20;
+	MIN_AUTH_TIMEOUT = 3;
+	MAX_AUTH_TIMEOUT = 20;
+}
+
 enum AuthMode {
 	AUTH_MODE_BIOMETRIC_ONLY = 0;
 	AUTH_MODE_BIOMETRIC_PIN = 1;

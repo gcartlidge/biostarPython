@@ -67,6 +67,17 @@ enum Enum {
   MAX_NAME_LENGTH = 192;
 }
 
+enum UserFlag {
+	USER_FLAG_NONE = 0x00;
+
+	USER_FLAG_CREATED	= 0x01;
+	USER_FLAG_UPDATED	= 0x02;
+	USER_FLAG_DELETED	= 0x04;
+	USER_FLAG_DISABLED = 0x80;
+  
+	USER_FLAG_ALL = 0xFF;
+}
+
 enum UpdateMask {
   KEEP_NONE = 0x00;
 
@@ -84,11 +95,12 @@ enum UpdateMask {
 
 message UserHdr {
   string ID = 1;
-  int32 numOfCard = 2;
-  int32 numOfFinger = 3;
-  int32 numOfFace = 4;
-  uint32 authGroupID = 5;
-  uint32 updateMask = 6;    // for Update(Multi)Request only
+  uint32 userFlag = 2;
+  int32 numOfCard = 3;
+  int32 numOfFinger = 4;
+  int32 numOfFace = 5;
+  uint32 authGroupID = 6;
+  uint32 updateMask = 7;    // for Update(Multi)Request only
 }
 
 message GetListRequest {

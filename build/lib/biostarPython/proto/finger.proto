@@ -18,10 +18,26 @@ service Finger {
   rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);
 }
 
+enum Enum {
+  // option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  DEFAULT_SCAN_TIMEOUT = 10;
+
+  MIN_SCAN_TIMEOUT = 1;
+  MAX_SCAN_TIMEOUT = 20;
+}
+
 enum TemplateFormat {
   TEMPLATE_FORMAT_SUPREMA	= 0x00;
   TEMPLATE_FORMAT_ISO	= 0x01;
   TEMPLATE_FORMAT_ANSI = 0x02;	
+}
+
+enum FingerFlag {
+  BS2_FINGER_FLAG_NONE = 0x00;
+  BS2_FINGER_FLAG_DURESS = 0x01;
 }
 
 message FingerData {

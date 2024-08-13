@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from biostarPython.service import thermal_pb2 as thermal__pb2
+from biostarPython.service import test_pb2 as test__pb2
 
 GRPC_GENERATED_VERSION = '1.65.4'
 GRPC_VERSION = grpc.__version__
@@ -20,7 +20,7 @@ except ImportError:
 if _version_not_supported:
     warnings.warn(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in thermal_pb2_grpc.py depends on'
+        + f' but the generated code in test_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -30,7 +30,7 @@ if _version_not_supported:
     )
 
 
-class ThermalStub(object):
+class TestStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -39,91 +39,91 @@ class ThermalStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetConfig = channel.unary_unary(
-                '/gsdk.thermal.Thermal/GetConfig',
-                request_serializer=thermal__pb2.GetConfigRequest.SerializeToString,
-                response_deserializer=thermal__pb2.GetConfigResponse.FromString,
+        self.DetectCard = channel.unary_unary(
+                '/gsdk.test.Test/DetectCard',
+                request_serializer=test__pb2.DetectCardRequest.SerializeToString,
+                response_deserializer=test__pb2.DetectCardResponse.FromString,
                 _registered_method=True)
-        self.SetConfig = channel.unary_unary(
-                '/gsdk.thermal.Thermal/SetConfig',
-                request_serializer=thermal__pb2.SetConfigRequest.SerializeToString,
-                response_deserializer=thermal__pb2.SetConfigResponse.FromString,
+        self.DetectFace = channel.unary_unary(
+                '/gsdk.test.Test/DetectFace',
+                request_serializer=test__pb2.DetectFaceRequest.SerializeToString,
+                response_deserializer=test__pb2.DetectFaceResponse.FromString,
                 _registered_method=True)
-        self.SetConfigMulti = channel.unary_unary(
-                '/gsdk.thermal.Thermal/SetConfigMulti',
-                request_serializer=thermal__pb2.SetConfigMultiRequest.SerializeToString,
-                response_deserializer=thermal__pb2.SetConfigMultiResponse.FromString,
+        self.DetectFingerprint = channel.unary_unary(
+                '/gsdk.test.Test/DetectFingerprint',
+                request_serializer=test__pb2.DetectFingerprintRequest.SerializeToString,
+                response_deserializer=test__pb2.DetectFingerprintResponse.FromString,
                 _registered_method=True)
-        self.GetTemperatureLog = channel.unary_unary(
-                '/gsdk.thermal.Thermal/GetTemperatureLog',
-                request_serializer=thermal__pb2.GetTemperatureLogRequest.SerializeToString,
-                response_deserializer=thermal__pb2.GetTemperatureLogResponse.FromString,
+        self.EnterKey = channel.unary_unary(
+                '/gsdk.test.Test/EnterKey',
+                request_serializer=test__pb2.EnterKeyRequest.SerializeToString,
+                response_deserializer=test__pb2.EnterKeyResponse.FromString,
                 _registered_method=True)
 
 
-class ThermalServicer(object):
+class TestServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def GetConfig(self, request, context):
+    def DetectCard(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SetConfig(self, request, context):
+    def DetectFace(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SetConfigMulti(self, request, context):
+    def DetectFingerprint(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetTemperatureLog(self, request, context):
+    def EnterKey(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ThermalServicer_to_server(servicer, server):
+def add_TestServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetConfig': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetConfig,
-                    request_deserializer=thermal__pb2.GetConfigRequest.FromString,
-                    response_serializer=thermal__pb2.GetConfigResponse.SerializeToString,
+            'DetectCard': grpc.unary_unary_rpc_method_handler(
+                    servicer.DetectCard,
+                    request_deserializer=test__pb2.DetectCardRequest.FromString,
+                    response_serializer=test__pb2.DetectCardResponse.SerializeToString,
             ),
-            'SetConfig': grpc.unary_unary_rpc_method_handler(
-                    servicer.SetConfig,
-                    request_deserializer=thermal__pb2.SetConfigRequest.FromString,
-                    response_serializer=thermal__pb2.SetConfigResponse.SerializeToString,
+            'DetectFace': grpc.unary_unary_rpc_method_handler(
+                    servicer.DetectFace,
+                    request_deserializer=test__pb2.DetectFaceRequest.FromString,
+                    response_serializer=test__pb2.DetectFaceResponse.SerializeToString,
             ),
-            'SetConfigMulti': grpc.unary_unary_rpc_method_handler(
-                    servicer.SetConfigMulti,
-                    request_deserializer=thermal__pb2.SetConfigMultiRequest.FromString,
-                    response_serializer=thermal__pb2.SetConfigMultiResponse.SerializeToString,
+            'DetectFingerprint': grpc.unary_unary_rpc_method_handler(
+                    servicer.DetectFingerprint,
+                    request_deserializer=test__pb2.DetectFingerprintRequest.FromString,
+                    response_serializer=test__pb2.DetectFingerprintResponse.SerializeToString,
             ),
-            'GetTemperatureLog': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetTemperatureLog,
-                    request_deserializer=thermal__pb2.GetTemperatureLogRequest.FromString,
-                    response_serializer=thermal__pb2.GetTemperatureLogResponse.SerializeToString,
+            'EnterKey': grpc.unary_unary_rpc_method_handler(
+                    servicer.EnterKey,
+                    request_deserializer=test__pb2.EnterKeyRequest.FromString,
+                    response_serializer=test__pb2.EnterKeyResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'gsdk.thermal.Thermal', rpc_method_handlers)
+            'gsdk.test.Test', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('gsdk.thermal.Thermal', rpc_method_handlers)
+    server.add_registered_method_handlers('gsdk.test.Test', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class Thermal(object):
+class Test(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def GetConfig(request,
+    def DetectCard(request,
             target,
             options=(),
             channel_credentials=None,
@@ -136,9 +136,9 @@ class Thermal(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/gsdk.thermal.Thermal/GetConfig',
-            thermal__pb2.GetConfigRequest.SerializeToString,
-            thermal__pb2.GetConfigResponse.FromString,
+            '/gsdk.test.Test/DetectCard',
+            test__pb2.DetectCardRequest.SerializeToString,
+            test__pb2.DetectCardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -150,7 +150,7 @@ class Thermal(object):
             _registered_method=True)
 
     @staticmethod
-    def SetConfig(request,
+    def DetectFace(request,
             target,
             options=(),
             channel_credentials=None,
@@ -163,9 +163,9 @@ class Thermal(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/gsdk.thermal.Thermal/SetConfig',
-            thermal__pb2.SetConfigRequest.SerializeToString,
-            thermal__pb2.SetConfigResponse.FromString,
+            '/gsdk.test.Test/DetectFace',
+            test__pb2.DetectFaceRequest.SerializeToString,
+            test__pb2.DetectFaceResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -177,7 +177,7 @@ class Thermal(object):
             _registered_method=True)
 
     @staticmethod
-    def SetConfigMulti(request,
+    def DetectFingerprint(request,
             target,
             options=(),
             channel_credentials=None,
@@ -190,9 +190,9 @@ class Thermal(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/gsdk.thermal.Thermal/SetConfigMulti',
-            thermal__pb2.SetConfigMultiRequest.SerializeToString,
-            thermal__pb2.SetConfigMultiResponse.FromString,
+            '/gsdk.test.Test/DetectFingerprint',
+            test__pb2.DetectFingerprintRequest.SerializeToString,
+            test__pb2.DetectFingerprintResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -204,7 +204,7 @@ class Thermal(object):
             _registered_method=True)
 
     @staticmethod
-    def GetTemperatureLog(request,
+    def EnterKey(request,
             target,
             options=(),
             channel_credentials=None,
@@ -217,9 +217,9 @@ class Thermal(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/gsdk.thermal.Thermal/GetTemperatureLog',
-            thermal__pb2.GetTemperatureLogRequest.SerializeToString,
-            thermal__pb2.GetTemperatureLogResponse.FromString,
+            '/gsdk.test.Test/EnterKey',
+            test__pb2.EnterKeyRequest.SerializeToString,
+            test__pb2.EnterKeyResponse.FromString,
             options,
             channel_credentials,
             insecure,

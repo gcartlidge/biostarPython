@@ -21,6 +21,18 @@ service TimedAPBZone {
   rpc SetAlarm(SetAlarmRequest) returns (SetAlarmResponse);
 }
 
+enum Enum {
+  // option allow_alias = true;
+
+  NO_RESET = 0;
+  DEFAULT_RESET_DURATION = 86400;
+
+  MAX_ALARMS = 5;
+  MAX_BYPASS_GROUPS = 16;
+  MAX_MEMBERS = 64;
+  MAX_NAME_LENGTH = 144;
+}
+
 enum Type {
   HARD = 0x00;
   SOFT = 0x01;

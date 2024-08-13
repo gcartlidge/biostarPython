@@ -1,11 +1,11 @@
-__version__ = "0.3.0.5"
+__version__ = "0.4.0.0"
 __author__ = 'SupremaUK'
 __credits__ = 'SupremaInc'
 
 from os.path import dirname
 from sys import exc_info
 from json import load as jsonload
-from biostarPython.service import access_pb2_grpc, action_pb2_grpc, admin_pb2_grpc, apb_zone_pb2_grpc, auth_pb2_grpc, card_pb2_grpc, cert_pb2_grpc, connect_master_pb2_grpc, connect_pb2_grpc, device_pb2_grpc, display_pb2_grpc, door_pb2_grpc, err_pb2_grpc, event_pb2_grpc, face_pb2_grpc, finger_pb2_grpc, fire_zone_pb2_grpc, gateway_pb2_grpc, input_pb2_grpc, interlock_zone_pb2_grpc, intrusion_zone_pb2_grpc, lift_pb2_grpc, lift_zone_pb2_grpc, lock_zone_pb2_grpc, login_pb2_grpc, network_pb2_grpc, operator_pb2_grpc, rs485_pb2_grpc, schedule_pb2_grpc, server_pb2_grpc, status_pb2_grpc, system_pb2_grpc, tenant_pb2_grpc, thermal_pb2_grpc, timed_apb_zone_pb2_grpc, time_pb2_grpc, tna_pb2_grpc, user_pb2_grpc, voip_pb2_grpc, wiegand_pb2_grpc, rtsp_pb2_grpc, voip_pb2_grpc, udp_pb2_grpc
+from biostarPython.service import access_pb2_grpc, action_pb2_grpc, admin_pb2_grpc, apb_zone_pb2_grpc, auth_pb2_grpc, card_pb2_grpc, cert_pb2_grpc, connect_master_pb2_grpc, connect_pb2_grpc, device_pb2_grpc, display_pb2_grpc, door_pb2_grpc, err_pb2_grpc, event_pb2_grpc, face_pb2_grpc, finger_pb2_grpc, fire_zone_pb2_grpc, gateway_pb2_grpc, input_pb2_grpc, interlock_zone_pb2_grpc, intrusion_zone_pb2_grpc, lift_pb2_grpc, lift_zone_pb2_grpc, lock_zone_pb2_grpc, login_pb2_grpc, network_pb2_grpc, operator_pb2_grpc, rs485_pb2_grpc, schedule_pb2_grpc, server_pb2_grpc, status_pb2_grpc, system_pb2_grpc, tenant_pb2_grpc, thermal_pb2_grpc, timed_apb_zone_pb2_grpc, time_pb2_grpc, tna_pb2_grpc, user_pb2_grpc, voip_pb2_grpc, wiegand_pb2_grpc, rtsp_pb2_grpc, voip_pb2_grpc, udp_pb2_grpc, test_pb2_grpc
 import grpc
 import logging
 from logging.handlers import TimedRotatingFileHandler
@@ -55,6 +55,7 @@ def initDeviceList():
  deviceType[0x22] = 'XStation 2 Fingerprint' 
  deviceType[0x23] = 'BioStation 3' 
  deviceType[0x26] = 'BioStation 2A' 
+ deviceType[0x2A] = 'BioEntry W3'
  return deviceType
 deviceType = initDeviceList()  
 
@@ -321,7 +322,7 @@ class DeviceSvc:
       raise
   def factoryReset(self, deviceID):
     try:
-      response = self.stub.FactoryReset(device_pb2_grpc.device__pb2.FactoryResetRequest(deviceIDs=deviceIDs))
+      response = self.stub.FactoryReset(device_pb2_grpc.device__pb2.FactoryResetRequest(deviceID=deviceID))
     except grpc.RpcError as e:
       logger.error(f'Cannot Factory Reset Device: {e}')
       raise
@@ -949,6 +950,25 @@ class CardSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot set multiple QRconfig: {e}')
       raise
+  def getCustomConfig(self, deviceID):
+    try:
+      response = self.stub.GetCustomConfig(card_pb2_grpc.card__pb2.GetCustomConfigRequest(deviceID=deviceID))
+      return response.config
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the Custom config: {e}')
+      raise
+  def setCustomConfig(self, deviceID, config):
+    try:
+      self.stub.SetCustomConfig(card_pb2_grpc.card__pb2.SetCustomConfigRequest(deviceID=deviceID,config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the Custom config: {e}')
+      raise
+  def setCustomConfigMulti(self, deviceIDs, config):
+    try:
+      self.stub.SetCustomConfigMulti(card_pb2_grpc.card__pb2.SetCustomConfigMultiRequest(deviceIDs=deviceIDs,config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set multiple Custom config: {e}')
+      raise    
 class EventSvc:
   stub = None
   newEventFilter = event_pb2_grpc.event__pb2.EventFilter
@@ -982,6 +1002,21 @@ class EventSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot get the image events: {e}')
       raise    
+      
+  def getImageFilter(self, deviceID):
+    try:
+      response = self.stub.GetImageFilter(event_pb2_grpc.event__pb2.GetImageFilterRequest(deviceID=deviceID))
+      return response.filters
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the image event filter: {e}')
+      raise 
+
+  def setImageFilter(self, deviceID, filters):
+    try:
+      response = self.stub.SetImageFilter(event_pb2_grpc.event__pb2.SetImageFilterRequest(deviceID=deviceID, filters=filters))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the image event filter: {e}')
+      raise        
 
   def clearLog(self, deviceID):
     try:
@@ -1871,6 +1906,7 @@ class InterlockZoneSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot set alarm on Interlock Zones: {e}')
       raise  
+
 class UDPSvc:
   stub = None
   def __init__(self, channel): 
@@ -1891,7 +1927,34 @@ class UDPSvc:
       response = self.stub.SetIPConfig(udp_pb2_grpc.udp__pb2.SetIPConfigRequest(deviceInfo = udp_pb2_grpc.udp__pb2.DeviceInfo(deviceID=deviceID,IPAddr=ipAddress),config=config))
     except grpc.RpcError as e:
       logger.error(f'Cannot set the UDP Config: {e}')
-      raise      
+      raise    
+
+class TestSvc:
+  stub = None
+  def __init__(self, channel): 
+    try:
+      self.stub = test_pb2_grpc.TestStub(channel)
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the Test stub: {e}')
+      raise
+  def detectCard(self, deviceID, cardData):
+    try:
+      response = self.stub.DetectCard(test_pb2_grpc.test__pb2.DetectCardRequest(deviceID=deviceID,cardData=cardData))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the Test Card data: {e}')
+      raise
+  def detectFace(self, deviceID, faceTemplate):
+    try:
+      response = self.stub.DetectFace(test_pb2_grpc.test__pb2.DetectFaceRequest(deviceID=deviceID,faceTemplate=faceTemplate))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the Test Face data: {e}')
+      raise    
+  def enterKey(self, deviceID, input):
+    try:
+      response = self.stub.EnterKey(test_pb2_grpc.test__pb2.EnterKeyRequest(deviceID=deviceID,input=input))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the Test Face data: {e}')
+      raise        
 #below currently not implemented in server.exe
 '''
 class InputSvc:

@@ -28,7 +28,7 @@ message GetIPConfigResponse {
 
 message SetIPConfigRequest {
   DeviceInfo deviceInfo = 1;
-  network.IPConfig config = 3;
+  network.IPConfig config = 2;
 }
 
 message SetIPConfigResponse {
