@@ -1,4 +1,4 @@
-__version__ = "0.4.0.0"
+__version__ = "0.4.0.1"
 __author__ = 'SupremaUK'
 __credits__ = 'SupremaInc'
 
@@ -729,6 +729,18 @@ class DisplaySvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot Update Multiple Background Images: {e}')
       raise   
+  def updateSlideImages(self,deviceID,PNGImages):
+    try:
+      self.stub.UpdateSlideImages(display_pb2_grpc.display__pb2.UpdateSlideImagesRequest(deviceID=deviceID, PNGImages=PNGImages))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Update Slide Images: {e}')
+      raise  
+  def updateSlideImagesMulti(self,deviceIDs,PNGImages):
+    try:
+      self.stub.UpdateSlideImagesMulti(display_pb2_grpc.display__pb2.UpdateSlideImagesMultiRequest(deviceIDs=deviceIDs, PNGImages=PNGImages))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot Update Slide Images on multiple: {e}')
+      raise      
   def getConfig(self, deviceID):
     try:
       response = self.stub.GetConfig(display_pb2_grpc.display__pb2.GetConfigRequest(deviceID=deviceID))
@@ -1949,6 +1961,12 @@ class TestSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot get the Test Face data: {e}')
       raise    
+  def detectFinger(self, deviceID, fingerprintTemplate):
+    try:
+      response = self.stub.DetectFinger(test_pb2_grpc.test__pb2.DetectFingerRequest(deviceID=deviceID,fingerprintTemplate=fingerprintTemplate))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the Test Face data: {e}')
+      raise       
   def enterKey(self, deviceID, input):
     try:
       response = self.stub.EnterKey(test_pb2_grpc.test__pb2.EnterKeyRequest(deviceID=deviceID,input=input))
