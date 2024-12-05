@@ -56,6 +56,7 @@ enum Enum {
 enum FaceFlag {
   BS2_FACE_FLAG_NONE = 0x00;
   BS2_FACE_FLAG_WARPED = 0x01;
+  BS2_FACE_FLAG_TEMPLATE_ONLY = 0x20;
   BS2_FACE_FLAG_EX = 0x100;
 }
 
@@ -63,12 +64,12 @@ enum FaceFlag {
 message FaceData {
   int32 index = 1;
   uint32 flag = 2; 
-  repeated bytes templates = 3;
-  bytes imageData = 5;
+  repeated bytes templates = 3;     // When BS2_FACE_FLAG_TEMPLATE_ONLY, only templates is used.
+  bytes imageData = 4;
 
-  // only for F2 and BS3 (flag & BS2_FACE_FLAG_EX is true)
-  repeated bytes irTemplates = 7;
-  bytes irImageData = 9; 
+  // only for RGB-Based Visual Face Authentication Device (flag & BS2_FACE_FLAG_EX is true)
+  repeated bytes irTemplates = 5;
+  bytes irImageData = 6; 
 }
 
 
@@ -259,6 +260,7 @@ message FaceConfig {
   uint32 detectDistanceMin = 16;
   uint32 detectDistanceMax = 17;
   bool wideSearch = 18;
+  bool unableToSaveImageOfVisualFace = 19;
 }
 
 

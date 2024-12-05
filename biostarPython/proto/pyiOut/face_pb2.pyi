@@ -30,6 +30,7 @@ class FaceFlag(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     BS2_FACE_FLAG_NONE: _ClassVar[FaceFlag]
     BS2_FACE_FLAG_WARPED: _ClassVar[FaceFlag]
+    BS2_FACE_FLAG_TEMPLATE_ONLY: _ClassVar[FaceFlag]
     BS2_FACE_FLAG_EX: _ClassVar[FaceFlag]
 
 class FaceSecurityLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
@@ -108,6 +109,7 @@ MIN_MAX_DETECTION_DISTANCE: Enum
 MAX_MAX_DETECTION_DISTANCE: Enum
 BS2_FACE_FLAG_NONE: FaceFlag
 BS2_FACE_FLAG_WARPED: FaceFlag
+BS2_FACE_FLAG_TEMPLATE_ONLY: FaceFlag
 BS2_FACE_FLAG_EX: FaceFlag
 BS2_FACE_SECURITY_NORMAL: FaceSecurityLevel
 BS2_FACE_SECURITY_SECURE: FaceSecurityLevel
@@ -303,7 +305,7 @@ class DeleteAllAuthGroupMultiResponse(_message.Message):
     def __init__(self, deviceErrors: _Optional[_Iterable[_Union[_err_pb2.ErrorResponse, _Mapping]]] = ...) -> None: ...
 
 class FaceConfig(_message.Message):
-    __slots__ = ("securityLevel", "lightCondition", "enrollThreshold", "detectSensitivity", "enrollTimeout", "LFDLevel", "quickEnrollment", "previewOption", "checkDuplicate", "operationMode", "maxRotation", "faceWidthMin", "faceWidthMax", "searchRangeX", "searchRangeWidth", "detectDistanceMin", "detectDistanceMax", "wideSearch")
+    __slots__ = ("securityLevel", "lightCondition", "enrollThreshold", "detectSensitivity", "enrollTimeout", "LFDLevel", "quickEnrollment", "previewOption", "checkDuplicate", "operationMode", "maxRotation", "faceWidthMin", "faceWidthMax", "searchRangeX", "searchRangeWidth", "detectDistanceMin", "detectDistanceMax", "wideSearch", "unableToSaveImageOfVisualFace")
     SECURITYLEVEL_FIELD_NUMBER: _ClassVar[int]
     LIGHTCONDITION_FIELD_NUMBER: _ClassVar[int]
     ENROLLTHRESHOLD_FIELD_NUMBER: _ClassVar[int]
@@ -322,6 +324,7 @@ class FaceConfig(_message.Message):
     DETECTDISTANCEMIN_FIELD_NUMBER: _ClassVar[int]
     DETECTDISTANCEMAX_FIELD_NUMBER: _ClassVar[int]
     WIDESEARCH_FIELD_NUMBER: _ClassVar[int]
+    UNABLETOSAVEIMAGEOFVISUALFACE_FIELD_NUMBER: _ClassVar[int]
     securityLevel: FaceSecurityLevel
     lightCondition: FaceLightCondition
     enrollThreshold: FaceEnrollThreshold
@@ -340,7 +343,8 @@ class FaceConfig(_message.Message):
     detectDistanceMin: int
     detectDistanceMax: int
     wideSearch: bool
-    def __init__(self, securityLevel: _Optional[_Union[FaceSecurityLevel, str]] = ..., lightCondition: _Optional[_Union[FaceLightCondition, str]] = ..., enrollThreshold: _Optional[_Union[FaceEnrollThreshold, str]] = ..., detectSensitivity: _Optional[_Union[FaceDetectSensitivity, str]] = ..., enrollTimeout: _Optional[int] = ..., LFDLevel: _Optional[_Union[FaceLFDLevel, str]] = ..., quickEnrollment: bool = ..., previewOption: _Optional[_Union[FacePreviewOption, str]] = ..., checkDuplicate: bool = ..., operationMode: _Optional[_Union[FaceOperationMode, str]] = ..., maxRotation: _Optional[int] = ..., faceWidthMin: _Optional[int] = ..., faceWidthMax: _Optional[int] = ..., searchRangeX: _Optional[int] = ..., searchRangeWidth: _Optional[int] = ..., detectDistanceMin: _Optional[int] = ..., detectDistanceMax: _Optional[int] = ..., wideSearch: bool = ...) -> None: ...
+    unableToSaveImageOfVisualFace: bool
+    def __init__(self, securityLevel: _Optional[_Union[FaceSecurityLevel, str]] = ..., lightCondition: _Optional[_Union[FaceLightCondition, str]] = ..., enrollThreshold: _Optional[_Union[FaceEnrollThreshold, str]] = ..., detectSensitivity: _Optional[_Union[FaceDetectSensitivity, str]] = ..., enrollTimeout: _Optional[int] = ..., LFDLevel: _Optional[_Union[FaceLFDLevel, str]] = ..., quickEnrollment: bool = ..., previewOption: _Optional[_Union[FacePreviewOption, str]] = ..., checkDuplicate: bool = ..., operationMode: _Optional[_Union[FaceOperationMode, str]] = ..., maxRotation: _Optional[int] = ..., faceWidthMin: _Optional[int] = ..., faceWidthMax: _Optional[int] = ..., searchRangeX: _Optional[int] = ..., searchRangeWidth: _Optional[int] = ..., detectDistanceMin: _Optional[int] = ..., detectDistanceMax: _Optional[int] = ..., wideSearch: bool = ..., unableToSaveImageOfVisualFace: bool = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

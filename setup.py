@@ -6,7 +6,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name='biostarPython',
-    version='0.4.0.1',
+    version='0.4.0.2',
     author_email = 'gcartlidge@supremainc.com',
     author = 'SupremaUK',
     description = 'Python client for Suprema GSDK with included callable classes.',
@@ -19,6 +19,9 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
     ],
     package_data={
         "": ["*.py", "*.proto", "*.json"],

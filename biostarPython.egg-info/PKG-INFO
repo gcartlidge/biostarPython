@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: biostarPython
-Version: 0.4.0.1
+Version: 0.4.0.2
 Summary: Python client for Suprema GSDK with included callable classes.
 Home-page: https://github.com/gcartlidge/biostarPython
 Author: SupremaUK
@@ -8,6 +8,9 @@ Author-email: gcartlidge@supremainc.com
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
 Requires-Python: >3.5.2
 Description-Content-Type: text/markdown
 License-File: LICENSE
@@ -75,6 +78,7 @@ All of the specific APIs can be found at the wiki Above.
 
 ### changelog
 
+- 0.4.0.2 - Updated proto files to 1.7.1 distribution of GSDK (Template only selection for FaceData and FaceConfig)
 - 0.4.0.1 - Added UpdateSlideImages to DisplaySvc and added Fingerprint to TestSvc.
 - 0.4.0.0 - Updated proto files to 1.7.0 (New Features, BEW3 support), added TestSvc (Waiting on support from device), fixed factoryDefault parameters.
 - 0.3.0.5 - Added UDPSvc for changing IP config via UDP, Updated Proto generation to 1.6.0 version of GSDK.

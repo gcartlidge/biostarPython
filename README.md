@@ -59,6 +59,7 @@ All of the specific APIs can be found at the wiki Above.
 
 ### changelog
 
+- 0.4.0.2 - Updated proto files to 1.7.1 distribution of GSDK (Template only selection for FaceData and FaceConfig)
 - 0.4.0.1 - Added UpdateSlideImages to DisplaySvc and added Fingerprint to TestSvc.
 - 0.4.0.0 - Updated proto files to 1.7.0 (New Features, BEW3 support), added TestSvc (Waiting on support from device), fixed factoryDefault parameters.
 - 0.3.0.5 - Added UDPSvc for changing IP config via UDP, Updated Proto generation to 1.6.0 version of GSDK.
