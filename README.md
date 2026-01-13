@@ -24,7 +24,7 @@ I'd also recommend checking out [Advanced Installer](https://www.advancedinstall
 
 All classes that can be used are imported under the biostarPython package.
 The ones currently written are:<br>
-**GatewayClient, ConnectSvc, DeviceSvc, FaceSvc, FingerSvc, StatusSvc, UserSvc, DisplaySvc, AdminSvc, WiegandSvc, TimeSvc, CardSvc, EventSvc, NetworkSvc, ServerSvc, SystemSvc, DoorSvc, RS485Svc, AuthSvc, AccessSvc, ScheduleSvc, ActionSvc, TNASvc, OperatorSvc, LockZoneSvc, TimedAPBZoneSvc, APBZoneSvc, IntrusionZoneSvc, FireZoneSvc, InterlockZoneSvc, UDPSvc & TestSvc**
+**GatewayClient, ConnectSvc, DeviceSvc, FaceSvc, FingerSvc, StatusSvc, UserSvc, DisplaySvc, AdminSvc, WiegandSvc, TimeSvc, CardSvc, EventSvc, NetworkSvc, ServerSvc, SystemSvc, DoorSvc, RS485Svc, AuthSvc, AccessSvc, ScheduleSvc, ActionSvc, TNASvc, OperatorSvc, LockZoneSvc, TimedAPBZoneSvc, APBZoneSvc, IntrusionZoneSvc, FireZoneSvc, InterlockZoneSvc, UDPSvc, DeviceLicenseSvc, MasterAdminSvc & TestSvc**
 
 With the remaining being added in a future release. 
 I think im up to date! <br>
@@ -59,6 +59,7 @@ All of the specific APIs can be found at the wiki Above.
 
 ### changelog
 
+- 0.6.0.0 - Updated proto files to 1.9.0 distribution of GSDK, added MasterAdminSvc, DeviceLicenseSvc, Support for multiple devices, Run Action, Lock Override, Door Mode Override, Realtime IO and User Override. 
 - 0.4.0.2 - Updated proto files to 1.7.1 distribution of GSDK (Template only selection for FaceData and FaceConfig)
 - 0.4.0.1 - Added UpdateSlideImages to DisplaySvc and added Fingerprint to TestSvc.
 - 0.4.0.0 - Updated proto files to 1.7.0 (New Features, BEW3 support), added TestSvc (Waiting on support from device), fixed factoryDefault parameters.

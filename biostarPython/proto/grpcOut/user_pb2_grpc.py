@@ -3,9 +3,9 @@
 import grpc
 import warnings
 
-from biostarPython.service import user_pb2 as user__pb2
+import user_pb2 as user__pb2
 
-GRPC_GENERATED_VERSION = '1.68.1'
+GRPC_GENERATED_VERSION = '1.76.0'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in user_pb2_grpc.py depends on'
+        + ' but the generated code in user_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -178,6 +178,46 @@ class UserStub(object):
                 '/gsdk.user.User/GetStatistic',
                 request_serializer=user__pb2.GetStatisticRequest.SerializeToString,
                 response_deserializer=user__pb2.GetStatisticResponse.FromString,
+                _registered_method=True)
+        self.GetUserOverride = channel.unary_unary(
+                '/gsdk.user.User/GetUserOverride',
+                request_serializer=user__pb2.GetUserOverrideRequest.SerializeToString,
+                response_deserializer=user__pb2.GetUserOverrideResponse.FromString,
+                _registered_method=True)
+        self.GetAllUserOverride = channel.unary_unary(
+                '/gsdk.user.User/GetAllUserOverride',
+                request_serializer=user__pb2.GetAllUserOverrideRequest.SerializeToString,
+                response_deserializer=user__pb2.GetAllUserOverrideResponse.FromString,
+                _registered_method=True)
+        self.SetUserOverride = channel.unary_unary(
+                '/gsdk.user.User/SetUserOverride',
+                request_serializer=user__pb2.SetUserOverrideRequest.SerializeToString,
+                response_deserializer=user__pb2.SetUserOverrideResponse.FromString,
+                _registered_method=True)
+        self.SetUserOverrideMulti = channel.unary_unary(
+                '/gsdk.user.User/SetUserOverrideMulti',
+                request_serializer=user__pb2.SetUserOverrideMultiRequest.SerializeToString,
+                response_deserializer=user__pb2.SetUserOverrideMultiResponse.FromString,
+                _registered_method=True)
+        self.DeleteUserOverride = channel.unary_unary(
+                '/gsdk.user.User/DeleteUserOverride',
+                request_serializer=user__pb2.DeleteUserOverrideRequest.SerializeToString,
+                response_deserializer=user__pb2.DeleteUserOverrideResponse.FromString,
+                _registered_method=True)
+        self.DeleteUserOverrideMulti = channel.unary_unary(
+                '/gsdk.user.User/DeleteUserOverrideMulti',
+                request_serializer=user__pb2.DeleteUserOverrideMultiRequest.SerializeToString,
+                response_deserializer=user__pb2.DeleteUserOverrideMultiResponse.FromString,
+                _registered_method=True)
+        self.DeleteAllUserOverride = channel.unary_unary(
+                '/gsdk.user.User/DeleteAllUserOverride',
+                request_serializer=user__pb2.DeleteAllUserOverrideRequest.SerializeToString,
+                response_deserializer=user__pb2.DeleteAllUserOverrideResponse.FromString,
+                _registered_method=True)
+        self.DeleteAllUserOverrideMulti = channel.unary_unary(
+                '/gsdk.user.User/DeleteAllUserOverrideMulti',
+                request_serializer=user__pb2.DeleteAllUserOverrideMultiRequest.SerializeToString,
+                response_deserializer=user__pb2.DeleteAllUserOverrideMultiResponse.FromString,
                 _registered_method=True)
 
 
@@ -358,6 +398,54 @@ class UserServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetUserOverride(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllUserOverride(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetUserOverride(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetUserOverrideMulti(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteUserOverride(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteUserOverrideMulti(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAllUserOverride(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAllUserOverrideMulti(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_UserServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -505,6 +593,46 @@ def add_UserServicer_to_server(servicer, server):
                     servicer.GetStatistic,
                     request_deserializer=user__pb2.GetStatisticRequest.FromString,
                     response_serializer=user__pb2.GetStatisticResponse.SerializeToString,
+            ),
+            'GetUserOverride': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserOverride,
+                    request_deserializer=user__pb2.GetUserOverrideRequest.FromString,
+                    response_serializer=user__pb2.GetUserOverrideResponse.SerializeToString,
+            ),
+            'GetAllUserOverride': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAllUserOverride,
+                    request_deserializer=user__pb2.GetAllUserOverrideRequest.FromString,
+                    response_serializer=user__pb2.GetAllUserOverrideResponse.SerializeToString,
+            ),
+            'SetUserOverride': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetUserOverride,
+                    request_deserializer=user__pb2.SetUserOverrideRequest.FromString,
+                    response_serializer=user__pb2.SetUserOverrideResponse.SerializeToString,
+            ),
+            'SetUserOverrideMulti': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetUserOverrideMulti,
+                    request_deserializer=user__pb2.SetUserOverrideMultiRequest.FromString,
+                    response_serializer=user__pb2.SetUserOverrideMultiResponse.SerializeToString,
+            ),
+            'DeleteUserOverride': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteUserOverride,
+                    request_deserializer=user__pb2.DeleteUserOverrideRequest.FromString,
+                    response_serializer=user__pb2.DeleteUserOverrideResponse.SerializeToString,
+            ),
+            'DeleteUserOverrideMulti': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteUserOverrideMulti,
+                    request_deserializer=user__pb2.DeleteUserOverrideMultiRequest.FromString,
+                    response_serializer=user__pb2.DeleteUserOverrideMultiResponse.SerializeToString,
+            ),
+            'DeleteAllUserOverride': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteAllUserOverride,
+                    request_deserializer=user__pb2.DeleteAllUserOverrideRequest.FromString,
+                    response_serializer=user__pb2.DeleteAllUserOverrideResponse.SerializeToString,
+            ),
+            'DeleteAllUserOverrideMulti': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteAllUserOverrideMulti,
+                    request_deserializer=user__pb2.DeleteAllUserOverrideMultiRequest.FromString,
+                    response_serializer=user__pb2.DeleteAllUserOverrideMultiResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1290,6 +1418,222 @@ class User(object):
             '/gsdk.user.User/GetStatistic',
             user__pb2.GetStatisticRequest.SerializeToString,
             user__pb2.GetStatisticResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetUserOverride(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.user.User/GetUserOverride',
+            user__pb2.GetUserOverrideRequest.SerializeToString,
+            user__pb2.GetUserOverrideResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAllUserOverride(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.user.User/GetAllUserOverride',
+            user__pb2.GetAllUserOverrideRequest.SerializeToString,
+            user__pb2.GetAllUserOverrideResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SetUserOverride(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.user.User/SetUserOverride',
+            user__pb2.SetUserOverrideRequest.SerializeToString,
+            user__pb2.SetUserOverrideResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SetUserOverrideMulti(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.user.User/SetUserOverrideMulti',
+            user__pb2.SetUserOverrideMultiRequest.SerializeToString,
+            user__pb2.SetUserOverrideMultiResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteUserOverride(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.user.User/DeleteUserOverride',
+            user__pb2.DeleteUserOverrideRequest.SerializeToString,
+            user__pb2.DeleteUserOverrideResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteUserOverrideMulti(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.user.User/DeleteUserOverrideMulti',
+            user__pb2.DeleteUserOverrideMultiRequest.SerializeToString,
+            user__pb2.DeleteUserOverrideMultiResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteAllUserOverride(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.user.User/DeleteAllUserOverride',
+            user__pb2.DeleteAllUserOverrideRequest.SerializeToString,
+            user__pb2.DeleteAllUserOverrideResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteAllUserOverrideMulti(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.user.User/DeleteAllUserOverrideMulti',
+            user__pb2.DeleteAllUserOverrideMultiRequest.SerializeToString,
+            user__pb2.DeleteAllUserOverrideMultiResponse.FromString,
             options,
             channel_credentials,
             insecure,

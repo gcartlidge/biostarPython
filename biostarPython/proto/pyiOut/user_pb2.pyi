@@ -7,7 +7,8 @@ from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -17,6 +18,7 @@ class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MAX_ACCESS_GROUPS: _ClassVar[Enum]
     MAX_JOB_CODES: _ClassVar[Enum]
     MAX_PIN_LENGTH: _ClassVar[Enum]
+    MIN_PIN_LENGTH: _ClassVar[Enum]
     MAX_JOB_LABEL_LENGTH: _ClassVar[Enum]
     MAX_NAME_LENGTH: _ClassVar[Enum]
 
@@ -72,6 +74,7 @@ FIRST_ENUM_VALUE_MUST_BE_ZERO: Enum
 MAX_ACCESS_GROUPS: Enum
 MAX_JOB_CODES: Enum
 MAX_PIN_LENGTH: Enum
+MIN_PIN_LENGTH: Enum
 MAX_JOB_LABEL_LENGTH: Enum
 MAX_NAME_LENGTH: Enum
 USER_FLAG_NONE: UserFlag
@@ -613,3 +616,111 @@ class GetStatisticResponse(_message.Message):
     USERSTATISTIC_FIELD_NUMBER: _ClassVar[int]
     userStatistic: UserStatistic
     def __init__(self, userStatistic: _Optional[_Union[UserStatistic, _Mapping]] = ...) -> None: ...
+
+class UserOverride(_message.Message):
+    __slots__ = ("userID", "useExtendedDoorOpenTime")
+    USERID_FIELD_NUMBER: _ClassVar[int]
+    USEEXTENDEDDOOROPENTIME_FIELD_NUMBER: _ClassVar[int]
+    userID: str
+    useExtendedDoorOpenTime: bool
+    def __init__(self, userID: _Optional[str] = ..., useExtendedDoorOpenTime: bool = ...) -> None: ...
+
+class GetUserOverrideRequest(_message.Message):
+    __slots__ = ("deviceID", "userIDs")
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    USERIDS_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    userIDs: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, deviceID: _Optional[int] = ..., userIDs: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class GetUserOverrideResponse(_message.Message):
+    __slots__ = ("userOverrides",)
+    USEROVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    userOverrides: _containers.RepeatedCompositeFieldContainer[UserOverride]
+    def __init__(self, userOverrides: _Optional[_Iterable[_Union[UserOverride, _Mapping]]] = ...) -> None: ...
+
+class GetAllUserOverrideRequest(_message.Message):
+    __slots__ = ("deviceID",)
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    def __init__(self, deviceID: _Optional[int] = ...) -> None: ...
+
+class GetAllUserOverrideResponse(_message.Message):
+    __slots__ = ("userOverrides",)
+    USEROVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    userOverrides: _containers.RepeatedCompositeFieldContainer[UserOverride]
+    def __init__(self, userOverrides: _Optional[_Iterable[_Union[UserOverride, _Mapping]]] = ...) -> None: ...
+
+class SetUserOverrideRequest(_message.Message):
+    __slots__ = ("deviceID", "userOverrides")
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    USEROVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    userOverrides: _containers.RepeatedCompositeFieldContainer[UserOverride]
+    def __init__(self, deviceID: _Optional[int] = ..., userOverrides: _Optional[_Iterable[_Union[UserOverride, _Mapping]]] = ...) -> None: ...
+
+class SetUserOverrideResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class SetUserOverrideMultiRequest(_message.Message):
+    __slots__ = ("deviceIDs", "userOverrides")
+    DEVICEIDS_FIELD_NUMBER: _ClassVar[int]
+    USEROVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    deviceIDs: _containers.RepeatedScalarFieldContainer[int]
+    userOverrides: _containers.RepeatedCompositeFieldContainer[UserOverride]
+    def __init__(self, deviceIDs: _Optional[_Iterable[int]] = ..., userOverrides: _Optional[_Iterable[_Union[UserOverride, _Mapping]]] = ...) -> None: ...
+
+class SetUserOverrideMultiResponse(_message.Message):
+    __slots__ = ("deviceErrors",)
+    DEVICEERRORS_FIELD_NUMBER: _ClassVar[int]
+    deviceErrors: _containers.RepeatedCompositeFieldContainer[_err_pb2.ErrorResponse]
+    def __init__(self, deviceErrors: _Optional[_Iterable[_Union[_err_pb2.ErrorResponse, _Mapping]]] = ...) -> None: ...
+
+class DeleteUserOverrideRequest(_message.Message):
+    __slots__ = ("deviceID", "userIDs")
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    USERIDS_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    userIDs: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, deviceID: _Optional[int] = ..., userIDs: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class DeleteUserOverrideResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteUserOverrideMultiRequest(_message.Message):
+    __slots__ = ("deviceIDs", "userIDs")
+    DEVICEIDS_FIELD_NUMBER: _ClassVar[int]
+    USERIDS_FIELD_NUMBER: _ClassVar[int]
+    deviceIDs: _containers.RepeatedScalarFieldContainer[int]
+    userIDs: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, deviceIDs: _Optional[_Iterable[int]] = ..., userIDs: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class DeleteUserOverrideMultiResponse(_message.Message):
+    __slots__ = ("deviceErrors",)
+    DEVICEERRORS_FIELD_NUMBER: _ClassVar[int]
+    deviceErrors: _containers.RepeatedCompositeFieldContainer[_err_pb2.ErrorResponse]
+    def __init__(self, deviceErrors: _Optional[_Iterable[_Union[_err_pb2.ErrorResponse, _Mapping]]] = ...) -> None: ...
+
+class DeleteAllUserOverrideRequest(_message.Message):
+    __slots__ = ("deviceID",)
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    def __init__(self, deviceID: _Optional[int] = ...) -> None: ...
+
+class DeleteAllUserOverrideResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteAllUserOverrideMultiRequest(_message.Message):
+    __slots__ = ("deviceIDs",)
+    DEVICEIDS_FIELD_NUMBER: _ClassVar[int]
+    deviceIDs: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, deviceIDs: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class DeleteAllUserOverrideMultiResponse(_message.Message):
+    __slots__ = ("deviceErrors",)
+    DEVICEERRORS_FIELD_NUMBER: _ClassVar[int]
+    deviceErrors: _containers.RepeatedCompositeFieldContainer[_err_pb2.ErrorResponse]
+    def __init__(self, deviceErrors: _Optional[_Iterable[_Union[_err_pb2.ErrorResponse, _Mapping]]] = ...) -> None: ...

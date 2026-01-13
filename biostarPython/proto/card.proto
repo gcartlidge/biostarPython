@@ -38,6 +38,19 @@ service Card {
   rpc GetCustomConfig(GetCustomConfigRequest) returns (GetCustomConfigResponse);
   rpc SetCustomConfig(SetCustomConfigRequest) returns (SetCustomConfigResponse);
   rpc SetCustomConfigMulti(SetCustomConfigMultiRequest) returns (SetCustomConfigMultiResponse);
+
+  rpc GetFacilityCodeConfig(GetFacilityCodeConfigRequest) returns (GetFacilityCodeConfigResponse);
+  rpc SetFacilityCodeConfig(SetFacilityCodeConfigRequest) returns (SetFacilityCodeConfigResponse);
+  rpc SetFacilityCodeConfigMulti(SetFacilityCodeConfigMultiRequest) returns (SetFacilityCodeConfigMultiResponse);
+
+  rpc GetLockOverride(GetLockOverrideRequest) returns (GetLockOverrideResponse);
+  rpc GetAllLockOverride(GetAllLockOverrideRequest) returns (GetAllLockOverrideResponse);
+  rpc SetLockOverride(SetLockOverrideRequest) returns (SetLockOverrideResponse);
+  rpc SetLockOverrideMulti(SetLockOverrideMultiRequest) returns (SetLockOverrideMultiResponse);
+  rpc DeleteLockOverride(DeleteLockOverrideRequest) returns (DeleteLockOverrideResponse);
+  rpc DeleteLockOverrideMulti(DeleteLockOverrideMultiRequest) returns (DeleteLockOverrideMultiResponse);
+  rpc DeleteAllLockOverride(DeleteAllLockOverrideRequest) returns (DeleteAllLockOverrideResponse);
+  rpc DeleteAllLockOverrideMulti(DeleteAllLockOverrideMultiRequest) returns (DeleteAllLockOverrideMultiResponse);
 }
 
 enum Enum {
@@ -45,11 +58,29 @@ enum Enum {
 
   FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
 
-  DEFAULT_SCAN_TIMEOUT = 4;
+  DEFAULT_SCAN_TIMEOUT = 4 [deprecated = true]; // Deprecated: Use SCAN_TIMEOUT_SENSOR_QR_DEFAULT instead.
+  SCAN_TIMEOUT_SENSOR_QR_DEFAULT = 4; // @scanTimeout - Sensor QR (XS2-QR only)
+  SCAN_TIMEOUT_SENSOR_QR_MIN = 4; // @scanTimeout - Sensor QR (XS2-QR only)
+  SCAN_TIMEOUT_SENSOR_QR_MAX = 10; // @scanTimeout - Sensor QR (XS2-QR only)
+
+  SCAN_TIMEOUT_VISUAL_QR_DEFAULT = 10; // @visualQRScanTimeout - Visual QR
+  SCAN_TIMEOUT_VISUAL_QR_MIN = 3; // @visualQRScanTimeout - Visual QR
+  SCAN_TIMEOUT_VISUAL_QR_MAX = 20; // @visualQRScanTimeout - Visual QR
+
+  CARD_DATA_SIZE = 32;
+
   DEFAULT_TEMPLATE_SIZE = 384;
   FACE_TEMPLATE_SIZE = 552;
 
   MAX_TEMPLATES = 4;
+
+  FACILITY_CODE_SIZE = 4;
+  MAX_FACILITY_CODE = 16;
+
+  MAX_MIFARE_KEY_SIZE_CRYPTO1 = 6; // Mifare Classic, Mifare Plus EV1 (SL1)
+  MAX_MIFARE_KEY_SIZE_AES128 = 16; // Mifare Plus EV1 (SL1, SL3)
+
+  MAX_LOCKOVERRIDE = 1000;
 }
 
 enum Type {
@@ -79,7 +110,7 @@ message SmartCardHeader {
   Type type = 3;
   oneof templateCount {
     uint32 numOfTemplate = 4;
-    uint32 numOfFaceTemplate = 10;  // for F2/BS3 only
+    uint32 numOfFaceTemplate = 10; // for F2/BS3 only
   }
   uint32 templateSize = 5;
   uint32 issueCount = 6;
@@ -194,6 +225,11 @@ enum CardDataType {
 	DATA_BCD		= 3;  
 }
 
+enum MIFARE_ENCRYPTION {
+  MIFARE_ENCRYPTION_CRYPTO1 = 0;
+	MIFARE_ENCRYPTION_AES128 = 1;
+}
+
 message CardConfig {
   CardByteOrder byteOrder = 1;
   bool useWiegandFormat = 2;
@@ -209,6 +245,7 @@ message CardConfig {
 
   bool cipher = 10;
   CardByteOrder smartCardByteOrder = 11;
+  MIFARE_ENCRYPTION mifareEncryption = 12;
 }
 
 message GetConfigRequest {
@@ -349,11 +386,22 @@ message WriteQRCodeResponse {
   CSNCardData cardData = 1; 
 }
 
+enum MotionSensitivity {
+  LOW = 0;
+  NORMAL = 1;
+  HIGH = 2;
+}
+
 message QRConfig {
   bool useQRCode = 1;
   uint32 scanTimeout = 2;
   bool bypassData = 3;
   bool treatAsCSN = 4;
+
+  bool useVisualQRCode = 5;
+  MotionSensitivity motionSensitivity = 6;
+  uint32 visualQRScanTimeout = 7;
+  bool useVisualQRDetectGuideline = 8;
 }
 
 message GetQRConfigRequest {
@@ -417,6 +465,7 @@ message CustomConfig {
   CustomDESFireCard desfire = 4;
   CardByteOrder smartCardByteOrder = 5;
   uint32 formatID = 6;
+  MIFARE_ENCRYPTION mifareEncryption = 7;
 }
 
 message GetCustomConfigRequest {
@@ -442,4 +491,113 @@ message SetCustomConfigMultiRequest {
 
 message SetCustomConfigMultiResponse {
   repeated err.ErrorResponse deviceErrors = 1;
+}
+
+message FacilityCode {
+  bytes code = 1; // 4 bytes
+}
+
+message FacilityCodeConfig {
+  repeated FacilityCode facilityCodes = 1; // Max 16
+}
+
+message GetFacilityCodeConfigRequest {
+  uint32 deviceID = 1;
+}
+
+message GetFacilityCodeConfigResponse {
+  FacilityCodeConfig config = 1;
+}
+
+message SetFacilityCodeConfigRequest {
+  uint32 deviceID = 1;
+  FacilityCodeConfig config = 2;
+}
+
+message SetFacilityCodeConfigResponse {
+}
+
+message SetFacilityCodeConfigMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  FacilityCodeConfig config = 2;
+}
+
+message SetFacilityCodeConfigMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}
+
+
+message LockOverride {
+  bytes cardID = 1;
+  uint32 issueCount = 2;
+
+  Type type = 3;
+  uint32 size = 4;
+  string userID = 5;
+}
+
+message GetLockOverrideRequest {
+  uint32 deviceID = 1;
+  repeated LockOverride lockOverrides = 2;
+}
+
+message GetLockOverrideResponse {
+  repeated LockOverride lockOverrides = 1;
+}
+
+message GetAllLockOverrideRequest {
+  uint32 deviceID = 1;
+}
+
+message GetAllLockOverrideResponse {
+  repeated LockOverride lockOverrides = 1;
+}
+
+message SetLockOverrideRequest {
+  uint32 deviceID = 1;
+  repeated LockOverride lockOverrides = 2;
+}
+
+message SetLockOverrideResponse {
+}
+
+message SetLockOverrideMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  repeated LockOverride lockOverrides = 2;
+}
+
+message SetLockOverrideMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;  
+}
+
+message DeleteLockOverrideRequest {
+  uint32 deviceID = 1;
+  repeated LockOverride lockOverrides = 2;
+}
+
+message DeleteLockOverrideResponse {
+}
+
+message DeleteLockOverrideMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  repeated LockOverride lockOverrides = 2;
+}
+
+message DeleteLockOverrideMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;  
+}
+
+message DeleteAllLockOverrideRequest {
+  uint32 deviceID = 1;
+}
+
+message DeleteAllLockOverrideResponse {
+}
+
+message DeleteAllLockOverrideMultiRequest {
+  repeated uint32 deviceIDs = 1;
+}
+
+message DeleteAllLockOverrideMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;  
 }

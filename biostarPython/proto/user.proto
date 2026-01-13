@@ -53,6 +53,15 @@ service User {
   rpc GetPINHashWithKey(GetPINHashWithKeyRequest) returns (GetPINHashResponse);
 
   rpc GetStatistic(GetStatisticRequest) returns (GetStatisticResponse);
+
+  rpc GetUserOverride(GetUserOverrideRequest) returns (GetUserOverrideResponse);
+  rpc GetAllUserOverride(GetAllUserOverrideRequest) returns (GetAllUserOverrideResponse);
+  rpc SetUserOverride(SetUserOverrideRequest) returns (SetUserOverrideResponse);
+  rpc SetUserOverrideMulti(SetUserOverrideMultiRequest) returns (SetUserOverrideMultiResponse);
+  rpc DeleteUserOverride(DeleteUserOverrideRequest) returns (DeleteUserOverrideResponse);
+  rpc DeleteUserOverrideMulti(DeleteUserOverrideMultiRequest) returns (DeleteUserOverrideMultiResponse);
+  rpc DeleteAllUserOverride(DeleteAllUserOverrideRequest) returns (DeleteAllUserOverrideResponse);
+  rpc DeleteAllUserOverrideMulti(DeleteAllUserOverrideMultiRequest) returns (DeleteAllUserOverrideMultiResponse);
 }
 
 enum Enum {
@@ -63,6 +72,7 @@ enum Enum {
   MAX_ACCESS_GROUPS = 16;
   MAX_JOB_CODES = 16;
   MAX_PIN_LENGTH = 32;
+  MIN_PIN_LENGTH = 8;
   MAX_JOB_LABEL_LENGTH = 48;
   MAX_NAME_LENGTH = 192;
 }
@@ -100,7 +110,7 @@ message UserHdr {
   int32 numOfFinger = 4;
   int32 numOfFace = 5;
   uint32 authGroupID = 6;
-  uint32 updateMask = 7;    // for Update(Multi)Request only
+  uint32 updateMask = 7; // for Update(Multi)Request only
 }
 
 message GetListRequest {
@@ -454,4 +464,75 @@ message UserStatistic {
 
 message GetStatisticResponse {
   UserStatistic userStatistic = 1;
+}
+
+message UserOverride {
+  string userID = 1;
+  bool useExtendedDoorOpenTime = 2;
+}
+
+message GetUserOverrideRequest {
+  uint32 deviceID = 1;
+  repeated string userIDs = 2;
+}
+
+message GetUserOverrideResponse {
+  repeated UserOverride userOverrides = 1;
+}
+
+message GetAllUserOverrideRequest {
+  uint32 deviceID = 1;
+}
+
+message GetAllUserOverrideResponse {
+  repeated UserOverride userOverrides = 1;
+}
+
+message SetUserOverrideRequest {
+  uint32 deviceID = 1;
+  repeated UserOverride userOverrides = 2;
+}
+
+message SetUserOverrideResponse {
+}
+
+message SetUserOverrideMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  repeated UserOverride userOverrides = 2;
+}
+
+message SetUserOverrideMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;  
+}
+
+message DeleteUserOverrideRequest {
+  uint32 deviceID = 1;
+  repeated string userIDs = 2;
+}
+
+message DeleteUserOverrideResponse {
+}
+
+message DeleteUserOverrideMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  repeated string userIDs = 2;
+}
+
+message DeleteUserOverrideMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;  
+}
+
+message DeleteAllUserOverrideRequest {
+  uint32 deviceID = 1;
+}
+
+message DeleteAllUserOverrideResponse {
+}
+
+message DeleteAllUserOverrideMultiRequest {
+  repeated uint32 deviceIDs = 1;
+}
+
+message DeleteAllUserOverrideMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;  
 }

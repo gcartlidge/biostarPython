@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package gsdk.udp_master;
+
+option go_package = "biostar/service/udpMaster";
+option java_package = "com.supremainc.sdk.udp_master";
+option java_multiple_files = true;
+
+import "network.proto";
+import "udp.proto";
+
+service UDPMaster {
+  rpc GetIPConfig(GetIPConfigRequest) returns (GetIPConfigResponse);
+  rpc SetIPConfig(SetIPConfigRequest) returns (SetIPConfigResponse);
+}
+
+message GetIPConfigRequest {
+  string gatewayID = 1; 
+  udp.DeviceInfo deviceInfo = 2;
+}
+
+message GetIPConfigResponse {
+  network.IPConfig config = 1;
+}
+
+message SetIPConfigRequest {
+  string gatewayID = 1; 
+  udp.DeviceInfo deviceInfo = 2;
+  network.IPConfig config = 3;
+}
+
+message SetIPConfigResponse {
+}

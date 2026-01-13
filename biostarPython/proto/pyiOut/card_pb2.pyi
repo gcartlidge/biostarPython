@@ -3,7 +3,8 @@ from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -11,9 +12,21 @@ class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     FIRST_ENUM_VALUE_MUST_BE_ZERO: _ClassVar[Enum]
     DEFAULT_SCAN_TIMEOUT: _ClassVar[Enum]
+    SCAN_TIMEOUT_SENSOR_QR_DEFAULT: _ClassVar[Enum]
+    SCAN_TIMEOUT_SENSOR_QR_MIN: _ClassVar[Enum]
+    SCAN_TIMEOUT_SENSOR_QR_MAX: _ClassVar[Enum]
+    SCAN_TIMEOUT_VISUAL_QR_DEFAULT: _ClassVar[Enum]
+    SCAN_TIMEOUT_VISUAL_QR_MIN: _ClassVar[Enum]
+    SCAN_TIMEOUT_VISUAL_QR_MAX: _ClassVar[Enum]
+    CARD_DATA_SIZE: _ClassVar[Enum]
     DEFAULT_TEMPLATE_SIZE: _ClassVar[Enum]
     FACE_TEMPLATE_SIZE: _ClassVar[Enum]
     MAX_TEMPLATES: _ClassVar[Enum]
+    FACILITY_CODE_SIZE: _ClassVar[Enum]
+    MAX_FACILITY_CODE: _ClassVar[Enum]
+    MAX_MIFARE_KEY_SIZE_CRYPTO1: _ClassVar[Enum]
+    MAX_MIFARE_KEY_SIZE_AES128: _ClassVar[Enum]
+    MAX_LOCKOVERRIDE: _ClassVar[Enum]
 
 class Type(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -50,11 +63,34 @@ class CardDataType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DATA_ASCII: _ClassVar[CardDataType]
     DATA_UTF16: _ClassVar[CardDataType]
     DATA_BCD: _ClassVar[CardDataType]
+
+class MIFARE_ENCRYPTION(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    MIFARE_ENCRYPTION_CRYPTO1: _ClassVar[MIFARE_ENCRYPTION]
+    MIFARE_ENCRYPTION_AES128: _ClassVar[MIFARE_ENCRYPTION]
+
+class MotionSensitivity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    LOW: _ClassVar[MotionSensitivity]
+    NORMAL: _ClassVar[MotionSensitivity]
+    HIGH: _ClassVar[MotionSensitivity]
 FIRST_ENUM_VALUE_MUST_BE_ZERO: Enum
 DEFAULT_SCAN_TIMEOUT: Enum
+SCAN_TIMEOUT_SENSOR_QR_DEFAULT: Enum
+SCAN_TIMEOUT_SENSOR_QR_MIN: Enum
+SCAN_TIMEOUT_SENSOR_QR_MAX: Enum
+SCAN_TIMEOUT_VISUAL_QR_DEFAULT: Enum
+SCAN_TIMEOUT_VISUAL_QR_MIN: Enum
+SCAN_TIMEOUT_VISUAL_QR_MAX: Enum
+CARD_DATA_SIZE: Enum
 DEFAULT_TEMPLATE_SIZE: Enum
 FACE_TEMPLATE_SIZE: Enum
 MAX_TEMPLATES: Enum
+FACILITY_CODE_SIZE: Enum
+MAX_FACILITY_CODE: Enum
+MAX_MIFARE_KEY_SIZE_CRYPTO1: Enum
+MAX_MIFARE_KEY_SIZE_AES128: Enum
+MAX_LOCKOVERRIDE: Enum
 CARD_TYPE_UNKNOWN: Type
 CARD_TYPE_CSN: Type
 CARD_TYPE_SECURE: Type
@@ -76,6 +112,11 @@ DATA_BINARY: CardDataType
 DATA_ASCII: CardDataType
 DATA_UTF16: CardDataType
 DATA_BCD: CardDataType
+MIFARE_ENCRYPTION_CRYPTO1: MIFARE_ENCRYPTION
+MIFARE_ENCRYPTION_AES128: MIFARE_ENCRYPTION
+LOW: MotionSensitivity
+NORMAL: MotionSensitivity
+HIGH: MotionSensitivity
 
 class CSNCardData(_message.Message):
     __slots__ = ("type", "size", "data")
@@ -240,7 +281,7 @@ class SEOSConfig(_message.Message):
     def __init__(self, OIDADF: _Optional[bytes] = ..., sizeADF: _Optional[int] = ..., OIDDataObjectID: _Optional[_Iterable[int]] = ..., sizeDataObject: _Optional[_Iterable[int]] = ..., primaryKeyAuth: _Optional[bytes] = ..., secondaryKeyAuth: _Optional[bytes] = ...) -> None: ...
 
 class CardConfig(_message.Message):
-    __slots__ = ("byteOrder", "useWiegandFormat", "dataType", "useSecondaryKey", "mifareConfig", "iClassConfig", "DESFireConfig", "SEOSConfig", "formatID", "cipher", "smartCardByteOrder")
+    __slots__ = ("byteOrder", "useWiegandFormat", "dataType", "useSecondaryKey", "mifareConfig", "iClassConfig", "DESFireConfig", "SEOSConfig", "formatID", "cipher", "smartCardByteOrder", "mifareEncryption")
     BYTEORDER_FIELD_NUMBER: _ClassVar[int]
     USEWIEGANDFORMAT_FIELD_NUMBER: _ClassVar[int]
     DATATYPE_FIELD_NUMBER: _ClassVar[int]
@@ -252,6 +293,7 @@ class CardConfig(_message.Message):
     FORMATID_FIELD_NUMBER: _ClassVar[int]
     CIPHER_FIELD_NUMBER: _ClassVar[int]
     SMARTCARDBYTEORDER_FIELD_NUMBER: _ClassVar[int]
+    MIFAREENCRYPTION_FIELD_NUMBER: _ClassVar[int]
     byteOrder: CardByteOrder
     useWiegandFormat: bool
     dataType: CardDataType
@@ -263,7 +305,8 @@ class CardConfig(_message.Message):
     formatID: int
     cipher: bool
     smartCardByteOrder: CardByteOrder
-    def __init__(self, byteOrder: _Optional[_Union[CardByteOrder, str]] = ..., useWiegandFormat: bool = ..., dataType: _Optional[_Union[CardDataType, str]] = ..., useSecondaryKey: bool = ..., mifareConfig: _Optional[_Union[MifareConfig, _Mapping]] = ..., iClassConfig: _Optional[_Union[IClassConfig, _Mapping]] = ..., DESFireConfig: _Optional[_Union[DESFireConfig, _Mapping]] = ..., SEOSConfig: _Optional[_Union[SEOSConfig, _Mapping]] = ..., formatID: _Optional[int] = ..., cipher: bool = ..., smartCardByteOrder: _Optional[_Union[CardByteOrder, str]] = ...) -> None: ...
+    mifareEncryption: MIFARE_ENCRYPTION
+    def __init__(self, byteOrder: _Optional[_Union[CardByteOrder, str]] = ..., useWiegandFormat: bool = ..., dataType: _Optional[_Union[CardDataType, str]] = ..., useSecondaryKey: bool = ..., mifareConfig: _Optional[_Union[MifareConfig, _Mapping]] = ..., iClassConfig: _Optional[_Union[IClassConfig, _Mapping]] = ..., DESFireConfig: _Optional[_Union[DESFireConfig, _Mapping]] = ..., SEOSConfig: _Optional[_Union[SEOSConfig, _Mapping]] = ..., formatID: _Optional[int] = ..., cipher: bool = ..., smartCardByteOrder: _Optional[_Union[CardByteOrder, str]] = ..., mifareEncryption: _Optional[_Union[MIFARE_ENCRYPTION, str]] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -472,16 +515,24 @@ class WriteQRCodeResponse(_message.Message):
     def __init__(self, cardData: _Optional[_Union[CSNCardData, _Mapping]] = ...) -> None: ...
 
 class QRConfig(_message.Message):
-    __slots__ = ("useQRCode", "scanTimeout", "bypassData", "treatAsCSN")
+    __slots__ = ("useQRCode", "scanTimeout", "bypassData", "treatAsCSN", "useVisualQRCode", "motionSensitivity", "visualQRScanTimeout", "useVisualQRDetectGuideline")
     USEQRCODE_FIELD_NUMBER: _ClassVar[int]
     SCANTIMEOUT_FIELD_NUMBER: _ClassVar[int]
     BYPASSDATA_FIELD_NUMBER: _ClassVar[int]
     TREATASCSN_FIELD_NUMBER: _ClassVar[int]
+    USEVISUALQRCODE_FIELD_NUMBER: _ClassVar[int]
+    MOTIONSENSITIVITY_FIELD_NUMBER: _ClassVar[int]
+    VISUALQRSCANTIMEOUT_FIELD_NUMBER: _ClassVar[int]
+    USEVISUALQRDETECTGUIDELINE_FIELD_NUMBER: _ClassVar[int]
     useQRCode: bool
     scanTimeout: int
     bypassData: bool
     treatAsCSN: bool
-    def __init__(self, useQRCode: bool = ..., scanTimeout: _Optional[int] = ..., bypassData: bool = ..., treatAsCSN: bool = ...) -> None: ...
+    useVisualQRCode: bool
+    motionSensitivity: MotionSensitivity
+    visualQRScanTimeout: int
+    useVisualQRDetectGuideline: bool
+    def __init__(self, useQRCode: bool = ..., scanTimeout: _Optional[int] = ..., bypassData: bool = ..., treatAsCSN: bool = ..., useVisualQRCode: bool = ..., motionSensitivity: _Optional[_Union[MotionSensitivity, str]] = ..., visualQRScanTimeout: _Optional[int] = ..., useVisualQRDetectGuideline: bool = ...) -> None: ...
 
 class GetQRConfigRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -572,20 +623,22 @@ class CustomDESFireCard(_message.Message):
     def __init__(self, primaryKey: _Optional[bytes] = ..., secondaryKey: _Optional[bytes] = ..., appID: _Optional[bytes] = ..., fileID: _Optional[int] = ..., encryptionType: _Optional[_Union[DESFireEncryptionType, str]] = ..., operationMode: _Optional[_Union[DESFireOperationMode, str]] = ..., dataSize: _Optional[int] = ..., skipBytes: _Optional[int] = ..., desfireAppKey: _Optional[_Union[DESFireAppLevelKey, _Mapping]] = ...) -> None: ...
 
 class CustomConfig(_message.Message):
-    __slots__ = ("dataType", "useSecondaryKey", "mifare", "desfire", "smartCardByteOrder", "formatID")
+    __slots__ = ("dataType", "useSecondaryKey", "mifare", "desfire", "smartCardByteOrder", "formatID", "mifareEncryption")
     DATATYPE_FIELD_NUMBER: _ClassVar[int]
     USESECONDARYKEY_FIELD_NUMBER: _ClassVar[int]
     MIFARE_FIELD_NUMBER: _ClassVar[int]
     DESFIRE_FIELD_NUMBER: _ClassVar[int]
     SMARTCARDBYTEORDER_FIELD_NUMBER: _ClassVar[int]
     FORMATID_FIELD_NUMBER: _ClassVar[int]
+    MIFAREENCRYPTION_FIELD_NUMBER: _ClassVar[int]
     dataType: CardDataType
     useSecondaryKey: bool
     mifare: CustomMifareCard
     desfire: CustomDESFireCard
     smartCardByteOrder: CardByteOrder
     formatID: int
-    def __init__(self, dataType: _Optional[_Union[CardDataType, str]] = ..., useSecondaryKey: bool = ..., mifare: _Optional[_Union[CustomMifareCard, _Mapping]] = ..., desfire: _Optional[_Union[CustomDESFireCard, _Mapping]] = ..., smartCardByteOrder: _Optional[_Union[CardByteOrder, str]] = ..., formatID: _Optional[int] = ...) -> None: ...
+    mifareEncryption: MIFARE_ENCRYPTION
+    def __init__(self, dataType: _Optional[_Union[CardDataType, str]] = ..., useSecondaryKey: bool = ..., mifare: _Optional[_Union[CustomMifareCard, _Mapping]] = ..., desfire: _Optional[_Union[CustomDESFireCard, _Mapping]] = ..., smartCardByteOrder: _Optional[_Union[CardByteOrder, str]] = ..., formatID: _Optional[int] = ..., mifareEncryption: _Optional[_Union[MIFARE_ENCRYPTION, str]] = ...) -> None: ...
 
 class GetCustomConfigRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -620,6 +673,170 @@ class SetCustomConfigMultiRequest(_message.Message):
     def __init__(self, deviceIDs: _Optional[_Iterable[int]] = ..., config: _Optional[_Union[CustomConfig, _Mapping]] = ...) -> None: ...
 
 class SetCustomConfigMultiResponse(_message.Message):
+    __slots__ = ("deviceErrors",)
+    DEVICEERRORS_FIELD_NUMBER: _ClassVar[int]
+    deviceErrors: _containers.RepeatedCompositeFieldContainer[_err_pb2.ErrorResponse]
+    def __init__(self, deviceErrors: _Optional[_Iterable[_Union[_err_pb2.ErrorResponse, _Mapping]]] = ...) -> None: ...
+
+class FacilityCode(_message.Message):
+    __slots__ = ("code",)
+    CODE_FIELD_NUMBER: _ClassVar[int]
+    code: bytes
+    def __init__(self, code: _Optional[bytes] = ...) -> None: ...
+
+class FacilityCodeConfig(_message.Message):
+    __slots__ = ("facilityCodes",)
+    FACILITYCODES_FIELD_NUMBER: _ClassVar[int]
+    facilityCodes: _containers.RepeatedCompositeFieldContainer[FacilityCode]
+    def __init__(self, facilityCodes: _Optional[_Iterable[_Union[FacilityCode, _Mapping]]] = ...) -> None: ...
+
+class GetFacilityCodeConfigRequest(_message.Message):
+    __slots__ = ("deviceID",)
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    def __init__(self, deviceID: _Optional[int] = ...) -> None: ...
+
+class GetFacilityCodeConfigResponse(_message.Message):
+    __slots__ = ("config",)
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    config: FacilityCodeConfig
+    def __init__(self, config: _Optional[_Union[FacilityCodeConfig, _Mapping]] = ...) -> None: ...
+
+class SetFacilityCodeConfigRequest(_message.Message):
+    __slots__ = ("deviceID", "config")
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    config: FacilityCodeConfig
+    def __init__(self, deviceID: _Optional[int] = ..., config: _Optional[_Union[FacilityCodeConfig, _Mapping]] = ...) -> None: ...
+
+class SetFacilityCodeConfigResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class SetFacilityCodeConfigMultiRequest(_message.Message):
+    __slots__ = ("deviceIDs", "config")
+    DEVICEIDS_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    deviceIDs: _containers.RepeatedScalarFieldContainer[int]
+    config: FacilityCodeConfig
+    def __init__(self, deviceIDs: _Optional[_Iterable[int]] = ..., config: _Optional[_Union[FacilityCodeConfig, _Mapping]] = ...) -> None: ...
+
+class SetFacilityCodeConfigMultiResponse(_message.Message):
+    __slots__ = ("deviceErrors",)
+    DEVICEERRORS_FIELD_NUMBER: _ClassVar[int]
+    deviceErrors: _containers.RepeatedCompositeFieldContainer[_err_pb2.ErrorResponse]
+    def __init__(self, deviceErrors: _Optional[_Iterable[_Union[_err_pb2.ErrorResponse, _Mapping]]] = ...) -> None: ...
+
+class LockOverride(_message.Message):
+    __slots__ = ("cardID", "issueCount", "type", "size", "userID")
+    CARDID_FIELD_NUMBER: _ClassVar[int]
+    ISSUECOUNT_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    SIZE_FIELD_NUMBER: _ClassVar[int]
+    USERID_FIELD_NUMBER: _ClassVar[int]
+    cardID: bytes
+    issueCount: int
+    type: Type
+    size: int
+    userID: str
+    def __init__(self, cardID: _Optional[bytes] = ..., issueCount: _Optional[int] = ..., type: _Optional[_Union[Type, str]] = ..., size: _Optional[int] = ..., userID: _Optional[str] = ...) -> None: ...
+
+class GetLockOverrideRequest(_message.Message):
+    __slots__ = ("deviceID", "lockOverrides")
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    LOCKOVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    lockOverrides: _containers.RepeatedCompositeFieldContainer[LockOverride]
+    def __init__(self, deviceID: _Optional[int] = ..., lockOverrides: _Optional[_Iterable[_Union[LockOverride, _Mapping]]] = ...) -> None: ...
+
+class GetLockOverrideResponse(_message.Message):
+    __slots__ = ("lockOverrides",)
+    LOCKOVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    lockOverrides: _containers.RepeatedCompositeFieldContainer[LockOverride]
+    def __init__(self, lockOverrides: _Optional[_Iterable[_Union[LockOverride, _Mapping]]] = ...) -> None: ...
+
+class GetAllLockOverrideRequest(_message.Message):
+    __slots__ = ("deviceID",)
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    def __init__(self, deviceID: _Optional[int] = ...) -> None: ...
+
+class GetAllLockOverrideResponse(_message.Message):
+    __slots__ = ("lockOverrides",)
+    LOCKOVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    lockOverrides: _containers.RepeatedCompositeFieldContainer[LockOverride]
+    def __init__(self, lockOverrides: _Optional[_Iterable[_Union[LockOverride, _Mapping]]] = ...) -> None: ...
+
+class SetLockOverrideRequest(_message.Message):
+    __slots__ = ("deviceID", "lockOverrides")
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    LOCKOVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    lockOverrides: _containers.RepeatedCompositeFieldContainer[LockOverride]
+    def __init__(self, deviceID: _Optional[int] = ..., lockOverrides: _Optional[_Iterable[_Union[LockOverride, _Mapping]]] = ...) -> None: ...
+
+class SetLockOverrideResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class SetLockOverrideMultiRequest(_message.Message):
+    __slots__ = ("deviceIDs", "lockOverrides")
+    DEVICEIDS_FIELD_NUMBER: _ClassVar[int]
+    LOCKOVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    deviceIDs: _containers.RepeatedScalarFieldContainer[int]
+    lockOverrides: _containers.RepeatedCompositeFieldContainer[LockOverride]
+    def __init__(self, deviceIDs: _Optional[_Iterable[int]] = ..., lockOverrides: _Optional[_Iterable[_Union[LockOverride, _Mapping]]] = ...) -> None: ...
+
+class SetLockOverrideMultiResponse(_message.Message):
+    __slots__ = ("deviceErrors",)
+    DEVICEERRORS_FIELD_NUMBER: _ClassVar[int]
+    deviceErrors: _containers.RepeatedCompositeFieldContainer[_err_pb2.ErrorResponse]
+    def __init__(self, deviceErrors: _Optional[_Iterable[_Union[_err_pb2.ErrorResponse, _Mapping]]] = ...) -> None: ...
+
+class DeleteLockOverrideRequest(_message.Message):
+    __slots__ = ("deviceID", "lockOverrides")
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    LOCKOVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    lockOverrides: _containers.RepeatedCompositeFieldContainer[LockOverride]
+    def __init__(self, deviceID: _Optional[int] = ..., lockOverrides: _Optional[_Iterable[_Union[LockOverride, _Mapping]]] = ...) -> None: ...
+
+class DeleteLockOverrideResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteLockOverrideMultiRequest(_message.Message):
+    __slots__ = ("deviceIDs", "lockOverrides")
+    DEVICEIDS_FIELD_NUMBER: _ClassVar[int]
+    LOCKOVERRIDES_FIELD_NUMBER: _ClassVar[int]
+    deviceIDs: _containers.RepeatedScalarFieldContainer[int]
+    lockOverrides: _containers.RepeatedCompositeFieldContainer[LockOverride]
+    def __init__(self, deviceIDs: _Optional[_Iterable[int]] = ..., lockOverrides: _Optional[_Iterable[_Union[LockOverride, _Mapping]]] = ...) -> None: ...
+
+class DeleteLockOverrideMultiResponse(_message.Message):
+    __slots__ = ("deviceErrors",)
+    DEVICEERRORS_FIELD_NUMBER: _ClassVar[int]
+    deviceErrors: _containers.RepeatedCompositeFieldContainer[_err_pb2.ErrorResponse]
+    def __init__(self, deviceErrors: _Optional[_Iterable[_Union[_err_pb2.ErrorResponse, _Mapping]]] = ...) -> None: ...
+
+class DeleteAllLockOverrideRequest(_message.Message):
+    __slots__ = ("deviceID",)
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    def __init__(self, deviceID: _Optional[int] = ...) -> None: ...
+
+class DeleteAllLockOverrideResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteAllLockOverrideMultiRequest(_message.Message):
+    __slots__ = ("deviceIDs",)
+    DEVICEIDS_FIELD_NUMBER: _ClassVar[int]
+    deviceIDs: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, deviceIDs: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class DeleteAllLockOverrideMultiResponse(_message.Message):
     __slots__ = ("deviceErrors",)
     DEVICEERRORS_FIELD_NUMBER: _ClassVar[int]
     deviceErrors: _containers.RepeatedCompositeFieldContainer[_err_pb2.ErrorResponse]

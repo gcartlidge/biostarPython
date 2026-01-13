@@ -5,7 +5,8 @@ from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -45,6 +46,11 @@ class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MAX_HELD_OPEN_ALARMS: _ClassVar[Enum]
     MAX_DUAL_AUTH_APPROVAL_GROUPS: _ClassVar[Enum]
     MAX_NAME_LENGTH: _ClassVar[Enum]
+    DOOR_LOCK_NORMALIZE_TIMER_INFINIT: _ClassVar[Enum]
+    DOOR_LOCK_NORMALIZE_TIMER_MAX: _ClassVar[Enum]
+    DOOR_UNLOCK_NORMALIZE_TIMER_INFINIT: _ClassVar[Enum]
+    DOOR_UNLOCK_NORMALIZE_TIMER_MAX: _ClassVar[Enum]
+    DEFAULT_EXTENDED_DOOR_OPEN_TIME: _ClassVar[Enum]
 NONE: DoorFlag
 SCHEDULED: DoorFlag
 EMERGENCY: DoorFlag
@@ -67,6 +73,11 @@ MAX_FORCED_OPEN_ALARMS: Enum
 MAX_HELD_OPEN_ALARMS: Enum
 MAX_DUAL_AUTH_APPROVAL_GROUPS: Enum
 MAX_NAME_LENGTH: Enum
+DOOR_LOCK_NORMALIZE_TIMER_INFINIT: Enum
+DOOR_LOCK_NORMALIZE_TIMER_MAX: Enum
+DOOR_UNLOCK_NORMALIZE_TIMER_INFINIT: Enum
+DOOR_UNLOCK_NORMALIZE_TIMER_MAX: Enum
+DEFAULT_EXTENDED_DOOR_OPEN_TIME: Enum
 
 class Relay(_message.Message):
     __slots__ = ("deviceID", "port")
@@ -119,7 +130,7 @@ class Status(_message.Message):
     def __init__(self, doorID: _Optional[int] = ..., isOpen: bool = ..., isUnlocked: bool = ..., heldOpen: bool = ..., unlockFlags: _Optional[int] = ..., lockFlags: _Optional[int] = ..., alarmFlags: _Optional[int] = ..., lastOpenTime: _Optional[int] = ...) -> None: ...
 
 class DoorInfo(_message.Message):
-    __slots__ = ("doorID", "name", "entryDeviceID", "exitDeviceID", "relay", "sensor", "button", "autoLockTimeout", "heldOpenTimeout", "instantLock", "unlockFlags", "lockFlags", "unconditionalLock", "forcedOpenActions", "heldOpenActions", "dualAuthScheduleID", "dualAuthDevice", "dualAuthType", "dualAuthTimeout", "dualAuthGroupIDs", "apbZone")
+    __slots__ = ("doorID", "name", "entryDeviceID", "exitDeviceID", "relay", "sensor", "button", "autoLockTimeout", "heldOpenTimeout", "instantLock", "unlockFlags", "lockFlags", "unconditionalLock", "forcedOpenActions", "heldOpenActions", "dualAuthScheduleID", "dualAuthDevice", "dualAuthType", "dualAuthTimeout", "dualAuthGroupIDs", "apbZone", "extendedDoorOpenTime")
     DOORID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     ENTRYDEVICEID_FIELD_NUMBER: _ClassVar[int]
@@ -141,6 +152,7 @@ class DoorInfo(_message.Message):
     DUALAUTHTIMEOUT_FIELD_NUMBER: _ClassVar[int]
     DUALAUTHGROUPIDS_FIELD_NUMBER: _ClassVar[int]
     APBZONE_FIELD_NUMBER: _ClassVar[int]
+    EXTENDEDDOOROPENTIME_FIELD_NUMBER: _ClassVar[int]
     doorID: int
     name: str
     entryDeviceID: int
@@ -162,7 +174,8 @@ class DoorInfo(_message.Message):
     dualAuthTimeout: int
     dualAuthGroupIDs: _containers.RepeatedScalarFieldContainer[int]
     apbZone: _apb_zone_pb2.ZoneInfo
-    def __init__(self, doorID: _Optional[int] = ..., name: _Optional[str] = ..., entryDeviceID: _Optional[int] = ..., exitDeviceID: _Optional[int] = ..., relay: _Optional[_Union[Relay, _Mapping]] = ..., sensor: _Optional[_Union[Sensor, _Mapping]] = ..., button: _Optional[_Union[ExitButton, _Mapping]] = ..., autoLockTimeout: _Optional[int] = ..., heldOpenTimeout: _Optional[int] = ..., instantLock: bool = ..., unlockFlags: _Optional[int] = ..., lockFlags: _Optional[int] = ..., unconditionalLock: bool = ..., forcedOpenActions: _Optional[_Iterable[_Union[_action_pb2.Action, _Mapping]]] = ..., heldOpenActions: _Optional[_Iterable[_Union[_action_pb2.Action, _Mapping]]] = ..., dualAuthScheduleID: _Optional[int] = ..., dualAuthDevice: _Optional[_Union[DualAuthDevice, str]] = ..., dualAuthType: _Optional[_Union[DualAuthType, str]] = ..., dualAuthTimeout: _Optional[int] = ..., dualAuthGroupIDs: _Optional[_Iterable[int]] = ..., apbZone: _Optional[_Union[_apb_zone_pb2.ZoneInfo, _Mapping]] = ...) -> None: ...
+    extendedDoorOpenTime: int
+    def __init__(self, doorID: _Optional[int] = ..., name: _Optional[str] = ..., entryDeviceID: _Optional[int] = ..., exitDeviceID: _Optional[int] = ..., relay: _Optional[_Union[Relay, _Mapping]] = ..., sensor: _Optional[_Union[Sensor, _Mapping]] = ..., button: _Optional[_Union[ExitButton, _Mapping]] = ..., autoLockTimeout: _Optional[int] = ..., heldOpenTimeout: _Optional[int] = ..., instantLock: bool = ..., unlockFlags: _Optional[int] = ..., lockFlags: _Optional[int] = ..., unconditionalLock: bool = ..., forcedOpenActions: _Optional[_Iterable[_Union[_action_pb2.Action, _Mapping]]] = ..., heldOpenActions: _Optional[_Iterable[_Union[_action_pb2.Action, _Mapping]]] = ..., dualAuthScheduleID: _Optional[int] = ..., dualAuthDevice: _Optional[_Union[DualAuthDevice, str]] = ..., dualAuthType: _Optional[_Union[DualAuthType, str]] = ..., dualAuthTimeout: _Optional[int] = ..., dualAuthGroupIDs: _Optional[_Iterable[int]] = ..., apbZone: _Optional[_Union[_apb_zone_pb2.ZoneInfo, _Mapping]] = ..., extendedDoorOpenTime: _Optional[int] = ...) -> None: ...
 
 class GetListRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -223,28 +236,32 @@ class DeleteAllResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class LockRequest(_message.Message):
-    __slots__ = ("deviceID", "doorIDs", "doorFlag")
+    __slots__ = ("deviceID", "doorIDs", "doorFlag", "normalizeTimer")
     DEVICEID_FIELD_NUMBER: _ClassVar[int]
     DOORIDS_FIELD_NUMBER: _ClassVar[int]
     DOORFLAG_FIELD_NUMBER: _ClassVar[int]
+    NORMALIZETIMER_FIELD_NUMBER: _ClassVar[int]
     deviceID: int
     doorIDs: _containers.RepeatedScalarFieldContainer[int]
     doorFlag: int
-    def __init__(self, deviceID: _Optional[int] = ..., doorIDs: _Optional[_Iterable[int]] = ..., doorFlag: _Optional[int] = ...) -> None: ...
+    normalizeTimer: int
+    def __init__(self, deviceID: _Optional[int] = ..., doorIDs: _Optional[_Iterable[int]] = ..., doorFlag: _Optional[int] = ..., normalizeTimer: _Optional[int] = ...) -> None: ...
 
 class LockResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class UnlockRequest(_message.Message):
-    __slots__ = ("deviceID", "doorIDs", "doorFlag")
+    __slots__ = ("deviceID", "doorIDs", "doorFlag", "normalizeTimer")
     DEVICEID_FIELD_NUMBER: _ClassVar[int]
     DOORIDS_FIELD_NUMBER: _ClassVar[int]
     DOORFLAG_FIELD_NUMBER: _ClassVar[int]
+    NORMALIZETIMER_FIELD_NUMBER: _ClassVar[int]
     deviceID: int
     doorIDs: _containers.RepeatedScalarFieldContainer[int]
     doorFlag: int
-    def __init__(self, deviceID: _Optional[int] = ..., doorIDs: _Optional[_Iterable[int]] = ..., doorFlag: _Optional[int] = ...) -> None: ...
+    normalizeTimer: int
+    def __init__(self, deviceID: _Optional[int] = ..., doorIDs: _Optional[_Iterable[int]] = ..., doorFlag: _Optional[int] = ..., normalizeTimer: _Optional[int] = ...) -> None: ...
 
 class UnlockResponse(_message.Message):
     __slots__ = ()

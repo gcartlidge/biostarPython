@@ -196,8 +196,28 @@ message DeviceCapability {
 	bool customSmartCardFelicaSupported = 117;
 	bool ignoreInputAfterWiegandOut = 118;
 	bool setSlaveBaudrateSupported = 119;
+	bool changeRtspResolutionSupported = 120;
+	bool changeVoipResolutionSupported = 121;
+	bool changeVoipTransportSupported = 122;
+	bool showOptionUserInfoSupported = 123;
+	bool changeScrambleKeypadSupported = 124;
 
-	uint32 visualFaceTemplateVersion = 120;
+	uint32 visualFaceTemplateVersion = 125;
+
+	bool authOnlyUnMaskSupported = 126;
+	bool mifareExSupported = 127;
+	bool lockOverrideSupported = 128;
+	bool doorModeOverrideSupported = 129;
+	bool extendedDoorOpenTimeSupported = 130;
+	bool realtimeDeviceIOStatusSupported = 131;
+	bool dynamicSlaveDeviceSupported = 132;
+    bool secureTamperSupported = 133;
+
+	bool customSmartcardSlaveSupported = 134;
+	bool serverPrivateMsgSupported = 135;
+	bool facilityCodeSupported = 136;
+	bool masterAdminSupported = 137;
+	bool adminTwoStepAuthSupported = 138;
 }
 
 message GetCapabilityResponse {
@@ -221,29 +241,31 @@ message CapabilityInfo {
 	bool fingerSupported = 7;
 	bool faceSupported = 8;
 
-	bool userNameSupported = 10;
-	bool userPhotoSupported = 11;
-	bool userPhraseSupported = 12;
-	bool alphanumericIDSupported = 13;
+	bool userNameSupported = 9;
+	bool userPhotoSupported = 10;
+	bool userPhraseSupported = 11;
+	bool alphanumericIDSupported = 12;
 
 //	bool SSLSupported
-	bool WLANSupported = 20;
-	bool imageLogSupported = 21;
-	bool VOIPSupported = 22;	
+	bool WLANSupported = 13;
+	bool imageLogSupported = 14;
+	bool VOIPSupported = 15;	
 
-	bool TNASupported = 30;
-	bool jobCodeSupported = 31;
+	bool TNASupported = 16;
+	bool jobCodeSupported = 17;
 
-	bool wiegandSupported = 40;
-	bool wiegandMultiSupported = 41;
-	bool triggerActionSupported = 42;
-	bool DSTSupported = 43;
-	bool DNSSupported = 44;	
+	bool wiegandSupported = 18;
+	bool wiegandMultiSupported = 19;
+	bool triggerActionSupported = 20;
+	bool DSTSupported = 21;
+	bool DNSSupported = 22;	
 	
-	bool OSDPKeySupported = 50;
-	bool RS485ExtSupported = 51;
+	bool OSDPKeySupported = 23;
+	bool RS485ExtSupported = 24;
 
-	bool QRSupported = 60;
+	bool QRSupported = 25;
+
+	bool dynamicSlaveDeviceSupported = 26;
 }
 
 
@@ -362,39 +384,39 @@ message ResetConfigMultiResponse {
 
 enum Type {
 	option allow_alias = true;
-	UNDEFINED       = 0x00;
+	UNDEFINED       	= 0x00;
 	BIOENTRY_PLUS		= 0x01;
 	BIOENTRY_W			= 0x02;
 	BIOLITE_NET			= 0x03;
-	XPASS				    = 0x04;
-	XPASS_S2			  = 0x05;
-	ENTRY_MAX			  = 0x05;
+	XPASS				= 0x04;
+	XPASS_S2			= 0x05;
+	ENTRY_MAX			= 0x05;
 	SECURE_IO_2			= 0x06;
-	DOOR_MODULE_20	= 0x07;
+	DOOR_MODULE_20		= 0x07;
 	BIOSTATION_2		= 0x08;
 	BIOSTATION_A2		= 0x09;
 	FACESTATION_2		= 0x0A;
-	IO_DEVICE			  = 0x0B;
+	IO_DEVICE			= 0x0B;
 	BIOSTATION_L2		= 0x0C;
 	BIOENTRY_W2			= 0x0D;
-	RS485_SLAVE     = 0x80;
-	CORESTATION_40  = 0x0E;
-	OUTPUT_MODULE   = 0x0F;
-	INPUT_MODULE    = 0x10;
+	RS485_SLAVE     	= 0x80;
+	CORESTATION_40  	= 0x0E;
+	OUTPUT_MODULE   	= 0x0F;
+	INPUT_MODULE    	= 0x10;
 	BIOENTRY_P2			= 0x11;
 	BIOLITE_N2 			= 0x12;
-	XPASS2				  = 0x13;
-	XPASS_S3			  = 0x14;
+	XPASS2				= 0x13;
+	XPASS_S3			= 0x14;
 	BIOENTRY_R2			= 0x15;
-	XPASS_D2			  = 0x16;
-	DOOR_MODULE_21	= 0x17;
-	XPASS_D2_KEYPAD = 0x18;
-	FACELITE				= 0x19;
+	XPASS_D2			= 0x16;
+	DOOR_MODULE_21		= 0x17;
+	XPASS_D2_KEYPAD 	= 0x18;
+	FACELITE			= 0x19;
 	XPASS2_KEYPAD		= 0x1A;
 	XPASS_D2_REV		= 0x1B;
 	XPASS_D2_KEYPAD_REV	= 0x1C;
-	FACESTATION_F2_FP = 0x1D;
-	FACESTATION_F2	= 0x1E;
+	FACESTATION_F2_FP 	= 0x1D;
+	FACESTATION_F2		= 0x1E;
 	XSTATION_2_QR    	= 0x1F;
 	XSTATION_2 			= 0x20;
 	IM_120 				= 0x21;
@@ -402,8 +424,11 @@ enum Type {
 	BIOSTATION_3 		= 0x23;
 	BIOSTATION_2A		= 0x26;
 	BIOENTRY_W3 		= 0x2A;
+	CORESTATION_20 		= 0x2B;
+	DOOR_INTERFACE_24	= 0x2C;
+	XPASS_Q2			= 0x2F;
 
-	UNKNOWN				  = 0xFF;
+	UNKNOWN				= 0xFF;
 }
 
 enum SwitchType {

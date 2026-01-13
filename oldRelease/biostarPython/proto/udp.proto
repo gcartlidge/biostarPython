@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package gsdk.udp;
+
+option go_package = "biostar/service/udp";
+option java_package = "com.supremainc.sdk.udp";
+option java_multiple_files = true;
+
+import "network.proto";
+
+service UDP {
+  rpc GetIPConfig(GetIPConfigRequest) returns (GetIPConfigResponse);
+  rpc SetIPConfig(SetIPConfigRequest) returns (SetIPConfigResponse);
+}
+
+message DeviceInfo {
+  uint32 deviceID = 1;
+  string IPAddr = 2;
+}
+
+message GetIPConfigRequest {
+  DeviceInfo deviceInfo = 1;
+}
+
+message GetIPConfigResponse {
+  network.IPConfig config = 1;
+}
+
+message SetIPConfigRequest {
+  DeviceInfo deviceInfo = 1;
+  network.IPConfig config = 2;
+}
+
+message SetIPConfigResponse {
+}

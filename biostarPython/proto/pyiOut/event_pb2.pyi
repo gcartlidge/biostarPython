@@ -4,7 +4,8 @@ from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -12,6 +13,8 @@ class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     FIRST_ENUM_VALUE_MUST_BE_ZERO: _ClassVar[Enum]
     MAX_EVENT_FILTERS: _ClassVar[Enum]
+    MAX_COUNT_IO_PORT: _ClassVar[Enum]
+    MAX_COUNT_SIO_PORT: _ClassVar[Enum]
 
 class PortValue(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -30,6 +33,8 @@ class ParamType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     NONE: _ClassVar[ParamType]
 FIRST_ENUM_VALUE_MUST_BE_ZERO: Enum
 MAX_EVENT_FILTERS: Enum
+MAX_COUNT_IO_PORT: Enum
+MAX_COUNT_SIO_PORT: Enum
 OPEN: PortValue
 CLOSED: PortValue
 SUPERVISED_SHORT: PortValue
@@ -322,3 +327,43 @@ class ClearLogMultiResponse(_message.Message):
     DEVICEERRORS_FIELD_NUMBER: _ClassVar[int]
     deviceErrors: _containers.RepeatedCompositeFieldContainer[_err_pb2.ErrorResponse]
     def __init__(self, deviceErrors: _Optional[_Iterable[_Union[_err_pb2.ErrorResponse, _Mapping]]] = ...) -> None: ...
+
+class IOStates(_message.Message):
+    __slots__ = ("states",)
+    STATES_FIELD_NUMBER: _ClassVar[int]
+    states: _containers.RepeatedScalarFieldContainer[PortValue]
+    def __init__(self, states: _Optional[_Iterable[_Union[PortValue, str]]] = ...) -> None: ...
+
+class DeviceIOStates(_message.Message):
+    __slots__ = ("deviceID", "input", "output", "relay", "tamper", "auxIn", "auxOut", "supervisorInputPortIndex")
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    INPUT_FIELD_NUMBER: _ClassVar[int]
+    OUTPUT_FIELD_NUMBER: _ClassVar[int]
+    RELAY_FIELD_NUMBER: _ClassVar[int]
+    TAMPER_FIELD_NUMBER: _ClassVar[int]
+    AUXIN_FIELD_NUMBER: _ClassVar[int]
+    AUXOUT_FIELD_NUMBER: _ClassVar[int]
+    SUPERVISORINPUTPORTINDEX_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    input: IOStates
+    output: IOStates
+    relay: IOStates
+    tamper: IOStates
+    auxIn: IOStates
+    auxOut: IOStates
+    supervisorInputPortIndex: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, deviceID: _Optional[int] = ..., input: _Optional[_Union[IOStates, _Mapping]] = ..., output: _Optional[_Union[IOStates, _Mapping]] = ..., relay: _Optional[_Union[IOStates, _Mapping]] = ..., tamper: _Optional[_Union[IOStates, _Mapping]] = ..., auxIn: _Optional[_Union[IOStates, _Mapping]] = ..., auxOut: _Optional[_Union[IOStates, _Mapping]] = ..., supervisorInputPortIndex: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class GetDeviceIOStatesRequest(_message.Message):
+    __slots__ = ("deviceID", "slaveIDs")
+    DEVICEID_FIELD_NUMBER: _ClassVar[int]
+    SLAVEIDS_FIELD_NUMBER: _ClassVar[int]
+    deviceID: int
+    slaveIDs: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, deviceID: _Optional[int] = ..., slaveIDs: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class GetDeviceIOStatesResponse(_message.Message):
+    __slots__ = ("states",)
+    STATES_FIELD_NUMBER: _ClassVar[int]
+    states: _containers.RepeatedCompositeFieldContainer[DeviceIOStates]
+    def __init__(self, states: _Optional[_Iterable[_Union[DeviceIOStates, _Mapping]]] = ...) -> None: ...

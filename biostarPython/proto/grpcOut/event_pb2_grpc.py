@@ -3,9 +3,9 @@
 import grpc
 import warnings
 
-from biostarPython.service import event_pb2 as event__pb2
+import event_pb2 as event__pb2
 
-GRPC_GENERATED_VERSION = '1.68.1'
+GRPC_GENERATED_VERSION = '1.76.0'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in event_pb2_grpc.py depends on'
+        + ' but the generated code in event_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -98,6 +98,11 @@ class EventStub(object):
                 '/gsdk.event.Event/ClearLogMulti',
                 request_serializer=event__pb2.ClearLogMultiRequest.SerializeToString,
                 response_deserializer=event__pb2.ClearLogMultiResponse.FromString,
+                _registered_method=True)
+        self.GetDeviceIOStates = channel.unary_unary(
+                '/gsdk.event.Event/GetDeviceIOStates',
+                request_serializer=event__pb2.GetDeviceIOStatesRequest.SerializeToString,
+                response_deserializer=event__pb2.GetDeviceIOStatesResponse.FromString,
                 _registered_method=True)
 
 
@@ -182,6 +187,12 @@ class EventServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetDeviceIOStates(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_EventServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -249,6 +260,11 @@ def add_EventServicer_to_server(servicer, server):
                     servicer.ClearLogMulti,
                     request_deserializer=event__pb2.ClearLogMultiRequest.FromString,
                     response_serializer=event__pb2.ClearLogMultiResponse.SerializeToString,
+            ),
+            'GetDeviceIOStates': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDeviceIOStates,
+                    request_deserializer=event__pb2.GetDeviceIOStatesRequest.FromString,
+                    response_serializer=event__pb2.GetDeviceIOStatesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -602,6 +618,33 @@ class Event(object):
             '/gsdk.event.Event/ClearLogMulti',
             event__pb2.ClearLogMultiRequest.SerializeToString,
             event__pb2.ClearLogMultiResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetDeviceIOStates(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.event.Event/GetDeviceIOStates',
+            event__pb2.GetDeviceIOStatesRequest.SerializeToString,
+            event__pb2.GetDeviceIOStatesResponse.FromString,
             options,
             channel_credentials,
             insecure,

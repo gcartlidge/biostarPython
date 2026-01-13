@@ -3,7 +3,8 @@ from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -56,6 +57,17 @@ class ShowOSDPResult(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     BS2_SHOW_OSDP_RESULT_ON: _ClassVar[ShowOSDPResult]
     BS2_SHOW_OSDP_RESULT_OFF: _ClassVar[ShowOSDPResult]
 
+class ShowOptionUserInfo(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    BS2_SHOW_USER_INFO_ALL: _ClassVar[ShowOptionUserInfo]
+    BS2_SHOW_USER_INFO_PARTIAL: _ClassVar[ShowOptionUserInfo]
+    BS2_SHOW_USER_INFO_NOTHING: _ClassVar[ShowOptionUserInfo]
+
+class KeypadType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    BS2_KEYPAD_TYPE_SCRAMBLE: _ClassVar[KeypadType]
+    BS2_KEYPAD_TYPE_NORMAL: _ClassVar[KeypadType]
+
 class SoundIndex(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     SOUND_INDEX_WELCOME: _ClassVar[SoundIndex]
@@ -91,6 +103,11 @@ BS2_TIME_FORMAT_12_HOUR: TimeFormat
 BS2_TIME_FORMAT_24_HOUR: TimeFormat
 BS2_SHOW_OSDP_RESULT_ON: ShowOSDPResult
 BS2_SHOW_OSDP_RESULT_OFF: ShowOSDPResult
+BS2_SHOW_USER_INFO_ALL: ShowOptionUserInfo
+BS2_SHOW_USER_INFO_PARTIAL: ShowOptionUserInfo
+BS2_SHOW_USER_INFO_NOTHING: ShowOptionUserInfo
+BS2_KEYPAD_TYPE_SCRAMBLE: KeypadType
+BS2_KEYPAD_TYPE_NORMAL: KeypadType
 SOUND_INDEX_WELCOME: SoundIndex
 SOUND_INDEX_AUTH_SUCCESS: SoundIndex
 SOUND_INDEX_AUTH_FAIL: SoundIndex
@@ -98,7 +115,7 @@ SOUND_INDEX_ALARM_1: SoundIndex
 SOUND_INDEX_ALARM_2: SoundIndex
 
 class DisplayConfig(_message.Message):
-    __slots__ = ("language", "background", "theme", "volume", "useVoice", "dateFormat", "timeFormat", "showDateTime", "menuTimeout", "msgTimeout", "backlightTimeout", "useUserPhrase", "queryUserPhrase", "useScreenSaver", "showOSDPResult")
+    __slots__ = ("language", "background", "theme", "volume", "useVoice", "dateFormat", "timeFormat", "showDateTime", "menuTimeout", "msgTimeout", "backlightTimeout", "useUserPhrase", "queryUserPhrase", "useScreenSaver", "showOSDPResult", "showOptionUserName", "showOptionUserId", "keypadType")
     LANGUAGE_FIELD_NUMBER: _ClassVar[int]
     BACKGROUND_FIELD_NUMBER: _ClassVar[int]
     THEME_FIELD_NUMBER: _ClassVar[int]
@@ -114,6 +131,9 @@ class DisplayConfig(_message.Message):
     QUERYUSERPHRASE_FIELD_NUMBER: _ClassVar[int]
     USESCREENSAVER_FIELD_NUMBER: _ClassVar[int]
     SHOWOSDPRESULT_FIELD_NUMBER: _ClassVar[int]
+    SHOWOPTIONUSERNAME_FIELD_NUMBER: _ClassVar[int]
+    SHOWOPTIONUSERID_FIELD_NUMBER: _ClassVar[int]
+    KEYPADTYPE_FIELD_NUMBER: _ClassVar[int]
     language: LanguageType
     background: BackgroundType
     theme: BackgroundTheme
@@ -129,7 +149,10 @@ class DisplayConfig(_message.Message):
     queryUserPhrase: bool
     useScreenSaver: bool
     showOSDPResult: ShowOSDPResult
-    def __init__(self, language: _Optional[_Union[LanguageType, str]] = ..., background: _Optional[_Union[BackgroundType, str]] = ..., theme: _Optional[_Union[BackgroundTheme, str]] = ..., volume: _Optional[int] = ..., useVoice: bool = ..., dateFormat: _Optional[_Union[DateFormat, str]] = ..., timeFormat: _Optional[_Union[TimeFormat, str]] = ..., showDateTime: bool = ..., menuTimeout: _Optional[int] = ..., msgTimeout: _Optional[int] = ..., backlightTimeout: _Optional[int] = ..., useUserPhrase: bool = ..., queryUserPhrase: bool = ..., useScreenSaver: bool = ..., showOSDPResult: _Optional[_Union[ShowOSDPResult, str]] = ...) -> None: ...
+    showOptionUserName: ShowOptionUserInfo
+    showOptionUserId: ShowOptionUserInfo
+    keypadType: KeypadType
+    def __init__(self, language: _Optional[_Union[LanguageType, str]] = ..., background: _Optional[_Union[BackgroundType, str]] = ..., theme: _Optional[_Union[BackgroundTheme, str]] = ..., volume: _Optional[int] = ..., useVoice: bool = ..., dateFormat: _Optional[_Union[DateFormat, str]] = ..., timeFormat: _Optional[_Union[TimeFormat, str]] = ..., showDateTime: bool = ..., menuTimeout: _Optional[int] = ..., msgTimeout: _Optional[int] = ..., backlightTimeout: _Optional[int] = ..., useUserPhrase: bool = ..., queryUserPhrase: bool = ..., useScreenSaver: bool = ..., showOSDPResult: _Optional[_Union[ShowOSDPResult, str]] = ..., showOptionUserName: _Optional[_Union[ShowOptionUserInfo, str]] = ..., showOptionUserId: _Optional[_Union[ShowOptionUserInfo, str]] = ..., keypadType: _Optional[_Union[KeypadType, str]] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

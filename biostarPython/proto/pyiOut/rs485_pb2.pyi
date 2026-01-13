@@ -4,7 +4,8 @@ from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -19,26 +20,39 @@ class IPDOutputFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     CARDID: _ClassVar[IPDOutputFormat]
     USERID: _ClassVar[IPDOutputFormat]
+
+class ChannelType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    CHANNEL_TYPE_NORMAL: _ClassVar[ChannelType]
+    CHANNEL_TYPE_SUPREMA: _ClassVar[ChannelType]
+    CHANNEL_TYPE_OSDP_STANDARD: _ClassVar[ChannelType]
+    CHANNEL_TYPE_OSDP_STANDARD_FULL: _ClassVar[ChannelType]
 NOT_USE: Mode
 MASTER: Mode
 SLAVE: Mode
 STANDALONE: Mode
 CARDID: IPDOutputFormat
 USERID: IPDOutputFormat
+CHANNEL_TYPE_NORMAL: ChannelType
+CHANNEL_TYPE_SUPREMA: ChannelType
+CHANNEL_TYPE_OSDP_STANDARD: ChannelType
+CHANNEL_TYPE_OSDP_STANDARD_FULL: ChannelType
 
 class SlaveDeviceInfo(_message.Message):
-    __slots__ = ("deviceID", "type", "enabled", "connected", "channelID")
+    __slots__ = ("deviceID", "type", "enabled", "connected", "channelID", "parentID")
     DEVICEID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     CONNECTED_FIELD_NUMBER: _ClassVar[int]
     CHANNELID_FIELD_NUMBER: _ClassVar[int]
+    PARENTID_FIELD_NUMBER: _ClassVar[int]
     deviceID: int
     type: _device_pb2.Type
     enabled: bool
     connected: bool
     channelID: int
-    def __init__(self, deviceID: _Optional[int] = ..., type: _Optional[_Union[_device_pb2.Type, str]] = ..., enabled: bool = ..., connected: bool = ..., channelID: _Optional[int] = ...) -> None: ...
+    parentID: int
+    def __init__(self, deviceID: _Optional[int] = ..., type: _Optional[_Union[_device_pb2.Type, str]] = ..., enabled: bool = ..., connected: bool = ..., channelID: _Optional[int] = ..., parentID: _Optional[int] = ...) -> None: ...
 
 class SearchDeviceRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -77,28 +91,34 @@ class GetDeviceResponse(_message.Message):
     def __init__(self, slaveInfos: _Optional[_Iterable[_Union[SlaveDeviceInfo, _Mapping]]] = ...) -> None: ...
 
 class IntelligentPDInfo(_message.Message):
-    __slots__ = ("useExceptionCode", "exceptionCode", "outputFormat", "OSDPID")
+    __slots__ = ("useExceptionCode", "exceptionCode", "outputFormat", "OSDPID", "supportConfig")
     USEEXCEPTIONCODE_FIELD_NUMBER: _ClassVar[int]
     EXCEPTIONCODE_FIELD_NUMBER: _ClassVar[int]
     OUTPUTFORMAT_FIELD_NUMBER: _ClassVar[int]
     OSDPID_FIELD_NUMBER: _ClassVar[int]
+    SUPPORTCONFIG_FIELD_NUMBER: _ClassVar[int]
     useExceptionCode: bool
     exceptionCode: bytes
     outputFormat: IPDOutputFormat
     OSDPID: int
-    def __init__(self, useExceptionCode: bool = ..., exceptionCode: _Optional[bytes] = ..., outputFormat: _Optional[_Union[IPDOutputFormat, str]] = ..., OSDPID: _Optional[int] = ...) -> None: ...
+    supportConfig: bool
+    def __init__(self, useExceptionCode: bool = ..., exceptionCode: _Optional[bytes] = ..., outputFormat: _Optional[_Union[IPDOutputFormat, str]] = ..., OSDPID: _Optional[int] = ..., supportConfig: bool = ...) -> None: ...
 
 class RS485Channel(_message.Message):
-    __slots__ = ("channelID", "mode", "baudRate", "slaveDevices")
+    __slots__ = ("channelID", "mode", "baudRate", "slaveDevices", "useResistance", "channelType")
     CHANNELID_FIELD_NUMBER: _ClassVar[int]
     MODE_FIELD_NUMBER: _ClassVar[int]
     BAUDRATE_FIELD_NUMBER: _ClassVar[int]
     SLAVEDEVICES_FIELD_NUMBER: _ClassVar[int]
+    USERESISTANCE_FIELD_NUMBER: _ClassVar[int]
+    CHANNELTYPE_FIELD_NUMBER: _ClassVar[int]
     channelID: int
     mode: Mode
     baudRate: int
     slaveDevices: _containers.RepeatedCompositeFieldContainer[SlaveDeviceInfo]
-    def __init__(self, channelID: _Optional[int] = ..., mode: _Optional[_Union[Mode, str]] = ..., baudRate: _Optional[int] = ..., slaveDevices: _Optional[_Iterable[_Union[SlaveDeviceInfo, _Mapping]]] = ...) -> None: ...
+    useResistance: bool
+    channelType: ChannelType
+    def __init__(self, channelID: _Optional[int] = ..., mode: _Optional[_Union[Mode, str]] = ..., baudRate: _Optional[int] = ..., slaveDevices: _Optional[_Iterable[_Union[SlaveDeviceInfo, _Mapping]]] = ..., useResistance: bool = ..., channelType: _Optional[_Union[ChannelType, str]] = ...) -> None: ...
 
 class RS485Config(_message.Message):
     __slots__ = ("channels", "intelligentInfo")

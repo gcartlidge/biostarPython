@@ -1,11 +1,11 @@
-__version__ = "0.4.0.2"
+__version__ = "0.6.0.0"
 __author__ = 'SupremaUK'
 __credits__ = 'SupremaInc'
 
 from os.path import dirname
 from sys import exc_info
 from json import load as jsonload
-from biostarPython.service import access_pb2_grpc, action_pb2_grpc, admin_pb2_grpc, apb_zone_pb2_grpc, auth_pb2_grpc, card_pb2_grpc, cert_pb2_grpc, connect_master_pb2_grpc, connect_pb2_grpc, device_pb2_grpc, display_pb2_grpc, door_pb2_grpc, err_pb2_grpc, event_pb2_grpc, face_pb2_grpc, finger_pb2_grpc, fire_zone_pb2_grpc, gateway_pb2_grpc, input_pb2_grpc, interlock_zone_pb2_grpc, intrusion_zone_pb2_grpc, lift_pb2_grpc, lift_zone_pb2_grpc, lock_zone_pb2_grpc, login_pb2_grpc, network_pb2_grpc, operator_pb2_grpc, rs485_pb2_grpc, schedule_pb2_grpc, server_pb2_grpc, status_pb2_grpc, system_pb2_grpc, tenant_pb2_grpc, thermal_pb2_grpc, timed_apb_zone_pb2_grpc, time_pb2_grpc, tna_pb2_grpc, user_pb2_grpc, voip_pb2_grpc, wiegand_pb2_grpc, rtsp_pb2_grpc, voip_pb2_grpc, udp_pb2_grpc, test_pb2_grpc
+from biostarPython.service import access_pb2_grpc, action_pb2_grpc, admin_pb2_grpc, apb_zone_pb2_grpc, auth_pb2_grpc, card_pb2_grpc, cert_pb2_grpc, connect_master_pb2_grpc, connect_pb2_grpc, device_pb2_grpc, display_pb2_grpc, door_pb2_grpc, err_pb2_grpc, event_pb2_grpc, face_pb2_grpc, finger_pb2_grpc, fire_zone_pb2_grpc, gateway_pb2_grpc, input_pb2_grpc, interlock_zone_pb2_grpc, intrusion_zone_pb2_grpc, lift_pb2_grpc, lift_zone_pb2_grpc, lock_zone_pb2_grpc, login_pb2_grpc, network_pb2_grpc, operator_pb2_grpc, rs485_pb2_grpc, schedule_pb2_grpc, server_pb2_grpc, status_pb2_grpc, system_pb2_grpc, tenant_pb2_grpc, thermal_pb2_grpc, timed_apb_zone_pb2_grpc, time_pb2_grpc, tna_pb2_grpc, user_pb2_grpc, voip_pb2_grpc, wiegand_pb2_grpc, rtsp_pb2_grpc, voip_pb2_grpc, udp_pb2_grpc, test_pb2_grpc, masteradmin_pb2_grpc, devicelicense_pb2_grpc
 import grpc
 import logging
 from logging.handlers import TimedRotatingFileHandler
@@ -54,8 +54,13 @@ def initDeviceList():
  deviceType[0x21] = 'IM-120' 
  deviceType[0x22] = 'XStation 2 Fingerprint' 
  deviceType[0x23] = 'BioStation 3' 
+ deviceType[0x24] = '3rd party OSDP device'
+ deviceType[0x25] = '3rd party OSDP IO device'
  deviceType[0x26] = 'BioStation 2A' 
  deviceType[0x2A] = 'BioEntry W3'
+ deviceType[0x2B] = 'Corestation 20'
+ deviceType[0x2C] = 'Door Interface 24'
+ deviceType[0x2F] = 'XPass Q2'
  return deviceType
 deviceType = initDeviceList()  
 
@@ -506,6 +511,7 @@ class UserSvc:
   newUserFinger = user_pb2_grpc.user__pb2.UserFinger
   newUserFace = user_pb2_grpc.user__pb2.UserFace
   newUserJobCode = user_pb2_grpc.user__pb2.UserJobCode
+  newUserOverride = user_pb2_grpc.user__pb2.UserOverride
   stub = None
   def __init__(self, channel): 
     try:
@@ -672,6 +678,56 @@ class UserSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot set multiple Job Codes: {e}')
       raise   
+  def getUserOverride(self,deviceID,userIDs) :   
+    try:
+      response = self.stub.GetUserOverride(user_pb2_grpc.user__pb2.GetUserOverrideRequest(deviceID=deviceID, userIDs=userIDs))
+      return response.userOverrides
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the user Overrides: {e}')
+      raise  
+  def getAllUserOverride(self,deviceID)   : 
+    try:
+      response = self.stub.GetAllUserOverride(user_pb2_grpc.user__pb2.GetAllUserOverrideRequest(deviceID=deviceID))
+      return response.userOverrides
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get all the user Overrides: {e}')
+      raise        
+  def setUserOverride(self,deviceID,userOverrides) :   
+    try:
+      response = self.stub.SetUserOverride(user_pb2_grpc.user__pb2.SetUserOverrideRequest(deviceID=deviceID, userOverrides = userOverrides))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the user Overrides: {e}')
+      raise  
+  def setUserOverrideMulti(self,deviceIDs,userOverrides):    
+    try:
+      response = self.stub.SetUserOverrideMulti(user_pb2_grpc.user__pb2.SetUserOverrideMultiRequest(deviceIDs=deviceIDs, userOverrides = userOverrides))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the user Overrides on Multiple: {e}')
+      raise    
+  def deleteUserOverride(self,deviceID,userIDs):    
+    try:
+      response = self.stub.DeleteUserOverride(user_pb2_grpc.user__pb2.DeleteUserOverrideRequest(deviceID=deviceID, userIDs=userIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot delete the user Overrides: {e}')
+      raise    
+  def deleteUserOverrideMulti(self,deviceIDs,userIDs):    
+    try:
+      response = self.stub.DeleteUserOverrideMulti(user_pb2_grpc.user__pb2.DeleteUserOverrideMultiRequest(deviceIDs=deviceIDs, userIDs=userIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot delete the user Overrides on Multiple: {e}')
+      raise       
+  def deleteAllUserOverride(self,deviceID) :   
+    try:
+      response = self.stub.DeleteAllUserOverride(user_pb2_grpc.user__pb2.DeleteAllUserOverrideRequest(deviceID=deviceID))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot delete all the user Overrides: {e}')
+      raise   
+  def deleteAllUserOverrideMulti(self,deviceIDs):    
+    try:
+      response = self.stub.DeleteAllUserMultiOverride(user_pb2_grpc.user__pb2.DeleteAllUserOverrideMultiRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot delete all the user Overrides: {e}')
+      raise           
 class DisplaySvc:
   stub = None
   
@@ -980,7 +1036,77 @@ class CardSvc:
       self.stub.SetCustomConfigMulti(card_pb2_grpc.card__pb2.SetCustomConfigMultiRequest(deviceIDs=deviceIDs,config=config))
     except grpc.RpcError as e:
       logger.error(f'Cannot set multiple Custom config: {e}')
+      raise   
+  def getFacilityCodeConfig(self, deviceID):
+    try:
+      response = self.stub.GetFacilityCodeConfig(card_pb2_grpc.card__pb2.GetFacilityCodeConfigRequest(deviceID=deviceID))
+      return response.config
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the facility code config: {e}')
+      raise
+  def setFacilityCodeConfig(self, deviceID,config):
+    try:
+      response = self.stub.SetFacilityCodeConfig(card_pb2_grpc.card__pb2.SetFacilityCodeConfigRequest(deviceID=deviceID,config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the facility code config: {e}')
+      raise   
+  def setFacilityCodeConfigMulti(self, deviceIDs,config):
+    try:
+      response = self.stub.SetFacilityCodeConfigMulti(card_pb2_grpc.card__pb2.SetFacilityCodeConfigMultiRequest(deviceIDs=deviceIDs,config=config))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the facility code config on multiple: {e}')
+      raise      
+  def getLockOverride(self, deviceID, lockOverrides):
+    try:
+      response = self.stub.GetLockOverride(card_pb2_grpc.card__pb2.GetLockOverrideRequest(deviceID=deviceID,lockOverrides=lockOverrides))
+      return response.lockOverrides
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the lock override: {e}')
+      raise  
+  def getAllLockOverride(self, deviceID):
+    try:
+      response = self.stub.GetAllLockOverride(card_pb2_grpc.card__pb2.GetAllLockOverrideRequest(deviceID=deviceID))
+      return response.lockOverrides
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get all the lock overrides: {e}')
       raise    
+  def setLockOverride(self, deviceID, lockOverrides):
+    try:
+      response = self.stub.SetLockOverride(card_pb2_grpc.card__pb2.SetLockOverrideRequest(deviceID=deviceID,lockOverrides=lockOverrides))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the lock overrides: {e}')
+      raise  
+  def setLockOverrideMulti(self, deviceIDs, lockOverrides):
+    try:
+      response = self.stub.SetLockOverrideMulti(card_pb2_grpc.card__pb2.SetLockOverrideMultiRequest(deviceIDs=deviceIDs,lockOverrides=lockOverrides))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the lock overrides: {e}')
+      raise    
+  def deleteLockOverride(self, deviceID, lockOverrides):
+    try:
+      response = self.stub.DeleteLockOverride(card_pb2_grpc.card__pb2.DeleteLockOverrideRequest(deviceID=deviceID,lockOverrides=lockOverrides))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot delete the lock overrides: {e}')
+      raise      
+  def deleteLockOverrideMulti(self, deviceIDs, lockOverrides):
+    try:
+      response = self.stub.DeleteLockOverrideMulti(card_pb2_grpc.card__pb2.DeleteLockOverrideMultiRequest(deviceIDs=deviceIDs,lockOverrides=lockOverrides))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot delete the lock overrides on multiple: {e}')
+      raise  
+  def deleteAllLockOverride(self, deviceID):
+    try:
+      response = self.stub.DeleteAllLockOverride(card_pb2_grpc.card__pb2.DeleteAllLockOverrideRequest(deviceID=deviceID))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot delete all the lock overrides: {e}')
+      raise   
+  def deleteAllLockOverrideMulti(self, deviceIDs):
+    try:
+      response = self.stub.DeleteAllLockOverrideMulti(card_pb2_grpc.card__pb2.DeleteAllLockOverrideMultiRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot delete all the lock overrides on multiple: {e}')
+      raise       
+      
 class EventSvc:
   stub = None
   newEventFilter = event_pb2_grpc.event__pb2.EventFilter
@@ -1051,11 +1177,25 @@ class EventSvc:
       logger.error(f'Cannot enable monitoring: {e}')
       raise
 
+  def enableMonitoringMulti(self, deviceIDs):
+    try:
+      self.stub.EnableMonitoringMulti(event_pb2_grpc.event__pb2.EnableMonitoringMultiRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot enable monitoring on multiple: {e}')
+      raise
+
   def disableMonitoring(self, deviceID):
     try:
       self.stub.DisableMonitoring(event_pb2_grpc.event__pb2.DisableMonitoringRequest(deviceID=deviceID))
     except grpc.RpcError as e:
       logger.error(f'Cannot disable monitoring: {e}')
+      raise
+
+  def disableMonitoringMulti(self, deviceIDs):
+    try:
+      self.stub.DisableMonitoringMulti(event_pb2_grpc.event__pb2.DisableMonitoringMultiRequest(deviceIDs=deviceIDs))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot disable monitoring on multiple: {e}')
       raise
 
   def subscribe(self, queueSize): 
@@ -1064,6 +1204,15 @@ class EventSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot subscribe: {e}')
       raise
+      
+  def getDeviceIOStates(self, deviceID, slaveIDs=None):
+    try:
+      response = self.stub.GetDeviceIOStates(event_pb2_grpc.event__pb2.GetDeviceIOStatesRequest(deviceID=deviceID,slaveIDs=slaveIDs))
+      return response.states
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get IO states: {e}')
+      raise
+      
 class NetworkSvc:
    stub = None
    def __init__(self, channel):
@@ -1440,6 +1589,7 @@ class ScheduleSvc:
       raise
 class ActionSvc:
   stub = None
+  newAction = action_pb2_grpc.action__pb2.Action
   def __init__(self, channel): 
     try:
       self.stub = action_pb2_grpc.TriggerActionStub(channel)
@@ -1465,6 +1615,13 @@ class ActionSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot set the action config on multiple: {e}')
       raise
+  def runAction(self, deviceID, action):
+    try:
+      self.stub.RunAction(action_pb2_grpc.action__pb2.RunActionRequest(deviceID=deviceID, action=action))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot run action: {e}')
+      raise
+ 
 class TNASvc:
   stub = None
   def __init__(self, channel): 
@@ -1940,6 +2097,72 @@ class UDPSvc:
     except grpc.RpcError as e:
       logger.error(f'Cannot set the UDP Config: {e}')
       raise    
+
+class MasterAdminSvc:
+  stub = None
+  def __init__(self, channel): 
+    try:
+      self.stub = masteradmin_pb2_grpc.MasterAdminStub(channel)
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the Master Admin stub: {e}')
+      raise
+  def get(self, deviceID):
+    try:
+      response = self.stub.Get(masteradmin_pb2_grpc.masteradmin__pb2.GetRequest(deviceID=deviceID))
+      return response.masterAdmin
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the Master Admin Config: {e}')
+      raise
+  def set(self, deviceID, masterAdmin):
+    try:
+      response = self.stub.Set(masteradmin_pb2_grpc.masteradmin__pb2.SetRequest(deviceID=deviceID,masterAdmin=masterAdmin))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the Master Admin Config: {e}')
+      raise  
+  def setMulti(self, deviceIDs, masterAdmin):
+    try:
+      response = self.stub.SetMulti(masteradmin_pb2_grpc.masteradmin__pb2.SetMultiRequest(deviceIDs=deviceIDs, masterAdmin=masterAdmin))
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the Master Admin Config on Multiple: {e}')
+      raise   
+
+class DeviceLicenseSvc:
+  stub = None
+  newDeviceLicenseBlob = devicelicense_pb2_grpc.devicelicense__pb2.DeviceLicenseBlob
+  def __init__(self, channel): 
+    try:
+      self.stub = devicelicense_pb2_grpc.DeviceLicenseStub(channel)
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the Device License stub: {e}')
+      raise
+  def getConfig(self, deviceID):
+    try:
+      response = self.stub.GetConfig(devicelicense_pb2_grpc.devicelicense__pb2.GetConfigRequest(deviceID=deviceID))
+      return response.config
+    except grpc.RpcError as e:
+      logger.error(f'Cannot get the Device License Config: {e}')
+      raise
+  def enable(self, deviceID, licenseBlob):
+    try:
+      response = self.stub.Enable(devicelicense_pb2_grpc.devicelicense__pb2.EnableRequest(deviceID=deviceID,licenseBlob=licenseBlob))
+      return response.results
+    except grpc.RpcError as e:
+      logger.error(f'Cannot enable the licence: {e}')
+      raise  
+  def disable(self, deviceID, licenseBlob):
+    try:
+      response = self.stub.Disable(devicelicense_pb2_grpc.devicelicense__pb2.DisableRequest(deviceID=deviceID,licenseBlob=licenseBlob))
+      return response.results
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the Master Admin Config on Multiple: {e}')
+      raise  
+  def query(self, deviceID, licenseType):
+    try:
+      response = self.stub.Query(devicelicense_pb2_grpc.devicelicense__pb2.QueryRequest(deviceID=deviceID,type=licenseType))
+      return response.results
+    except grpc.RpcError as e:
+      logger.error(f'Cannot set the Master Admin Config on Multiple: {e}')
+      raise       
 
 class TestSvc:
   stub = None

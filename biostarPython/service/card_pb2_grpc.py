@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import card_pb2 as card__pb2
 
-GRPC_GENERATED_VERSION = '1.68.1'
+GRPC_GENERATED_VERSION = '1.76.0'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in card_pb2_grpc.py depends on'
+        + ' but the generated code in card_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -148,6 +148,61 @@ class CardStub(object):
                 '/gsdk.card.Card/SetCustomConfigMulti',
                 request_serializer=card__pb2.SetCustomConfigMultiRequest.SerializeToString,
                 response_deserializer=card__pb2.SetCustomConfigMultiResponse.FromString,
+                _registered_method=True)
+        self.GetFacilityCodeConfig = channel.unary_unary(
+                '/gsdk.card.Card/GetFacilityCodeConfig',
+                request_serializer=card__pb2.GetFacilityCodeConfigRequest.SerializeToString,
+                response_deserializer=card__pb2.GetFacilityCodeConfigResponse.FromString,
+                _registered_method=True)
+        self.SetFacilityCodeConfig = channel.unary_unary(
+                '/gsdk.card.Card/SetFacilityCodeConfig',
+                request_serializer=card__pb2.SetFacilityCodeConfigRequest.SerializeToString,
+                response_deserializer=card__pb2.SetFacilityCodeConfigResponse.FromString,
+                _registered_method=True)
+        self.SetFacilityCodeConfigMulti = channel.unary_unary(
+                '/gsdk.card.Card/SetFacilityCodeConfigMulti',
+                request_serializer=card__pb2.SetFacilityCodeConfigMultiRequest.SerializeToString,
+                response_deserializer=card__pb2.SetFacilityCodeConfigMultiResponse.FromString,
+                _registered_method=True)
+        self.GetLockOverride = channel.unary_unary(
+                '/gsdk.card.Card/GetLockOverride',
+                request_serializer=card__pb2.GetLockOverrideRequest.SerializeToString,
+                response_deserializer=card__pb2.GetLockOverrideResponse.FromString,
+                _registered_method=True)
+        self.GetAllLockOverride = channel.unary_unary(
+                '/gsdk.card.Card/GetAllLockOverride',
+                request_serializer=card__pb2.GetAllLockOverrideRequest.SerializeToString,
+                response_deserializer=card__pb2.GetAllLockOverrideResponse.FromString,
+                _registered_method=True)
+        self.SetLockOverride = channel.unary_unary(
+                '/gsdk.card.Card/SetLockOverride',
+                request_serializer=card__pb2.SetLockOverrideRequest.SerializeToString,
+                response_deserializer=card__pb2.SetLockOverrideResponse.FromString,
+                _registered_method=True)
+        self.SetLockOverrideMulti = channel.unary_unary(
+                '/gsdk.card.Card/SetLockOverrideMulti',
+                request_serializer=card__pb2.SetLockOverrideMultiRequest.SerializeToString,
+                response_deserializer=card__pb2.SetLockOverrideMultiResponse.FromString,
+                _registered_method=True)
+        self.DeleteLockOverride = channel.unary_unary(
+                '/gsdk.card.Card/DeleteLockOverride',
+                request_serializer=card__pb2.DeleteLockOverrideRequest.SerializeToString,
+                response_deserializer=card__pb2.DeleteLockOverrideResponse.FromString,
+                _registered_method=True)
+        self.DeleteLockOverrideMulti = channel.unary_unary(
+                '/gsdk.card.Card/DeleteLockOverrideMulti',
+                request_serializer=card__pb2.DeleteLockOverrideMultiRequest.SerializeToString,
+                response_deserializer=card__pb2.DeleteLockOverrideMultiResponse.FromString,
+                _registered_method=True)
+        self.DeleteAllLockOverride = channel.unary_unary(
+                '/gsdk.card.Card/DeleteAllLockOverride',
+                request_serializer=card__pb2.DeleteAllLockOverrideRequest.SerializeToString,
+                response_deserializer=card__pb2.DeleteAllLockOverrideResponse.FromString,
+                _registered_method=True)
+        self.DeleteAllLockOverrideMulti = channel.unary_unary(
+                '/gsdk.card.Card/DeleteAllLockOverrideMulti',
+                request_serializer=card__pb2.DeleteAllLockOverrideMultiRequest.SerializeToString,
+                response_deserializer=card__pb2.DeleteAllLockOverrideMultiResponse.FromString,
                 _registered_method=True)
 
 
@@ -292,6 +347,72 @@ class CardServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetFacilityCodeConfig(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetFacilityCodeConfig(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetFacilityCodeConfigMulti(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetLockOverride(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllLockOverride(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetLockOverride(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetLockOverrideMulti(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteLockOverride(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteLockOverrideMulti(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAllLockOverride(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAllLockOverrideMulti(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CardServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -409,6 +530,61 @@ def add_CardServicer_to_server(servicer, server):
                     servicer.SetCustomConfigMulti,
                     request_deserializer=card__pb2.SetCustomConfigMultiRequest.FromString,
                     response_serializer=card__pb2.SetCustomConfigMultiResponse.SerializeToString,
+            ),
+            'GetFacilityCodeConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFacilityCodeConfig,
+                    request_deserializer=card__pb2.GetFacilityCodeConfigRequest.FromString,
+                    response_serializer=card__pb2.GetFacilityCodeConfigResponse.SerializeToString,
+            ),
+            'SetFacilityCodeConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetFacilityCodeConfig,
+                    request_deserializer=card__pb2.SetFacilityCodeConfigRequest.FromString,
+                    response_serializer=card__pb2.SetFacilityCodeConfigResponse.SerializeToString,
+            ),
+            'SetFacilityCodeConfigMulti': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetFacilityCodeConfigMulti,
+                    request_deserializer=card__pb2.SetFacilityCodeConfigMultiRequest.FromString,
+                    response_serializer=card__pb2.SetFacilityCodeConfigMultiResponse.SerializeToString,
+            ),
+            'GetLockOverride': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetLockOverride,
+                    request_deserializer=card__pb2.GetLockOverrideRequest.FromString,
+                    response_serializer=card__pb2.GetLockOverrideResponse.SerializeToString,
+            ),
+            'GetAllLockOverride': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAllLockOverride,
+                    request_deserializer=card__pb2.GetAllLockOverrideRequest.FromString,
+                    response_serializer=card__pb2.GetAllLockOverrideResponse.SerializeToString,
+            ),
+            'SetLockOverride': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetLockOverride,
+                    request_deserializer=card__pb2.SetLockOverrideRequest.FromString,
+                    response_serializer=card__pb2.SetLockOverrideResponse.SerializeToString,
+            ),
+            'SetLockOverrideMulti': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetLockOverrideMulti,
+                    request_deserializer=card__pb2.SetLockOverrideMultiRequest.FromString,
+                    response_serializer=card__pb2.SetLockOverrideMultiResponse.SerializeToString,
+            ),
+            'DeleteLockOverride': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteLockOverride,
+                    request_deserializer=card__pb2.DeleteLockOverrideRequest.FromString,
+                    response_serializer=card__pb2.DeleteLockOverrideResponse.SerializeToString,
+            ),
+            'DeleteLockOverrideMulti': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteLockOverrideMulti,
+                    request_deserializer=card__pb2.DeleteLockOverrideMultiRequest.FromString,
+                    response_serializer=card__pb2.DeleteLockOverrideMultiResponse.SerializeToString,
+            ),
+            'DeleteAllLockOverride': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteAllLockOverride,
+                    request_deserializer=card__pb2.DeleteAllLockOverrideRequest.FromString,
+                    response_serializer=card__pb2.DeleteAllLockOverrideResponse.SerializeToString,
+            ),
+            'DeleteAllLockOverrideMulti': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteAllLockOverrideMulti,
+                    request_deserializer=card__pb2.DeleteAllLockOverrideMultiRequest.FromString,
+                    response_serializer=card__pb2.DeleteAllLockOverrideMultiResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1032,6 +1208,303 @@ class Card(object):
             '/gsdk.card.Card/SetCustomConfigMulti',
             card__pb2.SetCustomConfigMultiRequest.SerializeToString,
             card__pb2.SetCustomConfigMultiResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetFacilityCodeConfig(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/GetFacilityCodeConfig',
+            card__pb2.GetFacilityCodeConfigRequest.SerializeToString,
+            card__pb2.GetFacilityCodeConfigResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SetFacilityCodeConfig(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/SetFacilityCodeConfig',
+            card__pb2.SetFacilityCodeConfigRequest.SerializeToString,
+            card__pb2.SetFacilityCodeConfigResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SetFacilityCodeConfigMulti(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/SetFacilityCodeConfigMulti',
+            card__pb2.SetFacilityCodeConfigMultiRequest.SerializeToString,
+            card__pb2.SetFacilityCodeConfigMultiResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetLockOverride(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/GetLockOverride',
+            card__pb2.GetLockOverrideRequest.SerializeToString,
+            card__pb2.GetLockOverrideResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetAllLockOverride(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/GetAllLockOverride',
+            card__pb2.GetAllLockOverrideRequest.SerializeToString,
+            card__pb2.GetAllLockOverrideResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SetLockOverride(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/SetLockOverride',
+            card__pb2.SetLockOverrideRequest.SerializeToString,
+            card__pb2.SetLockOverrideResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def SetLockOverrideMulti(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/SetLockOverrideMulti',
+            card__pb2.SetLockOverrideMultiRequest.SerializeToString,
+            card__pb2.SetLockOverrideMultiResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteLockOverride(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/DeleteLockOverride',
+            card__pb2.DeleteLockOverrideRequest.SerializeToString,
+            card__pb2.DeleteLockOverrideResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteLockOverrideMulti(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/DeleteLockOverrideMulti',
+            card__pb2.DeleteLockOverrideMultiRequest.SerializeToString,
+            card__pb2.DeleteLockOverrideMultiResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteAllLockOverride(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/DeleteAllLockOverride',
+            card__pb2.DeleteAllLockOverrideRequest.SerializeToString,
+            card__pb2.DeleteAllLockOverrideResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteAllLockOverrideMulti(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gsdk.card.Card/DeleteAllLockOverrideMulti',
+            card__pb2.DeleteAllLockOverrideMultiRequest.SerializeToString,
+            card__pb2.DeleteAllLockOverrideMultiResponse.FromString,
             options,
             channel_credentials,
             insecure,

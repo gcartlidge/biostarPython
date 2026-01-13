@@ -3,7 +3,8 @@ from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -46,7 +47,7 @@ CARD_OPERATION_MASK_HIDPROX: CardOperationMask
 CARD_OPERATION_MASK_EM: CardOperationMask
 
 class SystemConfig(_message.Message):
-    __slots__ = ("timeZone", "syncTime", "isLocked", "useInterphone", "OSDPKeyEncrypted", "useJobCode", "useAlphanumericID", "cameraFrequency", "useSecureTamper", "useCardOperationMask")
+    __slots__ = ("timeZone", "syncTime", "isLocked", "useInterphone", "OSDPKeyEncrypted", "useJobCode", "useAlphanumericID", "cameraFrequency", "useSecureTamper", "useCardOperationMask", "adminTwoStepAuth")
     TIMEZONE_FIELD_NUMBER: _ClassVar[int]
     SYNCTIME_FIELD_NUMBER: _ClassVar[int]
     ISLOCKED_FIELD_NUMBER: _ClassVar[int]
@@ -57,6 +58,7 @@ class SystemConfig(_message.Message):
     CAMERAFREQUENCY_FIELD_NUMBER: _ClassVar[int]
     USESECURETAMPER_FIELD_NUMBER: _ClassVar[int]
     USECARDOPERATIONMASK_FIELD_NUMBER: _ClassVar[int]
+    ADMINTWOSTEPAUTH_FIELD_NUMBER: _ClassVar[int]
     timeZone: int
     syncTime: bool
     isLocked: bool
@@ -67,7 +69,8 @@ class SystemConfig(_message.Message):
     cameraFrequency: CameraFrequency
     useSecureTamper: bool
     useCardOperationMask: int
-    def __init__(self, timeZone: _Optional[int] = ..., syncTime: bool = ..., isLocked: bool = ..., useInterphone: bool = ..., OSDPKeyEncrypted: bool = ..., useJobCode: bool = ..., useAlphanumericID: bool = ..., cameraFrequency: _Optional[_Union[CameraFrequency, str]] = ..., useSecureTamper: bool = ..., useCardOperationMask: _Optional[int] = ...) -> None: ...
+    adminTwoStepAuth: bool
+    def __init__(self, timeZone: _Optional[int] = ..., syncTime: bool = ..., isLocked: bool = ..., useInterphone: bool = ..., OSDPKeyEncrypted: bool = ..., useJobCode: bool = ..., useAlphanumericID: bool = ..., cameraFrequency: _Optional[_Union[CameraFrequency, str]] = ..., useSecureTamper: bool = ..., useCardOperationMask: _Optional[int] = ..., adminTwoStepAuth: bool = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)
