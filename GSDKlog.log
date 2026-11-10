@@ -3,3 +3,28 @@
 	details = "Cannot get master admin: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_NOT_SUPPORTED {StartCode:[123 123 60 60] Checksum:0 DeviceID:538216353 Flag:3 Version:3 SequenceNO:2 Index:0 TotalNo:0 PayloadSize:0 Code:256 Command:BS2_CMD_GET_MASTER_ADMIN_USER Param1:0 Param2:0}"
 	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Cannot get master admin: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_NOT_SUPPORTED {StartCode:[123 123 60 60] Checksum:0 DeviceID:538216353 Flag:3 Version:3 SequenceNO:2 Index:0 TotalNo:0 PayloadSize:0 Code:256 Command:BS2_CMD_GET_MASTER_ADMIN_USER Param1:0 Param2:0}", grpc_status:13}"
 >
+2026-01-13 14:34:06,128 ERROR 2197 biostarPython Cannot get the Test Face data: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Cannot enter key: Packet error: 256: Async packet error: Packet error: BS_ERR_NOT_SUPPORTED {StartCode:[123 123 60 60] Checksum:0 DeviceID:538216353 Flag:3 Version:3 SequenceNO:32 Index:0 TotalNo:0 PayloadSize:0 Code:256 Command:BS2_CMD_DETECT_CREDENTIAL Param1:0 Param2:0}"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Cannot enter key: Packet error: 256: Async packet error: Packet error: BS_ERR_NOT_SUPPORTED {StartCode:[123 123 60 60] Checksum:0 DeviceID:538216353 Flag:3 Version:3 SequenceNO:32 Index:0 TotalNo:0 PayloadSize:0 Code:256 Command:BS2_CMD_DETECT_CREDENTIAL Param1:0 Param2:0}", grpc_status:13}"
+>
+2026-01-13 14:35:54,326 ERROR 368 biostarPython Cannot Upgrade Device: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.RESOURCE_EXHAUSTED
+	details = "grpc: received message larger than max (153468507 vs. 75497472)"
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:127.0.0.1:4000 {grpc_message:"grpc: received message larger than max (153468507 vs. 75497472)", grpc_status:8}"
+>
+2026-01-13 14:43:01,017 ERROR 2197 biostarPython Cannot get the Test Face data: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Cannot enter key: Packet error: 256: Async packet error: Packet error: BS_ERR_NOT_SUPPORTED {StartCode:[123 123 60 60] Checksum:0 DeviceID:538216353 Flag:3 Version:0 SequenceNO:2 Index:0 TotalNo:0 PayloadSize:0 Code:256 Command:BS2_CMD_DETECT_CREDENTIAL Param1:0 Param2:0}"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:13, grpc_message:"Cannot enter key: Packet error: 256: Async packet error: Packet error: BS_ERR_NOT_SUPPORTED {StartCode:[123 123 60 60] Checksum:0 DeviceID:538216353 Flag:3 Version:0 SequenceNO:2 Index:0 TotalNo:0 PayloadSize:0 Code:256 Command:BS2_CMD_DETECT_CREDENTIAL Param1:0 Param2:0}"}"
+>
+2026-01-13 14:43:14,628 ERROR 2114 biostarPython Cannot get the Master Admin Config: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Cannot get master admin: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_CANNOT_FIND_USER {StartCode:[123 123 60 60] Checksum:0 DeviceID:538216353 Flag:3 Version:0 SequenceNO:3 Index:0 TotalNo:0 PayloadSize:0 Code:64822 Command:BS2_CMD_GET_MASTER_ADMIN_USER Param1:0 Param2:0}"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Cannot get master admin: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_CANNOT_FIND_USER {StartCode:[123 123 60 60] Checksum:0 DeviceID:538216353 Flag:3 Version:0 SequenceNO:3 Index:0 TotalNo:0 PayloadSize:0 Code:64822 Command:BS2_CMD_GET_MASTER_ADMIN_USER Param1:0 Param2:0}", grpc_status:13}"
+>
+2026-01-13 14:45:38,326 ERROR 2114 biostarPython Cannot get the Master Admin Config: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INTERNAL
+	details = "Cannot get master admin: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_CANNOT_FIND_USER {StartCode:[123 123 60 60] Checksum:0 DeviceID:538216353 Flag:3 Version:0 SequenceNO:8 Index:0 TotalNo:0 PayloadSize:0 Code:64822 Command:BS2_CMD_GET_MASTER_ADMIN_USER Param1:0 Param2:0}"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Cannot get master admin: Cannot receive multiple async packets: Async packet error: 0 packets: Packet error: BS_ERR_CANNOT_FIND_USER {StartCode:[123 123 60 60] Checksum:0 DeviceID:538216353 Flag:3 Version:0 SequenceNO:8 Index:0 TotalNo:0 PayloadSize:0 Code:64822 Command:BS2_CMD_GET_MASTER_ADMIN_USER Param1:0 Param2:0}", grpc_status:13}"
+>

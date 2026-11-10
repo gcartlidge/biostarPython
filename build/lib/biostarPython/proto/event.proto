@@ -19,7 +19,9 @@ service Event {
   rpc SubscribeRealtimeLog(SubscribeRealtimeLogRequest) returns (stream EventLog); 
 
   rpc GetLog(GetLogRequest) returns (GetLogResponse);
-  rpc GetLogWithFilter(GetLogWithFilterRequest) returns (GetLogWithFilterResponse);
+  rpc GetLogWithFilter(GetLogWithFilterRequest) returns (GetLogWithFilterResponse) {
+    option deprecated = true;
+  };
 
   rpc GetImageLog(GetImageLogRequest) returns (GetImageLogResponse);
 
@@ -29,12 +31,19 @@ service Event {
 
   rpc ClearLog(ClearLogRequest) returns (ClearLogResponse);
   rpc ClearLogMulti(ClearLogMultiRequest) returns (ClearLogMultiResponse);
+
+  rpc GetDeviceIOStates(GetDeviceIOStatesRequest) returns (GetDeviceIOStatesResponse);
 }
 
 enum Enum {
+  option allow_alias = true;
   FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
 
   MAX_EVENT_FILTERS = 32;
+
+  // IOStatus / DeviceIOStatus
+  MAX_COUNT_IO_PORT = 32;
+  MAX_COUNT_SIO_PORT = 16;
 }
 
 enum PortValue {
@@ -42,7 +51,7 @@ enum PortValue {
 	CLOSED = 1;
 	SUPERVISED_SHORT = 2;
 	SUPERVISED_OPEN = 3;
-};
+}
 
 message DetectInputInfo {
   uint32 ioDeviceID = 1;
@@ -250,4 +259,30 @@ message ClearLogMultiRequest {
 
 message ClearLogMultiResponse {
   repeated err.ErrorResponse deviceErrors = 1;
+}
+
+message IOStates {
+  repeated PortValue states = 1;
+}
+
+message DeviceIOStates {
+  uint32 deviceID = 1;
+
+  IOStates input = 2;
+  IOStates output = 3;
+  IOStates relay = 4;
+  IOStates tamper = 5;
+  IOStates auxIn = 6;
+  IOStates auxOut = 7;
+
+  repeated uint32 supervisorInputPortIndex = 8;
+}
+
+message GetDeviceIOStatesRequest {
+  uint32 deviceID = 1;
+  repeated uint32 slaveIDs = 2;
+}
+
+message GetDeviceIOStatesResponse {
+  repeated DeviceIOStates states = 1;
 }

@@ -25,6 +25,14 @@ enum Enum {
   MAX_RTSP_PASSWORD_LENGTH = 32;
 }
 
+enum RTSP_RESOLUTION_TYPE {
+  option allow_alias = true;
+
+  RTSP_RESOLUTION_DEFAULT = 0;
+  RTSP_RESOLUTION_TYPE_1 = 0;
+  RTSP_RESOLUTION_TYPE_2 = 1;
+}
+
 message RTSPConfig {
   string serverURL = 1;
   uint32 serverPort = 2;
@@ -32,6 +40,7 @@ message RTSPConfig {
   string userPW = 4;
 
   bool enabled = 5;
+	RTSP_RESOLUTION_TYPE resolution = 6;
 }
 
 

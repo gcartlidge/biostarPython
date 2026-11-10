@@ -6,12 +6,21 @@ option go_package = "biostar/service/input";
 option java_package = "com.supremainc.sdk.input";
 option java_multiple_files = true;
 
+import "device.proto";
 import "err.proto";
 
 service Input {
   rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
   rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
   rpc SetConfigMulti(SetConfigMultiRequest) returns (SetConfigMultiResponse);    
+}
+
+enum Enum {
+  INPUT_TYPE_NORMAL = 0;
+  INPUT_TYPE_SUPERVISED = 1;
+
+  MAX_NUM_OF_INPUT = 8;
+  MAX_NUM_OF_INPUT_EX = 16;
 }
 
 message SupervisedInputRange {
@@ -26,24 +35,45 @@ message SupervisedInputConfig {
   SupervisedInputRange off = 4;
 }
 
-enum SupervisedRegistanceValue {
+enum SupervisedResistanceValue {
   SUPERVISED_REG_1K = 0;
   SUPERVISED_REG_2_2K = 1;
   SUPERVISED_REG_4_7K = 2;
   SUPERVISED_REG_10K = 3;
+
+  SUPERVISED_REG_UNUSED = 254;
   SUPERVISED_REG_CUSTOM = 255;
 }
 
 message SupervisedInput {
   uint32 portIndex = 1;
-  SupervisedRegistanceValue registance = 3;
-  SupervisedInputConfig config = 4;
+  device.SwitchType type = 2;     // for ConfigEx
+  uint32 duration = 3;            // for ConfigEx
+  SupervisedResistanceValue resistance = 4;
+  SupervisedInputConfig config = 5;
+}
+
+enum AuxInputPort {
+  AUX_INPUT_PORT_NORMAL = 0;         // Disable (using normal input port)
+  AUX_INPUT_PORT_0 = 1;
+  AUX_INPUT_PORT_1 = 2;
+  AUX_INPUT_PORT_2 = 3;
+}
+
+message AuxInput {
+  AuxInputPort acFail = 1;
+  device.SwitchType typeAux0 = 2;
+  AuxInputPort tamper = 3;
+  device.SwitchType typeAux1 = 4;
+  AuxInputPort fire = 5;
+  device.SwitchType typeAux2 = 6;
 }
 
 message InputConfig {
   uint32 numOfInput = 1;
   uint32 numOfSupervisedInput = 2;
-  repeated SupervisedInput supervisedInputs = 3;
+  AuxInput auxInput = 3;
+  repeated SupervisedInput supervisedInputs = 4;
 }
 
 

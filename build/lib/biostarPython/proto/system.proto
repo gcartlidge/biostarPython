@@ -49,6 +49,7 @@ message SystemConfig {
   CameraFrequency cameraFrequency = 8;
   bool useSecureTamper = 9;
   uint32 useCardOperationMask = 10;
+  bool adminTwoStepAuth = 11;
 }
 
 

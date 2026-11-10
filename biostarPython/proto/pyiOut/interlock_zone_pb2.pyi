@@ -70,7 +70,7 @@ class ZoneInfo(_message.Message):
     inputs: _containers.RepeatedCompositeFieldContainer[Input]
     outputs: _containers.RepeatedCompositeFieldContainer[Output]
     doorIDs: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, zoneID: _Optional[int] = ..., name: _Optional[str] = ..., disabled: bool = ..., inputs: _Optional[_Iterable[_Union[Input, _Mapping]]] = ..., outputs: _Optional[_Iterable[_Union[Output, _Mapping]]] = ..., doorIDs: _Optional[_Iterable[int]] = ...) -> None: ...
+    def __init__(self, zoneID: _Optional[int] = ..., name: _Optional[str] = ..., disabled: _Optional[bool] = ..., inputs: _Optional[_Iterable[_Union[Input, _Mapping]]] = ..., outputs: _Optional[_Iterable[_Union[Output, _Mapping]]] = ..., doorIDs: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class GetRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -140,7 +140,7 @@ class SetAlarmRequest(_message.Message):
     deviceID: int
     zoneIDs: _containers.RepeatedScalarFieldContainer[int]
     alarmed: bool
-    def __init__(self, deviceID: _Optional[int] = ..., zoneIDs: _Optional[_Iterable[int]] = ..., alarmed: bool = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., zoneIDs: _Optional[_Iterable[int]] = ..., alarmed: _Optional[bool] = ...) -> None: ...
 
 class SetAlarmResponse(_message.Message):
     __slots__ = ()

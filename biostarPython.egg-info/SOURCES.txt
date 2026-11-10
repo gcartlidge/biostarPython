@@ -20,6 +20,7 @@ biostarPython/proto/cert.proto
 biostarPython/proto/connect.proto
 biostarPython/proto/connect_master.proto
 biostarPython/proto/device.proto
+biostarPython/proto/devicelicense.proto
 biostarPython/proto/display.proto
 biostarPython/proto/door.proto
 biostarPython/proto/err.proto
@@ -36,6 +37,7 @@ biostarPython/proto/lift_zone.proto
 biostarPython/proto/lock_zone.proto
 biostarPython/proto/login.proto
 biostarPython/proto/master.proto
+biostarPython/proto/masteradmin.proto
 biostarPython/proto/network.proto
 biostarPython/proto/operator.proto
 biostarPython/proto/rs485.proto
@@ -76,6 +78,8 @@ biostarPython/service/connect_pb2.py
 biostarPython/service/connect_pb2_grpc.py
 biostarPython/service/device_pb2.py
 biostarPython/service/device_pb2_grpc.py
+biostarPython/service/devicelicense_pb2.py
+biostarPython/service/devicelicense_pb2_grpc.py
 biostarPython/service/display_pb2.py
 biostarPython/service/display_pb2_grpc.py
 biostarPython/service/door_pb2.py
@@ -108,6 +112,8 @@ biostarPython/service/login_pb2.py
 biostarPython/service/login_pb2_grpc.py
 biostarPython/service/master_pb2.py
 biostarPython/service/master_pb2_grpc.py
+biostarPython/service/masteradmin_pb2.py
+biostarPython/service/masteradmin_pb2_grpc.py
 biostarPython/service/network_pb2.py
 biostarPython/service/network_pb2_grpc.py
 biostarPython/service/operator_pb2.py

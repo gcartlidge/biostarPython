@@ -93,6 +93,14 @@ enum Enum {
   MAX_HELD_OPEN_ALARMS = 5;
   MAX_DUAL_AUTH_APPROVAL_GROUPS = 16;
   MAX_NAME_LENGTH = 144;
+
+  // Lock/Unlock
+  DOOR_LOCK_NORMALIZE_TIMER_INFINIT = 0;
+  DOOR_LOCK_NORMALIZE_TIMER_MAX = 86400;    // 24 hours
+  DOOR_UNLOCK_NORMALIZE_TIMER_INFINIT = 0;
+  DOOR_UNLOCK_NORMALIZE_TIMER_MAX = 86400;  // 24 hours
+
+  DEFAULT_EXTENDED_DOOR_OPEN_TIME = 10;
 }
 
 message DoorInfo {
@@ -124,6 +132,8 @@ message DoorInfo {
   repeated uint32 dualAuthGroupIDs = 20;
 
   apb_zone.ZoneInfo apbZone = 21;
+
+  uint32 extendedDoorOpenTime = 22;
 }
 
 message GetListRequest {
@@ -169,6 +179,7 @@ message LockRequest {
   uint32 deviceID = 1;
   repeated uint32 doorIDs = 2;
   uint32 doorFlag = 3;
+  uint32 normalizeTimer = 4;
 }
 
 message LockResponse {
@@ -178,7 +189,7 @@ message UnlockRequest {
   uint32 deviceID = 1;
   repeated uint32 doorIDs = 2;
   uint32 doorFlag = 3;
-
+  uint32 normalizeTimer = 4;
 }
 
 message UnlockResponse {

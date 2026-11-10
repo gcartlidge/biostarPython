@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import intrusion_zone_pb2 as intrusion__zone__pb2
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class IntrusionAlarmZoneStub(object):
+class IntrusionAlarmZoneStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -71,7 +71,7 @@ class IntrusionAlarmZoneStub(object):
                 _registered_method=True)
 
 
-class IntrusionAlarmZoneServicer(object):
+class IntrusionAlarmZoneServicer:
     """Missing associated documentation comment in .proto file."""
 
     def Get(self, request, context):
@@ -162,7 +162,7 @@ def add_IntrusionAlarmZoneServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class IntrusionAlarmZone(object):
+class IntrusionAlarmZone:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

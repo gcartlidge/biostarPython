@@ -59,6 +59,7 @@ All of the specific APIs can be found at the wiki Above.
 
 ### changelog
 
+- 0.6.5.0 - Updated proto files to 1.9.1 distribution of GSDK, added support for BioStation 3 Max, updated GRPC and Protobuf to latest.
 - 0.6.0.0 - Updated proto files to 1.9.0 distribution of GSDK, added MasterAdminSvc, DeviceLicenseSvc, Support for multiple devices, Run Action, Lock Override, Door Mode Override, Realtime IO and User Override. 
 - 0.4.0.2 - Updated proto files to 1.7.1 distribution of GSDK (Template only selection for FaceData and FaceConfig)
 - 0.4.0.1 - Added UpdateSlideImages to DisplaySvc and added Fingerprint to TestSvc.

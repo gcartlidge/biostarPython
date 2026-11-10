@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package gsdk.masteradmin;
+
+option go_package = "biostar/service/masteradmin";
+option java_package = "com.supremainc.sdk.masteradmin";
+option java_multiple_files = true;
+
+import "user.proto";
+import "err.proto";
+
+service MasterAdmin {
+  rpc Get(GetRequest) returns (GetResponse);
+  
+  rpc Set(SetRequest) returns (SetResponse);
+  rpc SetMulti(SetMultiRequest) returns (SetMultiResponse);
+}
+
+enum Enum {
+  // option allow_alias = true;
+
+  FIRST_ENUM_VALUE_MUST_BE_ZERO = 0;
+
+  MAX_NUM_OF_CARD_PER_MASTERADMIN = 4;
+}
+
+message GetRequest {
+  uint32 deviceID = 1;
+}
+
+message GetResponse {
+  user.UserInfo masterAdmin = 1;
+}
+
+message SetRequest {
+  uint32 deviceID = 1;
+  user.UserInfo masterAdmin = 2;
+}
+
+message SetResponse {
+}
+
+message SetMultiRequest {
+  repeated uint32 deviceIDs = 1;
+  user.UserInfo masterAdmin = 2;
+}
+
+
+message SetMultiResponse {
+  repeated err.ErrorResponse deviceErrors = 1;
+}

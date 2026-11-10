@@ -107,7 +107,7 @@ message ThermalConfig {
 
   ThermalCamera camera = 8;
 
-  // only for FaceStation F2 and BioStation 3
+  // only for RGB-based visual face authentication devices
   CheckMode maskCheckMode = 9;
   MaskDetectionLevel maskDetectionLevel = 10;
   bool useDynamicROI = 11;

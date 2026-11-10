@@ -74,7 +74,7 @@ class TNAConfig(_message.Message):
     isRequired: bool
     schedules: _containers.RepeatedScalarFieldContainer[int]
     labels: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, mode: _Optional[_Union[Mode, str]] = ..., key: _Optional[_Union[Key, str]] = ..., isRequired: bool = ..., schedules: _Optional[_Iterable[int]] = ..., labels: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, mode: _Optional[_Union[Mode, str]] = ..., key: _Optional[_Union[Key, str]] = ..., isRequired: _Optional[bool] = ..., schedules: _Optional[_Iterable[int]] = ..., labels: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

@@ -1,4 +1,4 @@
-__version__ = "0.6.0.0"
+__version__ = "0.6.5.0"
 __author__ = 'SupremaUK'
 __credits__ = 'SupremaInc'
 
@@ -60,6 +60,8 @@ def initDeviceList():
  deviceType[0x2A] = 'BioEntry W3'
  deviceType[0x2B] = 'Corestation 20'
  deviceType[0x2C] = 'Door Interface 24'
+ deviceType[0x2D] = 'BioStation 3 Max'
+ deviceType[0x2E] = 'BioStation 3 Max FP'
  deviceType[0x2F] = 'XPass Q2'
  return deviceType
 deviceType = initDeviceList()  

@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import card_pb2 as card__pb2
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class CardStub(object):
+class CardStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -206,7 +206,7 @@ class CardStub(object):
                 _registered_method=True)
 
 
-class CardServicer(object):
+class CardServicer:
     """Missing associated documentation comment in .proto file."""
 
     def Scan(self, request, context):
@@ -594,7 +594,7 @@ def add_CardServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Card(object):
+class Card:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

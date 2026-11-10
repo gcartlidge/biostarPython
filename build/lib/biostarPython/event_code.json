@@ -1,7 +1,7 @@
 {
   "title": "G-SDK Event Code",
-  "version": "V1.4",
-  "date": "Thu Jun 3 15:37:04 -0400 EDT 2021",
+  "version": "V1.9.1",
+  "date": "Mon Apr 13 10:04:53 +0900 KST 2026",
   "entries": [
     {
       "event_code": 4096,
@@ -200,6 +200,69 @@
       "desc": "1:1 authentication success(mobile + finger + face)"
     },
     {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 37,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR",
+      "desc": "1:1 authentication success(QR)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 38,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_PIN",
+      "desc": "1:1 authentication success(QR + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 39,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FINGER",
+      "desc": "1:1 authentication success(QR + finger)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 40,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FINGER_PIN",
+      "desc": "1:1 authentication success(QR + finger + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 41,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FACE",
+      "desc": "1:1 authentication success(QR + face)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 42,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FACE_PIN",
+      "desc": "1:1 authentication success(QR + face + PIN)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 43,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FACE_FINGER",
+      "desc": "1:1 authentication success(QR + face + finger)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 44,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FINGER_FACE",
+      "desc": "1:1 authentication success(QR + finger + face)"
+    },
+    {
+      "event_code": 4096,
+      "event_code_str": "BS2_EVENT_VERIFY_SUCCESS",
+      "sub_code": 49,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_LOCKOVERRIDE_CARD",
+      "desc": "1:1 authentication success(Lock override)"
+    },
+    {
       "event_code": 4352,
       "event_code_str": "BS2_EVENT_VERIFY_FAIL",
       "sub_code": 0,
@@ -261,6 +324,41 @@
       "sub_code": 8,
       "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_MOBILE_CARD",
       "desc": "1:1 authentication failure(mobile)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 9,
+      "sub_code_str": "BS2_SUB_EVENT_NON_NUMERIC_QR",
+      "desc": "1:1 authentication failure(None numeric QR)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 10,
+      "sub_code_str": "BS2_SUB_EVENT_NON_PRINTABLE_QR",
+      "desc": "1:1 authentication failure(None printable QR)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 11,
+      "sub_code_str": "BS2_SUB_EVENT_TOO_LONG_QR",
+      "desc": "1:1 authentication failure(Too long QR)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 12,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_QR",
+      "desc": "1:1 authentication failure(QR)"
+    },
+    {
+      "event_code": 4352,
+      "event_code_str": "BS2_EVENT_VERIFY_FAIL",
+      "sub_code": 13,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_ACCESS_PIN",
+      "desc": "1:1 authentication failure(Access PIN)"
     },
     {
       "event_code": 4608,
@@ -459,6 +557,69 @@
       "desc": "1:1 authentication success under duress(mobile + finger + face)"
     },
     {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 37,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR",
+      "desc": "1:1 authentication success under duress(QR)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 38,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_PIN",
+      "desc": "1:1 authentication success under duress(QR + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 39,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FINGER",
+      "desc": "1:1 authentication success under duress(QR + finger)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 40,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FINGER_PIN",
+      "desc": "1:1 authentication success under duress(QR + finger + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 41,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FACE",
+      "desc": "1:1 authentication success under duress(QR + face)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 42,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FACE_PIN",
+      "desc": "1:1 authentication success under duress(QR + face + PIN)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 43,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FACE_FINGER",
+      "desc": "1:1 authentication success under duress(QR + face + finger)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 44,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_QR_FINGER_FACE",
+      "desc": "1:1 authentication success under duress(QR + finger + face)"
+    },
+    {
+      "event_code": 4608,
+      "event_code_str": "BS2_EVENT_VERIFY_DURESS",
+      "sub_code": 49,
+      "sub_code_str": "BS2_SUB_EVENT_VERIFY_LOCKOVERRIDE_CARD",
+      "desc": "1:1 authentication success under duress(Lock override)"
+    },
+    {
       "event_code": 4864,
       "event_code_str": "BS2_EVENT_IDENTIFY_SUCCESS",
       "sub_code": 0,
@@ -585,6 +746,41 @@
       "desc": "1:N authentication failure(mobile)"
     },
     {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 9,
+      "sub_code_str": "BS2_SUB_EVENT_NON_NUMERIC_QR",
+      "desc": "1:N authentication failure(None numeric QR)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 10,
+      "sub_code_str": "BS2_SUB_EVENT_NON_PRINTABLE_QR",
+      "desc": "1:N authentication failure(None printable QR)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 11,
+      "sub_code_str": "BS2_SUB_EVENT_TOO_LONG_QR",
+      "desc": "1:N authentication failure(Too long QR)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 12,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_QR",
+      "desc": "1:N authentication failure(QR)"
+    },
+    {
+      "event_code": 5120,
+      "event_code_str": "BS2_EVENT_IDENTIFY_FAIL",
+      "sub_code": 13,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_ACCESS_PIN",
+      "desc": "1:N authentication failure(Access PIN)"
+    },
+    {
       "event_code": 5376,
       "event_code_str": "BS2_EVENT_IDENTIFY_DURESS",
       "sub_code": 0,
@@ -709,6 +905,13 @@
       "sub_code": 4,
       "sub_code_str": "BS2_SUB_EVENT_AUTH_FAIL_MATCHING_REFUSAL",
       "desc": "Authentication failure(server matching refused)"
+    },
+    {
+      "event_code": 6144,
+      "event_code_str": "BS2_EVENT_AUTH_FAILED",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_AUTH_FAIL_DOOR_LOCKED",
+      "desc": "Authentication failure(Door locked)"
     },
     {
       "event_code": 6400,
@@ -865,6 +1068,41 @@
       "desc": "Access denied(mask not detected)"
     },
     {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 22,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_OCCUPANCY_LIMIT",
+      "desc": "Access denied(Occupancy limit)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 23,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_DOOR_LOCKED",
+      "desc": "Access denied(Door locked)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 25,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_DISABLED_ACCESS_GROUP",
+      "desc": "Access denied(disabled access group)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 26,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_DISABLED_ACCESS_LEVEL",
+      "desc": "Access denied(disabled access level)"
+    },
+    {
+      "event_code": 6400,
+      "event_code_str": "BS2_EVENT_ACCESS_DENIED",
+      "sub_code": 27,
+      "sub_code_str": "BS2_SUB_EVENT_ACCESS_DENIED_DISABLED_FLOOR_LEVEL",
+      "desc": "Access denied(disabled floor level)"
+    },
+    {
       "event_code": 6656,
       "event_code_str": "BS2_EVENT_FAKE_FINGER_DETECTED",
       "sub_code": 0,
@@ -984,11 +1222,39 @@
       "desc": "User enrollment success"
     },
     {
+      "event_code": 8192,
+      "event_code_str": "BS2_EVENT_USER_ENROLL_SUCCESS",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_SERVER",
+      "desc": "User enrollment success(by server)"
+    },
+    {
+      "event_code": 8192,
+      "event_code_str": "BS2_EVENT_USER_ENROLL_SUCCESS",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_DEVICE",
+      "desc": "User enrollment success(by device)"
+    },
+    {
       "event_code": 8448,
       "event_code_str": "BS2_EVENT_USER_ENROLL_FAIL",
       "sub_code": 0,
       "sub_code_str": "",
       "desc": "User enrollment failure"
+    },
+    {
+      "event_code": 8448,
+      "event_code_str": "BS2_EVENT_USER_ENROLL_FAIL",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_SERVER",
+      "desc": "User enrollment failure(by server)"
+    },
+    {
+      "event_code": 8448,
+      "event_code_str": "BS2_EVENT_USER_ENROLL_FAIL",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_DEVICE",
+      "desc": "User enrollment failure(by device)"
     },
     {
       "event_code": 8704,
@@ -998,11 +1264,39 @@
       "desc": "User update success"
     },
     {
+      "event_code": 8704,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_SUCCESS",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_SERVER",
+      "desc": "User update success(by server)"
+    },
+    {
+      "event_code": 8704,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_SUCCESS",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_DEVICE",
+      "desc": "User update success(by device)"
+    },
+    {
       "event_code": 8960,
       "event_code_str": "BS2_EVENT_USER_UPDATE_FAIL",
       "sub_code": 0,
       "sub_code_str": "",
       "desc": "User update failure"
+    },
+    {
+      "event_code": 8960,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_FAIL",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_SERVER",
+      "desc": "User update failure(by server)"
+    },
+    {
+      "event_code": 8960,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_FAIL",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_DEVICE",
+      "desc": "User update failure(by device)"
     },
     {
       "event_code": 9216,
@@ -1012,6 +1306,20 @@
       "desc": "User delete success"
     },
     {
+      "event_code": 9216,
+      "event_code_str": "BS2_EVENT_USER_DELETE_SUCCESS",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_SERVER",
+      "desc": "User delete success(by server)"
+    },
+    {
+      "event_code": 9216,
+      "event_code_str": "BS2_EVENT_USER_DELETE_SUCCESS",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_DEVICE",
+      "desc": "User delete success(by device)"
+    },
+    {
       "event_code": 9472,
       "event_code_str": "BS2_EVENT_USER_DELETE_FAIL",
       "sub_code": 0,
@@ -1019,11 +1327,39 @@
       "desc": "User delete failure"
     },
     {
+      "event_code": 9472,
+      "event_code_str": "BS2_EVENT_USER_DELETE_FAIL",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_SERVER",
+      "desc": "User delete failure(by server)"
+    },
+    {
+      "event_code": 9472,
+      "event_code_str": "BS2_EVENT_USER_DELETE_FAIL",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_DEVICE",
+      "desc": "User delete failure(by device)"
+    },
+    {
       "event_code": 9728,
       "event_code_str": "BS2_EVENT_USER_DELETE_ALL_SUCCESS",
       "sub_code": 0,
       "sub_code_str": "",
       "desc": "Delete all user success"
+    },
+    {
+      "event_code": 9728,
+      "event_code_str": "BS2_EVENT_USER_DELETE_ALL_SUCCESS",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_SERVER",
+      "desc": "Delete all user success(by server)"
+    },
+    {
+      "event_code": 9728,
+      "event_code_str": "BS2_EVENT_USER_DELETE_ALL_SUCCESS",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_USER_BY_DEVICE",
+      "desc": "Delete all user success(by device)"
     },
     {
       "event_code": 9984,
@@ -1096,6 +1432,97 @@
       "desc": "Duplicate credential(mobile)"
     },
     {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 9,
+      "sub_code_str": "BS2_SUB_EVENT_NON_NUMERIC_QR",
+      "desc": "Duplicate credential(None numeric QR)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 10,
+      "sub_code_str": "BS2_SUB_EVENT_NON_PRINTABLE_QR",
+      "desc": "Duplicate credential(None printable QR)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 11,
+      "sub_code_str": "BS2_SUB_EVENT_TOO_LONG_QR",
+      "desc": "Duplicate credential(Too long QR)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 12,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_QR",
+      "desc": "Duplicate credential(QR)"
+    },
+    {
+      "event_code": 10240,
+      "event_code_str": "BS2_EVENT_USER_DUPLICATE_CREDENTIAL",
+      "sub_code": 13,
+      "sub_code_str": "BS2_SUB_EVENT_CREDENTIAL_ACCESS_PIN",
+      "desc": "Duplicate credential(Access PIN)"
+    },
+    {
+      "event_code": 10496,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_PARTIAL_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "User partial update success"
+    },
+    {
+      "event_code": 10752,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_PARTIAL_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "User partial update failure"
+    },
+    {
+      "event_code": 10752,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_PARTIAL_FAIL",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_UPDATE_FAIL_INVALID_FACE",
+      "desc": "User partial update failure(invalid face)"
+    },
+    {
+      "event_code": 10752,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_PARTIAL_FAIL",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_UPDATE_FAIL_MISMATCHED_FORMAT",
+      "desc": "User partial update failure(mismatched format)"
+    },
+    {
+      "event_code": 10752,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_PARTIAL_FAIL",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_UPDATE_FAIL_FULL_CREDENTIAL",
+      "desc": "User partial update failure(full credential)"
+    },
+    {
+      "event_code": 10752,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_PARTIAL_FAIL",
+      "sub_code": 4,
+      "sub_code_str": "BS2_SUB_EVENT_UPDATE_FAIL_INVALID_USER",
+      "desc": "User partial update failure(invalid user)"
+    },
+    {
+      "event_code": 10752,
+      "event_code_str": "BS2_EVENT_USER_UPDATE_PARTIAL_FAIL",
+      "sub_code": 9,
+      "sub_code_str": "BS2_SUB_EVENT_UPDATE_FAIL_INTERNAL_ERROR",
+      "desc": "User partial update failure(internal error)"
+    },
+    {
+      "event_code": 11008,
+      "event_code_str": "BS2_EVENT_USER_RELOADED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "User reloaded"
+    },
+    {
       "event_code": 12288,
       "event_code_str": "BS2_EVENT_DEVICE_SYSTEM_RESET",
       "sub_code": 0,
@@ -1166,6 +1593,20 @@
       "desc": "Enter administrator menu"
     },
     {
+      "event_code": 13825,
+      "event_code_str": "BS2_EVENT_DEVICE_ADMIN_LOGIN_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Administrator login failure"
+    },
+    {
+      "event_code": 13826,
+      "event_code_str": "BS2_EVENT_DEVICE_ADMIN_LOGIN_FAIL_NOCREDENTIAL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Administrator login failure - no credential"
+    },
+    {
       "event_code": 14080,
       "event_code_str": "BS2_EVENT_DEVICE_UI_LOCKED",
       "sub_code": 0,
@@ -1194,6 +1635,20 @@
       "desc": "TCP disconnected"
     },
     {
+      "event_code": 15120,
+      "event_code_str": "BS2_EVENT_DEVICE_RTSP_CONNECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "RTSP connected"
+    },
+    {
+      "event_code": 15376,
+      "event_code_str": "BS2_EVENT_DEVICE_RTSP_DISCONNECTED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "RTSP disconnected"
+    },
+    {
       "event_code": 15616,
       "event_code_str": "BS2_EVENT_DEVICE_RS485_CONNECTED",
       "sub_code": 0,
@@ -1212,7 +1667,35 @@
       "event_code_str": "BS2_EVENT_DEVICE_INPUT_DETECTED",
       "sub_code": 0,
       "sub_code_str": "",
-      "desc": "Input signal detected"
+      "desc": "IO signal detected"
+    },
+    {
+      "event_code": 16128,
+      "event_code_str": "BS2_EVENT_DEVICE_INPUT_DETECTED",
+      "sub_code": 0,
+      "sub_code_str": "BS2_SUB_EVENT_DEVICE_IO_INPUT_ON",
+      "desc": "IO signal detected(Input on)"
+    },
+    {
+      "event_code": 16128,
+      "event_code_str": "BS2_EVENT_DEVICE_INPUT_DETECTED",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_DEVICE_IO_INPUT_OFF",
+      "desc": "IO signal detected(Input off)"
+    },
+    {
+      "event_code": 16128,
+      "event_code_str": "BS2_EVENT_DEVICE_INPUT_DETECTED",
+      "sub_code": 16,
+      "sub_code_str": "BS2_SUB_EVENT_DEVICE_IO_OUTPUT_ON",
+      "desc": "IO signal detected(Output on)"
+    },
+    {
+      "event_code": 16128,
+      "event_code_str": "BS2_EVENT_DEVICE_INPUT_DETECTED",
+      "sub_code": 17,
+      "sub_code_str": "BS2_SUB_EVENT_DEVICE_IO_OUTPUT_OFF",
+      "desc": "IO signal detected(Output off)"
     },
     {
       "event_code": 16384,
@@ -1299,6 +1782,97 @@
       "desc": "Disconnection of a supervised input detected"
     },
     {
+      "event_code": 18432,
+      "event_code_str": "BS2_EVENT_DEVICE_AC_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Access control failure"
+    },
+    {
+      "event_code": 18688,
+      "event_code_str": "BS2_EVENT_DEVICE_AC_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Access control success"
+    },
+    {
+      "event_code": 18944,
+      "event_code_str": "BS2_EVENT_EXIT_BUTTON",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Exit button"
+    },
+    {
+      "event_code": 18945,
+      "event_code_str": "BS2_EVENT_SIMULATED_EXIT_BUTTON",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Simulated exit button"
+    },
+    {
+      "event_code": 19200,
+      "event_code_str": "BS2_EVENT_OPERATOR_OPEN",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Operator open"
+    },
+    {
+      "event_code": 19456,
+      "event_code_str": "BS2_EVENT_VOIP_OPEN",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Interphone open"
+    },
+    {
+      "event_code": 19712,
+      "event_code_str": "BS2_EVENT_LICENSE_ENABLE_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Device license enable success"
+    },
+    {
+      "event_code": 19713,
+      "event_code_str": "BS2_EVENT_LICENSE_ENABLE_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Device license enable failure"
+    },
+    {
+      "event_code": 19714,
+      "event_code_str": "BS2_EVENT_LICENSE_DISABLE_SUCCESS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Device license disable success"
+    },
+    {
+      "event_code": 19715,
+      "event_code_str": "BS2_EVENT_LICENSE_DISABLE_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Device license disable failure"
+    },
+    {
+      "event_code": 19716,
+      "event_code_str": "BS2_EVENT_LICENSE_EXPIRED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Device license expired"
+    },
+    {
+      "event_code": 20240,
+      "event_code_str": "BS2_EVENT_RELAY_ACTIVATE_REQUESTED_BY_OPERATOR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Relay activate requested by operator"
+    },
+    {
+      "event_code": 20256,
+      "event_code_str": "BS2_EVENT_RELAY_DEACTIVATE_REQUESTED_BY_OPERATOR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Relay deactivate requested by operator"
+    },
+    {
       "event_code": 20480,
       "event_code_str": "BS2_EVENT_DOOR_UNLOCKED",
       "sub_code": 0,
@@ -1348,11 +1922,25 @@
       "desc": "Forced open alarm"
     },
     {
+      "event_code": 22017,
+      "event_code_str": "BS2_EVENT_DOOR_OPEN_LOCKOVERRIDE_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door open (lock override)"
+    },
+    {
       "event_code": 22272,
       "event_code_str": "BS2_EVENT_DOOR_FORCED_OPEN_ALARM_CLEAR",
       "sub_code": 0,
       "sub_code_str": "",
       "desc": "Forced open alarm cleared"
+    },
+    {
+      "event_code": 22274,
+      "event_code_str": "BS2_EVENT_DOOR_OPEN_LOCKOVERRIDE_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door open (lock override) cleared"
     },
     {
       "event_code": 22528,
@@ -1411,6 +1999,13 @@
       "desc": "Door status reset(operator)"
     },
     {
+      "event_code": 23552,
+      "event_code_str": "BS2_EVENT_DOOR_RELEASE",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_LOCKOVERRIDE",
+      "desc": "Door status reset(lock override)"
+    },
+    {
       "event_code": 23808,
       "event_code_str": "BS2_EVENT_DOOR_LOCK",
       "sub_code": 0,
@@ -1418,25 +2013,25 @@
       "desc": "Lock door"
     },
     {
-      "event_code": 23808,
-      "event_code_str": "BS2_EVENT_DOOR_LOCK",
-      "sub_code": 1,
-      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_SCHEDULE",
-      "desc": "Lock door(schedule)"
+      "event_code": 23809,
+      "event_code_str": "BS2_EVENT_DOOR_LOCK_REQUEST_BY_SCHEDULE",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door lock requested by schedule"
     },
     {
-      "event_code": 23808,
-      "event_code_str": "BS2_EVENT_DOOR_LOCK",
-      "sub_code": 2,
-      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_EMERGENCY",
-      "desc": "Lock door(emergency)"
+      "event_code": 23810,
+      "event_code_str": "BS2_EVENT_DOOR_LOCK_REQUEST_BY_FIRE_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door lock requested by fire alarm"
     },
     {
-      "event_code": 23808,
-      "event_code_str": "BS2_EVENT_DOOR_LOCK",
-      "sub_code": 4,
-      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_OPERATOR",
-      "desc": "Lock door(operator)"
+      "event_code": 23812,
+      "event_code_str": "BS2_EVENT_DOOR_LOCK_REQUEST_BY_OPERATOR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door lock requested by operator"
     },
     {
       "event_code": 24064,
@@ -1446,25 +2041,88 @@
       "desc": "Unlock door"
     },
     {
-      "event_code": 24064,
-      "event_code_str": "BS2_EVENT_DOOR_UNLOCK",
-      "sub_code": 1,
-      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_SCHEDULE",
-      "desc": "Unlock door(schedule)"
+      "event_code": 24065,
+      "event_code_str": "BS2_EVENT_DOOR_UNLOCK_REQUEST_BY_SCHEDULE",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door unlock requested by schedule"
     },
     {
-      "event_code": 24064,
-      "event_code_str": "BS2_EVENT_DOOR_UNLOCK",
-      "sub_code": 2,
-      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_EMERGENCY",
-      "desc": "Unlock door(emergency)"
+      "event_code": 24066,
+      "event_code_str": "BS2_EVENT_DOOR_UNLOCK_REQUEST_BY_FIRE_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door unlock requested by emergency"
     },
     {
-      "event_code": 24064,
-      "event_code_str": "BS2_EVENT_DOOR_UNLOCK",
-      "sub_code": 4,
-      "sub_code_str": "BS2_SUB_EVENT_DOOR_FLAG_OPERATOR",
-      "desc": "Unlock door(operator)"
+      "event_code": 24068,
+      "event_code_str": "BS2_EVENT_DOOR_UNLOCK_REQUEST_BY_OPERATOR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door unlock requested by operator"
+    },
+    {
+      "event_code": 24069,
+      "event_code_str": "BS2_EVENT_DOOR_UNLOCK_REQUEST_BY_LOCKOVERRIDE",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door unlock requested by lock override"
+    },
+    {
+      "event_code": 24320,
+      "event_code_str": "BS2_EVENT_DOOR_SEND_UNLOCK_TIMER",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Send unlock by timer"
+    },
+    {
+      "event_code": 24321,
+      "event_code_str": "BS2_EVENT_DOOR_SEND_UNLOCK",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Send unlock command"
+    },
+    {
+      "event_code": 24322,
+      "event_code_str": "BS2_EVENT_DOOR_SEND_LOCK",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Send lock command"
+    },
+    {
+      "event_code": 24323,
+      "event_code_str": "BS2_EVENT_DOOR_SEND_RELEASE",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Send door release command"
+    },
+    {
+      "event_code": 24324,
+      "event_code_str": "BS2_EVENT_DOOR_FIRE_BUTTON_INPUT",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Fire button input detected"
+    },
+    {
+      "event_code": 24325,
+      "event_code_str": "BS2_EVENT_DOOR_FIRE_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Lock override alarm activated"
+    },
+    {
+      "event_code": 24326,
+      "event_code_str": "BS2_EVENT_DOOR_FIRE_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Lock override alarm cleared"
+    },
+    {
+      "event_code": 24327,
+      "event_code_str": "BS2_EVENT_DOOR_NORMALIZED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Door status normalized"
     },
     {
       "event_code": 24576,
@@ -1719,6 +2377,69 @@
       "desc": "Interlock alarm cleared"
     },
     {
+      "event_code": 42240,
+      "event_code_str": "BS2_EVENT_ZONE_AUTH_LIMIT_VIOLATION",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Authentication limit zone violated"
+    },
+    {
+      "event_code": 42496,
+      "event_code_str": "BS2_EVENT_GLOBAL_AUTH_LIMIT_EXCUSED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Global Authentication limit excused"
+    },
+    {
+      "event_code": 42752,
+      "event_code_str": "BS2_EVENT_ZONE_OCCUPANCY_LIMIT_VIOLATION",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Occupancy limit zone violated"
+    },
+    {
+      "event_code": 43008,
+      "event_code_str": "BS2_EVENT_GLOBAL_OCCUPANCY_LIMIT_EXCUSED",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Global Occupancy limit excused"
+    },
+    {
+      "event_code": 43264,
+      "event_code_str": "BS2_EVENT_ZONE_OCCUPANCY_LIMIT_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Occupancy limit zone alarm"
+    },
+    {
+      "event_code": 43520,
+      "event_code_str": "BS2_EVENT_ZONE_OCCUPANCY_LIMIT_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Occupancy limit zone alarm cleared"
+    },
+    {
+      "event_code": 45056,
+      "event_code_str": "BS2_EVENT_ZONE_MUSTER_VIOLATION",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Muster zone violated"
+    },
+    {
+      "event_code": 45312,
+      "event_code_str": "BS2_EVENT_ZONE_MUSTER_ALARM",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Muster zone alarm"
+    },
+    {
+      "event_code": 45568,
+      "event_code_str": "BS2_EVENT_ZONE_MUSTER_ALARM_CLEAR",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Muster zone alarm cleared"
+    },
+    {
       "event_code": 46336,
       "event_code_str": "BS2_EVENT_ZONE_LIFT_LOCK_VIOLATION",
       "sub_code": 0,
@@ -1766,6 +2487,27 @@
       "sub_code": 0,
       "sub_code_str": "",
       "desc": "Lift lock zone alarm cleared"
+    },
+    {
+      "event_code": 49152,
+      "event_code_str": "BS2_EVENT_DEVICE_USER_SYNC_TO_SERVER_FAIL",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "User sync to server failure"
+    },
+    {
+      "event_code": 49408,
+      "event_code_str": "BS2_EVENT_BREAK_GLASS",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Break glass"
+    },
+    {
+      "event_code": 49664,
+      "event_code_str": "BS2_EVENT_MEMORY_FULL_MIGRATION",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Memory full migration"
     },
     {
       "event_code": 28672,
@@ -1920,6 +2662,216 @@
       "sub_code": 0,
       "sub_code_str": "",
       "desc": "All floor deactivated"
+    },
+    {
+      "event_code": 49920,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_ON",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Relay action switch-on"
+    },
+    {
+      "event_code": 49920,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_ON",
+      "sub_code": 0,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_INPUT_OFF",
+      "desc": "Relay action switch-on(Input off)"
+    },
+    {
+      "event_code": 49920,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_ON",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_INPUT_ON",
+      "desc": "Relay action switch-on(Input on)"
+    },
+    {
+      "event_code": 49920,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_ON",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_SUPERVISED_INPUT_SHORT",
+      "desc": "Relay action switch-on(Supervised input short)"
+    },
+    {
+      "event_code": 49920,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_ON",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_SUPERVISED_INPUT_OPEN",
+      "desc": "Relay action switch-on(Supervised input open)"
+    },
+    {
+      "event_code": 49920,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_ON",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_TAMPER_ON",
+      "desc": "Relay action switch-on(Tamper on)"
+    },
+    {
+      "event_code": 49920,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_ON",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_TAMPER_OFF",
+      "desc": "Relay action switch-on(Tamper off)"
+    },
+    {
+      "event_code": 49920,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_ON",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_RS485_CONNECTION",
+      "desc": "Relay action switch-on(RS485 connected)"
+    },
+    {
+      "event_code": 49920,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_ON",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_RS485_DISCONNECTION",
+      "desc": "Relay action switch-on(RS485 disconnected)"
+    },
+    {
+      "event_code": 49920,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_ON",
+      "sub_code": 9,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_REQ_BY_OPERATOR",
+      "desc": "Relay action switch-on(Requested by operator)"
+    },
+    {
+      "event_code": 50176,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_OFF",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Relay action switch-off"
+    },
+    {
+      "event_code": 50176,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_OFF",
+      "sub_code": 0,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_INPUT_OFF",
+      "desc": "Relay action switch-off(Input off)"
+    },
+    {
+      "event_code": 50176,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_OFF",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_INPUT_ON",
+      "desc": "Relay action switch-off(Input on)"
+    },
+    {
+      "event_code": 50176,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_OFF",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_SUPERVISED_INPUT_SHORT",
+      "desc": "Relay action switch-off(Supervised input short)"
+    },
+    {
+      "event_code": 50176,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_OFF",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_SUPERVISED_INPUT_OPEN",
+      "desc": "Relay action switch-off(Supervised input open)"
+    },
+    {
+      "event_code": 50176,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_OFF",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_TAMPER_ON",
+      "desc": "Relay action switch-off(Tamper on)"
+    },
+    {
+      "event_code": 50176,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_OFF",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_TAMPER_OFF",
+      "desc": "Relay action switch-off(Tamper off)"
+    },
+    {
+      "event_code": 50176,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_OFF",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_RS485_CONNECTION",
+      "desc": "Relay action switch-off(RS485 connected)"
+    },
+    {
+      "event_code": 50176,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_OFF",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_RS485_DISCONNECTION",
+      "desc": "Relay action switch-off(RS485 disconnected)"
+    },
+    {
+      "event_code": 50176,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_OFF",
+      "sub_code": 9,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_REQ_BY_OPERATOR",
+      "desc": "Relay action switch-off(Requested by operator)"
+    },
+    {
+      "event_code": 50432,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_KEEP",
+      "sub_code": 0,
+      "sub_code_str": "",
+      "desc": "Relay action keep signal"
+    },
+    {
+      "event_code": 50432,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_KEEP",
+      "sub_code": 0,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_INPUT_OFF",
+      "desc": "Relay action keep signal(Input off)"
+    },
+    {
+      "event_code": 50432,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_KEEP",
+      "sub_code": 1,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_INPUT_ON",
+      "desc": "Relay action keep signal(Input on)"
+    },
+    {
+      "event_code": 50432,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_KEEP",
+      "sub_code": 2,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_SUPERVISED_INPUT_SHORT",
+      "desc": "Relay action keep signal(Supervised input short)"
+    },
+    {
+      "event_code": 50432,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_KEEP",
+      "sub_code": 3,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_SUPERVISED_INPUT_OPEN",
+      "desc": "Relay action keep signal(Supervised input open)"
+    },
+    {
+      "event_code": 50432,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_KEEP",
+      "sub_code": 5,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_TAMPER_ON",
+      "desc": "Relay action keep signal(Tamper on)"
+    },
+    {
+      "event_code": 50432,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_KEEP",
+      "sub_code": 6,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_TAMPER_OFF",
+      "desc": "Relay action keep signal(Tamper off)"
+    },
+    {
+      "event_code": 50432,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_KEEP",
+      "sub_code": 7,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_RS485_CONNECTION",
+      "desc": "Relay action keep signal(RS485 connected)"
+    },
+    {
+      "event_code": 50432,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_KEEP",
+      "sub_code": 8,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_RS485_DISCONNECTION",
+      "desc": "Relay action keep signal(RS485 disconnected)"
+    },
+    {
+      "event_code": 50432,
+      "event_code_str": "BS2_EVENT_RELAY_ACTION_KEEP",
+      "sub_code": 9,
+      "sub_code_str": "BS2_SUB_EVENT_RELAY_ACTION_REQ_BY_OPERATOR",
+      "desc": "Relay action keep signal(Requested by operator)"
     }
   ]
 }

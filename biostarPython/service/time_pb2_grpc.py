@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import time_pb2 as time__pb2
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class TimeStub(object):
+class TimeStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -81,7 +81,7 @@ class TimeStub(object):
                 _registered_method=True)
 
 
-class TimeServicer(object):
+class TimeServicer:
     """Missing associated documentation comment in .proto file."""
 
     def Get(self, request, context):
@@ -194,7 +194,7 @@ def add_TimeServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Time(object):
+class Time:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

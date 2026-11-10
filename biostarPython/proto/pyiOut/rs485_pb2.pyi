@@ -52,7 +52,7 @@ class SlaveDeviceInfo(_message.Message):
     connected: bool
     channelID: int
     parentID: int
-    def __init__(self, deviceID: _Optional[int] = ..., type: _Optional[_Union[_device_pb2.Type, str]] = ..., enabled: bool = ..., connected: bool = ..., channelID: _Optional[int] = ..., parentID: _Optional[int] = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., type: _Optional[_Union[_device_pb2.Type, str]] = ..., enabled: _Optional[bool] = ..., connected: _Optional[bool] = ..., channelID: _Optional[int] = ..., parentID: _Optional[int] = ...) -> None: ...
 
 class SearchDeviceRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -102,7 +102,7 @@ class IntelligentPDInfo(_message.Message):
     outputFormat: IPDOutputFormat
     OSDPID: int
     supportConfig: bool
-    def __init__(self, useExceptionCode: bool = ..., exceptionCode: _Optional[bytes] = ..., outputFormat: _Optional[_Union[IPDOutputFormat, str]] = ..., OSDPID: _Optional[int] = ..., supportConfig: bool = ...) -> None: ...
+    def __init__(self, useExceptionCode: _Optional[bool] = ..., exceptionCode: _Optional[bytes] = ..., outputFormat: _Optional[_Union[IPDOutputFormat, str]] = ..., OSDPID: _Optional[int] = ..., supportConfig: _Optional[bool] = ...) -> None: ...
 
 class RS485Channel(_message.Message):
     __slots__ = ("channelID", "mode", "baudRate", "slaveDevices", "useResistance", "channelType")
@@ -118,7 +118,7 @@ class RS485Channel(_message.Message):
     slaveDevices: _containers.RepeatedCompositeFieldContainer[SlaveDeviceInfo]
     useResistance: bool
     channelType: ChannelType
-    def __init__(self, channelID: _Optional[int] = ..., mode: _Optional[_Union[Mode, str]] = ..., baudRate: _Optional[int] = ..., slaveDevices: _Optional[_Iterable[_Union[SlaveDeviceInfo, _Mapping]]] = ..., useResistance: bool = ..., channelType: _Optional[_Union[ChannelType, str]] = ...) -> None: ...
+    def __init__(self, channelID: _Optional[int] = ..., mode: _Optional[_Union[Mode, str]] = ..., baudRate: _Optional[int] = ..., slaveDevices: _Optional[_Iterable[_Union[SlaveDeviceInfo, _Mapping]]] = ..., useResistance: _Optional[bool] = ..., channelType: _Optional[_Union[ChannelType, str]] = ...) -> None: ...
 
 class RS485Config(_message.Message):
     __slots__ = ("channels", "intelligentInfo")

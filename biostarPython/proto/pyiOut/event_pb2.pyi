@@ -108,7 +108,7 @@ class EventLog(_message.Message):
     inputInfo: DetectInputInfo
     alarmZoneInfo: AlarmZoneInfo
     interlockZoneInfo: InterlockZoneInfo
-    def __init__(self, ID: _Optional[int] = ..., timestamp: _Optional[int] = ..., deviceID: _Optional[int] = ..., userID: _Optional[str] = ..., entityID: _Optional[int] = ..., eventCode: _Optional[int] = ..., subCode: _Optional[int] = ..., TNAKey: _Optional[_Union[_tna_pb2.Key, str]] = ..., hasImage: bool = ..., changedOnDevice: bool = ..., temperature: _Optional[int] = ..., cardData: _Optional[bytes] = ..., inputInfo: _Optional[_Union[DetectInputInfo, _Mapping]] = ..., alarmZoneInfo: _Optional[_Union[AlarmZoneInfo, _Mapping]] = ..., interlockZoneInfo: _Optional[_Union[InterlockZoneInfo, _Mapping]] = ...) -> None: ...
+    def __init__(self, ID: _Optional[int] = ..., timestamp: _Optional[int] = ..., deviceID: _Optional[int] = ..., userID: _Optional[str] = ..., entityID: _Optional[int] = ..., eventCode: _Optional[int] = ..., subCode: _Optional[int] = ..., TNAKey: _Optional[_Union[_tna_pb2.Key, str]] = ..., hasImage: _Optional[bool] = ..., changedOnDevice: _Optional[bool] = ..., temperature: _Optional[int] = ..., cardData: _Optional[bytes] = ..., inputInfo: _Optional[_Union[DetectInputInfo, _Mapping]] = ..., alarmZoneInfo: _Optional[_Union[AlarmZoneInfo, _Mapping]] = ..., interlockZoneInfo: _Optional[_Union[InterlockZoneInfo, _Mapping]] = ...) -> None: ...
 
 class EventFilter(_message.Message):
     __slots__ = ("userID", "startTime", "endTime", "eventCode", "TNAKey", "onDevice", "floorIndex", "alarmFlag", "licenseType")

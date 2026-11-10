@@ -132,7 +132,7 @@ class TimeConfig(_message.Message):
     SYNCWITHSERVER_FIELD_NUMBER: _ClassVar[int]
     timeZone: int
     syncWithServer: bool
-    def __init__(self, timeZone: _Optional[int] = ..., syncWithServer: bool = ...) -> None: ...
+    def __init__(self, timeZone: _Optional[int] = ..., syncWithServer: _Optional[bool] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

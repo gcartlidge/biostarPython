@@ -97,7 +97,7 @@ class Sensor(_message.Message):
     port: int
     type: _device_pb2.SwitchType
     apbUseDoorSensor: bool
-    def __init__(self, deviceID: _Optional[int] = ..., port: _Optional[int] = ..., type: _Optional[_Union[_device_pb2.SwitchType, str]] = ..., apbUseDoorSensor: bool = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., port: _Optional[int] = ..., type: _Optional[_Union[_device_pb2.SwitchType, str]] = ..., apbUseDoorSensor: _Optional[bool] = ...) -> None: ...
 
 class ExitButton(_message.Message):
     __slots__ = ("deviceID", "port", "type")
@@ -127,7 +127,7 @@ class Status(_message.Message):
     lockFlags: int
     alarmFlags: int
     lastOpenTime: int
-    def __init__(self, doorID: _Optional[int] = ..., isOpen: bool = ..., isUnlocked: bool = ..., heldOpen: bool = ..., unlockFlags: _Optional[int] = ..., lockFlags: _Optional[int] = ..., alarmFlags: _Optional[int] = ..., lastOpenTime: _Optional[int] = ...) -> None: ...
+    def __init__(self, doorID: _Optional[int] = ..., isOpen: _Optional[bool] = ..., isUnlocked: _Optional[bool] = ..., heldOpen: _Optional[bool] = ..., unlockFlags: _Optional[int] = ..., lockFlags: _Optional[int] = ..., alarmFlags: _Optional[int] = ..., lastOpenTime: _Optional[int] = ...) -> None: ...
 
 class DoorInfo(_message.Message):
     __slots__ = ("doorID", "name", "entryDeviceID", "exitDeviceID", "relay", "sensor", "button", "autoLockTimeout", "heldOpenTimeout", "instantLock", "unlockFlags", "lockFlags", "unconditionalLock", "forcedOpenActions", "heldOpenActions", "dualAuthScheduleID", "dualAuthDevice", "dualAuthType", "dualAuthTimeout", "dualAuthGroupIDs", "apbZone", "extendedDoorOpenTime")
@@ -175,7 +175,7 @@ class DoorInfo(_message.Message):
     dualAuthGroupIDs: _containers.RepeatedScalarFieldContainer[int]
     apbZone: _apb_zone_pb2.ZoneInfo
     extendedDoorOpenTime: int
-    def __init__(self, doorID: _Optional[int] = ..., name: _Optional[str] = ..., entryDeviceID: _Optional[int] = ..., exitDeviceID: _Optional[int] = ..., relay: _Optional[_Union[Relay, _Mapping]] = ..., sensor: _Optional[_Union[Sensor, _Mapping]] = ..., button: _Optional[_Union[ExitButton, _Mapping]] = ..., autoLockTimeout: _Optional[int] = ..., heldOpenTimeout: _Optional[int] = ..., instantLock: bool = ..., unlockFlags: _Optional[int] = ..., lockFlags: _Optional[int] = ..., unconditionalLock: bool = ..., forcedOpenActions: _Optional[_Iterable[_Union[_action_pb2.Action, _Mapping]]] = ..., heldOpenActions: _Optional[_Iterable[_Union[_action_pb2.Action, _Mapping]]] = ..., dualAuthScheduleID: _Optional[int] = ..., dualAuthDevice: _Optional[_Union[DualAuthDevice, str]] = ..., dualAuthType: _Optional[_Union[DualAuthType, str]] = ..., dualAuthTimeout: _Optional[int] = ..., dualAuthGroupIDs: _Optional[_Iterable[int]] = ..., apbZone: _Optional[_Union[_apb_zone_pb2.ZoneInfo, _Mapping]] = ..., extendedDoorOpenTime: _Optional[int] = ...) -> None: ...
+    def __init__(self, doorID: _Optional[int] = ..., name: _Optional[str] = ..., entryDeviceID: _Optional[int] = ..., exitDeviceID: _Optional[int] = ..., relay: _Optional[_Union[Relay, _Mapping]] = ..., sensor: _Optional[_Union[Sensor, _Mapping]] = ..., button: _Optional[_Union[ExitButton, _Mapping]] = ..., autoLockTimeout: _Optional[int] = ..., heldOpenTimeout: _Optional[int] = ..., instantLock: _Optional[bool] = ..., unlockFlags: _Optional[int] = ..., lockFlags: _Optional[int] = ..., unconditionalLock: _Optional[bool] = ..., forcedOpenActions: _Optional[_Iterable[_Union[_action_pb2.Action, _Mapping]]] = ..., heldOpenActions: _Optional[_Iterable[_Union[_action_pb2.Action, _Mapping]]] = ..., dualAuthScheduleID: _Optional[int] = ..., dualAuthDevice: _Optional[_Union[DualAuthDevice, str]] = ..., dualAuthType: _Optional[_Union[DualAuthType, str]] = ..., dualAuthTimeout: _Optional[int] = ..., dualAuthGroupIDs: _Optional[_Iterable[int]] = ..., apbZone: _Optional[_Union[_apb_zone_pb2.ZoneInfo, _Mapping]] = ..., extendedDoorOpenTime: _Optional[int] = ...) -> None: ...
 
 class GetListRequest(_message.Message):
     __slots__ = ("deviceID",)

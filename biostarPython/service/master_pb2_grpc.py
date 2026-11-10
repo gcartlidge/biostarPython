@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import master_pb2 as master__pb2
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class MasterStub(object):
+class MasterStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -61,7 +61,7 @@ class MasterStub(object):
                 _registered_method=True)
 
 
-class MasterServicer(object):
+class MasterServicer:
     """Missing associated documentation comment in .proto file."""
 
     def Subscribe(self, request, context):
@@ -130,7 +130,7 @@ def add_MasterServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Master(object):
+class Master:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import lift_zone_pb2 as lift__zone__pb2
 
-GRPC_GENERATED_VERSION = '1.68.1'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in lift_zone_pb2_grpc.py depends on'
+        + ' but the generated code in lift_zone_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class LiftZoneStub(object):
+class LiftZoneStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -66,7 +66,7 @@ class LiftZoneStub(object):
                 _registered_method=True)
 
 
-class LiftZoneServicer(object):
+class LiftZoneServicer:
     """Missing associated documentation comment in .proto file."""
 
     def Get(self, request, context):
@@ -146,7 +146,7 @@ def add_LiftZoneServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class LiftZone(object):
+class LiftZone:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

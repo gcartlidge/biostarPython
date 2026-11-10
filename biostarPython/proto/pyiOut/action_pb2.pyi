@@ -193,7 +193,7 @@ class BuzzerSignal(_message.Message):
     fadeout: bool
     duration: int
     delay: int
-    def __init__(self, tone: _Optional[_Union[_device_pb2.BuzzerTone, str]] = ..., fadeout: bool = ..., duration: _Optional[int] = ..., delay: _Optional[int] = ...) -> None: ...
+    def __init__(self, tone: _Optional[_Union[_device_pb2.BuzzerTone, str]] = ..., fadeout: _Optional[bool] = ..., duration: _Optional[int] = ..., delay: _Optional[int] = ...) -> None: ...
 
 class BuzzerAction(_message.Message):
     __slots__ = ("signals", "count")

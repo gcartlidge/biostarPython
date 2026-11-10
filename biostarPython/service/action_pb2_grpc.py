@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import action_pb2 as action__pb2
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class TriggerActionStub(object):
+class TriggerActionStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -56,7 +56,7 @@ class TriggerActionStub(object):
                 _registered_method=True)
 
 
-class TriggerActionServicer(object):
+class TriggerActionServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetConfig(self, request, context):
@@ -114,7 +114,7 @@ def add_TriggerActionServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TriggerAction(object):
+class TriggerAction:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

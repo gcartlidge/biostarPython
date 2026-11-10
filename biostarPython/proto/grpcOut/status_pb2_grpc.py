@@ -5,7 +5,7 @@ import warnings
 
 import status_pb2 as status__pb2
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class StatusStub(object):
+class StatusStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -51,7 +51,7 @@ class StatusStub(object):
                 _registered_method=True)
 
 
-class StatusServicer(object):
+class StatusServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetConfig(self, request, context):
@@ -98,7 +98,7 @@ def add_StatusServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Status(object):
+class Status:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

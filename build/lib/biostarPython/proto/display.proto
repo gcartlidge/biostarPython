@@ -84,6 +84,17 @@ enum ShowOSDPResult {
   BS2_SHOW_OSDP_RESULT_OFF = 1;
 }
 
+enum ShowOptionUserInfo {
+  BS2_SHOW_USER_INFO_ALL = 0;
+  BS2_SHOW_USER_INFO_PARTIAL = 1;
+  BS2_SHOW_USER_INFO_NOTHING = 2;
+}
+
+enum KeypadType {
+  BS2_KEYPAD_TYPE_SCRAMBLE = 0;
+  BS2_KEYPAD_TYPE_NORMAL = 1;
+}
+
 message DisplayConfig {
   LanguageType language = 1;
   BackgroundType background = 2;
@@ -104,7 +115,11 @@ message DisplayConfig {
   bool queryUserPhrase = 13;
 
   bool useScreenSaver = 14;
-  ShowOSDPResult showOSDPResult= 15;
+  ShowOSDPResult showOSDPResult = 15;
+
+  ShowOptionUserInfo showOptionUserName = 16;
+  ShowOptionUserInfo showOptionUserId = 17;
+  KeypadType keypadType = 18;
 }
 
 

@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+package gsdk.devicelicense;
+
+option go_package = "biostar/service/devicelicense";
+option java_package = "com.supremainc.sdk.devicelicense";
+option java_multiple_files = true;
+
+
+service DeviceLicense {
+    rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+
+    rpc Enable(EnableRequest) returns (EnableResponse);
+    rpc Disable(DisableRequest) returns (DisableResponse);
+    rpc Query(QueryRequest) returns (QueryResponse);
+}
+
+
+enum DeviceLicenseType {
+    TYPE_NONE                = 0x0000;
+    TYPE_VISUAL_QR           = 0x0001;
+    TYPE_UZ_WIRELESS_LOCK    = 0x0002;
+}
+
+enum DeviceLicenseSubType {
+    SUBTYPE_NONE                = 0;
+    SUBTYPE_VISUAL_QR_CODE_CORP = 1;
+}
+
+enum DeviceLicenseStatus {
+    NOT_SUPPORTED   = 0;
+    DISABLE         = 1;
+    ENABLE          = 2;
+    EXPIRED         = 3;
+    NOT_EXIST       = 4;
+    ALREADY_ADD     = 5;
+}
+
+message DeviceLicenseInfo {
+    uint32 index = 1;
+    uint32 hasCapability = 2;
+    bool enabled = 3;
+    uint32 enableCount = 4;
+    DeviceLicenseType type = 5;
+    DeviceLicenseSubType subType = 6;
+    uint32 enableTime = 7;
+    uint32 expiredTime = 8;
+    uint32 issueNumber = 9;
+    string name = 10;
+}
+
+message DeviceLicenseConfig {
+    uint32 version = 1;
+    repeated DeviceLicenseInfo licenseInfo = 2;
+}
+
+message GetConfigRequest {
+    uint32 deviceID = 1;
+}
+
+message GetConfigResponse {
+    DeviceLicenseConfig config = 1;
+}
+
+
+message DeviceLicenseBlob {
+    DeviceLicenseType type = 1;
+    repeated uint32 deviceIDs = 2;
+    bytes data = 3;
+}
+
+
+message DeviceLicenseResult {
+    uint32 deviceID = 1;
+    DeviceLicenseStatus status = 2;
+}
+
+message EnableRequest {
+    uint32 deviceID = 1;
+    DeviceLicenseBlob licenseBlob = 2;
+}
+
+message EnableResponse {
+    repeated DeviceLicenseResult results = 1;
+}
+
+message DisableRequest {
+    uint32 deviceID = 1;
+    DeviceLicenseBlob licenseBlob = 2;
+}
+
+message DisableResponse {
+    repeated DeviceLicenseResult results = 1;
+}
+
+message QueryRequest {
+    uint32 deviceID = 1;
+    DeviceLicenseType type = 2;
+}
+
+message QueryResponse {
+    repeated DeviceLicenseResult results = 1;
+}

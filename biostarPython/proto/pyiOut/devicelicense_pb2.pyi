@@ -60,7 +60,7 @@ class DeviceLicenseInfo(_message.Message):
     expiredTime: int
     issueNumber: int
     name: str
-    def __init__(self, index: _Optional[int] = ..., hasCapability: _Optional[int] = ..., enabled: bool = ..., enableCount: _Optional[int] = ..., type: _Optional[_Union[DeviceLicenseType, str]] = ..., subType: _Optional[_Union[DeviceLicenseSubType, str]] = ..., enableTime: _Optional[int] = ..., expiredTime: _Optional[int] = ..., issueNumber: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
+    def __init__(self, index: _Optional[int] = ..., hasCapability: _Optional[int] = ..., enabled: _Optional[bool] = ..., enableCount: _Optional[int] = ..., type: _Optional[_Union[DeviceLicenseType, str]] = ..., subType: _Optional[_Union[DeviceLicenseSubType, str]] = ..., enableTime: _Optional[int] = ..., expiredTime: _Optional[int] = ..., issueNumber: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
 
 class DeviceLicenseConfig(_message.Message):
     __slots__ = ("version", "licenseInfo")

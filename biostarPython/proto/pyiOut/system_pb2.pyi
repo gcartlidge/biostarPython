@@ -70,7 +70,7 @@ class SystemConfig(_message.Message):
     useSecureTamper: bool
     useCardOperationMask: int
     adminTwoStepAuth: bool
-    def __init__(self, timeZone: _Optional[int] = ..., syncTime: bool = ..., isLocked: bool = ..., useInterphone: bool = ..., OSDPKeyEncrypted: bool = ..., useJobCode: bool = ..., useAlphanumericID: bool = ..., cameraFrequency: _Optional[_Union[CameraFrequency, str]] = ..., useSecureTamper: bool = ..., useCardOperationMask: _Optional[int] = ..., adminTwoStepAuth: bool = ...) -> None: ...
+    def __init__(self, timeZone: _Optional[int] = ..., syncTime: _Optional[bool] = ..., isLocked: _Optional[bool] = ..., useInterphone: _Optional[bool] = ..., OSDPKeyEncrypted: _Optional[bool] = ..., useJobCode: _Optional[bool] = ..., useAlphanumericID: _Optional[bool] = ..., cameraFrequency: _Optional[_Union[CameraFrequency, str]] = ..., useSecureTamper: _Optional[bool] = ..., useCardOperationMask: _Optional[int] = ..., adminTwoStepAuth: _Optional[bool] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

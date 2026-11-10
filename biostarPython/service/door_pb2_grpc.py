@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import door_pb2 as door__pb2
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class DoorStub(object):
+class DoorStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -81,7 +81,7 @@ class DoorStub(object):
                 _registered_method=True)
 
 
-class DoorServicer(object):
+class DoorServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetList(self, request, context):
@@ -194,7 +194,7 @@ def add_DoorServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Door(object):
+class Door:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

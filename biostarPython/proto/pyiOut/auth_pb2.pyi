@@ -203,7 +203,7 @@ class AuthConfig(_message.Message):
     matchTimeout: int
     authTimeout: int
     operators: _containers.RepeatedCompositeFieldContainer[Operator]
-    def __init__(self, authSchedules: _Optional[_Iterable[_Union[AuthSchedule, _Mapping]]] = ..., useGlobalAPB: bool = ..., globalAPBFailAction: _Optional[_Union[GlobalAPBFailActionType, str]] = ..., useGroupMatching: bool = ..., usePrivateAuth: bool = ..., faceDetectionLevel: _Optional[_Union[FaceDetectionLevel, str]] = ..., useServerMatching: bool = ..., useFullAccess: bool = ..., matchTimeout: _Optional[int] = ..., authTimeout: _Optional[int] = ..., operators: _Optional[_Iterable[_Union[Operator, _Mapping]]] = ...) -> None: ...
+    def __init__(self, authSchedules: _Optional[_Iterable[_Union[AuthSchedule, _Mapping]]] = ..., useGlobalAPB: _Optional[bool] = ..., globalAPBFailAction: _Optional[_Union[GlobalAPBFailActionType, str]] = ..., useGroupMatching: _Optional[bool] = ..., usePrivateAuth: _Optional[bool] = ..., faceDetectionLevel: _Optional[_Union[FaceDetectionLevel, str]] = ..., useServerMatching: _Optional[bool] = ..., useFullAccess: _Optional[bool] = ..., matchTimeout: _Optional[int] = ..., authTimeout: _Optional[int] = ..., operators: _Optional[_Iterable[_Union[Operator, _Mapping]]] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

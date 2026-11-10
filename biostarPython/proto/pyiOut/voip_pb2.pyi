@@ -69,7 +69,7 @@ class VOIPConfig(_message.Message):
     proxyURL: str
     proxyPort: int
     phones: _containers.RepeatedCompositeFieldContainer[UserPhone]
-    def __init__(self, serverURL: _Optional[str] = ..., serverPort: _Optional[int] = ..., userID: _Optional[str] = ..., userPW: _Optional[str] = ..., enabled: bool = ..., exitButton: _Optional[int] = ..., DTMFMode: _Optional[int] = ..., registrationDuration: _Optional[int] = ..., speakerVolume: _Optional[int] = ..., micVolume: _Optional[int] = ..., authorizationCode: _Optional[str] = ..., showExtensionNumber: bool = ..., useOutboundProxy: bool = ..., proxyURL: _Optional[str] = ..., proxyPort: _Optional[int] = ..., phones: _Optional[_Iterable[_Union[UserPhone, _Mapping]]] = ...) -> None: ...
+    def __init__(self, serverURL: _Optional[str] = ..., serverPort: _Optional[int] = ..., userID: _Optional[str] = ..., userPW: _Optional[str] = ..., enabled: _Optional[bool] = ..., exitButton: _Optional[int] = ..., DTMFMode: _Optional[int] = ..., registrationDuration: _Optional[int] = ..., speakerVolume: _Optional[int] = ..., micVolume: _Optional[int] = ..., authorizationCode: _Optional[str] = ..., showExtensionNumber: _Optional[bool] = ..., useOutboundProxy: _Optional[bool] = ..., proxyURL: _Optional[str] = ..., proxyPort: _Optional[int] = ..., phones: _Optional[_Iterable[_Union[UserPhone, _Mapping]]] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

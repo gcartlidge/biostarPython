@@ -152,7 +152,7 @@ class SmartCardHeader(_message.Message):
     cardAuthMode: int
     useAlphanumericID: bool
     cardAuthModeEx: int
-    def __init__(self, headerCRC: _Optional[int] = ..., cardCRC: _Optional[int] = ..., type: _Optional[_Union[Type, str]] = ..., numOfTemplate: _Optional[int] = ..., numOfFaceTemplate: _Optional[int] = ..., templateSize: _Optional[int] = ..., issueCount: _Optional[int] = ..., duressMask: _Optional[int] = ..., cardAuthMode: _Optional[int] = ..., useAlphanumericID: bool = ..., cardAuthModeEx: _Optional[int] = ...) -> None: ...
+    def __init__(self, headerCRC: _Optional[int] = ..., cardCRC: _Optional[int] = ..., type: _Optional[_Union[Type, str]] = ..., numOfTemplate: _Optional[int] = ..., numOfFaceTemplate: _Optional[int] = ..., templateSize: _Optional[int] = ..., issueCount: _Optional[int] = ..., duressMask: _Optional[int] = ..., cardAuthMode: _Optional[int] = ..., useAlphanumericID: _Optional[bool] = ..., cardAuthModeEx: _Optional[int] = ...) -> None: ...
 
 class SmartCardCredential(_message.Message):
     __slots__ = ("PIN", "templates")
@@ -306,7 +306,7 @@ class CardConfig(_message.Message):
     cipher: bool
     smartCardByteOrder: CardByteOrder
     mifareEncryption: MIFARE_ENCRYPTION
-    def __init__(self, byteOrder: _Optional[_Union[CardByteOrder, str]] = ..., useWiegandFormat: bool = ..., dataType: _Optional[_Union[CardDataType, str]] = ..., useSecondaryKey: bool = ..., mifareConfig: _Optional[_Union[MifareConfig, _Mapping]] = ..., iClassConfig: _Optional[_Union[IClassConfig, _Mapping]] = ..., DESFireConfig: _Optional[_Union[DESFireConfig, _Mapping]] = ..., SEOSConfig: _Optional[_Union[SEOSConfig, _Mapping]] = ..., formatID: _Optional[int] = ..., cipher: bool = ..., smartCardByteOrder: _Optional[_Union[CardByteOrder, str]] = ..., mifareEncryption: _Optional[_Union[MIFARE_ENCRYPTION, str]] = ...) -> None: ...
+    def __init__(self, byteOrder: _Optional[_Union[CardByteOrder, str]] = ..., useWiegandFormat: _Optional[bool] = ..., dataType: _Optional[_Union[CardDataType, str]] = ..., useSecondaryKey: _Optional[bool] = ..., mifareConfig: _Optional[_Union[MifareConfig, _Mapping]] = ..., iClassConfig: _Optional[_Union[IClassConfig, _Mapping]] = ..., DESFireConfig: _Optional[_Union[DESFireConfig, _Mapping]] = ..., SEOSConfig: _Optional[_Union[SEOSConfig, _Mapping]] = ..., formatID: _Optional[int] = ..., cipher: _Optional[bool] = ..., smartCardByteOrder: _Optional[_Union[CardByteOrder, str]] = ..., mifareEncryption: _Optional[_Union[MIFARE_ENCRYPTION, str]] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -462,7 +462,7 @@ class Card1XConfig(_message.Message):
     numOfTemplate: int
     templateSize: int
     templateStartBlocks: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, disabled: bool = ..., useCSNOnly: bool = ..., bioEntryCompatible: bool = ..., useSecondaryKey: bool = ..., primaryKey: _Optional[bytes] = ..., secondaryKey: _Optional[bytes] = ..., CISIndex: _Optional[int] = ..., numOfTemplate: _Optional[int] = ..., templateSize: _Optional[int] = ..., templateStartBlocks: _Optional[_Iterable[int]] = ...) -> None: ...
+    def __init__(self, disabled: _Optional[bool] = ..., useCSNOnly: _Optional[bool] = ..., bioEntryCompatible: _Optional[bool] = ..., useSecondaryKey: _Optional[bool] = ..., primaryKey: _Optional[bytes] = ..., secondaryKey: _Optional[bytes] = ..., CISIndex: _Optional[int] = ..., numOfTemplate: _Optional[int] = ..., templateSize: _Optional[int] = ..., templateStartBlocks: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class Get1XConfigRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -532,7 +532,7 @@ class QRConfig(_message.Message):
     motionSensitivity: MotionSensitivity
     visualQRScanTimeout: int
     useVisualQRDetectGuideline: bool
-    def __init__(self, useQRCode: bool = ..., scanTimeout: _Optional[int] = ..., bypassData: bool = ..., treatAsCSN: bool = ..., useVisualQRCode: bool = ..., motionSensitivity: _Optional[_Union[MotionSensitivity, str]] = ..., visualQRScanTimeout: _Optional[int] = ..., useVisualQRDetectGuideline: bool = ...) -> None: ...
+    def __init__(self, useQRCode: _Optional[bool] = ..., scanTimeout: _Optional[int] = ..., bypassData: _Optional[bool] = ..., treatAsCSN: _Optional[bool] = ..., useVisualQRCode: _Optional[bool] = ..., motionSensitivity: _Optional[_Union[MotionSensitivity, str]] = ..., visualQRScanTimeout: _Optional[int] = ..., useVisualQRDetectGuideline: _Optional[bool] = ...) -> None: ...
 
 class GetQRConfigRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -638,7 +638,7 @@ class CustomConfig(_message.Message):
     smartCardByteOrder: CardByteOrder
     formatID: int
     mifareEncryption: MIFARE_ENCRYPTION
-    def __init__(self, dataType: _Optional[_Union[CardDataType, str]] = ..., useSecondaryKey: bool = ..., mifare: _Optional[_Union[CustomMifareCard, _Mapping]] = ..., desfire: _Optional[_Union[CustomDESFireCard, _Mapping]] = ..., smartCardByteOrder: _Optional[_Union[CardByteOrder, str]] = ..., formatID: _Optional[int] = ..., mifareEncryption: _Optional[_Union[MIFARE_ENCRYPTION, str]] = ...) -> None: ...
+    def __init__(self, dataType: _Optional[_Union[CardDataType, str]] = ..., useSecondaryKey: _Optional[bool] = ..., mifare: _Optional[_Union[CustomMifareCard, _Mapping]] = ..., desfire: _Optional[_Union[CustomDESFireCard, _Mapping]] = ..., smartCardByteOrder: _Optional[_Union[CardByteOrder, str]] = ..., formatID: _Optional[int] = ..., mifareEncryption: _Optional[_Union[MIFARE_ENCRYPTION, str]] = ...) -> None: ...
 
 class GetCustomConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

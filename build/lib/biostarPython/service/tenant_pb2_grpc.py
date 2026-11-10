@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import tenant_pb2 as tenant__pb2
 
-GRPC_GENERATED_VERSION = '1.68.1'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in tenant_pb2_grpc.py depends on'
+        + ' but the generated code in tenant_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class TenantStub(object):
+class TenantStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -91,7 +91,7 @@ class TenantStub(object):
                 _registered_method=True)
 
 
-class TenantServicer(object):
+class TenantServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetList(self, request, context):
@@ -226,7 +226,7 @@ def add_TenantServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Tenant(object):
+class Tenant:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

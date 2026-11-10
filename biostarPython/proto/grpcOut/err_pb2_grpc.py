@@ -4,7 +4,7 @@ import grpc
 import warnings
 
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -24,7 +24,7 @@ if _version_not_supported:
     )
 
 
-class ErrorStub(object):
+class ErrorStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -35,7 +35,7 @@ class ErrorStub(object):
         """
 
 
-class ErrorServicer(object):
+class ErrorServicer:
     """Missing associated documentation comment in .proto file."""
 
 
@@ -49,5 +49,5 @@ def add_ErrorServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Error(object):
+class Error:
     """Missing associated documentation comment in .proto file."""

@@ -121,7 +121,7 @@ class ThermalCamera(_message.Message):
     ROI: ThermalCameraROI
     useBodyCompensation: bool
     compensationTemperature: int
-    def __init__(self, distance: _Optional[int] = ..., emissionRate: _Optional[int] = ..., ROI: _Optional[_Union[ThermalCameraROI, _Mapping]] = ..., useBodyCompensation: bool = ..., compensationTemperature: _Optional[int] = ...) -> None: ...
+    def __init__(self, distance: _Optional[int] = ..., emissionRate: _Optional[int] = ..., ROI: _Optional[_Union[ThermalCameraROI, _Mapping]] = ..., useBodyCompensation: _Optional[bool] = ..., compensationTemperature: _Optional[int] = ...) -> None: ...
 
 class ThermalConfig(_message.Message):
     __slots__ = ("checkMode", "checkOrder", "temperatureFormat", "temperatureThresholdHigh", "auditTemperature", "useRejectSound", "useOverlapThermal", "camera", "maskCheckMode", "maskDetectionLevel", "useDynamicROI", "temperatureThresholdLow")
@@ -149,7 +149,7 @@ class ThermalConfig(_message.Message):
     maskDetectionLevel: MaskDetectionLevel
     useDynamicROI: bool
     temperatureThresholdLow: int
-    def __init__(self, checkMode: _Optional[_Union[CheckMode, str]] = ..., checkOrder: _Optional[_Union[CheckOrder, str]] = ..., temperatureFormat: _Optional[_Union[TemperatureFormat, str]] = ..., temperatureThresholdHigh: _Optional[int] = ..., auditTemperature: bool = ..., useRejectSound: bool = ..., useOverlapThermal: bool = ..., camera: _Optional[_Union[ThermalCamera, _Mapping]] = ..., maskCheckMode: _Optional[_Union[CheckMode, str]] = ..., maskDetectionLevel: _Optional[_Union[MaskDetectionLevel, str]] = ..., useDynamicROI: bool = ..., temperatureThresholdLow: _Optional[int] = ...) -> None: ...
+    def __init__(self, checkMode: _Optional[_Union[CheckMode, str]] = ..., checkOrder: _Optional[_Union[CheckOrder, str]] = ..., temperatureFormat: _Optional[_Union[TemperatureFormat, str]] = ..., temperatureThresholdHigh: _Optional[int] = ..., auditTemperature: _Optional[bool] = ..., useRejectSound: _Optional[bool] = ..., useOverlapThermal: _Optional[bool] = ..., camera: _Optional[_Union[ThermalCamera, _Mapping]] = ..., maskCheckMode: _Optional[_Union[CheckMode, str]] = ..., maskDetectionLevel: _Optional[_Union[MaskDetectionLevel, str]] = ..., useDynamicROI: _Optional[bool] = ..., temperatureThresholdLow: _Optional[int] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

@@ -42,7 +42,7 @@ class RTSPConfig(_message.Message):
     userPW: str
     enabled: bool
     resolution: RTSP_RESOLUTION_TYPE
-    def __init__(self, serverURL: _Optional[str] = ..., serverPort: _Optional[int] = ..., userID: _Optional[str] = ..., userPW: _Optional[str] = ..., enabled: bool = ..., resolution: _Optional[_Union[RTSP_RESOLUTION_TYPE, str]] = ...) -> None: ...
+    def __init__(self, serverURL: _Optional[str] = ..., serverPort: _Optional[int] = ..., userID: _Optional[str] = ..., userPW: _Optional[str] = ..., enabled: _Optional[bool] = ..., resolution: _Optional[_Union[RTSP_RESOLUTION_TYPE, str]] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

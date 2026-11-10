@@ -107,7 +107,7 @@ class WiegandConfig(_message.Message):
     slaveFormats: _containers.RepeatedCompositeFieldContainer[WiegandFormat]
     CSNFormat: WiegandFormat
     useWiegandUserID: WiegandOutType
-    def __init__(self, mode: _Optional[_Union[WiegandMode, str]] = ..., useWiegandBypass: bool = ..., useFailCode: bool = ..., failCode: _Optional[int] = ..., outPulseWidth: _Optional[int] = ..., outPulseInterval: _Optional[int] = ..., formats: _Optional[_Iterable[_Union[WiegandFormat, _Mapping]]] = ..., slaveFormats: _Optional[_Iterable[_Union[WiegandFormat, _Mapping]]] = ..., CSNFormat: _Optional[_Union[WiegandFormat, _Mapping]] = ..., useWiegandUserID: _Optional[_Union[WiegandOutType, str]] = ...) -> None: ...
+    def __init__(self, mode: _Optional[_Union[WiegandMode, str]] = ..., useWiegandBypass: _Optional[bool] = ..., useFailCode: _Optional[bool] = ..., failCode: _Optional[int] = ..., outPulseWidth: _Optional[int] = ..., outPulseInterval: _Optional[int] = ..., formats: _Optional[_Iterable[_Union[WiegandFormat, _Mapping]]] = ..., slaveFormats: _Optional[_Iterable[_Union[WiegandFormat, _Mapping]]] = ..., CSNFormat: _Optional[_Union[WiegandFormat, _Mapping]] = ..., useWiegandUserID: _Optional[_Union[WiegandOutType, str]] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)

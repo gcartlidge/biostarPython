@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import system_pb2 as system__pb2
 
-GRPC_GENERATED_VERSION = '1.68.1'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in system_pb2_grpc.py depends on'
+        + ' but the generated code in system_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class SystemStub(object):
+class SystemStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -51,7 +51,7 @@ class SystemStub(object):
                 _registered_method=True)
 
 
-class SystemServicer(object):
+class SystemServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetConfig(self, request, context):
@@ -98,7 +98,7 @@ def add_SystemServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class System(object):
+class System:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

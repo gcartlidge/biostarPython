@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import user_pb2 as user__pb2
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class UserStub(object):
+class UserStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -221,7 +221,7 @@ class UserStub(object):
                 _registered_method=True)
 
 
-class UserServicer(object):
+class UserServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetList(self, request, context):
@@ -642,7 +642,7 @@ def add_UserServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class User(object):
+class User:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

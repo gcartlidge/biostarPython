@@ -119,7 +119,7 @@ class CertificateInfo(_message.Message):
     issueDate: int
     expiryDate: int
     blacklisted: bool
-    def __init__(self, tenantID: _Optional[str] = ..., subject: _Optional[_Union[_cert_pb2.PKIName, _Mapping]] = ..., serialNO: _Optional[int] = ..., issueDate: _Optional[int] = ..., expiryDate: _Optional[int] = ..., blacklisted: bool = ...) -> None: ...
+    def __init__(self, tenantID: _Optional[str] = ..., subject: _Optional[_Union[_cert_pb2.PKIName, _Mapping]] = ..., serialNO: _Optional[int] = ..., issueDate: _Optional[int] = ..., expiryDate: _Optional[int] = ..., blacklisted: _Optional[bool] = ...) -> None: ...
 
 class GetIssuanceHistoryResponse(_message.Message):
     __slots__ = ("certInfos",)

@@ -114,8 +114,8 @@ message GetPendingListResponse {
 enum ConnectionMode {
   option allow_alias = true;
 
-	SERVER_TO_DEVICE	= 0;	///< server connects to device
-  DEVICE_TO_SERVER	= 1;	///< device connects to server
+	SERVER_TO_DEVICE	= 0; ///< server connects to device
+  DEVICE_TO_SERVER	= 1; ///< device connects to server
   
   DEFAULT = 0;
 }
@@ -123,16 +123,17 @@ enum ConnectionMode {
 enum Status {
 	// Normal Status
 	DISCONNECTED   	= 0x00;
-	TCP_CONNECTED		= 0x01;
+	TCP_CONNECTED	= 0x01;
 	TLS_CONNECTED  	= 0x02;
+	TRY_TO_CONNECT  = 0x04;
 
 	// TCP Connection Error Status
-  TCP_CANNOT_CONNECT = 0x100;
-  TCP_NOT_ALLOWED    = 0x101;
+	TCP_CANNOT_CONNECT = 0x100;
+	TCP_NOT_ALLOWED    = 0x101;
 
 	// TLS Connection Error Status
-  TLS_CANNOT_CONNECT = 0x200;
-  TLS_NOT_ALLOWED    = 0x201;
+	TLS_CANNOT_CONNECT = 0x200;
+	TLS_NOT_ALLOWED    = 0x201;
 }
 
 message DeviceInfo {

@@ -66,7 +66,7 @@ class VerifyRequest(_message.Message):
     cardType: _card_pb2.Type
     cardData: bytes
     userID: str
-    def __init__(self, isCard: bool = ..., cardType: _Optional[_Union[_card_pb2.Type, str]] = ..., cardData: _Optional[bytes] = ..., userID: _Optional[str] = ...) -> None: ...
+    def __init__(self, isCard: _Optional[bool] = ..., cardType: _Optional[_Union[_card_pb2.Type, str]] = ..., cardData: _Optional[bytes] = ..., userID: _Optional[str] = ...) -> None: ...
 
 class IdentifyRequest(_message.Message):
     __slots__ = ("templateFormat", "templateData")

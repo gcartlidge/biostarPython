@@ -48,7 +48,7 @@ class ZoneInfo(_message.Message):
     actions: _containers.RepeatedCompositeFieldContainer[_action_pb2.Action]
     bypassGroupIDs: _containers.RepeatedScalarFieldContainer[int]
     unlockGroupIDs: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, zoneID: _Optional[int] = ..., name: _Optional[str] = ..., lockScheduleID: _Optional[int] = ..., unlockScheduleID: _Optional[int] = ..., bidirectionalLock: bool = ..., disabled: bool = ..., alarmed: bool = ..., doorIDs: _Optional[_Iterable[int]] = ..., actions: _Optional[_Iterable[_Union[_action_pb2.Action, _Mapping]]] = ..., bypassGroupIDs: _Optional[_Iterable[int]] = ..., unlockGroupIDs: _Optional[_Iterable[int]] = ...) -> None: ...
+    def __init__(self, zoneID: _Optional[int] = ..., name: _Optional[str] = ..., lockScheduleID: _Optional[int] = ..., unlockScheduleID: _Optional[int] = ..., bidirectionalLock: _Optional[bool] = ..., disabled: _Optional[bool] = ..., alarmed: _Optional[bool] = ..., doorIDs: _Optional[_Iterable[int]] = ..., actions: _Optional[_Iterable[_Union[_action_pb2.Action, _Mapping]]] = ..., bypassGroupIDs: _Optional[_Iterable[int]] = ..., unlockGroupIDs: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class GetRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -118,7 +118,7 @@ class SetAlarmRequest(_message.Message):
     deviceID: int
     zoneIDs: _containers.RepeatedScalarFieldContainer[int]
     alarmed: bool
-    def __init__(self, deviceID: _Optional[int] = ..., zoneIDs: _Optional[_Iterable[int]] = ..., alarmed: bool = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., zoneIDs: _Optional[_Iterable[int]] = ..., alarmed: _Optional[bool] = ...) -> None: ...
 
 class SetAlarmResponse(_message.Message):
     __slots__ = ()

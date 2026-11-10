@@ -20,6 +20,7 @@ class Status(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DISCONNECTED: _ClassVar[Status]
     TCP_CONNECTED: _ClassVar[Status]
     TLS_CONNECTED: _ClassVar[Status]
+    TRY_TO_CONNECT: _ClassVar[Status]
     TCP_CANNOT_CONNECT: _ClassVar[Status]
     TCP_NOT_ALLOWED: _ClassVar[Status]
     TLS_CANNOT_CONNECT: _ClassVar[Status]
@@ -30,6 +31,7 @@ DEFAULT: ConnectionMode
 DISCONNECTED: Status
 TCP_CONNECTED: Status
 TLS_CONNECTED: Status
+TRY_TO_CONNECT: Status
 TCP_CANNOT_CONNECT: Status
 TCP_NOT_ALLOWED: Status
 TLS_CANNOT_CONNECT: Status
@@ -43,7 +45,7 @@ class ConnectInfo(_message.Message):
     IPAddr: str
     port: int
     useSSL: bool
-    def __init__(self, IPAddr: _Optional[str] = ..., port: _Optional[int] = ..., useSSL: bool = ...) -> None: ...
+    def __init__(self, IPAddr: _Optional[str] = ..., port: _Optional[int] = ..., useSSL: _Optional[bool] = ...) -> None: ...
 
 class ConnectRequest(_message.Message):
     __slots__ = ("connectInfo",)
@@ -67,7 +69,7 @@ class AsyncConnectInfo(_message.Message):
     IPAddr: str
     port: int
     useSSL: bool
-    def __init__(self, deviceID: _Optional[int] = ..., IPAddr: _Optional[str] = ..., port: _Optional[int] = ..., useSSL: bool = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., IPAddr: _Optional[str] = ..., port: _Optional[int] = ..., useSSL: _Optional[bool] = ...) -> None: ...
 
 class AddAsyncConnectionRequest(_message.Message):
     __slots__ = ("connectInfos",)
@@ -99,7 +101,7 @@ class AcceptFilter(_message.Message):
     deviceIDs: _containers.RepeatedScalarFieldContainer[int]
     IPAddrs: _containers.RepeatedScalarFieldContainer[str]
     subnetMasks: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, allowAll: bool = ..., deviceIDs: _Optional[_Iterable[int]] = ..., IPAddrs: _Optional[_Iterable[str]] = ..., subnetMasks: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, allowAll: _Optional[bool] = ..., deviceIDs: _Optional[_Iterable[int]] = ..., IPAddrs: _Optional[_Iterable[str]] = ..., subnetMasks: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class SetAcceptFilterRequest(_message.Message):
     __slots__ = ("filter",)
@@ -161,7 +163,7 @@ class DeviceInfo(_message.Message):
     status: Status
     autoReconnect: bool
     useSSL: bool
-    def __init__(self, deviceID: _Optional[int] = ..., type: _Optional[_Union[_device_pb2.Type, str]] = ..., connectionMode: _Optional[_Union[ConnectionMode, str]] = ..., IPAddr: _Optional[str] = ..., port: _Optional[int] = ..., status: _Optional[_Union[Status, str]] = ..., autoReconnect: bool = ..., useSSL: bool = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., type: _Optional[_Union[_device_pb2.Type, str]] = ..., connectionMode: _Optional[_Union[ConnectionMode, str]] = ..., IPAddr: _Optional[str] = ..., port: _Optional[int] = ..., status: _Optional[_Union[Status, str]] = ..., autoReconnect: _Optional[bool] = ..., useSSL: _Optional[bool] = ...) -> None: ...
 
 class GetDeviceListRequest(_message.Message):
     __slots__ = ()
@@ -215,7 +217,7 @@ class SearchDeviceInfo(_message.Message):
     port: int
     useSSL: bool
     serverAddr: str
-    def __init__(self, deviceID: _Optional[int] = ..., type: _Optional[_Union[_device_pb2.Type, str]] = ..., useDHCP: bool = ..., connectionMode: _Optional[_Union[ConnectionMode, str]] = ..., IPAddr: _Optional[str] = ..., port: _Optional[int] = ..., useSSL: bool = ..., serverAddr: _Optional[str] = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., type: _Optional[_Union[_device_pb2.Type, str]] = ..., useDHCP: _Optional[bool] = ..., connectionMode: _Optional[_Union[ConnectionMode, str]] = ..., IPAddr: _Optional[str] = ..., port: _Optional[int] = ..., useSSL: _Optional[bool] = ..., serverAddr: _Optional[str] = ...) -> None: ...
 
 class SearchDeviceResponse(_message.Message):
     __slots__ = ("deviceInfos",)

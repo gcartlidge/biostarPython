@@ -136,7 +136,7 @@ class IPConfig(_message.Message):
     serverURL: str
     MTUSize: int
     baseband: EthernetBaseband
-    def __init__(self, useDHCP: bool = ..., IPAddr: _Optional[str] = ..., gateway: _Optional[str] = ..., subnetMask: _Optional[str] = ..., port: _Optional[int] = ..., connectionMode: _Optional[_Union[_connect_pb2.ConnectionMode, str]] = ..., serverAddr: _Optional[str] = ..., serverPort: _Optional[int] = ..., SSLServerPort: _Optional[int] = ..., useDNS: bool = ..., DNSServer: _Optional[str] = ..., serverURL: _Optional[str] = ..., MTUSize: _Optional[int] = ..., baseband: _Optional[_Union[EthernetBaseband, str]] = ...) -> None: ...
+    def __init__(self, useDHCP: _Optional[bool] = ..., IPAddr: _Optional[str] = ..., gateway: _Optional[str] = ..., subnetMask: _Optional[str] = ..., port: _Optional[int] = ..., connectionMode: _Optional[_Union[_connect_pb2.ConnectionMode, str]] = ..., serverAddr: _Optional[str] = ..., serverPort: _Optional[int] = ..., SSLServerPort: _Optional[int] = ..., useDNS: _Optional[bool] = ..., DNSServer: _Optional[str] = ..., serverURL: _Optional[str] = ..., MTUSize: _Optional[int] = ..., baseband: _Optional[_Union[EthernetBaseband, str]] = ...) -> None: ...
 
 class GetWLANConfigRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -190,4 +190,4 @@ class WLANConfig(_message.Message):
     encType: WLANEncryptionType
     ESSID: str
     authKey: str
-    def __init__(self, enabled: bool = ..., opMode: _Optional[_Union[WLANOperationMode, str]] = ..., authType: _Optional[_Union[WLANAuthType, str]] = ..., encType: _Optional[_Union[WLANEncryptionType, str]] = ..., ESSID: _Optional[str] = ..., authKey: _Optional[str] = ...) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., opMode: _Optional[_Union[WLANOperationMode, str]] = ..., authType: _Optional[_Union[WLANAuthType, str]] = ..., encType: _Optional[_Union[WLANEncryptionType, str]] = ..., ESSID: _Optional[str] = ..., authKey: _Optional[str] = ...) -> None: ...

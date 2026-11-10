@@ -139,7 +139,7 @@ message UserSetting {
   uint32 IDAuthMode = 5;
   SecurityLevel securityLevel = 6;
 
-  // for F2 and BS3 only
+  // Only for RGB-based visual face authentication devices
   uint32 faceAuthExtMode = 7;
   uint32 fingerAuthExtMode = 8;
   uint32 cardAuthExtMode = 9;

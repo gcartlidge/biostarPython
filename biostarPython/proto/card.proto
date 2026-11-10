@@ -110,14 +110,14 @@ message SmartCardHeader {
   Type type = 3;
   oneof templateCount {
     uint32 numOfTemplate = 4;
-    uint32 numOfFaceTemplate = 10; // for F2/BS3 only
+    uint32 numOfFaceTemplate = 10; // Only for RGB-based visual face authentication devices
   }
   uint32 templateSize = 5;
   uint32 issueCount = 6;
   uint32 duressMask = 7;
   uint32 cardAuthMode = 8;
   bool useAlphanumericID = 9;
-  uint32 cardAuthModeEx = 11; // for F2/BS3 only
+  uint32 cardAuthModeEx = 11; // Only for RGB-based visual face authentication devices
 }
 
 message SmartCardCredential {

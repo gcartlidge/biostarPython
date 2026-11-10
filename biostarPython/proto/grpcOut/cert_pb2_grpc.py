@@ -5,7 +5,7 @@ import warnings
 
 import cert_pb2 as cert__pb2
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class CertStub(object):
+class CertStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -51,7 +51,7 @@ class CertStub(object):
                 _registered_method=True)
 
 
-class CertServicer(object):
+class CertServicer:
     """Missing associated documentation comment in .proto file."""
 
     def CreateServerCertificate(self, request, context):
@@ -100,7 +100,7 @@ def add_CertServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Cert(object):
+class Cert:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

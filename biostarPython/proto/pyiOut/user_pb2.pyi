@@ -231,7 +231,7 @@ class EnrollRequest(_message.Message):
     deviceID: int
     users: _containers.RepeatedCompositeFieldContainer[UserInfo]
     overwrite: bool
-    def __init__(self, deviceID: _Optional[int] = ..., users: _Optional[_Iterable[_Union[UserInfo, _Mapping]]] = ..., overwrite: bool = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., users: _Optional[_Iterable[_Union[UserInfo, _Mapping]]] = ..., overwrite: _Optional[bool] = ...) -> None: ...
 
 class EnrollResponse(_message.Message):
     __slots__ = ()
@@ -245,7 +245,7 @@ class EnrollMultiRequest(_message.Message):
     deviceIDs: _containers.RepeatedScalarFieldContainer[int]
     users: _containers.RepeatedCompositeFieldContainer[UserInfo]
     overwrite: bool
-    def __init__(self, deviceIDs: _Optional[_Iterable[int]] = ..., users: _Optional[_Iterable[_Union[UserInfo, _Mapping]]] = ..., overwrite: bool = ...) -> None: ...
+    def __init__(self, deviceIDs: _Optional[_Iterable[int]] = ..., users: _Optional[_Iterable[_Union[UserInfo, _Mapping]]] = ..., overwrite: _Optional[bool] = ...) -> None: ...
 
 class EnrollMultiResponse(_message.Message):
     __slots__ = ("deviceErrors",)
@@ -623,7 +623,7 @@ class UserOverride(_message.Message):
     USEEXTENDEDDOOROPENTIME_FIELD_NUMBER: _ClassVar[int]
     userID: str
     useExtendedDoorOpenTime: bool
-    def __init__(self, userID: _Optional[str] = ..., useExtendedDoorOpenTime: bool = ...) -> None: ...
+    def __init__(self, userID: _Optional[str] = ..., useExtendedDoorOpenTime: _Optional[bool] = ...) -> None: ...
 
 class GetUserOverrideRequest(_message.Message):
     __slots__ = ("deviceID", "userIDs")

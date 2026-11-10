@@ -67,7 +67,7 @@ class FloorStatus(_message.Message):
     activated: bool
     activateFlags: int
     deactivateFlags: int
-    def __init__(self, activated: bool = ..., activateFlags: _Optional[int] = ..., deactivateFlags: _Optional[int] = ...) -> None: ...
+    def __init__(self, activated: _Optional[bool] = ..., activateFlags: _Optional[int] = ..., deactivateFlags: _Optional[int] = ...) -> None: ...
 
 class Floor(_message.Message):
     __slots__ = ("deviceID", "port", "status")
@@ -111,7 +111,7 @@ class Status(_message.Message):
     alarmFlags: int
     tamperOn: bool
     floors: _containers.RepeatedCompositeFieldContainer[FloorStatus]
-    def __init__(self, liftID: _Optional[int] = ..., alarmFlags: _Optional[int] = ..., tamperOn: bool = ..., floors: _Optional[_Iterable[_Union[FloorStatus, _Mapping]]] = ...) -> None: ...
+    def __init__(self, liftID: _Optional[int] = ..., alarmFlags: _Optional[int] = ..., tamperOn: _Optional[bool] = ..., floors: _Optional[_Iterable[_Union[FloorStatus, _Mapping]]] = ...) -> None: ...
 
 class LiftInfo(_message.Message):
     __slots__ = ("liftID", "name", "deviceIDs", "activateTimeout", "dualAuthTimeout", "dualAuthApproval", "dualAuthRequiredDeviceIDs", "dualAuthScheduleID", "floors", "dualAuthApprovalGroupIDs", "alarms", "alarmFlags", "tamper", "tamperOn")
@@ -143,7 +143,7 @@ class LiftInfo(_message.Message):
     alarmFlags: int
     tamper: Alarm
     tamperOn: bool
-    def __init__(self, liftID: _Optional[int] = ..., name: _Optional[str] = ..., deviceIDs: _Optional[_Iterable[int]] = ..., activateTimeout: _Optional[int] = ..., dualAuthTimeout: _Optional[int] = ..., dualAuthApproval: _Optional[_Union[DualAuthApprovalType, str]] = ..., dualAuthRequiredDeviceIDs: _Optional[_Iterable[int]] = ..., dualAuthScheduleID: _Optional[int] = ..., floors: _Optional[_Iterable[_Union[Floor, _Mapping]]] = ..., dualAuthApprovalGroupIDs: _Optional[_Iterable[int]] = ..., alarms: _Optional[_Iterable[_Union[Alarm, _Mapping]]] = ..., alarmFlags: _Optional[int] = ..., tamper: _Optional[_Union[Alarm, _Mapping]] = ..., tamperOn: bool = ...) -> None: ...
+    def __init__(self, liftID: _Optional[int] = ..., name: _Optional[str] = ..., deviceIDs: _Optional[_Iterable[int]] = ..., activateTimeout: _Optional[int] = ..., dualAuthTimeout: _Optional[int] = ..., dualAuthApproval: _Optional[_Union[DualAuthApprovalType, str]] = ..., dualAuthRequiredDeviceIDs: _Optional[_Iterable[int]] = ..., dualAuthScheduleID: _Optional[int] = ..., floors: _Optional[_Iterable[_Union[Floor, _Mapping]]] = ..., dualAuthApprovalGroupIDs: _Optional[_Iterable[int]] = ..., alarms: _Optional[_Iterable[_Union[Alarm, _Mapping]]] = ..., alarmFlags: _Optional[int] = ..., tamper: _Optional[_Union[Alarm, _Mapping]] = ..., tamperOn: _Optional[bool] = ...) -> None: ...
 
 class GetListRequest(_message.Message):
     __slots__ = ("deviceID",)

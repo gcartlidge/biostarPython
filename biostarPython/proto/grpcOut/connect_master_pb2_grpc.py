@@ -6,7 +6,7 @@ import warnings
 import connect_master_pb2 as connect__master__pb2
 import connect_pb2 as connect__pb2
 
-GRPC_GENERATED_VERSION = '1.76.0'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -26,7 +26,7 @@ if _version_not_supported:
     )
 
 
-class ConnectMasterStub(object):
+class ConnectMasterStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -172,7 +172,7 @@ class ConnectMasterStub(object):
                 _registered_method=True)
 
 
-class ConnectMasterServicer(object):
+class ConnectMasterServicer:
     """Missing associated documentation comment in .proto file."""
 
     def Connect(self, request, context):
@@ -483,7 +483,7 @@ def add_ConnectMasterServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class ConnectMaster(object):
+class ConnectMaster:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

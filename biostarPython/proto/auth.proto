@@ -47,7 +47,7 @@ enum AuthMode {
 	AUTH_MODE_NONE = 0xff;
 	AUTH_MODE_PROHIBITED = 0xfe;
 
-	// for F2 and BS3 only
+	// The below modes are only for RGB-based visual face authentication devices
 	AUTH_EXT_MODE_FACE_ONLY	= 11;
 	AUTH_EXT_MODE_FACE_FINGERPRINT = 12;
 	AUTH_EXT_MODE_FACE_PIN = 13;

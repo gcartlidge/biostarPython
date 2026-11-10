@@ -5,7 +5,7 @@ import warnings
 
 from biostarPython.service import device_pb2 as device__pb2
 
-GRPC_GENERATED_VERSION = '1.68.1'
+GRPC_GENERATED_VERSION = '1.82.1'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in device_pb2_grpc.py depends on'
+        + ' but the generated code in device_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class DeviceStub(object):
+class DeviceStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -136,7 +136,7 @@ class DeviceStub(object):
                 _registered_method=True)
 
 
-class DeviceServicer(object):
+class DeviceServicer:
     """Missing associated documentation comment in .proto file."""
 
     def GetInfo(self, request, context):
@@ -370,7 +370,7 @@ def add_DeviceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Device(object):
+class Device:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

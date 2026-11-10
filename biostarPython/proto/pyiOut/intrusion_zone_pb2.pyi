@@ -122,7 +122,7 @@ class ZoneInfo(_message.Message):
     members: _containers.RepeatedCompositeFieldContainer[Member]
     inputs: _containers.RepeatedCompositeFieldContainer[Input]
     outputs: _containers.RepeatedCompositeFieldContainer[Output]
-    def __init__(self, zoneID: _Optional[int] = ..., name: _Optional[str] = ..., disabled: bool = ..., armDelay: _Optional[int] = ..., alarmDelay: _Optional[int] = ..., doorIDs: _Optional[_Iterable[int]] = ..., groupIDs: _Optional[_Iterable[int]] = ..., cards: _Optional[_Iterable[_Union[_card_pb2.CSNCardData, _Mapping]]] = ..., members: _Optional[_Iterable[_Union[Member, _Mapping]]] = ..., inputs: _Optional[_Iterable[_Union[Input, _Mapping]]] = ..., outputs: _Optional[_Iterable[_Union[Output, _Mapping]]] = ...) -> None: ...
+    def __init__(self, zoneID: _Optional[int] = ..., name: _Optional[str] = ..., disabled: _Optional[bool] = ..., armDelay: _Optional[int] = ..., alarmDelay: _Optional[int] = ..., doorIDs: _Optional[_Iterable[int]] = ..., groupIDs: _Optional[_Iterable[int]] = ..., cards: _Optional[_Iterable[_Union[_card_pb2.CSNCardData, _Mapping]]] = ..., members: _Optional[_Iterable[_Union[Member, _Mapping]]] = ..., inputs: _Optional[_Iterable[_Union[Input, _Mapping]]] = ..., outputs: _Optional[_Iterable[_Union[Output, _Mapping]]] = ...) -> None: ...
 
 class GetRequest(_message.Message):
     __slots__ = ("deviceID",)
@@ -192,7 +192,7 @@ class SetArmRequest(_message.Message):
     deviceID: int
     zoneIDs: _containers.RepeatedScalarFieldContainer[int]
     armed: bool
-    def __init__(self, deviceID: _Optional[int] = ..., zoneIDs: _Optional[_Iterable[int]] = ..., armed: bool = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., zoneIDs: _Optional[_Iterable[int]] = ..., armed: _Optional[bool] = ...) -> None: ...
 
 class SetArmResponse(_message.Message):
     __slots__ = ()
@@ -206,7 +206,7 @@ class SetAlarmRequest(_message.Message):
     deviceID: int
     zoneIDs: _containers.RepeatedScalarFieldContainer[int]
     alarmed: bool
-    def __init__(self, deviceID: _Optional[int] = ..., zoneIDs: _Optional[_Iterable[int]] = ..., alarmed: bool = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., zoneIDs: _Optional[_Iterable[int]] = ..., alarmed: _Optional[bool] = ...) -> None: ...
 
 class SetAlarmResponse(_message.Message):
     __slots__ = ()

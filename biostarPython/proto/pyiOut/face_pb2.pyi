@@ -189,7 +189,7 @@ class ExtractRequest(_message.Message):
     deviceID: int
     imageData: bytes
     isWarped: bool
-    def __init__(self, deviceID: _Optional[int] = ..., imageData: _Optional[bytes] = ..., isWarped: bool = ...) -> None: ...
+    def __init__(self, deviceID: _Optional[int] = ..., imageData: _Optional[bytes] = ..., isWarped: _Optional[bool] = ...) -> None: ...
 
 class ExtractResponse(_message.Message):
     __slots__ = ("templateData",)
@@ -345,7 +345,7 @@ class FaceConfig(_message.Message):
     detectDistanceMax: int
     wideSearch: bool
     unableToSaveImageOfVisualFace: bool
-    def __init__(self, securityLevel: _Optional[_Union[FaceSecurityLevel, str]] = ..., lightCondition: _Optional[_Union[FaceLightCondition, str]] = ..., enrollThreshold: _Optional[_Union[FaceEnrollThreshold, str]] = ..., detectSensitivity: _Optional[_Union[FaceDetectSensitivity, str]] = ..., enrollTimeout: _Optional[int] = ..., LFDLevel: _Optional[_Union[FaceLFDLevel, str]] = ..., quickEnrollment: bool = ..., previewOption: _Optional[_Union[FacePreviewOption, str]] = ..., checkDuplicate: bool = ..., operationMode: _Optional[_Union[FaceOperationMode, str]] = ..., maxRotation: _Optional[int] = ..., faceWidthMin: _Optional[int] = ..., faceWidthMax: _Optional[int] = ..., searchRangeX: _Optional[int] = ..., searchRangeWidth: _Optional[int] = ..., detectDistanceMin: _Optional[int] = ..., detectDistanceMax: _Optional[int] = ..., wideSearch: bool = ..., unableToSaveImageOfVisualFace: bool = ...) -> None: ...
+    def __init__(self, securityLevel: _Optional[_Union[FaceSecurityLevel, str]] = ..., lightCondition: _Optional[_Union[FaceLightCondition, str]] = ..., enrollThreshold: _Optional[_Union[FaceEnrollThreshold, str]] = ..., detectSensitivity: _Optional[_Union[FaceDetectSensitivity, str]] = ..., enrollTimeout: _Optional[int] = ..., LFDLevel: _Optional[_Union[FaceLFDLevel, str]] = ..., quickEnrollment: _Optional[bool] = ..., previewOption: _Optional[_Union[FacePreviewOption, str]] = ..., checkDuplicate: _Optional[bool] = ..., operationMode: _Optional[_Union[FaceOperationMode, str]] = ..., maxRotation: _Optional[int] = ..., faceWidthMin: _Optional[int] = ..., faceWidthMax: _Optional[int] = ..., searchRangeX: _Optional[int] = ..., searchRangeWidth: _Optional[int] = ..., detectDistanceMin: _Optional[int] = ..., detectDistanceMax: _Optional[int] = ..., wideSearch: _Optional[bool] = ..., unableToSaveImageOfVisualFace: _Optional[bool] = ...) -> None: ...
 
 class GetConfigRequest(_message.Message):
     __slots__ = ("deviceID",)
